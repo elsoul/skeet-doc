@@ -2,7 +2,7 @@
 id: doc-web-opened
 title: Opened the document website
 category: Notice
-thumbnail: Press release
+thumbnail: /ogp.png
 ---
 
 Hello, world!
