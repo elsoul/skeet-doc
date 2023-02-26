@@ -1,0 +1,33 @@
+{
+  "title": "Skeet フレームワーク",
+  "body": "フルスタック TypeScript サーバーレスアプリケーションフレームワーク",
+  "motivationTitle": "モチベーション",
+  "motivationBody": "Skeet フレームワークは少人数の開発者で素早くアプリを立ち上げ、長期的にメンテナンスしていくことを可能にします。",
+  "quickstartTitle": "クイックスタート",
+  "quickstartBody": "Skeet フレームワーク クイックスタート",
+  "previousPage": "前のページ",
+  "nextPage": "次のページ",
+  "menuNav": {
+    "home": "ドキュメント ホーム",
+    "general": {
+      "groupTitle": "全般",
+      "motivation": "モチベーション"
+    },
+    "backend": {
+      "groupTitle": "バックエンド",
+      "quickstart": "クイックスタート"
+    },
+    "frontend": {
+      "groupTitle": "フロントエンド",
+      "underDevelopment": "開発中"
+    },
+    "web": {
+      "groupTitle": "Webメディア & ドキュメント",
+      "template": "テンプレート"
+    }
+  },
+  "headerNav": {
+    "home": "ホームページ",
+    "blog": "ブログ"
+  }
+}

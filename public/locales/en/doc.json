@@ -1,0 +1,33 @@
+{
+  "title": "Skeet Framework",
+  "body": "Full-stack TypeScript Serverless Application Framework",
+  "motivationTitle": "Motivation",
+  "motivationBody": "The Skeet framework allows small developer teams to quickly launch apps and maintain them over the long term.",
+  "quickstartTitle": "Quickstart",
+  "quickstartBody": "Skeet Framework Quickstart",
+  "previousPage": "Previous page",
+  "nextPage": "Next page",
+  "menuNav": {
+    "home": "Docs Home",
+    "general": {
+      "groupTitle": "General",
+      "motivation": "Motivation"
+    },
+    "backend": {
+      "groupTitle": "Backend",
+      "quickstart": "Quickstart"
+    },
+    "frontend": {
+      "groupTitle": "Frontend",
+      "underDevelopment": "Under development"
+    },
+    "web": {
+      "groupTitle": "Web Media & Docs",
+      "template": "Template"
+    }
+  },
+  "headerNav": {
+    "home": "Skeet Home",
+    "blog": "Blog"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "skeet-framework"
+  },
+  "targets": {
+    "skeet-framework": {
+      "hosting": {
+        "skeet-doc": [
+          "skeet-doc"
+        ]
+      }
+    }
+  }
+}

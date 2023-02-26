@@ -1,0 +1,17 @@
+---
+id: frontend-under-development
+title: 開発中
+description: Skeet フレームワークのフロントエンドは現在開発中です。
+---
+
+![Skeet Framework Logo](https://storage.googleapis.com/skeet-assets/imgs/logo/ogp.png)
+
+## React Native
+
+私達は各種ネイティブアプリ及び Web アプリの開発に [React Native](https://reactnative.dev/) を使用します。
+
+## NativeWind
+
+UI コンポーネントの作成方法を統一するためにネイティブアプリ開発においても Tailwind を使用します。
+
+[NativeWind](https://www.nativewind.dev/)
