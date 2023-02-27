@@ -2,7 +2,7 @@
 id: doc-web-opened
 title: ドキュメントWebサイトをオープンしました
 category: お知らせ
-thumbnail: /ogp.png
+thumbnail: /article-images/2023/02/27/skeet.png
 ---
 
 Hello, world!
