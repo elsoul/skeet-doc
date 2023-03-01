@@ -40,6 +40,8 @@ $ skeet init
 
 ![Skeet Init](https://storage.googleapis.com/skeet-assets/animation/skeet-init-compressed.gif)
 
+Set your Name Server and it's ready!
+
 ### Commit and Push to start CI/CD
 
 ```bash
@@ -47,3 +49,11 @@ $ git add .
 $ git commit -m 'first deploy'
 $ git push origin main
 ```
+
+### Deploy with Deploy Command
+
+```bash
+$ skeet deploy
+```
+
+![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
