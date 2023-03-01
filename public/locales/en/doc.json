@@ -15,7 +15,15 @@
     },
     "backend": {
       "groupTitle": "Backend",
-      "quickstart": "Quickstart"
+      "quickstart": "Quickstart",
+      "basic-architecture": "Basic Architecture",
+      "zero-to-deploy": "Zero to Deploy",
+      "graphql-api": "Build GraphQL API",
+      "firebase-user-authentification": "Firebase Login Authentification",
+      "add-worker": "Add Worker",
+      "setup-load-balancer": "Setup Load Balancer",
+      "cloud-armor": "Setup Cloud Armor",
+      "skeet-plugins": "Skeet Plugins"
     },
     "frontend": {
       "groupTitle": "Frontend",

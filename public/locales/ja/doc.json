@@ -15,7 +15,15 @@
     },
     "backend": {
       "groupTitle": "バックエンド",
-      "quickstart": "クイックスタート"
+      "quickstart": "クイックスタート",
+      "basic-architecture": "基本アーキテクチャ",
+      "zero-to-deploy": "ゼロからデプロイまで",
+      "graphql-api": "GraphQL APIの構築",
+      "firebase-user-authentification": "Firebase ログイン認証",
+      "add-worker": "Workerを追加する",
+      "setup-load-balancer": "ロードバランサーを設定する",
+      "cloud-armor": "Cloud Armor の設定",
+      "skeet-plugins": "Skeet プラグイン"
     },
     "frontend": {
       "groupTitle": "フロントエンド",

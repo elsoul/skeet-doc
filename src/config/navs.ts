@@ -5,6 +5,7 @@ import {
   RocketLaunchIcon,
   WindowIcon,
   WrenchScrewdriverIcon,
+  AcademicCapIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -52,6 +53,46 @@ export const docMenuNav = [
         name: 'doc:menuNav.backend.quickstart',
         href: '/doc/backend/quickstart/',
         icon: RocketLaunchIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.basic-architecture',
+        href: '/doc/backend/basic-architecture/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.zero-to-deploy',
+        href: '/doc/backend/zero-to-deploy/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.graphql-api',
+        href: '/doc/backend/graphql-api/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.firebase-user-authentification',
+        href: '/doc/backend/firebase-user-authentification/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.add-worker',
+        href: '/doc/backend/add-worker/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.setup-load-balancer',
+        href: '/doc/backend/setup-load-balancer/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.cloud-armor',
+        href: '/doc/backend/cloud-armor/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.skeet-plugins',
+        href: '/doc/backend/skeet-plugins/',
+        icon: AcademicCapIcon,
       },
     ],
   },
