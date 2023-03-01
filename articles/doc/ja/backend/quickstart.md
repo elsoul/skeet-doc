@@ -4,7 +4,7 @@ title: クイックスタート
 description: Skeet フレームワーク バックエンド クイックスタート
 ---
 
-## 依存パッケージ
+## 依存パッケージのインストール
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Node](https://nodejs.org/)
@@ -36,60 +36,7 @@ $ skeet s
 
 GraphQL API が立ち上がります。
 
-`http://localhost:4000/graphql`
-
-## ゼロ to デプロイ
-
-### Git Init
-
-```bash
-$ skeet git init
-```
-
-### first commit する
-
-```bash
-$ git add .
-$ git commit -m "first commit"
-```
-
-### Create/Push GitHub Repo
-
-```bash
-$ skeet git create elsoul/skeet
-```
-
-オープンソースで公開する場合は下記
-
-```bash
-$ skeet git create elsoul/skeet --public
-```
-
-### Google Cloud IAM のセットアップ
-
-```bash
-$ skeet setup gcp
-```
-
-### Google CloudSQL の作成
-
-```bash
-$ skeet sql create
-```
-
-### Secret ENV を GitHub Secrets に同期する
-
-```bash
-$ skeet sync env
-```
-
-### Commit and Push すると CI/CD が起動します
-
-```bash
-$ git add .
-$ git commit -m 'first deploy'
-$ git push origin main
-```
+[http://localhost:4000/graphql](http://localhost:4000/graphql)
 
 ## コマンドによるデプロイ
 

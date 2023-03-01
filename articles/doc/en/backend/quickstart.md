@@ -28,81 +28,27 @@ $ skeet create ${appName}
 
 ![Skeet Create](https://storage.googleapis.com/skeet-assets/animation/skeet-create-compressed.gif)
 
-## Run local
+## Run Local
 
 ```bash
 $ skeet s
 ```
 
-Now you can access;
+A GraphQL API will pop up.
 
-`http://localhost:4000/graphql`
+[http://localhost:4000/graphql](http://localhost:4000/graphql)
 
-## Zero to Deploy
+## Deploy command
 
-### Git Init
+### Add Global IP to DB Whitelist
 
-```bash
-$ skeet git init
-```
-
-### Make a first commit
-
-```bash
-$ git add .
-$ git commit -m "first commit"
-```
-
-### Create/Push GitHub Repo
-
-```bash
-$ skeet git create elsoul/skeet
-```
-
-If you want to go with OpenSource;
-
-```bash
-$ skeet git create elsoul/skeet --public
-```
-
-### Setup Google Cloud IAM
-
-```bash
-$ skeet setup gcp
-```
-
-### Create Google CloudSQL
-
-```bash
-$ skeet sql create
-```
-
-### Add Secret ENV to GitHub Secrets
-
-```bash
-$ skeet sync env
-```
-
-### Commit and Push then CI/CD starts
-
-```bash
-$ git add .
-$ git commit -m 'first deploy'
-$ git push origin main
-```
-
-## Deploy with command
-
-### Add your global IP to DB whiteList
-
-Add your global IP to DB white list
-This command will automatically add your IP in ./skeet-cloud.config.json
+Add your global IP to the DB whitelist and also save it in `./skeet-cloud.config.json`.
 
 ```bash
 $ skeet add ip
 ```
 
-### DB migrate
+### DB Migration
 
 ```bash
 $ skeet db deploy --production
