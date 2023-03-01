@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, useCallback, useEffect } from 'react'
 import { getStaticPaths, makeStaticProps } from '@/lib/getStatic'
 import DefaultLayout from '@/layouts/default/DefaultLayout'
 import HeroRow from '@/components/pages/home/HeroRow'
@@ -20,6 +20,23 @@ const getStaticProps = makeStaticProps(['common', 'home'], seo)
 export { getStaticPaths, getStaticProps }
 
 export default function Home() {
+  const fetchToSkeet = useCallback(async () => {
+    try {
+      const data = await fetch('https://beta.epics.dev/graphql', {
+        mode: 'cors',
+        credentials: 'include',
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json', Referer: 'kaien' },
+      })
+      console.log(data.status)
+    } catch (e) {
+      console.error(e)
+    }
+  }, [])
+  useEffect(() => {
+    fetchToSkeet()
+  }, [fetchToSkeet])
+
   return (
     <>
       <HeroRow />
