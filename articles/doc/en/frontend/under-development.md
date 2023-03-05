@@ -10,8 +10,8 @@ description: Skeet Framework Frontend is now under development.
 
 We'll use [React Native](https://reactnative.dev/) for the development of Native Apps and Web App.
 
-## NativeWind
+## Tailwind React Native Classnames
 
 Tailwind is also used in native app development to unify the way UI components are created.
 
-[NativeWind](https://www.nativewind.dev/)
+[Tailwind React Native Classnames (twrnc)](https://github.com/jaredh159/tailwind-react-native-classnames)

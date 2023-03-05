@@ -31,7 +31,7 @@ export default function BlogContents({ article, articleHtml }: Props) {
             <div className="py-8 lg:hidden">
               <ScrollSyncToc rawMarkdownBody={article.content} />
             </div>
-            <div className="prose dark:prose-invert lg:prose-lg">
+            <div className="prose dark:prose-invert  lg:prose-lg">
               <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
             </div>
           </div>
