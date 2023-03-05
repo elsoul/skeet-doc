@@ -6,6 +6,13 @@ import {
   WindowIcon,
   WrenchScrewdriverIcon,
   AcademicCapIcon,
+  ShieldCheckIcon,
+  SquaresPlusIcon,
+  RectangleStackIcon,
+  UserCircleIcon,
+  RectangleGroupIcon,
+  CubeTransparentIcon,
+  CubeIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -57,7 +64,7 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.backend.basic-architecture',
         href: '/doc/backend/basic-architecture/',
-        icon: AcademicCapIcon,
+        icon: RectangleGroupIcon,
       },
       {
         name: 'doc:menuNav.backend.zero-to-deploy',
@@ -67,32 +74,32 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.backend.graphql-api',
         href: '/doc/backend/graphql-api/',
-        icon: AcademicCapIcon,
+        icon: CubeTransparentIcon,
       },
       {
         name: 'doc:menuNav.backend.firebase-user-authentification',
         href: '/doc/backend/firebase-user-authentification/',
-        icon: AcademicCapIcon,
+        icon: UserCircleIcon,
       },
       {
         name: 'doc:menuNav.backend.add-worker',
         href: '/doc/backend/add-worker/',
-        icon: AcademicCapIcon,
+        icon: CubeIcon,
       },
       {
         name: 'doc:menuNav.backend.setup-load-balancer',
         href: '/doc/backend/setup-load-balancer/',
-        icon: AcademicCapIcon,
+        icon: RectangleStackIcon,
       },
       {
         name: 'doc:menuNav.backend.cloud-armor',
         href: '/doc/backend/cloud-armor/',
-        icon: AcademicCapIcon,
+        icon: ShieldCheckIcon,
       },
       {
         name: 'doc:menuNav.backend.skeet-plugins',
         href: '/doc/backend/skeet-plugins/',
-        icon: AcademicCapIcon,
+        icon: SquaresPlusIcon,
       },
     ],
   },
