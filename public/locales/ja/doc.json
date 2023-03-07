@@ -1,12 +1,34 @@
 {
   "title": "Skeet フレームワーク",
   "body": "フルスタック TypeScript サーバーレスアプリケーションフレームワーク",
-  "motivationTitle": "モチベーション",
-  "motivationBody": "Skeet フレームワークは少人数の開発者で素早くアプリを立ち上げ、長期的にメンテナンスしていくことを可能にします。",
-  "quickstartTitle": "クイックスタート",
-  "quickstartBody": "Skeet フレームワーク クイックスタート",
   "previousPage": "前のページ",
   "nextPage": "次のページ",
+  "actions": {
+    "motivation": {
+      "title": "モチベーション",
+      "body": "Skeet フレームワークは少人数の開発者で素早くアプリを立ち上げ、長期的にメンテナンスしていくことを可能にします。"
+    },
+    "quickstart": {
+      "title": "クイックスタート",
+      "body": "Skeet フレームワーク クイックスタート。GraphQL APIから作っていきます。"
+    },
+    "basic-architecture": {
+      "title": "基本アーキテクチャ",
+      "body": "Skeet Framework 基本アーキテクチャ。モノリポでの開発を推奨しています。"
+    },
+    "zero-to-deploy": {
+      "title": "ゼロからデプロイまで",
+      "body": "プロジェクトをスタートした瞬間からデプロイの準備が整うようにしました。"
+    },
+    "react-native": {
+      "title": "React Native (Expo)",
+      "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどReact技術の資産を活かせます。"
+    },
+    "ssg-template": {
+      "title": "SSG テンプレート (Next.js)",
+      "body": "プロジェクトにはウェブサイトやブログ、ドキュメントが必要です。SEO ReadyなSSGテンプレートを用意しておきました。"
+    }
+  },
   "menuNav": {
     "home": "ドキュメント ホーム",
     "general": {
