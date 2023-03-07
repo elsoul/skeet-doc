@@ -1,14 +1,16 @@
 ---
-id: web-template
-title: Web Media & Docs Template
-description: Skeet Web Media & Docs Template
+id: react-native
+title: React Native (Expo)
+description: Skeet フレームワークのアプリテンプレート。React Native (Expo)を使用。
 ---
 
-![Skeet Web Media Template](/doc-images/web/web-media-template.png)
+![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-## Web Media & Docs SSG Template
+# Skeet App Template
 
-[GitHub - Skeet Web Template](https://github.com/elsoul/skeet-web-template)
+React Native (Expo) App Environment for Skeet Framework
+
+[GitHub - Skeet App Template](https://github.com/elsoul/skeet-app-template)
 
 ## Aiming to
 
@@ -16,32 +18,35 @@ description: Skeet Web Media & Docs Template
 - High Performance
 - Global Scale
 - Maintainable Code
-- Strong SEO
+- Multi-Platform
 
 ## Summary
 
-- [x] [Next.js (v13) - SSG Framework](https://nextjs.org/)
-- [x] [React (v18) - UI Framework](https://reactjs.org/)
+- [x] [React Native](https://reactnative.dev/)
+- [x] [Expo](https://docs.expo.dev/)
+- [x] [EAS Build](https://docs.expo.dev/build/introduction/)
 - [x] [TypeScript (v4.9) - Type Check](https://www.typescriptlang.org/)
 - [x] [ESLint - Linter](https://eslint.org/)
 - [x] [Prettier - Formatter](https://prettier.io/)
 - [x] [Husky - Pre Commit](https://typicode.github.io/husky/#/)
 - [x] [Recoil - State Management](https://recoiljs.org/)
-- [x] [Next i18next (v13) - i18n Translation](https://github.com/isaachinman/next-i18next)
+- [x] [React i18n - Localization](https://react.i18next.com/)
+- [x] [twrnc - TailwindCSS](https://github.com/jaredh159/tailwind-react-native-classnames)
+- [x] [React Navigation - Routing](https://reactnavigation.org/)
 - [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
-- [x] [Tailwind - CSS Framework](https://tailwindcss.com/)
+- [ ] [Relay - GraphQL Client](https://relay.dev/)
 
 ## Quick start
 
 ```bash
 # Node version (using nodenv)
 $ node -v
-v18.14.1
+v18.14.2
 
 # Install dependencies
 $ yarn install --frozen-lockfile
 
-# Run dev server (localhost:4200)
+# Run dev server
 $ yarn dev
 ```
 
@@ -66,8 +71,5 @@ $ firebase login:ci
 Needs to set Secrets on GitHub to work with GitHub Actions.
 
 ```
-BING_API_KEY
 FIREBASE_DEPLOY_TOKEN
 ```
-
-Also you need the BING_API_KEY for .env to send sitemap when `yarn deploy`

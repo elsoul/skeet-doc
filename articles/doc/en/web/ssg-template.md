@@ -1,24 +1,24 @@
 ---
-id: web-template
-title: Web メディア & ドキュメント テンプレート
-description: Skeet Web メディア & ドキュメント テンプレート
+id: ssg-template
+title: SSG Template (Next.js)
+description: Skeet Web Media & Docs Template with SSG on Next.js
 ---
 
 ![Skeet Web Media Template](/doc-images/web/web-media-template.png)
 
-## Web メディア & ドキュメント SSG テンプレート
+## Web Media & Docs SSG Template
 
 [GitHub - Skeet Web Template](https://github.com/elsoul/skeet-web-template)
 
-## 心がけ
+## Aiming to
 
-- 迅速な開発
-- ハイパフォーマンス
-- グローバルスケール(多言語化含む)
-- メンテナンスしやすいコードベース
-- SEO に強い
+- Fast Development
+- High Performance
+- Global Scale
+- Maintainable Code
+- Strong SEO
 
-## 技術選定
+## Summary
 
 - [x] [Next.js (v13) - SSG Framework](https://nextjs.org/)
 - [x] [React (v18) - UI Framework](https://reactjs.org/)
@@ -31,12 +31,12 @@ description: Skeet Web メディア & ドキュメント テンプレート
 - [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 - [x] [Tailwind - CSS Framework](https://tailwindcss.com/)
 
-## クイックスタート
+## Quick start
 
 ```bash
 # Node version (using nodenv)
 $ node -v
-v18.14.1
+v18.14.2
 
 # Install dependencies
 $ yarn install --frozen-lockfile
@@ -47,7 +47,7 @@ $ yarn dev
 
 ## Firebase Hosting
 
-Firebase Hosting にデプロイする前にログインする必要があります。
+You need to login to Firebase to use Firebase Hosting to publish your media website.
 
 ```bash
 # Install Firebase tools
@@ -63,11 +63,11 @@ $ firebase login:ci
 
 ## GitHub Actions (CI/CD)
 
-GitHub 上のシークレットに下記の値を登録してください。
+Needs to set Secrets on GitHub to work with GitHub Actions.
 
 ```
 BING_API_KEY
 FIREBASE_DEPLOY_TOKEN
 ```
 
-ローカルデプロイ時(`yarn deploy`)も BING_API_KEY を.env に登録してください。sitemap 送信に使います。
+Also you need the BING_API_KEY for .env to send sitemap when `yarn deploy`

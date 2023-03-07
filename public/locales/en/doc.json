@@ -27,11 +27,11 @@
     },
     "frontend": {
       "groupTitle": "Frontend",
-      "underDevelopment": "Under development"
+      "react-native": "React Native (Expo)"
     },
     "web": {
       "groupTitle": "Web Media & Docs",
-      "template": "Template"
+      "ssg-template": "SSG Template (Next.js)"
     }
   },
   "headerNav": {

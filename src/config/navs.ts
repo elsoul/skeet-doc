@@ -4,7 +4,6 @@ import {
   HomeIcon,
   RocketLaunchIcon,
   WindowIcon,
-  WrenchScrewdriverIcon,
   AcademicCapIcon,
   ShieldCheckIcon,
   SquaresPlusIcon,
@@ -13,6 +12,7 @@ import {
   RectangleGroupIcon,
   CubeTransparentIcon,
   CubeIcon,
+  DevicePhoneMobileIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -107,9 +107,9 @@ export const docMenuNav = [
     name: 'doc:menuNav.frontend.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.frontend.underDevelopment',
-        href: '/doc/frontend/under-development/',
-        icon: WrenchScrewdriverIcon,
+        name: 'doc:menuNav.frontend.react-native',
+        href: '/doc/frontend/react-native/',
+        icon: DevicePhoneMobileIcon,
       },
     ],
   },
@@ -117,8 +117,8 @@ export const docMenuNav = [
     name: 'doc:menuNav.web.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.web.template',
-        href: '/doc/web/template/',
+        name: 'doc:menuNav.web.ssg-template',
+        href: '/doc/web/ssg-template/',
         icon: WindowIcon,
       },
     ],
