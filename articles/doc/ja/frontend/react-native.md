@@ -6,19 +6,19 @@ description: Skeet フレームワークのアプリテンプレート。React N
 
 ![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-# Skeet App Template
+## Skeet App テンプレート
 
 React Native (Expo) App Environment for Skeet Framework
 
 [GitHub - Skeet App Template](https://github.com/elsoul/skeet-app-template)
 
-## Aiming to
+## 心がけ
 
-- Fast Development
-- High Performance
-- Global Scale
-- Maintainable Code
-- Multi-Platform
+- 迅速な開発
+- ハイパフォーマンス
+- グローバルスケール(多言語化含む)
+- メンテナンスしやすいコードベース
+- マルチプラットフォーム(iOS,Android,PWA)
 
 ## Summary
 
@@ -36,7 +36,7 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 - [ ] [Relay - GraphQL Client](https://relay.dev/)
 
-## Quick start
+## クイックスタート
 
 ```bash
 # Node version (using nodenv)
