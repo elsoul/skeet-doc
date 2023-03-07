@@ -18,7 +18,7 @@ React Native (Expo) App Environment for Skeet Framework
 - High Performance
 - Global Scale
 - Maintainable Code
-- Multi-Platform
+- Multi-Platform(iOS,Android,PWA)
 
 ## Summary
 
