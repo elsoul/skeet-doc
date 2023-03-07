@@ -1,6 +1,6 @@
 ---
 id: ssg-template
-title: SSG Template
+title: SSG Template (Next.js)
 description: Skeet Web Media & Docs Template with SSG on Next.js
 ---
 

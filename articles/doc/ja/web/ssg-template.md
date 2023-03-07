@@ -1,6 +1,6 @@
 ---
 id: ssg-template
-title: SSG テンプレート
+title: SSG テンプレート (Next.js)
 description: Skeet Web メディア & ドキュメント テンプレート with SSG on Next.js
 ---
 
