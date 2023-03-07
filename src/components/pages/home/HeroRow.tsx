@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
 import googleCloudLogo from '@/assets/img/logo/projects/GoogleCloud.svg'
-import eslintLogo from '@/assets/img/logo/projects/eslint.svg'
-import apolloLogo from '@/assets/img/logo/projects/apollo.svg'
-import prettierLogo from '@/assets/img/logo/projects/prettier.png'
-import nexusLogo from '@/assets/img/logo/projects/Nexus.png'
+import reactLogo from '@/assets/img/logo/projects/react.svg'
+import androidLogo from '@/assets/img/logo/projects/android.svg'
+import tailwindLogo from '@/assets/img/logo/projects/tailwindcss.svg'
+import iosLogo from '@/assets/img/logo/projects/ios.svg'
 import graphqlLogo from '@/assets/img/logo/projects/graphql.svg'
 import typescriptLogo from '@/assets/img/logo/projects/typescript.svg'
 import { Button } from '@/components/common/atoms/Button'
@@ -51,42 +51,41 @@ export default function HomeHeroRow() {
                   link: 'https://www.prisma.io/',
                 },
                 {
-                  name: 'Nexus',
-                  logo: nexusLogo,
-                  link: 'https://nexusjs.org/',
-                },
-
-                {
-                  name: 'Apollo',
-                  logo: apolloLogo,
-                  link: 'https://www.apollographql.com/',
-                },
-                {
                   name: 'Graphql',
                   logo: graphqlLogo,
                   link: 'https://graphql.org/',
-                },
-              ],
-              [
-                {
-                  name: 'TypeScript',
-                  logo: typescriptLogo,
-                  link: 'https://www.typescriptlang.org/',
-                },
-                {
-                  name: 'ESLint',
-                  logo: eslintLogo,
-                  link: 'https://eslint.org/',
-                },
-                {
-                  name: 'Prettier',
-                  logo: prettierLogo,
-                  link: 'https://prettier.io/',
                 },
                 {
                   name: 'Google Cloud',
                   logo: googleCloudLogo,
                   link: 'https://cloud.google.com/',
+                },
+                {
+                  name: 'TypeScript',
+                  logo: typescriptLogo,
+                  link: 'https://www.typescriptlang.org/',
+                },
+              ],
+              [
+                {
+                  name: 'React',
+                  logo: reactLogo,
+                  link: 'https://reactjs.org/',
+                },
+                {
+                  name: 'Tailwindcss',
+                  logo: tailwindLogo,
+                  link: 'https://tailwindcss.com/',
+                },
+                {
+                  name: 'iOS',
+                  logo: iosLogo,
+                  link: 'https://developer.apple.com/',
+                },
+                {
+                  name: 'Android',
+                  logo: androidLogo,
+                  link: 'https://developer.android.com/',
                 },
               ],
             ].map((group, groupIndex) => (
