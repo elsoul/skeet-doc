@@ -27,11 +27,11 @@
     },
     "frontend": {
       "groupTitle": "フロントエンド",
-      "react-native": "React Native"
+      "react-native": "React Native (Expo)"
     },
     "web": {
       "groupTitle": "Webメディア & ドキュメント",
-      "ssg-template": "SSG テンプレート"
+      "ssg-template": "SSG テンプレート (Next.js)"
     }
   },
   "headerNav": {
