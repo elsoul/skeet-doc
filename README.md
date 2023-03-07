@@ -24,6 +24,8 @@
 
 Document Web Media for Skeet Framework.
 
+[Skeet - TypeScript Serverless Framework](https://github.com/elsoul/skeet)
+
 ## Aiming to
 
 - Fast Development
@@ -50,7 +52,7 @@ Document Web Media for Skeet Framework.
 ```bash
 # Node version (using nodenv)
 $ node -v
-v18.14.1
+v18.14.2
 
 # Install dependencies
 $ yarn install --frozen-lockfile
