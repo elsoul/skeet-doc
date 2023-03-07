@@ -1,7 +1,7 @@
 ---
-id: web-template
-title: Web Media & Docs Template
-description: Skeet Web Media & Docs Template
+id: ssg-template
+title: SSG Template
+description: Skeet Web Media & Docs Template with SSG on Next.js
 ---
 
 ![Skeet Web Media Template](/doc-images/web/web-media-template.png)
@@ -36,7 +36,7 @@ description: Skeet Web Media & Docs Template
 ```bash
 # Node version (using nodenv)
 $ node -v
-v18.14.1
+v18.14.2
 
 # Install dependencies
 $ yarn install --frozen-lockfile
