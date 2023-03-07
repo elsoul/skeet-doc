@@ -1,5 +1,5 @@
 ---
-id: frontend-under-development
+id: react-native
 title: 開発中
 description: Skeet フレームワークのフロントエンドは現在開発中です。
 ---
