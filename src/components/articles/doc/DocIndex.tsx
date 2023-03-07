@@ -5,25 +5,61 @@ import {
   HeartIcon,
   RocketLaunchIcon,
   ArrowUpRightIcon,
+  RectangleGroupIcon,
+  AcademicCapIcon,
+  DevicePhoneMobileIcon,
+  WindowIcon,
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 
 const actions = [
   {
-    title: 'doc:motivationTitle',
-    body: 'doc:motivationBody',
+    title: 'doc:actions.motivation.title',
+    body: 'doc:actions.motivation.body',
     href: '/doc/general/motivation',
     icon: HeartIcon,
     iconForeground: 'text-pink-700',
     iconBackground: 'bg-pink-50',
   },
   {
-    title: 'doc:quickstartTitle',
-    body: 'doc:quickstartBody',
+    title: 'doc:actions.quickstart.title',
+    body: 'doc:actions.quickstart.body',
     href: '/doc/backend/quickstart',
     icon: RocketLaunchIcon,
     iconForeground: 'text-green-700',
     iconBackground: 'bg-green-50',
+  },
+  {
+    title: 'doc:actions.basic-architecture.title',
+    body: 'doc:actions.basic-architecture.body',
+    href: '/doc/backend/basic-architecture',
+    icon: RectangleGroupIcon,
+    iconForeground: 'text-yellow-700',
+    iconBackground: 'bg-yellow-50',
+  },
+  {
+    title: 'doc:actions.zero-to-deploy.title',
+    body: 'doc:actions.zero-to-deploy.body',
+    href: '/doc/backend/zero-to-deploy',
+    icon: AcademicCapIcon,
+    iconForeground: 'text-orange-700',
+    iconBackground: 'bg-orange-50',
+  },
+  {
+    title: 'doc:actions.react-native.title',
+    body: 'doc:actions.react-native.body',
+    href: '/doc/frontend/react-native',
+    icon: DevicePhoneMobileIcon,
+    iconForeground: 'text-blue-700',
+    iconBackground: 'bg-blue-50',
+  },
+  {
+    title: 'doc:actions.ssg-template.title',
+    body: 'doc:actions.ssg-template.body',
+    href: '/doc/web/ssg-template',
+    icon: WindowIcon,
+    iconForeground: 'text-gray-700',
+    iconBackground: 'bg-gray-50',
   },
 ]
 

@@ -1,12 +1,34 @@
 {
   "title": "Skeet Framework",
   "body": "Full-stack TypeScript Serverless Application Framework",
-  "motivationTitle": "Motivation",
-  "motivationBody": "The Skeet framework allows small developer teams to quickly launch apps and maintain them over the long term.",
-  "quickstartTitle": "Quickstart",
-  "quickstartBody": "Skeet Framework Quickstart",
   "previousPage": "Previous page",
   "nextPage": "Next page",
+  "actions": {
+    "motivation": {
+      "title": "Motivation",
+      "body": "The Skeet framework allows small developer teams to quickly launch apps and maintain them over the long term."
+    },
+    "quickstart": {
+      "title": "Quickstart",
+      "body": "Skeet Framework Quickstart. Let's build it from the GraphQL API."
+    },
+    "basic-architecture": {
+      "title": "Basic Architecture",
+      "body": "Skeet Framework Basic Architecture. We're using monorepo."
+    },
+    "zero-to-deploy": {
+      "title": "Zero to Deploy",
+      "body": "This is Zero to Deploy. You can deploy it right after init."
+    },
+    "react-native": {
+      "title": "React Native (Expo)",
+      "body": "We're using React Native (Expo) on the frontend. We can use the Tailwind and React technology on mobile dev as well."
+    },
+    "ssg-template": {
+      "title": "SSG Template (Next.js)",
+      "body": "The project needs the website, blog and docs. So we have the starter for that with SSG on Next.js. SEO Ready."
+    }
+  },
   "menuNav": {
     "home": "Docs Home",
     "general": {
