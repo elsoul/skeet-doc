@@ -41,7 +41,7 @@ export default function HomeHeroRow() {
         <div className="mt-36 lg:mt-48">
           <ul
             role="list"
-            className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
+            className="mt-8 flex flex-col items-center justify-center gap-x-8 sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
           >
             {[
               [
@@ -92,7 +92,7 @@ export default function HomeHeroRow() {
               <li key={`HeroRowLogoCloudList${groupIndex}`}>
                 <ul
                   role="list"
-                  className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
+                  className="flex flex-row items-center gap-x-6 sm:gap-x-12"
                 >
                   {group.map((project) => (
                     <li key={project.name} className="flex">
