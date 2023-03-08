@@ -13,7 +13,7 @@ const siteConfig = {
   twitterAccount: '@ELSOUL_LABO2',
   instagramAccount: 'elsoul_labo',
   githubAccount: 'elsoul',
-  discordInvitationLink: 'https://discord.gg/GmHYfyRamx',
+  discordInvitationLink: 'https://discord.gg/H2HeqRq54J',
 }
 
 export default siteConfig
