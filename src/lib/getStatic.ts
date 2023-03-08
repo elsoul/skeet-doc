@@ -49,7 +49,7 @@ export async function getI18nProps(
 
   const ogImage = img
     ? `https://${siteConfig.domain}${img}`
-    : `https://${siteConfig.domain}/BuidlToEarnOgp.png`
+    : `https://${siteConfig.domain}/ogp.png`
 
   const seoData: SeoData[] = [
     { property: 'og:title', content: `${title} | ${siteName}` },
