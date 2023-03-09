@@ -95,10 +95,7 @@ export default function DocLayout({ children }: Props) {
                     </div>
                   </Transition.Child>
                   <div className="flex flex-shrink-0 items-center px-4">
-                    <LogoHorizontalLink
-                      href="/doc"
-                      className="h-8 w-auto sm:h-10"
-                    />
+                    <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
                   </div>
                   <div className="mt-5 h-0 flex-1 overflow-y-auto">
                     <nav className="space-y-1 px-2">
@@ -171,7 +168,7 @@ export default function DocLayout({ children }: Props) {
         <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
           <div className="flex flex-grow flex-col overflow-y-auto bg-white pt-5 dark:bg-gray-900">
             <div className="flex flex-shrink-0 items-center px-4">
-              <LogoHorizontalLink href="/doc" className="h-8 w-auto sm:h-10" />
+              <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
             </div>
             <div className="mt-5 flex flex-1 flex-col">
               <nav className="flex-1 space-y-1 px-2 pb-4">
