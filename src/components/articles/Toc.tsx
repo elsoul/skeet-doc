@@ -18,7 +18,7 @@ export default function Toc({ toc, activeItemIds }: Props) {
           <div className="p-4">
             <p className="text-base font-semibold">{t('common:toc')}</p>
           </div>
-          <div className="border-l p-4">
+          <div className="max-w-80 border-l p-4">
             <nav className="space-y-1" aria-label="Sidebar">
               {toc.map((item) => (
                 <a
@@ -28,13 +28,13 @@ export default function Toc({ toc, activeItemIds }: Props) {
                     activeItemIds.includes(item.id)
                       ? 'bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-50'
                       : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900 dark:text-gray-200 dark:hover:bg-gray-900 dark:hover:text-gray-50',
-                    'flex items-center px-3 py-2 text-sm font-medium'
+                    'block px-3 py-2 text-sm font-medium'
                   )}
                   aria-current={
                     activeItemIds.includes(item.id) ? 'location' : undefined
                   }
                 >
-                  <span className="truncate">{item.value}</span>
+                  <span className="break-words">{item.value}</span>
                 </a>
               ))}
             </nav>
