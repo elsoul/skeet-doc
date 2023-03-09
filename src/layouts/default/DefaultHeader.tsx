@@ -7,6 +7,9 @@ import ColorModeChanger from '@/components/utils/ColorModeChanger'
 import Link from '@/components/routing/Link'
 import LogoHorizontalLink from '@/components/common/atoms/LogoHorizontalLink'
 import { defaultMainNav } from '@/config/navs'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
+import siteConfig from '@/config/site'
 
 export default function DefaultHeader() {
   const { t } = useTranslation()
@@ -56,7 +59,7 @@ export default function DefaultHeader() {
                   <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
                 </div>
                 <div className="-my-2 -mr-2 md:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-amber-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
+                  <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
                     <span className="sr-only">{t('common:openMenu')}</span>
                     <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -72,11 +75,37 @@ export default function DefaultHeader() {
                     </Link>
                   ))}
                 </Popover.Group>
-                <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
+                <div className="hidden items-center justify-end gap-3 md:flex md:flex-1 lg:w-0">
                   <LanguageChanger />
-                  <div className="ml-4">
-                    <ColorModeChanger />
-                  </div>
+                  <ColorModeChanger />
+                  <a
+                    href={`https://github.com/elsoul/skeet`}
+                    className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
+                    aria-label="GitHub"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      size="sm"
+                      aria-label="GitHub icon"
+                      className="mt-1.5 ml-2 h-5 w-5"
+                    />
+                  </a>
+                  <a
+                    href={`${siteConfig.discordInvitationLink}`}
+                    className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
+                    aria-label="Discord Server Invitation"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FontAwesomeIcon
+                      icon={faDiscord}
+                      size="sm"
+                      aria-label="Discord icon"
+                      className="mt-1.5 ml-2 h-5 w-5"
+                    />
+                  </a>
                 </div>
               </div>
               <Transition
@@ -102,7 +131,7 @@ export default function DefaultHeader() {
                           />
                         </div>
                         <div className="-mr-2">
-                          <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-amber-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
+                          <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
                             <span className="sr-only">
                               {t('common:closeMenu')}
                             </span>
@@ -123,11 +152,37 @@ export default function DefaultHeader() {
                             {t(nav.name)}
                           </Link>
                         ))}
-                        <div className="flex flex-1 items-center justify-end">
+                        <div className="flex flex-1 items-center justify-end gap-3">
                           <LanguageChanger />
-                          <div className="ml-4">
-                            <ColorModeChanger />
-                          </div>
+                          <ColorModeChanger />
+                          <a
+                            href={`https://github.com/elsoul/skeet`}
+                            className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
+                            aria-label="GitHub"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <FontAwesomeIcon
+                              icon={faGithub}
+                              size="sm"
+                              aria-label="GitHub icon"
+                              className="mt-1.5 ml-2 h-5 w-5"
+                            />
+                          </a>
+                          <a
+                            href={`${siteConfig.discordInvitationLink}`}
+                            className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
+                            aria-label="Discord Server Invitation"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <FontAwesomeIcon
+                              icon={faDiscord}
+                              size="sm"
+                              aria-label="Discord icon"
+                              className="mt-1.5 ml-2 h-5 w-5"
+                            />
+                          </a>
                         </div>
                       </div>
                     </div>
