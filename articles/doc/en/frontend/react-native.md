@@ -28,7 +28,6 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [TypeScript - Type Check](https://www.typescriptlang.org/)
 - [x] [ESLint - Linter](https://eslint.org/)
 - [x] [Prettier - Formatter](https://prettier.io/)
-- [x] [Husky - Pre Commit](https://typicode.github.io/husky/#/)
 - [x] [Recoil - State Management](https://recoiljs.org/)
 - [x] [React i18n - Localization](https://react.i18next.com/)
 - [x] [twrnc - TailwindCSS](https://github.com/jaredh159/tailwind-react-native-classnames)
