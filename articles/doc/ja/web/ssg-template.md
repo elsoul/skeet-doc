@@ -25,7 +25,6 @@ description: Skeet Web メディア & ドキュメント テンプレート with
 - [x] [TypeScript (v4.9) - Type Check](https://www.typescriptlang.org/)
 - [x] [ESLint - Linter](https://eslint.org/)
 - [x] [Prettier - Formatter](https://prettier.io/)
-- [x] [Husky - Pre Commit](https://typicode.github.io/husky/#/)
 - [x] [Recoil - State Management](https://recoiljs.org/)
 - [x] [Next i18next (v13) - i18n Translation](https://github.com/isaachinman/next-i18next)
 - [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
