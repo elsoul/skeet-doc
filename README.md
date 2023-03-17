@@ -36,14 +36,14 @@ Document Web Media for Skeet Framework.
 
 ## Summary
 
-- [x] [Next.js (v13) - SSG Framework](https://nextjs.org/)
-- [x] [React (v18) - UI Framework](https://reactjs.org/)
-- [x] [TypeScript (v4.9) - Type Check](https://www.typescriptlang.org/)
+- [x] [Next.js - SSG Framework](https://nextjs.org/)
+- [x] [React - UI Framework](https://reactjs.org/)
+- [x] [TypeScript - Type Check](https://www.typescriptlang.org/)
 - [x] [ESLint - Linter](https://eslint.org/)
 - [x] [Prettier - Formatter](https://prettier.io/)
 - [x] [Husky - Pre Commit](https://typicode.github.io/husky/#/)
 - [x] [Recoil - State Management](https://recoiljs.org/)
-- [x] [Next i18next (v13) - i18n Translation](https://github.com/isaachinman/next-i18next)
+- [x] [Next i18next - i18n Translation](https://github.com/isaachinman/next-i18next)
 - [x] [Firebase - Hosting & Analytics](https://firebase.google.com/)
 - [x] [Tailwind - CSS Framework](https://tailwindcss.com/)
 
