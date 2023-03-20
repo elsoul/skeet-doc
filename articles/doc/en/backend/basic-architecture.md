@@ -16,11 +16,11 @@ All in one git repository.
 
 This greatly improves development efficiency between teams.
 
-## directory structure
+## Overall directory structure
 
 Skeet has multiple services in one repository.
 
-Services are located in the apps directory.
+Services are placed in a directory under apps.
 
 for backend services
 
@@ -28,19 +28,60 @@ There are two types, api and worker,
 
 Multiple workers can be created.
 
-Tree structure
+Front-end services are arranged for each app,
+It supports web, iOS, and Android.
+
+tree structure
 
 ```
-skeeter-app
+skeet-example
 ├── apps
 │   ├── api
 │   ├── workers
-│       ├── token-transfer
-│       ├── scraper
+│   ├── app
 
   .
   .
 ```
+
+## Skeet GraphQL API Structure
+
+```
+skeet-example
+├── apps
+│   ├── api
+│        ├── prisma
+│        │      ├── migrations
+│        │      ├── schema.prisma
+│        ├── src
+│        │    ├── graphql
+│        │    │      ├── authManager
+│        │    │      ├── modelManager
+│        │    │      ├── responseManager
+│        │    │      ├── taskManager
+│        │    │      ├── enums.ts
+│        │    │      ├── index.ts
+│        │    ├── lib
+│        │    ├── utils
+│        │    ├── index.ts
+│        │    ├── nexus-typegen.ts
+│        │    ├── permission.ts
+│        │    ├── schema.graphql
+│        │    ├── schema.ts
+│        ├── tests
+  .
+  .
+```
+
+Let's start by defining a model in `schema.prisma`.
+
+- `authManager` manages GraphQL queries regarding user logins, etc.
+
+- `modelManager` manages CRUD GraphQL queries defined in Prisma Schema. Files in this directory are automatically generated.
+
+- Manage GraphQL queries on return values ​​from the `responseManager` Skeet Worker.
+
+- `taskManager` manages GraphQL queries that are queued to the Skeet Worker.
 
 ## Schema driven development
 
@@ -49,6 +90,8 @@ Skeet combines with Nexus to auto-generate Prisma schemas to GraphQL endpoints (
 - [Nexus Prisma](https://graphql-nexus.github.io/nexus-prisma)
 
 - [Apollo GraphQL](https://www.apollographql.com/)
+
+- [GraphQL Shield](https://the-guild.dev/graphql/shield/docs)
 
 Maximize development efficiency with Prisma schema-driven scaffolding (automatic generation). It achieves global scale with lower management costs.
 
