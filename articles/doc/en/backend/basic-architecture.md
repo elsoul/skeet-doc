@@ -112,3 +112,104 @@ This allows projects to proceed in a safe and rapid development environment.
 ## What is CI/CD
 
 CI/CD (continuous integration/continuous delivery) is the practice of introducing automation into the application development stage to deliver applications to customers more frequently. The main concepts that emerged from CI/CD are continuous integration, continuous delivery and continuous deployment. CI/CD is a solution to the problems that new code integration creates for development and operations teams (or "integration hell").
+
+## Skeet CLI
+
+Skeet CLI provides a set of useful commands for developing with Skeet. The current list of commands is as follows:
+
+```bash
+$ skeet --help
+Usage: skeet [options] [command]
+
+CLI to Skeet TypeScript Serverless Framework
+
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
+
+Commands:
+  test
+  create <initAppName>      Create Skeet App
+  init                      Setup Google Cloud Platform
+  server|s                  Run Skeet Server
+  deploy                    Deploy to Google Cloud Run
+  yarn [options] <yarnCmd>
+  add                       Add Comannd
+  g|generate                Generate Comannd
+  d|delete                  Delete Comannd
+  db                        DB Command
+  sql                       CloudSQL Comannd
+  setup                     Setup Command
+  sync                      Sync Command
+  docker                    Docker Command
+  help [command]            display help for command
+```
+
+You can access these commands from the Skeet CLI tool. For more information on each command, use the --help option followed by the command name.
+
+For example:
+
+```bash
+$ skeet create --help
+Usage: skeet create [options] <initAppName>
+
+Create Skeet App
+
+Options:
+  -t, --template <template>  Skeet app template to use (default: "typescript")
+  -h, --help                 display help for command
+```
+
+## Skeet Yarn コマンド
+
+Use the Skeet Yarn command to add modules to the package.json for API and Worker.
+
+```bash
+$ skeet yarn --help
+Usage: skeet yarn [options] <yarnCmd>
+
+Arguments:
+  yarnCmd                  dev,install,build,start,add
+
+Options:
+  --service <serviceName>  Skeet Service Name (default: "")
+  -p, --p <packageName>    npm package name (default: "")
+  -D                       Dependency environment (default: false)
+  -h, --help               display help for command
+```
+
+For example, to add the npm module bs58:
+
+```bash
+$ skeet yarn install -p bs58
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ api
+```
+
+Select the services you want to update by using the space key to select and the enter key to execute. If you have workers, you can select them for multiple apps simultaneously.
+
+## Skeet Sync Command
+
+Using the Skeet Sync command, synchronize the configuration of Google Cloud and skeet-cloud.config.json.
+
+```bash
+$ skeet help sync
+Usage: skeet sync [options] [command]
+
+Sync Command
+
+Options:
+  -h, --help      display help for command
+
+Commands:
+  type
+  gcloud
+  actions
+  env
+  armor
+  sql
+  taskQueue
+  runUrl
+  help [command]  display help for command
+```
