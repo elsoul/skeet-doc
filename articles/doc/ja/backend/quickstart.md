@@ -29,6 +29,7 @@ $ skeet create <appName>
 ## ローカルで起動
 
 ```bash
+$ cd <appName>
 $ skeet s
 ```
 
