@@ -160,7 +160,7 @@ Options:
   -h, --help                 display help for command
 ```
 
-## Skeet Yarn コマンド
+## Skeet Yarn Command
 
 Use the Skeet Yarn command to add modules to the package.json for API and Worker.
 
@@ -181,7 +181,7 @@ Options:
 For example, to add the npm module bs58:
 
 ```bash
-$ skeet yarn install -p bs58
+$ skeet yarn add -p bs58
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
 ❯◯ api
