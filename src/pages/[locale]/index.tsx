@@ -23,13 +23,13 @@ export { getStaticPaths, getStaticProps }
 export default function Home() {
   const fetchToSkeet = useCallback(async () => {
     try {
-      const data = await fetch('https://beta.epics.dev/graphql', {
-        mode: 'cors',
-        credentials: 'include',
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json', Referer: 'kaien' },
-      })
-      console.log(data.status)
+      // const data = await fetch('https://beta.epics.dev/graphql', {
+      //   mode: 'cors',
+      //   credentials: 'include',
+      //   method: 'GET',
+      //   headers: { 'Content-Type': 'application/json', Referer: 'kaien' },
+      // })
+      // console.log(data.status)
     } catch (e) {
       console.error(e)
     }
