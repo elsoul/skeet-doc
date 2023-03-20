@@ -16,7 +16,7 @@ Skeet フレームワークは [Monorepo](https://en.wikipedia.org/wiki/Monorepo
 
 これにより、チーム間による開発効率が抜群に改善されます。
 
-## ディレクトリ構造
+## 全体ディレクトリ構造
 
 Skeet には一つのリポジトリの中に複数のサービスがあります。
 
@@ -28,27 +28,72 @@ api と worker の 2 種類があり、
 
 worker は複数個作成することができます。
 
+フロントエンドのサービスは app ディレクトリに配置され、
+Web, iOS, Android に対応しています。
+
 ツリー構造
 
 ```
-skeeter-app
+skeet-example
 ├── apps
 │   ├── api
 │   ├── workers
-│       ├── token-transfer
-│       ├── scraper
+│   ├── app
 
   .
   .
 ```
 
+## Skeet GraphQL API の構造
+
+```
+skeet-example
+├── apps
+│   ├── api
+│        ├── prisma
+│        │      ├── migrations
+│        │      ├── schema.prisma
+│        ├── src
+│        │    ├── graphql
+│        │    │      ├── authManager
+│        │    │      ├── modelManager
+│        │    │      ├── responseManager
+│        │    │      ├── taskManager
+│        │    │      ├── enums.ts
+│        │    │      ├── index.ts
+│        │    ├── lib
+│        │    ├── utils
+│        │    ├── index.ts
+│        │    ├── nexus-typegen.ts
+│        │    ├── permission.ts
+│        │    ├── schema.graphql
+│        │    ├── schema.ts
+│        ├── tests
+  .
+  .
+```
+
+`schema.prisma` にモデルを定義するところからつくり始めましょう。
+
+- `authManager` ユーザーログインなどに関する GraphQL クエリを管理します。
+
+- `modelManager` Prisma Schema に定義した CRUD GraphQL クエリを管理します。このディレクトリ内のファイルは自動で生成されます。
+
+- `responseManager` Skeet Worker からの返り値に関する GraphQL クエリを管理します。
+
+- `taskManager` Skeet Worker へ キューを送る GraphQL クエリを管理します。
+
 ## スキーマ駆動開発
 
-Skeet は Nexus と組み合わせて、Prisma スキーマから GraphQL エンドポイント(リゾルバ)までを自動生成しています。
+Skeet API は Nexus と組み合わせて、Prisma スキーマから GraphQL エンドポイント(リゾルバ)までを自動生成しています。
+
+使用モジュール
 
 - [Nexus Prisma](https://graphql-nexus.github.io/nexus-prisma)
 
 - [Apollo GraphQL](https://www.apollographql.com/)
+
+- [GraphQL Shield](https://the-guild.dev/graphql/shield/docs)
 
 Prisma スキーマ駆動 Scaffold (自動生成) による開発効率の最大化。より少ない管理コストでグローバル規模のスケールを実現しています。
 
