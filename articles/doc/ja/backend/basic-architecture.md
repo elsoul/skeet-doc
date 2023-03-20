@@ -121,7 +121,7 @@ CI/CD (継続的インテグレーション/継続的デリバリー) とは、�
 
 ## Skeet CLI
 
-Skeet には 開発に便利なコマンドがツールが Skeet CLI より呼び出すことができます。
+Skeet には 開発に便利なツール、 Skeet CLI があります。
 以下、現在のコマンド一覧です。
 
 ```bash
@@ -188,7 +188,7 @@ Options:
 npm モジュール、`bs58` を追加する場合
 
 ```bash
-$ skeet yarn install -p bs58
+$ skeet yarn add -p bs58
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
 ❯◯ api
