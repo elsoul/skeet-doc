@@ -118,3 +118,108 @@ CI/CD 環境を構築しています。
 ## CI/CD とは
 
 CI/CD (継続的インテグレーション/継続的デリバリー) とは、アプリケーション開発のステージに自動化を取り入れて、顧客にアプリケーションを提供する頻度を高める手法です。CI/CD から発生した主なコンセプトは、継続的インテグレーション、継続的デリバリー、継続的デプロイメントです。CI/CD は、新規コードの統合によって開発チームや運用チームに生じる問題 (すなわち「インテグレーション地獄」) に対する解決策です。
+
+## Skeet CLI
+
+Skeet には 開発に便利なコマンドがツールが Skeet CLI より呼び出すことができます。
+以下、現在のコマンド一覧です。
+
+```bash
+$ skeet --help
+Usage: skeet [options] [command]
+
+CLI to Skeet TypeScript Serverless Framework
+
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
+
+Commands:
+  test
+  create <initAppName>      Create Skeet App
+  init                      Setup Google Cloud Platform
+  server|s                  Run Skeet Server
+  deploy                    Deploy to Google Cloud Run
+  yarn [options] <yarnCmd>
+  add                       Add Comannd
+  g|generate                Generate Comannd
+  d|delete                  Delete Comannd
+  db                        DB Command
+  sql                       CloudSQL Comannd
+  setup                     Setup Command
+  sync                      Sync Command
+  docker                    Docker Command
+  help [command]            display help for command
+```
+
+これらのコマンドは Skeet CLI ツールからアクセスできます。各コマンドの詳細については、コマンド名の後に --help オプションを使用してください。
+
+例えば：
+
+```bash
+$ skeet create --help
+Usage: skeet create [options] <initAppName>
+
+Create Skeet App
+
+Options:
+  -t, --template <template>  Skeet app template to use (default: "typescript")
+  -h, --help                 display help for command
+```
+
+## Skeet Yarn コマンド
+
+Skeet Yarn コマンドを使用して、API, Worker の package.json にモジュールを追加します。
+
+```bash
+$ skeet yarn --help
+Usage: skeet yarn [options] <yarnCmd>
+
+Arguments:
+  yarnCmd                  dev,install,build,start,add
+
+Options:
+  --service <serviceName>  Skeet Service Name (default: "")
+  -p, --p <packageName>    npm package name (default: "")
+  -D                       Dependency environment (default: false)
+  -h, --help               display help for command
+```
+
+npm モジュール、`bs58` を追加する場合
+
+```bash
+$ skeet yarn install -p bs58
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ api
+```
+
+スペースボタンで選択し、エンターキーで実行します。
+Worker がある場合、複数のアプリに同時に選択することができます。
+
+## Skeet Sync コマンド
+
+Skeet Sync コマンドを使って、Google Cloud の設定と
+
+skeet-cloud.config.json の設定を同期します。
+
+```bash
+$ skeet help sync
+Usage: skeet sync [options] [command]
+
+Sync Command
+
+Options:
+  -h, --help      display help for command
+
+Commands:
+  type
+  gcloud
+  actions
+  env
+  armor
+  sql
+  taskQueue
+  runUrl
+  help [command]  display help for command
+```
