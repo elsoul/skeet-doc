@@ -7,9 +7,9 @@ const siteConfig = {
     'Skeet, TypeScript, サーバーレス, アプリケーション, フレームワーク',
   keywordsEN: 'Skeet, TypeScript, Serverless, Application, Framework',
   descriptionJA:
-    'そのアイデア、すぐに始めましょう。アプリ公開の準備はできています。ワン・コマンドでクラウドへのデプロイやCI / CDの設定を完了できます。',
+    'そのアイデア、すぐに始めましょう🚀 CI / CD 完備のフルスタックTypeScriptサーバーレスアプリケーションを素早く構築。スキーマからアプリコードを自動生成するので、ビジネスロジックに集中できます。',
   descriptionEN:
-    "Let's start that idea immediately. You are ready to release the app. With one command, you can complete deployment to the cloud and CI / CD settings.",
+    "Let's start that idea immediately🚀 Quickly build CI/CD-ready, full-stack TypeScript serverless applications—Auto-generate app code from your schema so you can focus on your business logic.",
   twitterAccount: '@SkeetDev',
   instagramAccount: 'elsoul_labo',
   githubAccount: 'elsoul',
