@@ -2,7 +2,7 @@
 id: skeet-app-template-released
 title: Skeetのマルチプラットフォームアプリ開発テンプレート(React Native)がリリース
 category: プレスリリース
-thumbnail: /article-images/2023/03/23/skeet-app-template.png
+thumbnail: /news/2023/03/23/skeet-app-template.png
 ---
 
 ## マルチプラットフォームアプリ開発テンプレート(React Native)
@@ -17,7 +17,7 @@ Skeet を採用することで、アプリ開発者は、より高品質なア�
 
 ## スキーマからアプリコードを自動生成する "Skeet"
 
-![Skeet](/article-images/2023/03/23/skeet-ja.png)
+![Skeet](/news/2023/03/23/skeet-ja.png)
 
 Skeet は、スキーマからアプリコードを自動生成する Scaffold 機能を搭載しており、GraphQL API サーバーを自動生成できることをはじめ、React Native アプリコードの自動生成機能も開発を進めています。これにより、開発者は、より迅速かつ効率的にアプリケーションを構築できるようになります。
 
