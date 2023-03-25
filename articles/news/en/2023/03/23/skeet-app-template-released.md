@@ -1,8 +1,8 @@
 ---
 id: skeet-app-template-released
 title: Skeet's multi-platform app development template (React Native) released
-category: Press release
-thumbnail: /article-images/2023/03/23/skeet-app-template.png
+category: Press Release
+thumbnail: /news/2023/03/23/skeet-app-template.png
 ---
 
 ## Multiplatform app development template (React Native)
@@ -17,7 +17,7 @@ As you can see, by adopting Skeet, app developers can build applications faster 
 
 ## "Skeet" to auto-generate app code from schema
 
-![Skeet](/article-images/2023/03/23/skeet-en.png)
+![Skeet](/news/2023/03/23/skeet-en.png)
 
 Skeet has a Scaffold function that automatically generates application code from a schema. We are also developing a process to automatically generate React Native application code, including the ability to generate a GraphQL API server automatically. This allows developers to build applications faster and more efficiently.
 
