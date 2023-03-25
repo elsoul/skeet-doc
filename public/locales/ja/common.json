@@ -8,11 +8,11 @@
   "closeMenu": "メニューを閉じる",
   "navs": {
     "defaultMainNav": {
-      "blog": "ブログ",
+      "news": "ニュース",
       "doc": "ドキュメント"
     },
     "commonFooterNav": {
-      "blog": "ブログ",
+      "news": "ニュース",
       "doc": "ドキュメント",
       "privacy": "プライバシーポリシー"
     }

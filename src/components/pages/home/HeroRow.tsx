@@ -17,7 +17,7 @@ export default function HomeHeroRow() {
 
   return (
     <>
-      <Container className="pt-24 pb-20 text-center lg:pt-40">
+      <Container className="pt-24 pb-40 text-center lg:pt-40">
         <h1 className="font-display mx-auto max-w-4xl text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl">
           {t('home:HeroRow.title')}
         </h1>
