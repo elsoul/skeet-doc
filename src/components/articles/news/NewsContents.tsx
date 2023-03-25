@@ -25,7 +25,7 @@ export default function NewsContents({ article, articleHtml }: Props) {
                   alt={article.title}
                   width="16"
                   height="9"
-                  className="aspect-video w-full rounded-md bg-gray-100 object-cover group-hover:opacity-80"
+                  className="aspect-video w-full bg-gray-100 object-cover group-hover:opacity-80"
                   unoptimized
                 />
               </div>
