@@ -34,5 +34,3 @@ Skeet's Scaffold feature auto-generates app code from your schema, leaving your 
 Skeet has also helped develop his Web3 app for her and has been certified as her Grizzlython project for Solana.
 
 Skeet is a serverless application framework that makes developing in TypeScript easy and efficient, enabling fast and secure application development.
-
-Skeet Doc: https://skeet.dev/
