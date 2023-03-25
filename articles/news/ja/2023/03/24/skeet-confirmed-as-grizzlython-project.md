@@ -34,5 +34,3 @@ Skeet は、スキーマからアプリコードを自動生成する Scaffold �
 また、Skeet は Web3 アプリの開発にも対応しており、Solana の Grizzlython プロジェクトとして認定されています。
 
 Skeet は、TypeScript での開発を簡単かつ効率的に行うことができるサーバーレスアプリケーションフレームワークとして、高速で安全なアプリケーション開発を実現します。
-
-Skeet ドキュメント: https://skeet.dev/
