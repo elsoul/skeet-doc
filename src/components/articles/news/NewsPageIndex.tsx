@@ -33,7 +33,7 @@ export default function NewsPageIndex({ articles, urls }: Props) {
                       alt={article.title}
                       width="16"
                       height="9"
-                      className="aspect-video w-full rounded-sm bg-gray-50 object-cover group-hover:opacity-80 dark:bg-gray-800"
+                      className="aspect-video w-full bg-gray-50 object-cover group-hover:opacity-80 dark:bg-gray-800"
                       unoptimized
                     />
                   </div>
@@ -45,7 +45,7 @@ export default function NewsPageIndex({ articles, urls }: Props) {
                       >
                         {article.date}
                       </time>
-                      <span className="relative z-10 rounded-sm bg-gray-600 py-1.5 px-3 font-medium text-white group-hover:bg-gray-400 dark:bg-gray-400  dark:text-gray-50 dark:group-hover:bg-gray-700">
+                      <span className="relative z-10 bg-gray-600 py-1.5 px-3 font-medium text-white group-hover:bg-gray-400 dark:bg-gray-400  dark:text-gray-50 dark:group-hover:bg-gray-700">
                         {article.category}
                       </span>
                     </div>
