@@ -73,15 +73,15 @@ skeet-example
   .
 ```
 
-Let's start by defining a model in `schema.prisma`.
+Let's start by defining a model in **schema.prisma**.
 
-- `authManager` manages GraphQL queries regarding user logins, etc.
+- **authManager** manages GraphQL queries regarding user logins, etc.
 
-- `modelManager` manages CRUD GraphQL queries defined in Prisma Schema. Files in this directory are automatically generated.
+- **modelManager** manages CRUD GraphQL queries defined in Prisma Schema. Files in this directory are automatically generated.
 
-- Manage GraphQL queries on return values ​​from the `responseManager` Skeet Worker.
+- Manage GraphQL queries on return values ​​from the **responseManager** Skeet Worker.
 
-- `taskManager` manages GraphQL queries that are queued to the Skeet Worker.
+- **taskManager** manages GraphQL queries that are queued to the Skeet Worker.
 
 ## Schema driven development
 
@@ -97,13 +97,13 @@ Maximize development efficiency with Prisma schema-driven scaffolding (automatic
 
 ## Automatic deployment with GitHub Actions
 
-The Skeet framework uses `Github Actions`,
+The Skeet framework uses **Github Actions**,
 
 CI/CD environment is already setup.
 
-`API`, detects changes in each `Worker` directory,
+**API**, detects changes in each **Worker** directory,
 
-If there are any changes, just `push` to the `main` branch and the deployment will be completed.
+If there are any changes, just **push** to the **main** branch and the deployment will be completed.
 I run tests before deploying, so
 In the unlikely event that the test fails, the deployment will be rolled back, so
 It is not deployed in production.
