@@ -73,15 +73,15 @@ skeet-example
   .
 ```
 
-`schema.prisma` にモデルを定義するところからつくり始めましょう。
+**schema.prisma** にモデルを定義するところからつくり始めましょう。
 
-- `authManager` ユーザーログインなどに関する GraphQL クエリを管理します。
+- **authManager** ユーザーログインなどに関する GraphQL クエリを管理します。
 
-- `modelManager` Prisma Schema に定義した CRUD GraphQL クエリを管理します。このディレクトリ内のファイルは自動で生成されます。
+- **modelManager** Prisma Schema に定義した CRUD GraphQL クエリを管理します。このディレクトリ内のファイルは自動で生成されます。
 
-- `responseManager` Skeet Worker からの返り値に関する GraphQL クエリを管理します。
+- **responseManager** Skeet Worker からの返り値に関する GraphQL クエリを管理します。
 
-- `taskManager` Skeet Worker へ キューを送る GraphQL クエリを管理します。
+- **taskManager** Skeet Worker へ キューを送る GraphQL クエリを管理します。
 
 ## スキーマ駆動開発
 
@@ -99,13 +99,13 @@ Prisma スキーマ駆動 Scaffold (自動生成) による開発効率の最大
 
 ## GitHub Actions による自動デプロイ
 
-Skeet フレームワークでは `Github Actions` を使用して、
+Skeet フレームワークでは **Github Actions** を使用して、
 
 CI/CD 環境を構築しています。
 
-`API`, 各 `Worker` ディレクトリの変更を検知し、
+**API**, 各 **Worker** ディレクトリの変更を検知し、
 
-変更があった場合には `main` ブランチに `push` するだけでデプロイが完了します。
+変更があった場合には **main** ブランチに **push** するだけでデプロイが完了します。
 
 デプロイの前にテストを実行するので、
 
@@ -185,7 +185,7 @@ Options:
   -h, --help               display help for command
 ```
 
-npm モジュール、`bs58` を追加する場合
+npm モジュール、**bs58** を追加する場合
 
 ```bash
 $ skeet yarn add -p bs58
