@@ -10,15 +10,15 @@
     },
     "quickstart": {
       "title": "Quickstart",
-      "body": "Skeet Framework Quickstart. Let's build it from the GraphQL API."
+      "body": "Skeet Framework Quickstart. Under construction."
     },
     "basic-architecture": {
       "title": "Basic Architecture",
-      "body": "Skeet Framework Basic Architecture. We're using monorepo."
+      "body": "Skeet Framework Basic Architecture. Improving."
     },
     "zero-to-deploy": {
       "title": "Zero to Deploy",
-      "body": "This is Zero to Deploy. You can deploy it right after init."
+      "body": "This is Zero to Deploy. Coming soon."
     },
     "react-native": {
       "title": "React Native (Expo)",
