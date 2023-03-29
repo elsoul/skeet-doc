@@ -103,9 +103,9 @@ export default function HomeHeroRow() {
                           src={project.logo}
                           alt={project.name}
                           className={clsx(
-                            'grayscale hover:opacity-60',
+                            'hover:opacity-60 dark:grayscale',
                             project.name === 'React'
-                              ? 'invert dark:invert-0'
+                              ? 'dark:invert-0'
                               : 'dark:invert'
                           )}
                           width={168}
