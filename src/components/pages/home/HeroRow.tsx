@@ -1,14 +1,14 @@
 import Container from '@/components/common/atoms/Container'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
-import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
+import firebaseLogo from '@/assets/img/logo/projects/Firebase.svg'
 import googleCloudLogo from '@/assets/img/logo/projects/GoogleCloudHorizontal.svg'
 import reactLogo from '@/assets/img/logo/projects/react.svg'
 import androidLogo from '@/assets/img/logo/projects/android.svg'
 import tailwindLogo from '@/assets/img/logo/projects/tailwindcss.svg'
 import iosLogo from '@/assets/img/logo/projects/ios.svg'
-import graphqlLogo from '@/assets/img/logo/projects/graphql.svg'
-import typescriptLogo from '@/assets/img/logo/projects/typescript.svg'
+import expoLogo from '@/assets/img/logo/projects/Expo.svg'
+import typescriptLogo from '@/assets/img/logo/projects/TypeScriptHorizontal.svg'
 import { Button } from '@/components/common/atoms/Button'
 import clsx from 'clsx'
 
@@ -46,24 +46,26 @@ export default function HomeHeroRow() {
             {[
               [
                 {
-                  name: 'Prisma',
-                  logo: prismaLogo,
-                  link: 'https://www.prisma.io/',
+                  name: 'Firebase',
+                  logo: firebaseLogo,
+                  link: 'https://firebase.google.com/',
                 },
-                {
-                  name: 'Graphql',
-                  logo: graphqlLogo,
-                  link: 'https://graphql.org/',
-                },
+
                 {
                   name: 'Google Cloud',
                   logo: googleCloudLogo,
                   link: 'https://cloud.google.com/',
                 },
+
                 {
                   name: 'TypeScript',
                   logo: typescriptLogo,
                   link: 'https://www.typescriptlang.org/',
+                },
+                {
+                  name: 'Expo',
+                  logo: expoLogo,
+                  link: 'https://expo.dev/',
                 },
               ],
               [
