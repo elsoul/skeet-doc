@@ -1,11 +1,13 @@
 const siteConfig = {
   domain: 'skeet.dev',
   copyright: 'ELSOUL LABO B.V.',
-  sitenameJA: 'Skeet - TypeScript サーバーレスアプリケーションフレームワーク',
-  sitenameEN: 'Skeet - TypeScript Serverless Application Framework',
+  sitenameJA:
+    'Skeet - フルスタック TypeScript サーバーレスアプリケーションフレームワーク',
+  sitenameEN: 'Skeet - Full-stack TypeScript Serverless Application Framework',
   keywordsJA:
-    'Skeet, TypeScript, サーバーレス, アプリケーション, フレームワーク',
-  keywordsEN: 'Skeet, TypeScript, Serverless, Application, Framework',
+    'Skeet, TypeScript, サーバーレス, フルスタック, アプリケーション, フレームワーク, Firebase, Firestore, Cloud Functions, Google Cloud',
+  keywordsEN:
+    'Skeet, TypeScript, Serverless, Full-stack, Application, Framework, Firebase, Firestore, Cloud Functions, Google Cloud',
   descriptionJA:
     'そのアイデア、すぐに始めましょう🚀 CI / CD 完備のフルスタックTypeScriptサーバーレスアプリケーションを素早く構築。ビジネスロジックからすぐに開発をスタート。小さく始めて大きくスケールします。',
   descriptionEN:
