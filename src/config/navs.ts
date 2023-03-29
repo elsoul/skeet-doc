@@ -72,34 +72,9 @@ export const docMenuNav = [
         icon: AcademicCapIcon,
       },
       {
-        name: 'doc:menuNav.backend.graphql-api',
-        href: '/doc/backend/graphql-api/',
-        icon: CubeTransparentIcon,
-      },
-      {
         name: 'doc:menuNav.backend.firebase-user-authentification',
         href: '/doc/backend/firebase-user-authentification/',
         icon: UserCircleIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.add-worker',
-        href: '/doc/backend/add-worker/',
-        icon: CubeIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.setup-load-balancer',
-        href: '/doc/backend/setup-load-balancer/',
-        icon: RectangleStackIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.cloud-armor',
-        href: '/doc/backend/cloud-armor/',
-        icon: ShieldCheckIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.skeet-plugins',
-        href: '/doc/backend/skeet-plugins/',
-        icon: SquaresPlusIcon,
       },
     ],
   },

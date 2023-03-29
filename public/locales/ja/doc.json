@@ -10,15 +10,15 @@
     },
     "quickstart": {
       "title": "クイックスタート",
-      "body": "Skeet フレームワーク クイックスタート。GraphQL APIから作っていきます。"
+      "body": "Skeet フレームワーク クイックスタート。準備中"
     },
     "basic-architecture": {
       "title": "基本アーキテクチャ",
-      "body": "Skeet Framework 基本アーキテクチャ。モノリポでの開発を推奨しています。"
+      "body": "Skeet Framework 基本アーキテクチャ。よりシンプルに改良中"
     },
     "zero-to-deploy": {
       "title": "ゼロからデプロイまで",
-      "body": "プロジェクトをスタートした瞬間からデプロイの準備が整うようにしました。"
+      "body": "準備しています。少々お待ち下さい。"
     },
     "react-native": {
       "title": "React Native (Expo)",
