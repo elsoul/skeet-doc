@@ -1,6 +1,6 @@
 ---
 id: skeet-less-makes-more
-title: Skeet, a TypeScript full-stack serverless framework, becomes more compact and powerful
+title: Skeet, a Full-stack TypeScript Serverless Framework, becomes more compact and powerful
 category: Press release
 thumbnail: /news/2023/03/29/LessMakesMore.png
 ---
