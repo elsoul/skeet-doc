@@ -1,6 +1,6 @@
 ---
 id: skeet-less-makes-more
-title: TypeScriptフルスタックサーバーレスフレームワークのSkeetがよりコンパクトで強力に
+title: フルスタック TypeScript サーバーレスフレームワークの Skeet がよりコンパクトで強力に
 category: プレスリリース
 thumbnail: /news/2023/03/29/LessMakesMore.png
 ---
