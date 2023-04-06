@@ -166,7 +166,7 @@ export default function DocLayout({ children }: Props) {
           </Dialog>
         </Transition.Root>
 
-        <div className="hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
+        <div className="z-10 hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
           <div className="flex flex-grow flex-col overflow-y-auto break-words bg-white pt-5 scrollbar-hide dark:bg-gray-900">
             <div className="flex flex-shrink-0 items-center px-4">
               <LogoHorizontalLink className="h-8 w-auto sm:h-10" />

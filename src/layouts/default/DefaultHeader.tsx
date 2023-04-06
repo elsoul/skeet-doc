@@ -36,20 +36,20 @@ export default function DefaultHeader() {
   return (
     <>
       {isScrollingUp && (
-        <div className="h-24 bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80" />
+        <div className="h-24  bg-opacity-80  dark:bg-opacity-80" />
       )}
       <header
         className={
           isScrollingUp
-            ? 'fixed top-0 h-24 w-full bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80'
-            : 'relative h-24 w-full bg-white dark:bg-gray-900'
+            ? 'fixed top-0 z-10 h-24 w-full bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80'
+            : 'relative z-10 h-24 w-full  '
         }
       >
         <Popover
           className={
             isScrollingUp
-              ? 'fixed top-0 h-24 w-full bg-white bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-80'
-              : 'relative h-24 w-full bg-white dark:bg-gray-900'
+              ? 'fixed top-0 h-24 w-full  bg-opacity-80  dark:bg-opacity-80'
+              : 'relative h-24 w-full  '
           }
         >
           {({ close }) => (
@@ -59,7 +59,7 @@ export default function DefaultHeader() {
                   <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
                 </div>
                 <div className="-my-2 -mr-2 md:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
+                  <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:text-gray-200">
                     <span className="sr-only">{t('common:openMenu')}</span>
                     <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -121,7 +121,7 @@ export default function DefaultHeader() {
                   focus
                   className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
                 >
-                  <div className="bg-white shadow-lg ring-1 ring-black ring-opacity-5 dark:bg-gray-900">
+                  <div className=" shadow-lg ring-1 ring-black ring-opacity-5 ">
                     <div className="px-5 pt-5">
                       <div className="flex items-center justify-between">
                         <div>
@@ -131,7 +131,7 @@ export default function DefaultHeader() {
                           />
                         </div>
                         <div className="-mr-2">
-                          <Popover.Button className="inline-flex items-center justify-center bg-white p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:bg-gray-900 dark:text-gray-50 dark:hover:text-gray-200">
+                          <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:text-gray-200">
                             <span className="sr-only">
                               {t('common:closeMenu')}
                             </span>
