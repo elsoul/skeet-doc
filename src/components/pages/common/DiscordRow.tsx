@@ -11,7 +11,7 @@ export default function DiscordRow() {
   return (
     <>
       <Container className="py-48">
-        <div className="mx-auto max-w-3xl bg-gradient-to-tr from-indigo-700 to-indigo-500 shadow">
+        <div className="mx-auto max-w-lg bg-discord shadow">
           <div className="px-4 py-5 sm:p-6">
             <FontAwesomeIcon
               icon={faDiscord}
@@ -32,6 +32,7 @@ export default function DiscordRow() {
                   href={siteConfig.discordInvitationLink}
                   target="_blank"
                   rel="noreferrer"
+                  className=""
                 >
                   {t('DiscordRow.button')}
                 </Button>
