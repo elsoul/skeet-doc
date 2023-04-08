@@ -143,6 +143,10 @@ module.exports = {
       fontFamily: {
         sans: ['Outfit', 'Noto Sans JP', ...fontFamily.sans],
       },
+      colors: {
+        discord: '#5865f2',
+        twitter: '#1da1f2',
+      },
     },
   },
   plugins: [
