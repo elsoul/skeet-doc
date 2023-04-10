@@ -119,7 +119,7 @@ export default function DefaultHeader() {
               >
                 <Popover.Panel
                   focus
-                  className="absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden"
+                  className="absolute inset-x-0 top-0 origin-top-right transform bg-white p-2 transition dark:bg-gray-900 md:hidden"
                 >
                   <div className=" shadow-lg ring-1 ring-black ring-opacity-5 ">
                     <div className="px-5 pt-5">
