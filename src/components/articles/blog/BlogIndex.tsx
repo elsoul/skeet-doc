@@ -48,7 +48,7 @@ export default function BlogIndex({ articles, urls }: Props) {
                       >
                         {article.date}
                       </time>
-                      <span className="relative z-10 bg-gray-600 py-1.5 px-3 font-medium text-white group-hover:bg-gray-400 dark:bg-gray-400  dark:text-gray-50 dark:group-hover:bg-gray-700">
+                      <span className="relative bg-gray-600 py-1.5 px-3 font-medium text-white group-hover:bg-gray-400 dark:bg-gray-400  dark:text-gray-50 dark:group-hover:bg-gray-700">
                         {article.category}
                       </span>
                     </div>

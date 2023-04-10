@@ -46,7 +46,7 @@ export default function DocLayout({ children }: Props) {
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as="div"
-            className="relative z-40 lg:hidden"
+            className="relative z-40 bg-white dark:bg-gray-900 lg:hidden"
             onClose={setSidebarOpen}
           >
             <Transition.Child
