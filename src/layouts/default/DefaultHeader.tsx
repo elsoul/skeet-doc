@@ -59,7 +59,7 @@ export default function DefaultHeader() {
                   <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
                 </div>
                 <div className="-my-2 -mr-2 md:hidden">
-                  <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:text-gray-200">
+                  <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-200">
                     <span className="sr-only">{t('common:openMenu')}</span>
                     <Bars3Icon className="h-6 w-6" aria-hidden="true" />
                   </Popover.Button>
@@ -131,7 +131,7 @@ export default function DefaultHeader() {
                           />
                         </div>
                         <div className="-mr-2">
-                          <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:text-gray-200">
+                          <Popover.Button className="inline-flex items-center justify-center  p-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500  dark:text-gray-50 dark:hover:bg-gray-700 dark:hover:text-gray-200">
                             <span className="sr-only">
                               {t('common:closeMenu')}
                             </span>
