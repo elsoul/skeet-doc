@@ -41,7 +41,7 @@ export default function HomeHeroRow() {
         <div className="mt-36 lg:mt-48">
           <ul
             role="list"
-            className="mt-8 flex flex-col items-center justify-center gap-x-8 sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
+            className="mt-8 flex flex-col items-center justify-center gap-x-8 gap-y-10 sm:gap-x-0 xl:flex-row xl:gap-x-12 xl:gap-y-0"
           >
             {[
               [
