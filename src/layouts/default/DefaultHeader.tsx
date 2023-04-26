@@ -79,7 +79,7 @@ export default function DefaultHeader() {
                   <LanguageChanger />
                   <ColorModeChanger />
                   <a
-                    href={`https://github.com/elsoul/skeet`}
+                    href={`https://github.com/elsoul/skeet-cli`}
                     className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
                     aria-label="GitHub"
                     target="_blank"
@@ -89,7 +89,7 @@ export default function DefaultHeader() {
                       icon={faGithub}
                       size="sm"
                       aria-label="GitHub icon"
-                      className="mt-1.5 ml-2 h-5 w-5"
+                      className="ml-2 mt-1.5 h-5 w-5"
                     />
                   </a>
                   <a
@@ -103,7 +103,7 @@ export default function DefaultHeader() {
                       icon={faDiscord}
                       size="sm"
                       aria-label="Discord icon"
-                      className="mt-1.5 ml-2 h-5 w-5"
+                      className="ml-2 mt-1.5 h-5 w-5"
                     />
                   </a>
                 </div>
@@ -140,7 +140,7 @@ export default function DefaultHeader() {
                         </div>
                       </div>
                     </div>
-                    <div className="py-8 px-5">
+                    <div className="px-5 py-8">
                       <div className="grid grid-cols-1 gap-8">
                         {defaultMainNav.map((nav) => (
                           <Link
@@ -156,7 +156,7 @@ export default function DefaultHeader() {
                           <LanguageChanger />
                           <ColorModeChanger />
                           <a
-                            href={`https://github.com/elsoul/skeet`}
+                            href={`https://github.com/elsoul/skeet-cli`}
                             className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
                             aria-label="GitHub"
                             target="_blank"
@@ -166,7 +166,7 @@ export default function DefaultHeader() {
                               icon={faGithub}
                               size="sm"
                               aria-label="GitHub icon"
-                              className="mt-1.5 ml-2 h-5 w-5"
+                              className="ml-2 mt-1.5 h-5 w-5"
                             />
                           </a>
                           <a
@@ -180,7 +180,7 @@ export default function DefaultHeader() {
                               icon={faDiscord}
                               size="sm"
                               aria-label="Discord icon"
-                              className="mt-1.5 ml-2 h-5 w-5"
+                              className="ml-2 mt-1.5 h-5 w-5"
                             />
                           </a>
                         </div>

@@ -29,7 +29,7 @@ export default function HomeHeroRow() {
             {t('common:navs.defaultMainNav.doc')}
           </Button>
           <Button
-            href="https://github.com/elsoul/skeet"
+            href="https://github.com/elsoul/skeet-cli"
             variant="outline"
             className=""
             target="_blank"
