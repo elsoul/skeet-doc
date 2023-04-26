@@ -10,15 +10,7 @@
     },
     "quickstart": {
       "title": "Quickstart",
-      "body": "Skeet Framework Quickstart. Under construction."
-    },
-    "basic-architecture": {
-      "title": "Basic Architecture",
-      "body": "Skeet Framework Basic Architecture. Improving."
-    },
-    "zero-to-deploy": {
-      "title": "Zero to Deploy",
-      "body": "This is Zero to Deploy. Coming soon."
+      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Quickstart."
     },
     "react-native": {
       "title": "React Native (Expo)",

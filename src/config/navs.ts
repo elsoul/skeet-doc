@@ -4,14 +4,6 @@ import {
   HomeIcon,
   RocketLaunchIcon,
   WindowIcon,
-  AcademicCapIcon,
-  ShieldCheckIcon,
-  SquaresPlusIcon,
-  RectangleStackIcon,
-  UserCircleIcon,
-  RectangleGroupIcon,
-  CubeTransparentIcon,
-  CubeIcon,
   DevicePhoneMobileIcon,
 } from '@heroicons/react/24/outline'
 
@@ -60,21 +52,6 @@ export const docMenuNav = [
         name: 'doc:menuNav.backend.quickstart',
         href: '/doc/backend/quickstart/',
         icon: RocketLaunchIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.basic-architecture',
-        href: '/doc/backend/basic-architecture/',
-        icon: RectangleGroupIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.zero-to-deploy',
-        href: '/doc/backend/zero-to-deploy/',
-        icon: AcademicCapIcon,
-      },
-      {
-        name: 'doc:menuNav.backend.firebase-user-authentification',
-        href: '/doc/backend/firebase-user-authentification/',
-        icon: UserCircleIcon,
       },
     ],
   },

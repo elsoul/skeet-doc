@@ -5,8 +5,6 @@ import {
   HeartIcon,
   RocketLaunchIcon,
   ArrowUpRightIcon,
-  RectangleGroupIcon,
-  AcademicCapIcon,
   DevicePhoneMobileIcon,
   WindowIcon,
 } from '@heroicons/react/24/outline'
@@ -30,22 +28,6 @@ const actions = [
     iconBackground: 'bg-green-50',
   },
   {
-    title: 'doc:actions.basic-architecture.title',
-    body: 'doc:actions.basic-architecture.body',
-    href: '/doc/backend/basic-architecture',
-    icon: RectangleGroupIcon,
-    iconForeground: 'text-yellow-700',
-    iconBackground: 'bg-yellow-50',
-  },
-  {
-    title: 'doc:actions.zero-to-deploy.title',
-    body: 'doc:actions.zero-to-deploy.body',
-    href: '/doc/backend/zero-to-deploy',
-    icon: AcademicCapIcon,
-    iconForeground: 'text-orange-700',
-    iconBackground: 'bg-orange-50',
-  },
-  {
     title: 'doc:actions.react-native.title',
     body: 'doc:actions.react-native.body',
     href: '/doc/frontend/react-native',
@@ -58,8 +40,8 @@ const actions = [
     body: 'doc:actions.ssg-template.body',
     href: '/doc/web/ssg-template',
     icon: WindowIcon,
-    iconForeground: 'text-gray-700',
-    iconBackground: 'bg-gray-50',
+    iconForeground: 'text-yellow-700',
+    iconBackground: 'bg-yellow-50',
   },
 ]
 
@@ -91,7 +73,7 @@ export default function DocIndex({}: Props) {
                   actionIdx === 1 ? '' : '',
                   actionIdx === actions.length - 2 ? '' : '',
                   actionIdx === actions.length - 1 ? '' : '',
-                  'group relative bg-blue-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-500 hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700'
+                  'group relative bg-gray-50 p-6 focus-within:ring-2 focus-within:ring-inset focus-within:ring-gray-500 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700'
                 )}
               >
                 <div>
@@ -117,7 +99,7 @@ export default function DocIndex({}: Props) {
                   </p>
                 </div>
                 <span
-                  className="pointer-events-none absolute top-6 right-6 text-gray-300 group-hover:text-gray-400"
+                  className="pointer-events-none absolute right-6 top-6 text-gray-300 group-hover:text-gray-400"
                   aria-hidden="true"
                 >
                   <ArrowUpRightIcon className="h-6 w-6" />
