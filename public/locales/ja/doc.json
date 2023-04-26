@@ -10,15 +10,7 @@
     },
     "quickstart": {
       "title": "クイックスタート",
-      "body": "Skeet フレームワーク クイックスタート。準備中"
-    },
-    "basic-architecture": {
-      "title": "基本アーキテクチャ",
-      "body": "Skeet Framework 基本アーキテクチャ。よりシンプルに改良中"
-    },
-    "zero-to-deploy": {
-      "title": "ゼロからデプロイまで",
-      "body": "準備しています。少々お待ち下さい。"
+      "body": "Skeet - フルスタック TypeScript サーバーレスアプリケーションフレームワーク クイックスタート"
     },
     "react-native": {
       "title": "React Native (Expo)",
