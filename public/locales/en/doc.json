@@ -12,6 +12,18 @@
       "title": "Quickstart",
       "body": "Skeet - Full-stack TypeScript Serverless Application Framework Quickstart."
     },
+    "basic-architecture": {
+      "title": "Basic Architecture",
+      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Basic Architecture."
+    },
+    "initial-deploy": {
+      "title": "Initial Deploy",
+      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Initial Deploy."
+    },
+    "tutorial": {
+      "title": "Tutorial",
+      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Tutorial."
+    },
     "react-native": {
       "title": "React Native (Expo)",
       "body": "We're using React Native (Expo) on the frontend. We can use the Tailwind and React technology on mobile dev as well."
@@ -31,6 +43,8 @@
       "groupTitle": "Backend",
       "quickstart": "Quickstart",
       "basic-architecture": "Basic Architecture",
+      "initial-deploy": "Initial Deploy",
+      "tutorial": "Tutorial",
       "zero-to-deploy": "Zero to Deploy",
       "graphql-api": "Build GraphQL API",
       "firebase-user-authentification": "Firebase Login Authentification",

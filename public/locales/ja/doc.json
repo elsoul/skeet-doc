@@ -12,6 +12,18 @@
       "title": "クイックスタート",
       "body": "Skeet - フルスタック TypeScript サーバーレスアプリケーションフレームワーク クイックスタート"
     },
+    "basic-architecture": {
+      "title": "基本アーキテクチャ",
+      "body": "Skeet - 基本アーキテクチャ"
+    },
+    "initial-deploy": {
+      "title": "最初のデプロイ",
+      "body": "Skeet - 最初のデプロイ"
+    },
+    "tutorial": {
+      "title": "チュートリアル",
+      "body": "Skeet - チュートリアル"
+    },
     "react-native": {
       "title": "React Native (Expo)",
       "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどReact技術の資産を活かせます。"
@@ -31,6 +43,8 @@
       "groupTitle": "バックエンド",
       "quickstart": "クイックスタート",
       "basic-architecture": "基本アーキテクチャ",
+      "initial-deploy": "最初のデプロイ",
+      "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "graphql-api": "GraphQL APIの構築",
       "firebase-user-authentification": "Firebase ログイン認証",

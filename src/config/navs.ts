@@ -53,6 +53,21 @@ export const docMenuNav = [
         href: '/doc/backend/quickstart/',
         icon: RocketLaunchIcon,
       },
+      {
+        name: 'doc:menuNav.backend.basic-architecture',
+        href: '/doc/backend/basic-architecture/',
+        icon: RocketLaunchIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.initial-deploy',
+        href: '/doc/backend/initial-deploy/',
+        icon: RocketLaunchIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.tutorial',
+        href: '/doc/backend/tutorial/',
+        icon: RocketLaunchIcon,
+      },
     ],
   },
   {
