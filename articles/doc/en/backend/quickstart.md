@@ -6,16 +6,15 @@ description: Skeet Framework Backend Quick Start
 
 ## What's Skeet?
 
-Full-stack TypeScript Serverless Framework 'Skeet'.
+Skeet is a full-stack TypeScript serverless application framework.
 
-The Skeet project was launched with the goal of reducing software development, operation, and maintenance costs.
+Skeet was born to reduce the cost of software development and operation.
 
-Build Serverless Apps faster.
-Powered by TypeScript, Firebase Cloud FireStore, Jest, Prettier, and Google Cloud Functions 2nd Generation.
+Start developing and deploying serverless apps quickly.
+
+Get ready to use scalable Cloud Firestore and Cloud Functions securely right away.
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create.gif)
-
-GitHub: https://github.com/elsoul/skeet-cli
 
 ## Dependency
 
@@ -24,12 +23,11 @@ GitHub: https://github.com/elsoul/skeet-cli
 - [Yarn](https://yarnpkg.com/)
 - [Google SDK](https://cloud.google.com/sdk/docs)
 - [Firebase CLI](https://firebase.google.com/docs/cli)
-- [Docker](https://www.docker.com/)
 - [GitHub CLI](https://cli.github.com/)
 
-## Cloud Network Architecture
+## Cloud Network Configuration
 
-Automated to build all the Google Cloud VPC network settings;
+Automatically complete the minimum required settings for security, such as Google Cloud's VPC configuration and Cloud Armor.
 
 - Firewall
 - VPC Network
@@ -53,39 +51,21 @@ $ npm i -g @skeet-framework/cli
 $ skeet create ${appName}
 ```
 
-### Run local
+### Run Locally
 
 ```bash
+$ cd ${appName}
 $ skeet s
 ```
 
-Now you can access;
+The Firebase emulator will start.
 
-`http://localhost:4000/`
-
-## Zero to Deploy
-
-### Project Init
-
-```bash
-$ skeet init
-```
-
-### Deploy Whole Application
-
-```bash
-$ skeet deploy
-```
-
-![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
-
-### Add Cloud Functions
-
-```bash
-$ skeet add functions <functionName>
-```
+[http://localhost:4000/](http://localhost:4000/)
 
 ## Skeet CLI
+
+Add new Firebase functions using Skeet CLI,
+Loadbalancer's Routing etc. can be done automatically.
 
 ```bash
 $ skeet --help
@@ -100,12 +80,44 @@ Options:
 Commands:
   create <appName>          Create Skeet App
   server|s                  Run Skeet Server
-  deploy                    Deploy Skeet App
-  init [options]
+  deploy                    Deploy Skeet APP to Google Cloud Platform
+  init [options]            Generate Skeet Cloud Config
   iam                       Skeet IAM Comannd
   vpc                       Setup VPC for Google Cloud Platform
   yarn [options] <yarnCmd>
   add                       Add Comannd
+  sync                      Skeet Sync Comannd
+  delete|d                  Skeet Delete Command
   list                      Show Skeet App List
   help [command]            display help for command
+```
+
+## Sample Skeet command
+
+### Add Yarn Package
+
+You can add packages for specific features with the skeet Yarn command.
+
+```bash
+$ skeet yarn add -p ${packageName}
+```
+
+For Development
+
+```bash
+$ skeet yarn add -p ${packageName} -D
+```
+
+### Skeet Deploy
+
+```bash
+$ skeet deploy
+```
+
+![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
+
+### Add Cloud Functions
+
+```bash
+$ skeet add functions <functionName>
 ```

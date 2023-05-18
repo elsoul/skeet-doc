@@ -23,7 +23,6 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 - [Yarn](https://yarnpkg.com/)
 - [Google SDK](https://cloud.google.com/sdk/docs)
 - [Firebase CLI](https://firebase.google.com/docs/cli)
-- [Docker](https://www.docker.com/)
 - [GitHub CLI](https://cli.github.com/)
 
 ## クラウドネットワーク構成
@@ -55,36 +54,20 @@ $ skeet create ${appName}
 ### ローカルで起動
 
 ```bash
+$ cd ${appName}
 $ skeet s
 ```
 
-Now you can access;
+Firebase エミュレーターが起動します。
 
-`http://localhost:4000/`
-
-## ゼロからデプロイ
-
-### プロジェクト Init
-
-```bash
-$ skeet init
-```
-
-### アプリ全体をデプロイ
-
-```bash
-$ skeet deploy
-```
-
-![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
-
-### Cloud Functions の追加
-
-```bash
-$ skeet add functions <functionName>
-```
+[http://localhost:4000/](http://localhost:4000/)
 
 ## Skeet CLI
+
+Skeet CLI を使って新たに Firebase functions を追加したり、
+Loadbalancer の Routing などを自動に行うことができます。
+
+コマンド一覧
 
 ```bash
 $ skeet --help
@@ -99,12 +82,44 @@ Options:
 Commands:
   create <appName>          Create Skeet App
   server|s                  Run Skeet Server
-  deploy                    Deploy Skeet App
-  init [options]
+  deploy                    Deploy Skeet APP to Google Cloud Platform
+  init [options]            Generate Skeet Cloud Config
   iam                       Skeet IAM Comannd
   vpc                       Setup VPC for Google Cloud Platform
   yarn [options] <yarnCmd>
   add                       Add Comannd
+  sync                      Skeet Sync Comannd
+  delete|d                  Skeet Delete Command
   list                      Show Skeet App List
   help [command]            display help for command
+```
+
+## Skeet コマンドのサンプル
+
+### Yarn パッケージの追加
+
+skeet yarn コマンドで特定の functions にパッケージを追加することができます。
+
+```bash
+$ skeet yarn add -p ${packageName}
+```
+
+For Development
+
+```bash
+$ skeet yarn add -p ${packageName} -D
+```
+
+### Skeet デプロイコマンド
+
+```bash
+$ skeet deploy
+```
+
+![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
+
+### Cloud Functions の追加
+
+```bash
+$ skeet add functions <functionName>
 ```
