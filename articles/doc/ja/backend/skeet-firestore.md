@@ -9,13 +9,13 @@ description: Skeet フレームワーク における Firestore の使い方を�
 Skeet Framework では Firestore を使うためのプラグインが用意されています。
 このプラグインを使うことで、Firestore のデータを簡単に追加・取得・更新・検索・削除することができます。
 
-| メソッド名           | 説明                                 |
-| -------------------- | ------------------------------------ |
-| addCollectionItem    | Add Collection Item                  |
-| getCollectionItem    | Get Collection Item                  |
-| queryCollectionItem  | Query Collection Items               |
-| updateCollectionItem | Update Collection Item               |
-| deleteCollectionItem | Delete Collection Item (coming soon) |
+| メソッド名           | 説明                   |
+| -------------------- | ---------------------- |
+| addCollectionItem    | Add Collection Item    |
+| getCollectionItem    | Get Collection Item    |
+| queryCollectionItem  | Query Collection Items |
+| updateCollectionItem | Update Collection Item |
+| removeCollectionItem | Remove Collection Item |
 
 ネストされたコレクション、ドキュメントに対応しています。
 
@@ -37,6 +37,10 @@ Skeet Framework では Firestore を使うためのプラグインが用意さ�
 | updateGrandChildCollectionItem           | Update Grand Child Collection Item             |
 | updateGrandGrandChildCollectionItem      | Update Grand Grand Child Collection Item       |
 | updateGreatGrandGrandChildCollectionItem | Update Great Grand Grand Child Collection Item |
+| removeChildCollectionItem                | Remove Child Collection Item                   |
+| removeGrandChildCollectionItem           | Remove Grand Child Collection Item             |
+| removeGrandGrandChildCollectionItem      | Remove Grand Grand Child Collection Item       |
+| removeGreatGrandGrandChildCollectionItem | Remove Great Grand Grand Child Collection Item |
 
 ## Firestore プラグインのインストール
 

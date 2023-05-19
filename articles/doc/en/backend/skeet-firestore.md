@@ -7,15 +7,15 @@ description: How to use Firestore in Skeet Framework.
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework provides a plugin for using Firestore.
-This plugin allows you to easily add/get/update/query/delete Firestore data.
+This plugin allows you to easily add/get/update/query/remove Firestore data.
 
-| Method Name          | Description                          |
-| -------------------- | ------------------------------------ |
-| addCollectionItem    | Add Collection Item                  |
-| getCollectionItem    | Get Collection Item                  |
-| queryCollectionItem  | Query Collection Items               |
-| updateCollectionItem | Update Collection Item               |
-| deleteCollectionItem | Delete Collection Item (coming soon) |
+| Method Name          | Description            |
+| -------------------- | ---------------------- |
+| addCollectionItem    | Add Collection Item    |
+| getCollectionItem    | Get Collection Item    |
+| queryCollectionItem  | Query Collection Items |
+| updateCollectionItem | Update Collection Item |
+| removeCollectionItem | Remove Collection Item |
 
 It supports nested collections and documents.
 
@@ -37,6 +37,10 @@ It supports nested collections and documents.
 | updateGrandChildCollectionItem           | Update Grand Child Collection Item             |
 | updateGrandGrandChildCollectionItem      | Update Grand Grand Child Collection Item       |
 | updateGreatGrandGrandChildCollectionItem | Update Great Grand Grand Child Collection Item |
+| removeChildCollectionItem                | Remove Child Collection Item                   |
+| removeGrandChildCollectionItem           | Remove Grand Child Collection Item             |
+| removeGrandGrandChildCollectionItem      | Remove Grand Grand Child Collection Item       |
+| removeGreatGrandGrandChildCollectionItem | Remove Great Grand Grand Child Collection Item |
 
 ## Installing the Firestore plugin
 
@@ -54,7 +58,7 @@ $ skeet yarn add -p @skeet-firebase/firestore
 
 ## Basic Structure of Skeet Firestore
 
-Skeet Firestore retrieves, updates, and deletes data nested in the following structure:
+Skeet Firestore retrieves, updates, and removes data nested in the following structure:
 
 ```typescript
 const parentCollectionName = 'Parent'

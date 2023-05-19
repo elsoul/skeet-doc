@@ -96,24 +96,49 @@ Commands:
 
 ## Skeet コマンドのサンプル
 
-### Yarn パッケージの追加
+Skeet CLI を使って新たに Firebase functions を追加したり、
+yarn コマンドを 各ファンクションごとに実行することができます。
 
-skeet yarn コマンドで特定の functions にパッケージを追加することができます。
+### Skeet Yarn Install/Build
+
+```bash
+$ skeet yarn install/build
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+### Add Yarn Package
+
+指定したパッケージを選択したファンクションにインストールします。
 
 ```bash
 $ skeet yarn add -p ${packageName}
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 For Development
 
 ```bash
 $ skeet yarn add -p ${packageName} -D
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 ### Skeet デプロイコマンド
 
 ```bash
 $ skeet deploy
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 ![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
