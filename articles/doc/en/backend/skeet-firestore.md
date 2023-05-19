@@ -7,7 +7,7 @@ description: How to use Firestore in Skeet Framework.
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework provides a plugin for using Firestore.
-By using this plugin, you can easily add/get/update/query/delete Firestore data.
+This plugin allows you to easily add/get/update/query/delete Firestore data.
 
 | Method Name          | Description                          |
 | -------------------- | ------------------------------------ |
