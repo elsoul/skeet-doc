@@ -56,6 +56,25 @@ To install the plugin on multiple Functions using the Skeet CLI, run the followi
 $ skeet yarn add -p @skeet-firebase/firestore
 ```
 
+## Initialize
+
+```typescript
+import * as admin from 'firebase-admin'
+
+admin.initializeApp()
+```
+
+or
+
+```typescript
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
+
+firebase.initializeApp({
+  // Project configuration
+})
+```
+
 ## Basic Structure of Skeet Firestore
 
 Skeet Firestore retrieves, updates, and removes data nested in the following structure:
@@ -68,7 +87,7 @@ const grandChildCollectionName = 'GrandChild'
 .
 .
 
-const dataRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
+const doc = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
   parentCollectionName,
   childCollectionName,
   grandChildCollectionName,

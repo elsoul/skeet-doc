@@ -20,6 +20,15 @@ This tutorial is divided into the following sections:
 - Adding and synchronizing type definitions
 - Adding and synchronizing routing
 
+Skeet Framework recommends VScode as editor.
+We will be using VScode for this tutorial.
+
+By proceeding with development according to the framework,
+Get powerful code completion support with GitHub Copilot.
+
+- [VScode](https://code.visualstudio.com/)
+- [GitHub Copilot](https://copilot.github.com/)
+
 ## Prerequisites for the Tutorial
 
 To follow this tutorial, you will need the following:
@@ -29,6 +38,13 @@ To follow this tutorial, you will need the following:
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) 430.0.0 or above
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 or above
 - [GitHub CLI](https://cli.github.com/) 2.29.0 or above
+
+Also, if the [Initial Deploy](/backend/initial-deploy) has not completed,
+
+Please complete the following:
+
+- Create Google Cloud project
+- Create Firebase project
 
 ## Prerequisite Knowledge for the Tutorial
 

@@ -56,6 +56,25 @@ Skeet CLI を使って複数の Functions にプラグインをインストー�
 $ skeet yarn add -p @skeet-firebase/firestore
 ```
 
+## Initialize
+
+```typescript
+import * as admin from 'firebase-admin'
+
+admin.initializeApp()
+```
+
+or
+
+```typescript
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
+
+firebase.initializeApp({
+  // Project configuration
+})
+```
+
 ## Skeet Firestore の基本構造
 
 Skeet Firestore では、次のような構造でネストされたデータを取得・更新・削除します。
