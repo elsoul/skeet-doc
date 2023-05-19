@@ -24,6 +24,10 @@
       "title": "チュートリアル",
       "body": "Skeet - チュートリアル"
     },
+    "skeet-firestore": {
+      "title": "Skeet Firestore",
+      "body": "Skeet Framework プラグイン - Skeet Firestore."
+    },
     "react-native": {
       "title": "React Native (Expo)",
       "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどReact技術の資産を活かせます。"
@@ -47,6 +51,7 @@
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "graphql-api": "GraphQL APIの構築",
+      "skeet-firestore": "Skeet Firestore",
       "firebase-user-authentification": "Firebase ログイン認証",
       "add-worker": "Workerを追加する",
       "setup-load-balancer": "ロードバランサーを設定する",
