@@ -94,24 +94,48 @@ Commands:
 
 ## Sample Skeet command
 
+Skeet CLI can be used to manage the entire lifecycle of the application.
+
+### Skeet Yarn Install/Build
+
+```bash
+$ skeet yarn install/build
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
 ### Add Yarn Package
 
 You can add packages for specific features with the skeet Yarn command.
 
 ```bash
 $ skeet yarn add -p ${packageName}
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 For Development
 
 ```bash
 $ skeet yarn add -p ${packageName} -D
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 ### Skeet Deploy
 
 ```bash
 $ skeet deploy
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
 ```
 
 ![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
