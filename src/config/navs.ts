@@ -5,6 +5,9 @@ import {
   RocketLaunchIcon,
   WindowIcon,
   DevicePhoneMobileIcon,
+  AcademicCapIcon,
+  BookOpenIcon,
+  ArrowUpRightIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -56,17 +59,17 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.backend.basic-architecture',
         href: '/doc/backend/basic-architecture/',
-        icon: RocketLaunchIcon,
+        icon: BookOpenIcon,
       },
       {
         name: 'doc:menuNav.backend.initial-deploy',
         href: '/doc/backend/initial-deploy/',
-        icon: RocketLaunchIcon,
+        icon: ArrowUpRightIcon,
       },
       {
         name: 'doc:menuNav.backend.tutorial',
         href: '/doc/backend/tutorial/',
-        icon: RocketLaunchIcon,
+        icon: AcademicCapIcon,
       },
     ],
   },
