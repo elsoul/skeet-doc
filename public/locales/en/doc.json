@@ -24,6 +24,10 @@
       "title": "Tutorial",
       "body": "Skeet - Full-stack TypeScript Serverless Application Framework Tutorial."
     },
+    "skeet-firestore": {
+      "title": "Skeet Firestore",
+      "body": "Skeet Framework Plugins - Skeet Firestore."
+    },
     "react-native": {
       "title": "React Native (Expo)",
       "body": "We're using React Native (Expo) on the frontend. We can use the Tailwind and React technology on mobile dev as well."
@@ -45,6 +49,7 @@
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
+      "skeet-firestore": "Skeet Firestore",
       "zero-to-deploy": "Zero to Deploy",
       "graphql-api": "Build GraphQL API",
       "firebase-user-authentification": "Firebase Login Authentification",

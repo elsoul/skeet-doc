@@ -8,6 +8,7 @@ import {
   AcademicCapIcon,
   BookOpenIcon,
   ArrowUpRightIcon,
+  Cog6ToothIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -70,6 +71,11 @@ export const docMenuNav = [
         name: 'doc:menuNav.backend.tutorial',
         href: '/doc/backend/tutorial/',
         icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.backend.skeet-firestore',
+        href: '/doc/backend/skeet-firestore/',
+        icon: Cog6ToothIcon,
       },
     ],
   },
