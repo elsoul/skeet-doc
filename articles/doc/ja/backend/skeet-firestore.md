@@ -153,13 +153,14 @@ import { User, UserChatRoom } from '@/models/userModels.ts'
 
 const run = async () => {
   const parentCollectionName = 'User'
+  const childCollectionName = 'UserChatRoom'
+
   const params: User = {
     username: 'Satoshi',
   }
-  const response = await addCollectionItem<User>(parentCollectionName, params)
-  console.log('Ref', response)
+  const userDoc = await addCollectionItem<User>(parentCollectionName, params)
+  console.log('User', userDoc)
 
-  const childCollectionName = 'UserChatRoom'
   const childParams: UserChatRoom = {
     userRef: response.ref,
     model: 'gpt4',
@@ -167,10 +168,10 @@ const run = async () => {
     temperature: 0.8,
     stream: false,
   }
-  const childResponse = await addChildCollectionItem<UserChatRoom>(
+  const userChatRoomDoc = await addChildCollectionItem<UserChatRoom>(
     parentCollectionName,
-    response.id,
     childCollectionName,
+    parentId,
     childParams
   )
   console.log('Ref', childResponse)

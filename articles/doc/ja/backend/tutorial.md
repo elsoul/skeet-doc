@@ -39,7 +39,7 @@ GitHub Copilot を使った強力なコード補完サポートを受けるこ�
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 
-また、[最初のデプロイ](/backend/initial-deploy) が完了していない場合は、
+また、[最初のデプロイ](/ja/doc/backend/initial-deploy) が完了していない場合は、
 
 - Google Cloud プロジェクトの作成
 - Firebase プロジェクトの作成
@@ -91,18 +91,177 @@ Created User: {"uid":"5WcA4z5l7xYY4efgCklTney8jDD5","username":"","email":"elsou
 コンソールに accessToken が表示されます。
 この accessToken を使ってユーザー認証を行います。
 
+_await getUserAuth(accessToken)_ を使ってユーザー情報を Firebase から取得します。
+
 ```typescript
 import { getUserAuth } from '@/lib'
 
 const user = await getUserAuth(accessToken)
 ```
 
-## チャット機能の実装 - Skeet プラグイン
+## User モデル
 
-## Firebase Functions の追加
+この章では _skeet create_ コマンドを使って作成された User モデルを作成します。
+
+- [基本アーキテクチャ - モデルの定義](/ja/doc/backend/basic-architecture#モデルの定義)
+
+## User を作成する
+
+```typescript
+import { onRequest } from 'firebase-functions/v2/https'
+import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
+import {
+  addCollectionItem,
+  addChildCollectionItem,
+  addGrandChildCollectionItem,
+} from '@skeet-framework/firestore'
+import { TypedRequestBody } from '@/index'
+import { defaultHttpOption } from '@/routings/options'
+import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
+import { getUserAuth } from '@/lib/getUserAuth'
+
+export const createUserChatRoom = onRequest(
+  defaultHttpOption,
+  async (req, res) => {
+    try {
+      const user = await getUserAuth(req)
+      const parentCollectionName = 'User'
+
+      const userBody: User = {
+        uid: user.uid,
+        username: user.displayName || '',
+        email: user.email || '',
+        iconUrl: user.photoUrl || '',
+      }
+      const userDoc = await addCollectionItem<User>(
+        parentCollectionName,
+        userBody,
+        user.uid
+      )
+
+      res.json({ result: 'success!', userDoc })
+    } catch (error) {
+      const errorLog = `createUserChatRoom - ${error}`
+      console.log(errorLog)
+      res.status(400).json({ result: error })
+    }
+  }
+)
+```
+
+Firebase エミュレーターを起動します。
+
+```bash
+$ skeet s
+```
+
+別ウィンドウで
+Header に accessToken を設定してリクエストを送信します。
+
+```bash
+$ epoxrt ACCESS_TOKEN={YOUR_ACCESS_TOKEN}
+$ export PROJECT_ID={YOUR_PROJECT_ID}
+$ export REGION={YOUR_REGION}
+$ curl --location --request POST 'http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN"
+```
+
+Sample Result
+
+```json
+{
+  "result": "success!",
+  "userChatRoomRef": {
+    "__type__": "ref",
+    "collection": {
+      "__type__": "collection",
+      "path": "User/NZghHDi3RPXJK2EmRsCPlEX7Bz7R/UserChatRoom"
+    },
+    "id": "VCrDU9yF7GmGjcD3MZQH"
+  }
+}
+```
+
+User が作成ました。
+
+## UserChatRoom を作成する
+
+続いて、先ほどのコードに UserChatRoom を作成するコードを追加します。
+
+```typescript
+import { onRequest } from 'firebase-functions/v2/https'
+import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
+import {
+  addCollectionItem,
+  addChildCollectionItem,
+  addGrandChildCollectionItem,
+} from '@skeet-framework/firestore'
+import { TypedRequestBody } from '@/index'
+import { defaultHttpOption } from '@/routings/options'
+import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
+import { getUserAuth } from '@/lib/getUserAuth'
+
+export const createUserChatRoom = onRequest(
+  defaultHttpOption,
+  async (req, res) => {
+    try {
+      const user = await getUserAuth(req)
+      const parentCollectionName = 'User'
+      const childCollectionName = 'UserChatRoom'
+
+      const userBody: User = {
+        uid: user.uid,
+        username: user.displayName || '',
+        email: user.email || '',
+        iconUrl: user.photoUrl || '',
+      }
+      const userDoc = await addCollectionItem<User>(
+        parentCollectionName,
+        userBody,
+        user.uid
+      )
+
+      const parentId = user.uid || ''
+      const params: UserChatRoom = {
+        userRef,
+        model: body.model,
+        maxTokens: body.maxTokens,
+        temperature: body.temperature,
+        stream: body.stream,
+      }
+
+      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
+        parentCollectionName,
+        childCollectionName,
+        parentId,
+        params
+      )
+      res.json({ result: 'success!', userDoc, userChatRoomRef })
+    } catch (error) {
+      const errorLog = `createUserChatRoom - ${error}`
+      console.log(errorLog)
+      res.status(400).json({ result: error })
+    }
+  }
+)
+```
+
+## UserChatRoomMessage を作成する
+
+続いて、先ほどのコードに UserChatRoomMessage を作成するコードを追加します。
+ここでは OpenAI の初期設定を登録します。
+
+## AddUserChatRoomMessageParams を作成する
 
 ## モデルの追加・同期
 
 ## 型定義の追加・同期
 
 ## ルーティングの追加・同期
+
+## Cloud Armor の追加・同期
+
+## Firebase Functions の追加
+
+```
+
+```
