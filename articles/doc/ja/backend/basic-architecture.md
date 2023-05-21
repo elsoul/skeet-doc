@@ -350,7 +350,6 @@ export const firestoreDefaultOption = (document: string): DocumentOptions => ({
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
-  retry: true,
 })
 ```
 
@@ -414,7 +413,7 @@ _models/userModels.ts_
 ```ts
 import { Ref } from 'typesaurus'
 
-// CollectionId: auto
+// CollectionId: User
 // DocumentId: uid
 export type User = {
   uid: string
@@ -425,7 +424,7 @@ export type User = {
   updatedAt?: string
 }
 
-// CollectionId: auto
+// CollectionId: UserChatRoom
 // DocumentId: auto
 export type UserChatRoom = {
   userRef: Ref<User>
@@ -437,7 +436,7 @@ export type UserChatRoom = {
   updatedAt?: string
 }
 
-// CollectionId: auto
+// CollectionId: UserChatRoomMessage
 // DocumentId: auto
 export type UserChatRoomMessage = {
   userChatRoomRef: Ref<UserChatRoom>
@@ -446,4 +445,162 @@ export type UserChatRoomMessage = {
   createdAt?: string
   updatedAt?: string
 }
+```
+
+データの取得、更新、削除は、
+_@skeet-framework/firestore_ プラグインを使用して行います。
+
+```ts
+import {
+  addCollectionItem,
+  getCollectionItem,
+} from '@skeet-framework/firestore'
+```
+
+詳しくは、[Skeet Firestore](/ja/doc/backend/skeet-firestore) を参照してください。
+
+## Skeet CLI
+
+Skeet CLI を使って新たに Firebase functions を追加したり、
+yarn コマンドを 各ファンクションごとに実行することができます。
+
+コマンド一覧
+
+```bash
+$ skeet --help
+Usage: skeet [options] [command]
+
+CLI for Skeet - Full-stack TypeScript Serverless framework
+
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
+
+Commands:
+  create <appName>          Create Skeet App
+  server|s                  Run Skeet Server
+  deploy                    Deploy Skeet APP to Google Cloud Platform
+  init [options]            Generate Skeet Cloud Config
+  iam                       Skeet IAM Comannd
+  yarn [options] <yarnCmd>
+  add                       Add Comannd
+  sync                      Skeet Sync Comannd
+  delete|d                  Skeet Delete Command
+  list                      Show Skeet App List
+  help [command]            display help for command
+```
+
+### Skeet Yarn Install/Build
+
+```bash
+$ skeet yarn install/build
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+### Add Yarn Package
+
+指定したパッケージを選択したファンクションにインストールします。
+
+```bash
+$ skeet yarn add -p ${packageName}
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+For Development
+
+```bash
+$ skeet yarn add -p ${packageName} -D
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+### Skeet デプロイコマンド
+
+```bash
+$ skeet deploy
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
+
+### Cloud Functions の追加
+
+新規に Cloud Functions を追加する場合は、
+以下のコマンドを実行します。
+
+```bash
+$ skeet add functions <functionName>
+```
+
+すると、
+以下のようなフォルダ構成が作成されます。
+
+```bash
+├── functions
+│   ├── openai
+│   └── <functionName>
+```
+
+### Skeet Sync コマンド
+
+Skeet Sync コマンドは複数のパッケージ間での同期を行います。
+
+```bash
+$ skeet sync
+Usage: skeet sync [options] [command]
+
+Skeet Sync Comannd
+
+Options:
+  -h, --help      display help for command
+
+Commands:
+  models          Sync Models
+  types           Sync Types
+  routings        Sync Routings
+  armor           Sync Cloud Armor Rules
+  help [command]  display help for command
+```
+
+### Skeet Sync Models
+
+最新のモデルの定義を他のバックエンドパッケージとフロントエンドのパッケージにコピーします。
+
+```bash
+$ skeet sync models
+```
+
+全てのバックエンドへの Http 通信の型定義をフロントエンドのパッケージにコピーします。
+
+### Skeet Sync Types
+
+```bash
+$ skeet sync types
+```
+
+全てのバックエンドの Http インスタンスのルーティングを自動でロードバランサーに設定します。
+
+### Skeet Sync Routings
+
+```bash
+$ skeet sync routings
+```
+
+_skeet-cloud.config.json_ に記述された Cloud Armor のルールを自動で設定します。
+
+### Skeet Sync Armor
+
+```bash
+$ skeet sync armor
 ```

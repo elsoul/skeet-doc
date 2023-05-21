@@ -250,6 +250,97 @@ export const createUserChatRoom = onRequest(
 続いて、先ほどのコードに UserChatRoomMessage を作成するコードを追加します。
 ここでは OpenAI の初期設定を登録します。
 
+```typescript
+import { onRequest } from 'firebase-functions/v2/https'
+import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
+import {
+  addCollectionItem,
+  addChildCollectionItem,
+  addGrandChildCollectionItem,
+} from '@skeet-framework/firestore'
+import { TypedRequestBody } from '@/index'
+import { defaultHttpOption } from '@/routings/options'
+import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
+import { getUserAuth } from '@/lib/getUserAuth'
+
+export const createUserChatRoom = onRequest(
+  defaultHttpOption,
+  async (req: TypedRequestBody<CreateUserChatRoomParams>, res) => {
+    try {
+      const body = {
+        model: req.body.model || 'gpt-3.5-turbo',
+        systemContent:
+          req.body.systemContent ||
+          'This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.',
+        maxTokens: req.body.maxTokens || 256,
+        temperature: req.body.temperature || 1,
+        stream: req.body.stream || false,
+      }
+      const user = await getUserAuth(req)
+      const parentCollectionName = 'User'
+      const childCollectionName = 'UserChatRoom'
+      const grandChildCollectionName = 'UserChatRoomMessage'
+
+      const userBody: User = {
+        uid: user.uid,
+        username: user.displayName || '',
+        email: user.email || '',
+        iconUrl: user.photoUrl || '',
+      }
+      const userRef = await addCollectionItem<User>(
+        parentCollectionName,
+        userBody,
+        user.uid
+      )
+
+      const parentId = user.uid || ''
+      const params: UserChatRoom = {
+        userRef,
+        model: body.model,
+        maxTokens: body.maxTokens,
+        temperature: body.temperature,
+        stream: body.stream,
+      }
+      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
+        parentCollectionName,
+        childCollectionName,
+        parentId,
+        params
+      )
+      console.log(`created userChatRoomRef: ${userChatRoomRef.id}`)
+      const systemMessage: UserChatRoomMessage = {
+        userChatRoomRef,
+        role: 'system',
+        content: body.systemContent,
+      }
+      await addGrandChildCollectionItem<
+        UserChatRoomMessage,
+        UserChatRoom,
+        User
+      >(
+        parentCollectionName,
+        childCollectionName,
+        grandChildCollectionName,
+        user.uid,
+        userChatRoomRef.id,
+        systemMessage
+      )
+      res.json({ result: 'success!', userChatRoomRef })
+    } catch (error) {
+      const errorLog = `createUserChatRoom - ${error}`
+      console.log(errorLog)
+      res.status(400).json({ result: error })
+    }
+  }
+)
+```
+
+これで先ほどと同様に POST リクエストを送信すると、UserChatRoom と UserChatRoomMessage が作成されます。
+
+```bash
+$ curl --location --request POST 'http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN"
+```
+
 ## AddUserChatRoomMessageParams を作成する
 
 ## モデルの追加・同期
@@ -261,7 +352,3 @@ export const createUserChatRoom = onRequest(
 ## Cloud Armor の追加・同期
 
 ## Firebase Functions の追加
-
-```
-
-```
