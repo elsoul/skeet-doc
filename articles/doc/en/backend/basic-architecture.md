@@ -58,10 +58,10 @@ You can add multiple functions to functions.
 ## Basic Structure of Skeet Functions
 
 Skeet Functions are based on Firebase Functions.
-The firebase functions project will be placed under the `functions` directory.
+The firebase functions project will be placed under the _functions_ directory.
 You can add multiple functions to functions.
 
-`functions/openai`
+_functions/openai_
 
 ```bash
 .
@@ -350,7 +350,6 @@ export const firestoreDefaultOption = (document: string): DocumentOptions => ({
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
-  retry: true,
 })
 ```
 
@@ -443,4 +442,162 @@ export type UserChatRoomMessage = {
   createdAt?: string
   updatedAt?: string
 }
+```
+
+To Add/Get/Query/Remove Data,
+
+install
+
+_@skeet-framework/firestore_
+
+```ts
+import {
+  addCollectionItem,
+  getCollectionItem,
+} from '@skeet-framework/firestore'
+```
+
+- [@skeet-framework/firestore](/en/doc/backend/skeet-firestore)
+
+## Skeet CLI
+
+Skeet CLI is a command line tool for Skeet Framework.
+
+Command List
+
+```bash
+$ skeet --help
+Usage: skeet [options] [command]
+
+CLI for Skeet - Full-stack TypeScript Serverless framework
+
+Options:
+  -V, --version             output the version number
+  -h, --help                display help for command
+
+Commands:
+  create <appName>          Create Skeet App
+  server|s                  Run Skeet Server
+  deploy                    Deploy Skeet APP to Google Cloud Platform
+  init [options]            Generate Skeet Cloud Config
+  iam                       Skeet IAM Comannd
+  yarn [options] <yarnCmd>
+  add                       Add Comannd
+  sync                      Skeet Sync Comannd
+  delete|d                  Skeet Delete Command
+  list                      Show Skeet App List
+  help [command]            display help for command
+```
+
+### Skeet Yarn Install/Build
+
+```bash
+$ skeet yarn install/build
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+### Add Yarn Package
+
+Select Functions to add yarn package
+
+```bash
+$ skeet yarn add -p ${packageName}
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+For Development
+
+```bash
+$ skeet yarn add -p ${packageName} -D
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+### Skeet Deploy Comannd
+
+```bash
+$ skeet deploy
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
+
+### Add Cloud Functions
+
+Run the following command to add a function.
+
+```bash
+$ skeet add functions <functionName>
+```
+
+new function will be created in the following directory.
+
+```bash
+├── functions
+│   ├── openai
+│   └── <functionName>
+```
+
+### Skeet Sync Command
+
+Skeet Sync Command is a command to sync the latest model definitions to other backend packages and frontend packages.
+
+```bash
+$ skeet sync
+Usage: skeet sync [options] [command]
+
+Skeet Sync Comannd
+
+Options:
+  -h, --help      display help for command
+
+Commands:
+  models          Sync Models
+  types           Sync Types
+  routings        Sync Routings
+  armor           Sync Cloud Armor Rules
+  help [command]  display help for command
+```
+
+### Skeet Sync Models
+
+Copy the latest model definitions to the backend packages and frontend packages.
+
+```bash
+$ skeet sync models
+```
+
+Copy the types of the HTTP Instances to frontend packages.
+
+### Skeet Sync Types
+
+```bash
+$ skeet sync types
+```
+
+Create routings for the HTTP Instances.
+
+### Skeet Sync Routings
+
+```bash
+$ skeet sync routings
+```
+
+_skeet-cloud.config.json_ is a file that defines the rules for accessing the Cloud Functions.
+
+### Skeet Sync Armor
+
+```bash
+$ skeet sync armor
 ```
