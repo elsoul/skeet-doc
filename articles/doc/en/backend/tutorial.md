@@ -560,6 +560,8 @@ Import and use _streamChat_ from the library found in .
 
 Add new method with _skeet add method_ command.
 
+This method is for receiving requests from the frontend, so select _http_.
+
 ```bash
 $ skeet add method addStreamUserChatRoomMessage
 ? Select Instance Type to add (Use arrow keys)
