@@ -90,7 +90,7 @@ _functions/openai/routings/auth/authCreateUser.ts_ に定義されている
 Auth インスタンスのトリガーが作動して、
 Firebase Firestore にユーザー情報が保存されます。
 
-````typescript
+```typescript
 import { User } from '@/models'
 import { addCollectionItem } from '@skeet-framework/firestore'
 import { auth } from 'firebase-functions/v1'
@@ -121,7 +121,7 @@ _await getUserAuth(req)_ を使ってユーザー情報を Firebase から取得
 import { getUserAuth } from '@/lib'
 
 const user = await getUserAuth(req)
-````
+```
 
 *getUserAuth*の戻り値の型定義は次のようになっています。
 
@@ -806,15 +806,15 @@ _skeet-cloud.config.json_
 ```json
 {
   "app": {
-    "name": "epics-beta",
-    "projectId": "epics-beta",
+    "name": "skeet-example",
+    "projectId": "skeet-example",
     "region": "asia-northeast1",
-    "appDomain": "epics.dev",
-    "functionsDomain": "lb.epics.dev"
+    "appDomain": "skeeter.app",
+    "functionsDomain": "lb.skeeter.app"
   },
   "cloudArmor": [
     {
-      "securityPolicyName": "skeet-epics-beta-armor",
+      "securityPolicyName": "skeet-skeet-example-armor",
       "rules": [
         {
           "priority": "10",

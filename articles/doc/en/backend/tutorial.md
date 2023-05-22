@@ -806,15 +806,15 @@ _skeet-cloud.config.json_
 ```json
 {
   "app": {
-    "name": "epics-beta",
-    "projectId": "epics-beta",
+    "name": "skeet-example",
+    "projectId": "skeet-example",
     "region": "asia-northeast1",
-    "appDomain": "epics.dev",
-    "functionsDomain": "lb.epics.dev"
+    "appDomain": "skeeter.app",
+    "functionsDomain": "lb.skeeter.app"
   },
   "cloudArmor": [
     {
-      "securityPolicyName": "skeet-epics-beta-armor",
+      "securityPolicyName": "skeet-skeet-example-armor",
       "rules": [
         {
           "priority": "10",
