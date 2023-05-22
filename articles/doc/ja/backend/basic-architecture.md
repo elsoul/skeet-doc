@@ -581,6 +581,7 @@ $ skeet yarn install/build
 ### Add Yarn Package
 
 指定したパッケージを選択したファンクションにインストールします。
+a を押すと全ての _functions_ を選択します。
 
 ```bash
 $ skeet yarn add -p ${packageName}
@@ -648,7 +649,7 @@ Commands:
   models          Sync Models
   types           Sync Types
   routings        Sync Routings
-  armor           Sync Cloud Armor Rules
+  armors           Sync Cloud Armor Rules
   help [command]  display help for command
 ```
 
@@ -681,5 +682,5 @@ _skeet-cloud.config.json_ に記述された Cloud Armor のルールを自動�
 ### Skeet Sync Armor
 
 ```bash
-$ skeet sync armor
+$ skeet sync armors
 ```
