@@ -119,6 +119,9 @@ Routing settings differ depending on the instance type.
 Also, Firebase Functions option settings are located under routings/options.
 
 ```bash
+├── auth
+│   ├── authOnCreateUser.ts
+│   └── index.ts
 ├── firestore
 │   ├── firestoreExample.ts
 │   └── index.ts
