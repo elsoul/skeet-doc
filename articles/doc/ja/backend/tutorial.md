@@ -558,7 +558,56 @@ _functions/openai/lib/openai/openAI.ts_
 
 にあるライブラリーから _streamChat_ をインポートして使います。
 
+Skeet Add コマンドを使って新しいメソッドを追加します。
+
+```bash
+$ skeet add method addStreamUserChatRoomMessage
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+❯ http
+  firestore
+  pubSub
+  scheduler
+  auth
+? Select Instance Type to add http
+? Select Functions to add openai
+✔️ ./functions/openai/src/types/http/addStreamUserChatRoomMessage.ts created!
+✔️ ./functions/openai/src/routings/http/addStreamUserChatRoomMessageParams.ts created!
+```
+
+新規メソッドとそれに対する型定義のテンプレートが作成されました。
+
 _functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
+
+```typescript
+import { onRequest } from 'firebase-functions/v2/https'
+import { defaultHttpOption } from '@/routings/options'
+import { TypedRequestBody } from '@/index'
+import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
+
+export const addStreamUserChatRoomMessage = onRequest(
+  defaultHttpOption,
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+    try {
+      res.json({
+        status: 'success',
+      })
+    } catch (error) {
+      res.status(500).json({ status: 'error', message: String(error) })
+    }
+  }
+)
+```
+
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  name?: string
+}
+```
+
+それではロジック部分を実装していきます。
 
 ```typescript
 import { onRequest } from 'firebase-functions/v2/https'
@@ -570,7 +619,7 @@ import {
 } from 'openai'
 import { streamChat } from '@/lib/openai/openAi'
 import { TypedRequestBody } from '@/index'
-import { AddUserChatRoomMessageParams } from '@/types/http/addUserChatRoomMessageParams'
+import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
 import {
   addGrandChildCollectionItem,
   getChildCollectionItem,
@@ -854,6 +903,15 @@ $ skeet sync armors
 ```
 
 新規に Google Cloud Armor を作成または、更新されます。
+
+## Skeet yarn build
+
+Skeet yarn build コマンドで
+a キーを押すと、全てのファンクションのビルドが行われます。
+
+```bash
+$ skeet yarn build
+```
 
 ## Skeet Framework のデプロイ
 

@@ -393,6 +393,31 @@ Cloud Firestore function triggers
 
 ### Configure Auth instance
 
+Auth Default Option
+
+_routings/options/auth/authOptions.ts_
+
+```ts
+import dotenv from 'dotenv'
+import { RuntimeOptions } from 'firebase-functions/v1'
+dotenv.config()
+
+const project = process.env.PROJECT_ID || 'skeet-example'
+const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${project}-con`
+
+export const authDefaultOption: RuntimeOptions = {
+  memory: '1GB',
+  maxInstances: 100,
+  minInstances: 0,
+  timeoutSeconds: 300,
+  serviceAccount,
+  ingressSettings: 'ALLOW_INTERNAL_ONLY',
+  vpcConnector,
+  vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+}
+```
+
 In the Auth instance's default function,
 When a Firebase user is created,
 Create user documentation.
@@ -628,6 +653,22 @@ $ skeet deploy
 
 ![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
 
+### Skeet Add Command
+
+```bash
+Usage: skeet add [options] [command]
+
+Skeet Add Comannd to add new functions
+
+Options:
+  -h, --help                 display help for command
+
+Commands:
+  functions <functionsName>
+  method <methoName>
+  help [command]             display help for command
+```
+
 ### Add Cloud Functions
 
 Run the following command to add a function.
@@ -643,6 +684,38 @@ new function will be created in the following directory.
 │   ├── openai
 │   └── <functionName>
 ```
+
+### Add Method
+
+If you want to add a method to an existing Cloud Functions,
+run the following command and select the instance type.
+
+```bash
+$ skeet add method <methodName>
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+❯ http
+  firestore
+  pubSub
+  scheduler
+  auth
+```
+
+Next, select the function to add the method to.
+
+```bash
+? Select Instance Type to add http
+? Select Functions to add (Use arrow keys)
+   = Functions =
+❯ openai
+  solana
+? Select Instance Type to add http
+? Select Functions to add solana
+✔️ ./functions/solana/src/types/http/createUserParams.ts created!
+✔️ ./functions/solana/src/routings/http/createUser.ts created!
+```
+
+New method and type definitions will be created.
 
 ### Skeet Sync Command
 

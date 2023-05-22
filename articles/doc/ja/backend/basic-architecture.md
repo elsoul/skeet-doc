@@ -393,6 +393,31 @@ Firestore Trigger のタイプ
 
 ### Auth インスタンスの設定
 
+Auth デフォルトオプション設定
+
+_routings/options/auth/authOptions.ts_
+
+```ts
+import dotenv from 'dotenv'
+import { RuntimeOptions } from 'firebase-functions/v1'
+dotenv.config()
+
+const project = process.env.PROJECT_ID || 'skeet-example'
+const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${project}-con`
+
+export const authDefaultOption: RuntimeOptions = {
+  memory: '1GB',
+  maxInstances: 100,
+  minInstances: 0,
+  timeoutSeconds: 300,
+  serviceAccount,
+  ingressSettings: 'ALLOW_INTERNAL_ONLY',
+  vpcConnector,
+  vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+}
+```
+
 Auth インスタンスのデフォルトファンクションでは、
 Firebase ユーザーが作成されたときに、
 ユーザーのドキュメントを作成します。
@@ -623,6 +648,22 @@ $ skeet deploy
 
 ![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
 
+### Skeet Add コマンド
+
+```bash
+Usage: skeet add [options] [command]
+
+Skeet Add Comannd to add new functions
+
+Options:
+  -h, --help                 display help for command
+
+Commands:
+  functions <functionsName>
+  method <methoName>
+  help [command]             display help for command
+```
+
 ### Cloud Functions の追加
 
 新規に Cloud Functions を追加する場合は、
@@ -641,6 +682,38 @@ $ skeet add functions <functionName>
 │   ├── openai
 │   └── <functionName>
 ```
+
+### メソッドの追加
+
+既存の Cloud Functions にメソッドを追加する場合は、
+メソッド名を指定して以下のコマンドを実行し、インスタンスタイプを選択します。
+
+```bash
+$ skeet add method <methodName>
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+❯ http
+  firestore
+  pubSub
+  scheduler
+  auth
+```
+
+メソッドを追加するするファンクションを選択します。
+
+```bash
+? Select Instance Type to add http
+? Select Functions to add (Use arrow keys)
+   = Functions =
+❯ openai
+  solana
+? Select Instance Type to add http
+? Select Functions to add solana
+✔️ ./functions/solana/src/types/http/createUserParams.ts created!
+✔️ ./functions/solana/src/routings/http/createUser.ts created!
+```
+
+新しいメソッドと型定義が作成されます。
 
 ### Skeet Sync コマンド
 
