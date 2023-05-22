@@ -558,6 +558,57 @@ _functions/openai/lib/openai/openAI.ts_
 
 Import and use _streamChat_ from the library found in .
 
+Add new method with _skeet add method_ command.
+
+```bash
+$ skeet add method addStreamUserChatRoomMessage
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+❯ http
+  firestore
+  pubSub
+  scheduler
+  auth
+? Select Instance Type to add http
+? Select Functions to add openai
+✔️ ./functions/openai/src/types/http/addStreamUserChatRoomMessage.ts created!
+✔️ ./functions/openai/src/routings/http/addStreamUserChatRoomMessageParams.ts created!
+```
+
+New method and type definition template have been created.
+
+_functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
+
+```typescript
+import { onRequest } from 'firebase-functions/v2/https'
+import { defaultHttpOption } from '@/routings/options'
+import { TypedRequestBody } from '@/index'
+import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
+
+export const addStreamUserChatRoomMessage = onRequest(
+  defaultHttpOption,
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+    try {
+      res.json({
+        status: 'success',
+      })
+    } catch (error) {
+      res.status(500).json({ status: 'error', message: String(error) })
+    }
+  }
+)
+```
+
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  name?: string
+}
+```
+
+Let's implement the logic part.
+
 _functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
@@ -854,6 +905,14 @@ $ skeet sync armors
 ```
 
 A new Google Cloud Armor is created or updated.
+
+## Skeet yarn build
+
+press a key to select all _functions_.
+
+```bash
+$ skeet yarn build
+```
 
 ## Deploying Skeet Framework
 
