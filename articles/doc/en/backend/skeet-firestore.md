@@ -4,6 +4,10 @@ title: Skeet Firestore
 description: How to use Firestore in Skeet Framework.
 ---
 
+## Skeet Firestore TypeDocs
+
+- [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
+
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework provides a plugin for using Firestore.
