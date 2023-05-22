@@ -560,6 +560,8 @@ _functions/openai/lib/openai/openAI.ts_
 
 Skeet Add コマンドを使って新しいメソッドを追加します。
 
+フロントエンドからのリクエストを受け取るためのメソッドなので、_http_ を選択します。
+
 ```bash
 $ skeet add method addStreamUserChatRoomMessage
 ? Select Instance Type to add (Use arrow keys)
