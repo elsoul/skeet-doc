@@ -109,6 +109,7 @@ _functions/openai_
 | PubSub             | PubSub メッセージを受け取る関数                                        |
 | Scheduler          | スケジュールされた関数                                                 |
 | Firestore          | Firestore のドキュメントの作成、更新、削除などのトリガーを受け取る関数 |
+| Auth               | Firebase ユーザーアカウントの作成と削除などのトリガーを受け取る関数    |
 
 ## Skeet Rountings の基本構造
 
@@ -116,6 +117,9 @@ _functions/openai_
 また、Firebase Functions のオプション設定は routings/options 以下に配置されています。
 
 ```bash
+├── auth
+│   ├── authOnCreateUser.ts
+│   └── index.ts
 ├── firestore
 │   ├── firestoreExample.ts
 │   └── index.ts
@@ -384,6 +388,80 @@ Firestore Trigger のタイプ
 | onDocumentUpdated | ドキュメントが更新されたとき             |
 | onDocumentWritten | ドキュメントが作成、更新、削除されたとき |
 
+### Auth インスタンスの設定
+
+Auth インスタンスのデフォルトファンクションでは、
+Firebase ユーザーが作成されたときに、
+ユーザーのドキュメントを作成します。
+
+Auth インスタンスの設定は、_routings/auth/auth{MethoName}.ts_ に記述します。
+
+_routings/auth/authCreateUser.ts_
+
+```ts
+import { User } from '@/models'
+import { addCollectionItem } from '@skeet-framework/firestore'
+import { auth } from 'firebase-functions/v1'
+
+export const authOnCreateUser = auth.user().onCreate(async (user) => {
+  try {
+    const { uid, email, displayName, photoURL } = user
+    const userParams = {
+      uid,
+      email: email || '',
+      username: displayName || '',
+      iconUrl: photoURL || '',
+    }
+    const userRef = await addCollectionItem<User>('User', userParams, uid)
+    console.log({ status: 'success', userRef })
+  } catch (error) {
+    console.log(`authOnCreateUser - ${String(error)}`)
+  }
+})
+```
+
+### Dev 環境での Firebase ユーザー登録・ログイン
+
+Dev 環境では、
+Firebase ユーザーの登録・ログインに、
+_skeet yarn dev:login_ コマンドを使用します。
+
+```bash
+$ skeet yarn dev:login
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter>
+to proceed)
+  = Services =
+❯◯ openai
+```
+
+_openai_ ファンクションを選択して実行すると
+
+```bash
+i  functions: Beginning execution of "us-central1-authOnCreateUser"
+>  {
+>    status: 'success',
+>    userRef: {
+>      __type__: 'ref',
+>      collection: { __type__: 'collection', path: 'User' },
+>      id: '65N7Yl6rWzGASPrqhjC7wyhqUfpg'
+>    }
+>  }
+```
+
+Firebase ユーザー登録と Firestore ユーザー登録が完了します。
+
+コンソールに表示される _accessToken_ をコピーして、
+Dev 環境のログイン認証に使用します。
+
+簡易的に _curl_ で POST リクエストを送信する場合、
+以下のように環境設定に設定しておくと便利です。
+
+```bash
+export $ACCESS_TOKEN={your-access-token}
+export $PROJECT_ID={your-project-id}
+export $REGION={your-region}
+```
+
 ## モデルの定義
 
 モデルの定義は、
@@ -477,14 +555,14 @@ Options:
   -h, --help                display help for command
 
 Commands:
-  create <appName>          Create Skeet App
-  server|s                  Run Skeet Server
-  deploy                    Deploy Skeet APP to Google Cloud Platform
-  init [options]            Generate Skeet Cloud Config
-  iam                       Skeet IAM Comannd
-  yarn [options] <yarnCmd>
-  add                       Add Comannd
-  sync                      Skeet Sync Comannd
+  create <appName>          Create Skeet Framework App
+  server|s                  Run Firebase Emulator for Skeet APP
+  deploy                    Deploy Skeet APP to Firebase Cloud Functions
+  init [options]            Initialize Google Cloud Setups for Skeet APP
+  iam                       Skeet IAM Comannd to setup Google Cloud Platform
+  yarn [options] <yarnCmd>  Skeet Yarn Comannd to run yarn command for multiple functions
+  add                       Skeet Add Comannd to add new functions
+  sync                      Skeet Sync Comannd to sync backend and frontend
   delete|d                  Skeet Delete Command
   list                      Show Skeet App List
   help [command]            display help for command
@@ -544,7 +622,8 @@ $ skeet add functions <functionName>
 ```
 
 すると、
-以下のようなフォルダ構成が作成されます。
+以下のようなフォルダ構成が作成され、
+最新のモデルの定義がコピーされます。
 
 ```bash
 ├── functions

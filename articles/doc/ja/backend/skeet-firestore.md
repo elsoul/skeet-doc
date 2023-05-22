@@ -87,7 +87,7 @@ const grandChildCollectionName = 'GrandChild'
 .
 .
 
-const dataRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
+const docRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
   parentCollectionName,
   childCollectionName,
   grandChildCollectionName,
@@ -112,8 +112,11 @@ const run = async () => {
   const params: User = {
     username: 'Satoshi',
   }
-  const response = await addCollectionItem<User>(parentCollectionName, params)
-  console.log('Ref', response)
+  const parentDocRef = await addCollectionItem<User>(
+    parentCollectionName,
+    params
+  )
+  console.log(parentCollectionName, parentDocRef)
 }
 
 run()
@@ -134,12 +137,12 @@ const run = async () => {
     username: 'Satoshi',
   }
   const uid = 'uidstring'
-  const response = await addCollectionItem<User>(
+  const parentDocRef = await addCollectionItem<User>(
     parentCollectionName,
     params,
     uid
   )
-  console.log('Ref', response)
+  console.log(parentCollectionName, parentDocRef)
 }
 
 run()
@@ -158,8 +161,8 @@ const run = async () => {
   const params: User = {
     username: 'Satoshi',
   }
-  const userDoc = await addCollectionItem<User>(parentCollectionName, params)
-  console.log('User', userDoc)
+  const userDocRef = await addCollectionItem<User>(parentCollectionName, params)
+  console.log(parentCollectionName, userDocRef)
 
   const childParams: UserChatRoom = {
     userRef: response.ref,
@@ -168,12 +171,12 @@ const run = async () => {
     temperature: 0.8,
     stream: false,
   }
-  const userChatRoomDoc = await addChildCollectionItem<UserChatRoom>(
+  const userChatRoomDocRef = await addChildCollectionItem<UserChatRoom>(
     parentCollectionName,
     childCollectionName,
     parentId,
     childParams
   )
-  console.log('Ref', childResponse)
+  console.log(childCollectionName, userChatRoomDocRef)
 }
 ```
