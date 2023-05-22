@@ -491,6 +491,9 @@ Commands:
 
 ### Skeet Yarn Install/Build
 
+Select Functions to run yarn command
+Press a key to toggle all functions
+
 ```bash
 $ skeet yarn install/build
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
@@ -502,6 +505,7 @@ $ skeet yarn install/build
 ### Add Yarn Package
 
 Select Functions to add yarn package
+Press a key to toggle all functions
 
 ```bash
 $ skeet yarn add -p ${packageName}
@@ -522,6 +526,9 @@ $ skeet yarn add -p ${packageName} -D
 ```
 
 ### Skeet Deploy Comannd
+
+Select Functions to add yarn package
+Press a key to toggle all functions
 
 ```bash
 $ skeet deploy
@@ -566,7 +573,7 @@ Commands:
   models          Sync Models
   types           Sync Types
   routings        Sync Routings
-  armor           Sync Cloud Armor Rules
+  armors           Sync Cloud Armor Rules
   help [command]  display help for command
 ```
 
@@ -599,5 +606,5 @@ _skeet-cloud.config.json_ is a file that defines the rules for accessing the Clo
 ### Skeet Sync Armor
 
 ```bash
-$ skeet sync armor
+$ skeet sync armors
 ```

@@ -869,3 +869,35 @@ $ skeet sync armors
 ```
 
 A new Google Cloud Armor is created or updated.
+
+## Deploying Skeet Framework
+
+Skeet Framework has two deployment methods.
+
+- CD/CI with GitHub Actions
+- Deploy with Skeet CLI
+
+### CD/CI with GitHub Actions
+
+```bash
+$ git add .
+$ git commit -m "first deploy"
+$ git push origin main
+```
+
+GitHub Actions automatically deploy when you push to GitHub.
+
+### Deploying with Skeet CLI
+
+```bash
+$ skeet deploy
+? Select Services to run functions command (Press <space> to select, <a> to toggle all, <i> to invert
+selection, and <enter> to proceed)
+  =Services=
+❯◯ openai
+ ◯ Solana
+```
+
+Select the _functions_ to deploy,
+Deploy only selected _functions_.
+Press a to select all _functions_.

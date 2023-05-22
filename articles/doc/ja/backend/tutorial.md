@@ -869,3 +869,35 @@ $ skeet sync armors
 ```
 
 新規に Google Cloud Armor を作成または、更新されます。
+
+## Skeet Framework のデプロイ
+
+Skeet Framework に 2 種類のデプロイ方法があります。
+
+- GitHub Actions による CD/CI
+- Skeet CLI によるデプロイ
+
+### GitHub Actions による CD/CI
+
+```bash
+$ git add .
+$ git commit -m "first deploy"
+$ git push origin main
+```
+
+GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
+
+### Skeet CLI によるデプロイ
+
+```bash
+$ skeet deploy
+? Select Services to run functions command (Press <space> to select, <a> to toggle all, <i> to invert
+selection, and <enter> to proceed)
+  = Services =
+❯◯ openai
+ ◯ solana
+```
+
+デプロイする _functions_ を選択し,
+選択された _functions_ のみをデプロイします。
+a を押すと全ての _functions_ を選択します。
