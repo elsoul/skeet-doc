@@ -4,6 +4,10 @@ title: Skeet Firestore
 description: Skeet フレームワーク における Firestore の使い方を解説します。
 ---
 
+## Skeet Firestore TypeDocs
+
+- [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
+
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework では Firestore を使うためのプラグインが用意されています。
