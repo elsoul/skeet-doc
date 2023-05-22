@@ -42,6 +42,7 @@ You can add multiple functions to functions.
 │   └── solana
 ├── package.json
 ├── skeet-cloud.config.json
+└── firebase.json
 ```
 
 | Directory               | Description                        |
@@ -54,6 +55,7 @@ You can add multiple functions to functions.
 | functions/solana        | functions related to Solana Web3js |
 | package.json            | Backend package management         |
 | skeet-cloud.config.json | Skeet Framework configuration file |
+| firebase.json           | Firebase の設定ファイル            |
 
 ## Basic Structure of Skeet Functions
 
@@ -61,7 +63,7 @@ Skeet Functions are based on Firebase Functions.
 The firebase functions project will be placed under the _functions_ directory.
 You can add multiple functions to functions.
 
-_functions/openai_
+e.g. _functions/openai_
 
 ```bash
 .
@@ -109,6 +111,7 @@ _functions/openai_
 | PubSub        | function that receives PubSub messages                                                        |
 | Scheduler     | Scheduled Functions                                                                           |
 | Firestore     | Functions that receive triggers for creating, updating, deleting, etc. documents in Firestore |
+| Auth          | Functions that receive triggers for creating, deleting, etc. users in Firebase Auth           |
 
 ## Basic Structure of Skeet Routings
 
@@ -127,6 +130,7 @@ Also, Firebase Functions option settings are located under routings/options.
 │   └── root.ts
 ├── index.ts
 ├── options
+│   ├── authOptions.ts
 │   ├── firestoreOptions.ts
 │   ├── httpOptions.ts
 │   ├── index.ts
@@ -383,6 +387,87 @@ Cloud Firestore function triggers
 | onDocumentDeleted | Triggered when a document already exists and has any value changed.                    |
 | onDocumentUpdated | Triggered when a document is deleted.                                                  |
 | onDocumentWritten | Triggered when onDocumentCreated, onDocumentUpdated or onDocumentDeleted is triggered. |
+
+### Configure Auth instance
+
+In the Auth instance's default function,
+When a Firebase user is created,
+Create user documentation.
+
+Auth instance settings are described in _routings/auth/auth{MethoName}.ts_.
+
+_routings/auth/authOnCreateUser.ts_
+
+```ts
+import { User } from '@/models'
+import { addCollectionItem } from '@skeet-framework/firestore'
+import * as functions from 'firebase-functions/v1'
+import { authDefaultOption } from '@/routings'
+
+const region = process.env.REGION || 'asia-northeast1'
+
+export const authOnCreateUser = functions
+  .runWith(authDefaultOption)
+  .region(region)
+  .auth.user()
+  .onCreate(async (user) => {
+    try {
+      const { uid, email, displayName, photoURL } = user
+      const userParams = {
+        uid,
+        email: email || '',
+        username: displayName || '',
+        iconUrl: photoURL || '',
+      }
+      const userRef = await addCollectionItem<User>('User', userParams, uid)
+      console.log({ status: 'success', userRef })
+    } catch (error) {
+      console.log(`error - ${String(error)}`)
+    }
+  })
+```
+
+### Firebase user registration/login in Dev environment
+
+In the Dev environment,
+For Firebase user registration and login,
+Use the _skeet yarn dev:login_ command.
+
+```bash
+$ skeet yarn dev:login
+? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter>
+to proceed)
+  = Services =
+❯◯ openai
+```
+
+Select _openai_ and press enter.
+
+```bash
+i  functions: Beginning execution of "us-central1-authOnCreateUser"
+>  {
+>    status: 'success',
+>    userRef: {
+>      __type__: 'ref',
+>      collection: { __type__: 'collection', path: 'User' },
+>      id: '65N7Yl6rWzGASPrqhjC7wyhqUfpg'
+>    }
+>  }
+```
+
+Firebase user registration and Firestore user registration are completed.
+
+Copy the _accessToken_ displayed in the console,
+Used for dev environment login authentication.
+
+If you simply send a POST request with _curl_,
+It is convenient to set the environment settings as follows.
+
+```bash
+export $ACCESS_TOKEN={your-access-token}
+export $PROJECT_ID={your-project-id}
+export $REGION={your-region}
+```
 
 ## Model definition
 

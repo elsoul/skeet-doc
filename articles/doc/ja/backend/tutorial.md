@@ -50,66 +50,51 @@ Firebase エミュレーターを起動します。
 $ skeet s
 ```
 
-別ウィンドウで次のコマンドを実行します。
+別ウィンドウで次のコマンドを実行し、
+_accessToken_ を取得します。
 
 ```bash
 $ skeet yarn dev:login
-  },
-  accessToken: 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJlbWFpbCI6ImVsc291bC1sYWJvQGV4YW1wbGUuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJhdXRoX3RpbWUiOjE2ODQ1MTM3ODAsInVzZXJfaWQiOiI1V2NBNHo1bDd4WVk0ZWZnQ2tsVG5leThqREQ1IiwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJlbHNvdWwtbGFib0BleGFtcGxlLmNvbSJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn0sImlhdCI6MTY4NDUxMzc4MCwiZXhwIjoxNjg0NTE3MzgwLCJhdWQiOiJlcGljcy1iZXRhIiwiaXNzIjoiaHR0cHM6Ly9zZWN1cmV0b2tlbi5nb29nbGUuY29tL2VwaWNzLWJldGEiLCJzdWIiOiI1V2NBNHo1bDd4WVk0ZWZnQ2tsVG5leThqREQ1In0.',
-  displayName: null,
-  email: 'elsoul-labo@example.com',
-  emailVerified: false,
-  phoneNumber: null,
-  photoURL: null,
-  isAnonymous: false,
-  tenantId: null,
-  providerData: [
-    {
-      providerId: 'password',
-      uid: 'elsoul-labo@example.com',
-      displayName: null,
-      email: 'elsoul-labo@example.com',
-      phoneNumber: null,
-      photoURL: null
-    }
-  ],
-  metadata: UserMetadata {
-    createdAt: '1684513780143',
-    lastLoginAt: '1684513780154',
-    lastSignInTime: 'Fri, 19 May 2023 16:29:40 GMT',
-    creationTime: 'Fri, 19 May 2023 16:29:40 GMT'
-  }
-}
-Created User: {"uid":"5WcA4z5l7xYY4efgCklTney8jDD5","username":"","email":"elsoul-labo@example.com","iconUrl":""}
-✨  Done in 1.05s.
+  .
+  .
+  accessToken: 'accessToken'',
+  .
+  .
 ```
 
 Firebase ユーザーが作成され、
 
-_functions/openai/routings/auth/authCreateUser.ts_ に定義されている
+_functions/openai/routings/auth/authOnCreateUser.ts_ に定義されている
 Auth インスタンスのトリガーが作動して、
 Firebase Firestore にユーザー情報が保存されます。
 
 ```typescript
 import { User } from '@/models'
 import { addCollectionItem } from '@skeet-framework/firestore'
-import { auth } from 'firebase-functions/v1'
+import * as functions from 'firebase-functions/v1'
+import { authDefaultOption } from '@/routings'
 
-export const authOnCreateUser = auth.user().onCreate(async (user) => {
-  try {
-    const { uid, email, displayName, photoURL } = user
-    const userParams = {
-      uid,
-      email: email || '',
-      username: displayName || '',
-      iconUrl: photoURL || '',
+const region = process.env.REGION || 'asia-northeast1'
+
+export const authOnCreateUser = functions
+  .runWith(authDefaultOption)
+  .region(region)
+  .auth.user()
+  .onCreate(async (user) => {
+    try {
+      const { uid, email, displayName, photoURL } = user
+      const userParams = {
+        uid,
+        email: email || '',
+        username: displayName || '',
+        iconUrl: photoURL || '',
+      }
+      const userRef = await addCollectionItem<User>('User', userParams, uid)
+      console.log({ status: 'success', userRef })
+    } catch (error) {
+      console.log(`error - ${String(error)}`)
     }
-    const userRef = await addCollectionItem<User>('User', userParams, uid)
-    console.log({ status: 'success', userRef })
-  } catch (error) {
-    console.log(`authOnCreateUser - ${String(error)}`)
-  }
-})
+  })
 ```
 
 コンソールに accessToken が表示されるので、
@@ -877,7 +862,7 @@ Skeet Framework に 2 種類のデプロイ方法があります。
 - GitHub Actions による CD/CI
 - Skeet CLI によるデプロイ
 
-### GitHub Actions による CD/CI
+## GitHub Actions による CD/CI
 
 ```bash
 $ git add .
@@ -887,7 +872,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-### Skeet CLI によるデプロイ
+## Skeet CLI によるデプロイ
 
 ```bash
 $ skeet deploy
