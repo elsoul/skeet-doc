@@ -42,6 +42,7 @@ functions には複数の functions を追加することができます。
 │   └── solana
 ├── package.json
 ├── skeet-cloud.config.json
+└── firebase.json
 ```
 
 | ディレクトリ            | 説明                              |
@@ -54,6 +55,7 @@ functions には複数の functions を追加することができます。
 | functions/solana        | Solana Web3js に関する functions  |
 | package.json            | バックエンドのパッケージ管理      |
 | skeet-cloud.config.json | Skeet Framework の設定ファイル    |
+| firebase.json           | Firebase の設定ファイル           |
 
 ## Skeet Functions の基本構造
 
@@ -61,7 +63,7 @@ Skeet Functions は Firebase Functions をベースにしています。
 _functions_ ディレクトリ以下に firebase functions のプロジェクトが配置されます。
 functions には複数の functions を追加することができます。
 
-_functions/openai_
+例: _functions/openai_
 
 ```bash
 .
@@ -131,6 +133,7 @@ _functions/openai_
 │   └── root.ts
 ├── index.ts
 ├── options
+│   ├── authOptions.ts
 │   ├── firestoreOptions.ts
 │   ├── httpOptions.ts
 │   ├── index.ts
@@ -396,28 +399,35 @@ Firebase ユーザーが作成されたときに、
 
 Auth インスタンスの設定は、_routings/auth/auth{MethoName}.ts_ に記述します。
 
-_routings/auth/authCreateUser.ts_
+_routings/auth/authOnCreateUser.ts_
 
 ```ts
 import { User } from '@/models'
 import { addCollectionItem } from '@skeet-framework/firestore'
-import { auth } from 'firebase-functions/v1'
+import * as functions from 'firebase-functions/v1'
+import { authDefaultOption } from '@/routings'
 
-export const authOnCreateUser = auth.user().onCreate(async (user) => {
-  try {
-    const { uid, email, displayName, photoURL } = user
-    const userParams = {
-      uid,
-      email: email || '',
-      username: displayName || '',
-      iconUrl: photoURL || '',
+const region = process.env.REGION || 'asia-northeast1'
+
+export const authOnCreateUser = functions
+  .runWith(authDefaultOption)
+  .region(region)
+  .auth.user()
+  .onCreate(async (user) => {
+    try {
+      const { uid, email, displayName, photoURL } = user
+      const userParams = {
+        uid,
+        email: email || '',
+        username: displayName || '',
+        iconUrl: photoURL || '',
+      }
+      const userRef = await addCollectionItem<User>('User', userParams, uid)
+      console.log({ status: 'success', userRef })
+    } catch (error) {
+      console.log(`error - ${String(error)}`)
     }
-    const userRef = await addCollectionItem<User>('User', userParams, uid)
-    console.log({ status: 'success', userRef })
-  } catch (error) {
-    console.log(`authOnCreateUser - ${String(error)}`)
-  }
-})
+  })
 ```
 
 ### Dev 環境での Firebase ユーザー登録・ログイン
