@@ -15,15 +15,6 @@ description: Skeet Framework を使ってチャットアプリを作成するチ
 
 - [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
 
-このチュートリアルは 次のセクションに分割されています。
-
-- ユーザー認証・ログイン機能の実装
-- チャット機能の実装(OpenAI API を使ったチャットボット)
-- Firebase Functions の追加
-- モデルの追加・同期
-- 型定義の追加・同期
-- ルーティングの追加・同期
-
 Skeet Framework では エディタに VScode を推奨しています。
 このチュートリアルでは VScode を使って進めていきます。
 
@@ -94,19 +85,43 @@ Created User: {"uid":"5WcA4z5l7xYY4efgCklTney8jDD5","username":"","email":"elsou
 ```
 
 Firebase ユーザーが作成され、
+
+_functions/openai/routings/auth/authCreateUser.ts_ に定義されている
 Auth インスタンスのトリガーが作動して、
 Firebase Firestore にユーザー情報が保存されます。
+
+````typescript
+import { User } from '@/models'
+import { addCollectionItem } from '@skeet-framework/firestore'
+import { auth } from 'firebase-functions/v1'
+
+export const authOnCreateUser = auth.user().onCreate(async (user) => {
+  try {
+    const { uid, email, displayName, photoURL } = user
+    const userParams = {
+      uid,
+      email: email || '',
+      username: displayName || '',
+      iconUrl: photoURL || '',
+    }
+    const userRef = await addCollectionItem<User>('User', userParams, uid)
+    console.log({ status: 'success', userRef })
+  } catch (error) {
+    console.log(`authOnCreateUser - ${String(error)}`)
+  }
+})
+```
 
 コンソールに accessToken が表示されるので、
 この accessToken を使ってユーザー認証を行います。
 
-_await getUserAuth(accessToken)_ を使ってユーザー情報を Firebase から取得します。
+_await getUserAuth(req)_ を使ってユーザー情報を Firebase から取得します。
 
 ```typescript
 import { getUserAuth } from '@/lib'
 
 const user = await getUserAuth(req)
-```
+````
 
 *getUserAuth*の戻り値の型定義は次のようになっています。
 
@@ -173,9 +188,11 @@ export const createUserChatRoom = onRequest(
       // ユーザー認証
       const user = await getUserAuth(req)
 
-      // User をFirtoreから取得
+      // 使用するコレクション名を定義
       const parentCollectionName = 'User'
       const childCollectionName = 'UserChatRoom'
+
+      // User をFirtoreから取得
       const userDoc = await getCollectionItem<User>(
         parentCollectionName,
         user.uid
@@ -275,20 +292,17 @@ export const createUserChatRoom = onRequest(
         temperature: req.body.temperature || 1,
         stream: req.body.stream || false,
       }
+      // ユーザー認証
       const user = await getUserAuth(req)
+
+      // 使用するコレクション名を定義
       const parentCollectionName = 'User'
       const childCollectionName = 'UserChatRoom'
       const grandChildCollectionName = 'UserChatRoomMessage'
 
-      const userBody: User = {
-        uid: user.uid,
-        username: user.displayName || '',
-        email: user.email || '',
-        iconUrl: user.photoUrl || '',
-      }
-      const userRef = await addCollectionItem<User>(
+      // User をFirtoreから取得
+      const userDoc = await getCollectionItem<User>(
         parentCollectionName,
-        userBody,
         user.uid
       )
 
@@ -300,6 +314,8 @@ export const createUserChatRoom = onRequest(
         temperature: body.temperature,
         stream: body.stream,
       }
+
+      // UserChatRoom を作成
       const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
         parentCollectionName,
         childCollectionName,
@@ -312,6 +328,8 @@ export const createUserChatRoom = onRequest(
         role: 'system',
         content: body.systemContent,
       }
+
+      // UserChatRoomMessage に OpenAI ボットのキャラクター設定を登録
       const userChatRoomMessageRef = await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -418,10 +436,16 @@ export const addUserChatRoomMessage = onRequest(
         content: req.body.content,
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
+
+      // ユーザー認証
       const user = await getUserAuth(req)
+
+      // 使用するコレクション名を定義
       const userCollectionName = 'User'
       const userChatRoomCollectionName = 'UserChatRoom'
       const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
+
+      // UserChatRoom を取得
       const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
         userCollectionName,
         userChatRoomCollectionName,
@@ -429,11 +453,14 @@ export const addUserChatRoomMessage = onRequest(
         body.userChatRoomId
       )
       if (!userChatRoom) throw new Error('userChatRoom not found')
+
       const newMessage: UserChatRoomMessage = {
         userChatRoomRef: userChatRoom.ref,
         role: 'user',
         content: body.content,
       }
+
+      // UserChatRoomMessage に新しいメッセージを追加
       await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -446,6 +473,8 @@ export const addUserChatRoomMessage = onRequest(
         body.userChatRoomId,
         newMessage
       )
+
+      // UserChatRoomMessage を取得
       const userChatRoomMessages = await queryGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -465,6 +494,8 @@ export const addUserChatRoomMessage = onRequest(
           content: message.data.content,
         } as ChatCompletionRequestMessage)
       }
+
+      // OpenAI API に必要なリクエストを作成
       const openAiBody: CreateChatCompletionRequest = {
         model: userChatRoom.data.model,
         max_tokens: userChatRoom.data.maxTokens,
@@ -474,14 +505,19 @@ export const addUserChatRoomMessage = onRequest(
         stream: userChatRoom.data.stream,
         messages,
       }
+
+      // OpenAI API にリクエストを送信
       const openAiResponse = await chat(openAiBody)
       if (!openAiResponse) throw new Error('openAiResponse not found')
+
       const content = String(openAiResponse.content) || ''
       const openAiResponseMessage: UserChatRoomMessage = {
         userChatRoomRef: userChatRoom.ref,
         role: 'assistant',
         content,
       }
+
+      // OpenAI の返答を UserChatRoomMessage に追加
       await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -526,7 +562,8 @@ Sample Response
 }
 ```
 
-_UserChatRoomMessage_ にメッセージが追加されました 🎉
+OpenAI からのレスポンスが返却され、
+無事に、_UserChatRoomMessage_ にメッセージが追加されました 🎉
 
 ## ストリーミングデータを取得する
 
@@ -566,10 +603,16 @@ export const addStreamUserChatRoomMessage = onRequest(
         content: req.body.content,
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
+
+      // ユーザー認証
       const user = await getUserAuth(req)
+
+      // 使用するコレクション名を定義
       const userCollectionName = 'User'
       const userChatRoomCollectionName = 'UserChatRoom'
       const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
+
+      // UserChatRoom を取得
       const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
         userCollectionName,
         userChatRoomCollectionName,
@@ -585,6 +628,8 @@ export const addStreamUserChatRoomMessage = onRequest(
         role: 'user',
         content: body.content,
       }
+
+      // UserChatRoomMessage に新しいメッセージを追加
       await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -602,6 +647,8 @@ export const addStreamUserChatRoomMessage = onRequest(
         role: 'assistant',
         content: body.content,
       }
+
+      // OpenAI の返答を UserChatRoomMessage に追加
       const userChatRoomMessageRef = await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -614,6 +661,8 @@ export const addStreamUserChatRoomMessage = onRequest(
         body.userChatRoomId,
         systemMessage
       )
+
+      // UserChatRoomMessage を取得
       const userChatRoomMessages = await queryGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -634,6 +683,7 @@ export const addStreamUserChatRoomMessage = onRequest(
         } as ChatCompletionRequestMessage)
       }
 
+      // OpenAI にリクエストを送信
       const openAiBody: CreateChatCompletionRequest = {
         model: userChatRoom.data.model,
         max_tokens: userChatRoom.data.maxTokens,
@@ -817,3 +867,5 @@ _skeet-cloud.config.json_
 ```bash
 $ skeet sync armors
 ```
+
+新規に Google Cloud Armor を作成または、更新されます。
