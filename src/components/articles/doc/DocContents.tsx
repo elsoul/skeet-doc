@@ -19,7 +19,7 @@ export default function DocContents({ article, articleHtml }: Props) {
             <div className="py-8 xl:hidden">
               <ScrollSyncToc rawMarkdownBody={article.content} />
             </div>
-            <div className="prose py-8 dark:prose-invert lg:prose-lg">
+            <div className="prose break-all py-8 dark:prose-invert lg:prose-lg">
               <div dangerouslySetInnerHTML={{ __html: articleHtml }} />
             </div>
             <div className="py-16">

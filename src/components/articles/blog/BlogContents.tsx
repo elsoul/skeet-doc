@@ -18,7 +18,7 @@ export default function BlogContents({ article, articleHtml }: Props) {
             <p className="mt-1 text-gray-600 dark:text-gray-200">
               {article.date}
             </p>
-            <div className="prose dark:prose-invert lg:prose-lg">
+            <div className="prose break-all dark:prose-invert lg:prose-lg">
               <div className="py-8">
                 <Image
                   src={article.thumbnail}
