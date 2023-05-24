@@ -553,7 +553,7 @@ export const addUserChatRoomMessage = onRequest(
 )
 ```
 
-※これを試す前に Chat GPT の API キー設定が必要です。_functions/openai/.env_ に下記内容を設定してください。
+※これを試す前に Chat GPT (Open AI) の API キー設定が必要です。_functions/openai/.env_ に下記内容を設定してください。
 
 ```
 CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
@@ -663,7 +663,7 @@ import { defaultHttpOption } from '@/routings'
 
 export const addStreamUserChatRoomMessage = onRequest(
   defaultHttpOption,
-  async (req: TypedRequestBody<AddUserChatRoomMessageParams>, res) => {
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
     try {
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
@@ -777,6 +777,17 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+Params も変更しましょう。
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  userChatRoomId: string
+  content: string
+}
+```
+
 先ほど作成した _UserChatRoom_ の設定を [Firebase エミュレーター - Firestore](http://127.0.0.1:4000/firestore/data) の Firestore から
 
 _stream_ の値を _true_ に
@@ -845,7 +856,7 @@ Synced Models Types 🎉
 以下のコマンドを実行し、ロードバランサーにルーティングを追加しましょう。
 
 ```bash
-$ skeet sync routes
+$ skeet sync routings
 ```
 
 このコマンドにより、
