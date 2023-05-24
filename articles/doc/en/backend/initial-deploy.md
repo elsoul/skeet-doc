@@ -102,7 +102,8 @@ Let's go to https://your-domain.com/root.
 
 ```json
 {
-  "status": "SKeet APP is running"
+  "status": "success",
+  "message": "Skeet APP is running!"
 }
 ```
 

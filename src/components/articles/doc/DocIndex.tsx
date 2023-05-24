@@ -50,7 +50,7 @@ const actions = [
   {
     title: 'doc:actions.tutorial.title',
     body: 'doc:actions.tutorial.body',
-    href: '/doc/web/tutorial',
+    href: '/doc/backend/tutorial',
     icon: AcademicCapIcon,
     iconForeground: 'text-teal-700',
     iconBackground: 'bg-teal-50',

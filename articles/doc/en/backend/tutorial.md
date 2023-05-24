@@ -54,19 +54,45 @@ Execute the following command in a separate window.
 Get the _accessToken_
 
 ```bash
-$ skeet yarn dev:login
-  .
-  .
-  accessToken: 'accessToken'',
-  .
-  .
+$ skeet login
+🚸 === Copy & Paste below command to your terminal === 🚸
+
+export ACCESS_TOKEN={accessToken}
+
+🚸 =========           END           ========= 🚸
+
+
+💃Let's try `$ skeet curl <MethodName>` to test request🕺
+
+$ skeet curl createUserChatRoom
+     or
+$ skeet curl createUserChatRoom --data '{ "model": "gpt-4-32k", "maxTokens": 4200 }'
 ```
 
-A Firebase user is created and
+By setting the accessToken displayed in the console log to the environment variable,
 
-Defined in _functions/openai/routings/auth/authCreateUser.ts_
-The Auth instance triggers and
+You can send API requests using the _skeet curl_ command.
+
+```bash
+$ skeet help curl
+Usage: skeet curl [options] <methodName>
+
+Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+
+Arguments:
+  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+
+Options:
+  -d,--data [data]            JSON Request Body - e.g. '{ "docId": "xxx" }'
+  --production                For Production (default: false)
+  -f,--functions [functions]  For Production Functions Name (default: false)
+  -h, --help                  display help for command
+```
+
+in the background, the Auth instance triggers and
 User information is stored in Firebase Firestore.
+
+Auth Instance Path: _functions/openai/routings/auth/authCreateUser.ts_
 
 ```typescript
 import { User } from '@/models'
@@ -97,9 +123,6 @@ export const authOnCreateUser = functions
   })
 ```
 
-Since the accessToken is displayed in the console,
-Use this accessToken to authenticate the user.
-
 Get user information from Firebase with _await getUserAuth(req)_
 
 ```typescript
@@ -126,8 +149,6 @@ This chapter uses a User model created using the _skeet create_ command.
 - [Basic architecture - model definition](/en/doc/backend/basic-architecture#model definition)
 
 ## Create a UserChatRoom
-
-Next, add code to create a UserChatRoom to the previous code.
 
 Register the following information required for the OpenAI API in _UserChatRoom_.
 
@@ -206,10 +227,10 @@ export const createUserChatRoom = onRequest(
 )
 ```
 
-Send POST Request to Cloud Functions
+Send POST Request to Cloud Functions with _skeet curl_
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN" | json_pp
+$ skeet curl createUserChatRoom
 ```
 
 Sample Response
@@ -335,10 +356,10 @@ export const createUserChatRoom = onRequest(
 )
 ```
 
-Now if you send a POST request as before, a UserChatRoom and a UserChatRoomMessage will be created.
+Now if you send a POST request with JSON data, a UserChatRoom and a UserChatRoomMessage will be created.
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN" | json_pp
+$ skeet curl createUserChatRoom --data '{ "systemContent": "This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly." }'
 ```
 
 ```json
@@ -526,13 +547,7 @@ export const addUserChatRoomMessage = onRequest(
 Send POST Request
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/addUserChatRoomMessage \
---header "Authorization: Bearer $ACCESS_TOKEN" \
---header 'Content-Type: application/json' \
---data '{
-  "userChatRoomId": "03h8itaBtJaoAeqs7vOQ",
-  "content": "Do some freestyle rap"
-}' | json_pp
+$ skeet curl  addUserChatRoomMessage --data '{ "userChatRoomId": "03h8itaBtJaoAeqs7vOQ", "content": "Do some freestyle rap" }'
 ```
 
 Sample Response
@@ -757,13 +772,7 @@ change.
 Send a POST request.
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/addUserChatRoomMessage \
---header "Authorization: Bearer $ACCESS_TOKEN" \
---header 'Content-Type: application/json' \
---data '{
-  "userChatRoomId": "XQV65kBRWXVjn2rouRzY",
-  "content": "Do some freestyle rap"
-}' | json_pp
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "XQV65kBRWXVjn2rouRzY", "content": "Do some freestyle rap" }'
 ```
 
 ```json

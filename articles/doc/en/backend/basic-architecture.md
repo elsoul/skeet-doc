@@ -459,10 +459,10 @@ export const authOnCreateUser = functions
 
 In the Dev environment,
 For Firebase user registration and login,
-Use the _skeet yarn dev:login_ command.
+Use the _skeet login_ command.
 
 ```bash
-$ skeet yarn dev:login
+$ skeet login
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter>
 to proceed)
   = Services =
