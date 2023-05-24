@@ -54,18 +54,34 @@ $ skeet s
 _accessToken_ を取得します。
 
 ```bash
-$ skeet yarn dev:login
-  .
-  .
-  accessToken: 'accessToken'',
-  .
-  .
+$ skeet login
+🚸 === Copy & Paste below command to your terminal === 🚸
+
+export ACCESS_TOKEN={accessToken}
+
+🚸 =========           END           ========= 🚸
+
+
+💃Let's try `$ skeet curl <MethodName>` to test request🕺
+
+$ skeet curl createUserChatRoom
 ```
 
-Firebase ユーザーが作成され、
+コンソールログに表示された accessToken を環境変数に設定します。
+
+これにより以下のコマンドが使えるようになります。
+
+```bash
+$ skeet curl {MethodName}
+```
+
+_skeet curl_ コマンドでは、_Bearer_ トークン含めた POST リクエストを送信することができます。
+
+さらに、バックエンドでは、
 
 _functions/openai/routings/auth/authOnCreateUser.ts_ に定義されている
 Auth インスタンスのトリガーが作動して、
+
 Firebase Firestore にユーザー情報が保存されます。
 
 ```typescript
@@ -206,10 +222,10 @@ export const createUserChatRoom = onRequest(
 )
 ```
 
-POST リクエストを送信します。
+それでは _skeet curl_ コマンドを使って POST リクエストを送信します。
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN" | json_pp
+$ skeet curl createUserChatRoom
 ```
 
 Sample Response
@@ -338,7 +354,7 @@ export const createUserChatRoom = onRequest(
 これで先ほどと同様に POST リクエストを送信すると、UserChatRoom と UserChatRoomMessage が作成されます。
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/createUserChatRoom --header "Authorization: Bearer $ACCESS_TOKEN" | json_pp
+$ skeet curl createUserChatRoom
 ```
 
 ```json
