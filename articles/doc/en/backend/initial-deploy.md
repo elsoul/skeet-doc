@@ -128,7 +128,7 @@ Copy the Firebase Config after completing the settings.
 
 And Paste to
 
-`functions/openai/src/lib/firebaseConfig.ts`
+`src/lib/firebaseConfig.ts`
 
 ```javascript
 const firebaseConfig = {
@@ -145,7 +145,7 @@ const firebaseConfig = {
 Now while starting the Firebase emulator
 
 ```bash
-$ skeet yarn dev:login
+$ skeet login
 ```
 
 command is now available.

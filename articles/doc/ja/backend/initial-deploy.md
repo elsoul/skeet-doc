@@ -126,7 +126,7 @@ Firebase プロジェクトの設定画面から Web APP を追加します。
 
 コピーしたファイルを
 
-`functions/openai/src/lib/firebaseConfig.ts`
+`src/lib/firebaseConfig.ts`
 
 に貼り付けます。
 
@@ -145,7 +145,7 @@ const firebaseConfig = {
 これで Firebase エミュレーターを起動中に
 
 ```bash
-$ skeet yarn dev:login
+$ skeet login
 ```
 
 コマンドが使えるようになりました。

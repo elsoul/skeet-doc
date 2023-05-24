@@ -18,12 +18,12 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 
 ## Dependency
 
-- [TypeScript](https://www.typescriptlang.org/)
-- [Node](https://nodejs.org/)
-- [Yarn](https://yarnpkg.com/)
-- [Google SDK](https://cloud.google.com/sdk/docs)
-- [Firebase CLI](https://firebase.google.com/docs/cli)
-- [GitHub CLI](https://cli.github.com/)
+- [TypeScript](https://www.typescriptlang.org/) ^5.0.4
+- [Node.js](https://nodejs.org/ja/) ^18.16.0
+- [Yarn](https://yarnpkg.com/) ^1.22.19
+- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) ^430.0.0
+- [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.1
+- [GitHub CLI](https://cli.github.com/) ^2.29.0
 
 ## Cloud Network Configuration
 
