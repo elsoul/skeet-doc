@@ -6,16 +6,16 @@ description: Describes the basic tree structure and usage of the Skeet Framework
 
 The basic structure of the Skeet Framework backend is as follows.
 
-| Features required for common backends | Skeet Framework            |
-| ------------------------------------- | -------------------------- |
-| Database                              | Firestore                  |
-| Login Authentication                  | Firebase Authentication    |
-| API Server                            | Firebase Functions 2nd Gen |
-| Load Balancer                         | Cloud Load Balancer        |
-| Schedule Tasks                        | Cloud Scheduler            |
-| Pub/Sub                               | Cloud Pub/Sub              |
-| Domains                               | Cloud DNS                  |
-| Security                              | Cloud Armor                |
+| Features required for common backends | Skeet Framework                      |
+| ------------------------------------- | ------------------------------------ |
+| Database                              | Firestore                            |
+| Login Authentication                  | Firebase Authentication              |
+| API                                   | Cloud Functions for Firebase 2nd Gen |
+| Load Balancer                         | Cloud Load Balancer                  |
+| Schedule Tasks                        | Cloud Scheduler                      |
+| Pub/Sub                               | Cloud Pub/Sub                        |
+| Domains                               | Cloud DNS                            |
+| Security                              | Cloud Armor                          |
 
 - Support for Firestore type definitions from [Typesaurus](https://typesaurus.com)
 - Support CI/CD with [GitHub Actions](https://github.com/features/actions)
@@ -29,7 +29,7 @@ You can start writing from functions right away.
 
 _src_ will contain the frontend source code.
 
-The firebase functions project will be placed under the _functions_ directory.
+The Cloud Functions for Firebase project will be placed under the _functions_ directory.
 
 You can add multiple functions to functions.
 
@@ -38,29 +38,27 @@ You can add multiple functions to functions.
 │   ├── public
 │   └── types
 ├── functions
-│   ├── openai
-│   └── solana
+│   └── openai
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
 ```
 
-| Directory               | Description                        |
-| ----------------------- | ---------------------------------- |
-| src                     | Frontend source code               |
-| src/public              | Frontend source code               |
-| src/types               | Frontend type definitions          |
-| functions               | Firebase Functions source code     |
-| functions/openai        | functions related to OpenAI API    |
-| functions/solana        | functions related to Solana Web3js |
-| package.json            | Backend package management         |
-| skeet-cloud.config.json | Skeet Framework configuration file |
-| firebase.json           | Firebase の設定ファイル            |
+| Directory               | Description                              |
+| ----------------------- | ---------------------------------------- |
+| src                     | Frontend source code                     |
+| src/public              | Frontend source code                     |
+| src/types               | Frontend type definitions                |
+| functions               | Cloud Functions for Firebase source code |
+| functions/openai        | functions related to OpenAI API          |
+| package.json            | Backend package management               |
+| skeet-cloud.config.json | Skeet Framework configuration file       |
+| firebase.json           | Firebase の設定ファイル                  |
 
 ## Basic Structure of Skeet Functions
 
-Skeet Functions are based on Firebase Functions.
-The firebase functions project will be placed under the _functions_ directory.
+Skeet Functions are based on Cloud Functions for Firebase.
+The Cloud Functions for Firebase project will be placed under the _functions_ directory.
 You can add multiple functions to functions.
 
 e.g. _functions/openai_
@@ -116,7 +114,7 @@ e.g. _functions/openai_
 ## Basic Structure of Skeet Routings
 
 Routing settings differ depending on the instance type.
-Also, Firebase Functions option settings are located under routings/options.
+Also, Cloud Functions for Firebase option settings are located under routings/options.
 
 ```bash
 ├── auth
@@ -591,7 +589,7 @@ Options:
 Commands:
   create <appName>          Create Skeet Framework App
   server|s                  Run Firebase Emulator for Skeet APP
-  deploy                    Deploy Skeet APP to Firebase Cloud Functions
+  deploy                    Deploy Skeet APP to Firebase (GCP)
   init [options]            Initialize Google Cloud Setups for Skeet APP
   iam                       Skeet IAM Comannd to setup Google Cloud Platform
   yarn [options] <yarnCmd>  Skeet Yarn Comannd to run yarn command for multiple functions
