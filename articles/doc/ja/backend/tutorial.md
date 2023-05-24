@@ -553,6 +553,13 @@ export const addUserChatRoomMessage = onRequest(
 )
 ```
 
+※これを試す前に Chat GPT の API キー設定が必要です。_functions/openai/.env_ に下記内容を設定してください。
+
+```
+CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
+CHAT_GPT_KEY=<YOUR_API_KEY>
+```
+
 POST リクエストを送信してみます。
 
 ```bash
