@@ -10,23 +10,23 @@
     },
     "quickstart": {
       "title": "Quickstart",
-      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Quickstart."
+      "body": "Skeet Framework - Backend Quickstart."
     },
     "basic-architecture": {
       "title": "Basic Architecture",
-      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Basic Architecture."
+      "body": "Describes the basic tree structure and usage of the Skeet Framework backend."
     },
     "initial-deploy": {
       "title": "Initial Deploy",
-      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Initial Deploy."
+      "body": "Once the first deployment is completed, automatic deployment by CI/CD will be triggered from subsequent commits"
     },
     "tutorial": {
       "title": "Tutorial",
-      "body": "Skeet - Full-stack TypeScript Serverless Application Framework Tutorial."
+      "body": "This tutorial will create a OpenAI API chat app using Skeet Framework."
     },
     "skeet-firestore": {
-      "title": "Skeet Firestore",
-      "body": "Skeet Framework Plugins - Skeet Firestore."
+      "title": "Firestore Plugin",
+      "body": "How to use type-safe Firestore in Skeet Framework."
     },
     "react-native": {
       "title": "React Native (Expo)",
@@ -49,7 +49,6 @@
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
-      "skeet-firestore": "Skeet Firestore",
       "zero-to-deploy": "Zero to Deploy",
       "graphql-api": "Build GraphQL API",
       "firebase-user-authentification": "Firebase Login Authentification",
@@ -57,6 +56,10 @@
       "setup-load-balancer": "Setup Load Balancer",
       "cloud-armor": "Setup Cloud Armor",
       "skeet-plugins": "Skeet Plugins"
+    },
+    "plugins": {
+      "groupTitle": "Plugins",
+      "skeet-firestore": "Skeet Firestore"
     },
     "frontend": {
       "groupTitle": "Frontend",
