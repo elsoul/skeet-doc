@@ -7,6 +7,10 @@ import {
   ArrowUpRightIcon,
   DevicePhoneMobileIcon,
   WindowIcon,
+  FireIcon,
+  AcademicCapIcon,
+  CloudArrowUpIcon,
+  BookOpenIcon,
 } from '@heroicons/react/24/outline'
 import clsx from 'clsx'
 
@@ -28,20 +32,52 @@ const actions = [
     iconBackground: 'bg-green-50',
   },
   {
+    title: 'doc:actions.basic-architecture.title',
+    body: 'doc:actions.basic-architecture.body',
+    href: '/doc/backend/basic-architecture',
+    icon: BookOpenIcon,
+    iconForeground: 'text-yellow-700',
+    iconBackground: 'bg-yellow-50',
+  },
+  {
+    title: 'doc:actions.initial-deploy.title',
+    body: 'doc:actions.initial-deploy.body',
+    href: '/doc/backend/initial-deploy',
+    icon: CloudArrowUpIcon,
+    iconForeground: 'text-blue-700',
+    iconBackground: 'bg-blue-50',
+  },
+  {
+    title: 'doc:actions.tutorial.title',
+    body: 'doc:actions.tutorial.body',
+    href: '/doc/web/tutorial',
+    icon: AcademicCapIcon,
+    iconForeground: 'text-teal-700',
+    iconBackground: 'bg-teal-50',
+  },
+  {
+    title: 'doc:actions.skeet-firestore.title',
+    body: 'doc:actions.skeet-firestore.body',
+    href: '/doc/plugins/skeet-firestore',
+    icon: FireIcon,
+    iconForeground: 'text-orange-700',
+    iconBackground: 'bg-orange-50',
+  },
+  {
     title: 'doc:actions.react-native.title',
     body: 'doc:actions.react-native.body',
     href: '/doc/frontend/react-native',
     icon: DevicePhoneMobileIcon,
-    iconForeground: 'text-blue-700',
-    iconBackground: 'bg-blue-50',
+    iconForeground: 'text-purple-700',
+    iconBackground: 'bg-purple-50',
   },
   {
     title: 'doc:actions.ssg-template.title',
     body: 'doc:actions.ssg-template.body',
     href: '/doc/web/ssg-template',
     icon: WindowIcon,
-    iconForeground: 'text-yellow-700',
-    iconBackground: 'bg-yellow-50',
+    iconForeground: 'text-cyan-700',
+    iconBackground: 'bg-cyan-50',
   },
 ]
 
