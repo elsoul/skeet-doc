@@ -6,16 +6,16 @@ description: Skeet Framework バックエンドの基本的ツリー構造や使
 
 Skeet Framework バックエンドの基本的な構造は以下の通りです。
 
-| 一般的なバックエンドに必要な機能 | Skeet Framework              |
-| -------------------------------- | ---------------------------- |
-| データベース                     | Firestore                    |
-| ログイン認証                     | Firebase Authentication      |
-| API サーバー                     | Firebase Functions 第 2 世代 |
-| ロードバランサー                 | Cloud Load Balancer          |
-| スケジュールタスク               | Cloud Scheduler              |
-| Pub/Sub                          | Cloud Pub/Sub                |
-| ドメイン                         | Cloud DNS                    |
-| セキュリティ                     | Cloud Armor                  |
+| 一般的なバックエンドに必要な機能 | Skeet Framework                        |
+| -------------------------------- | -------------------------------------- |
+| データベース                     | Firestore                              |
+| ログイン認証                     | Firebase Authentication                |
+| API                              | Cloud Functions for Firebase 第 2 世代 |
+| ロードバランサー                 | Cloud Load Balancer                    |
+| スケジュールタスク               | Cloud Scheduler                        |
+| Pub/Sub                          | Cloud Pub/Sub                          |
+| ドメイン                         | Cloud DNS                              |
+| セキュリティ                     | Cloud Armor                            |
 
 - [Typesaurus](https://typesaurus.com) による Firestore の型定義をサポート
 - [GitHub Actions](https://github.com/features/actions) による CI/CD をサポート
@@ -29,7 +29,7 @@ Skeet Framework のバックエンドはサーバーレスなため、
 
 _src_ にフロントエンドのソースコードが配置されます。
 
-_functions_ ディレクトリ以下に firebase functions のプロジェクトが配置されます。
+_functions_ ディレクトリ以下に Cloud Functions for Firebase のプロジェクトが配置されます。
 
 functions には複数の functions を追加することができます。
 
@@ -38,29 +38,27 @@ functions には複数の functions を追加することができます。
 │   ├── public
 │   └── types
 ├── functions
-│   ├── openai
-│   └── solana
+│   └── openai
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
 ```
 
-| ディレクトリ            | 説明                              |
-| ----------------------- | --------------------------------- |
-| src                     | フロントエンドのソースコード      |
-| src/public              | フロントエンドのソースコード      |
-| src/types               | フロントエンドの型定義            |
-| functions               | Firebase Functions のソースコード |
-| functions/openai        | OpenAI API に関する functions     |
-| functions/solana        | Solana Web3js に関する functions  |
-| package.json            | バックエンドのパッケージ管理      |
-| skeet-cloud.config.json | Skeet Framework の設定ファイル    |
-| firebase.json           | Firebase の設定ファイル           |
+| ディレクトリ            | 説明                                        |
+| ----------------------- | ------------------------------------------- |
+| src                     | フロントエンドのソースコード                |
+| src/public              | フロントエンドのソースコード                |
+| src/types               | フロントエンドの型定義                      |
+| functions               | Cloud Functions for Firebase のソースコード |
+| functions/openai        | OpenAI API に関する functions               |
+| package.json            | バックエンドのパッケージ管理                |
+| skeet-cloud.config.json | Skeet Framework の設定ファイル              |
+| firebase.json           | Firebase の設定ファイル                     |
 
 ## Skeet Functions の基本構造
 
-Skeet Functions は Firebase Functions をベースにしています。
-_functions_ ディレクトリ以下に firebase functions のプロジェクトが配置されます。
+Skeet Functions は Cloud Functions for Firebase をベースにしています。
+_functions_ ディレクトリ以下に Cloud Functions for Firebase のプロジェクトが配置されます。
 functions には複数の functions を追加することができます。
 
 例: _functions/openai_
@@ -116,7 +114,7 @@ functions には複数の functions を追加することができます。
 ## Skeet Rountings の基本構造
 
 インスタンスのタイプによって、ルーティングの設定が異なります。
-また、Firebase Functions のオプション設定は routings/options 以下に配置されています。
+また、Cloud Functions for Firebase のオプション設定は routings/options 以下に配置されています。
 
 ```bash
 ├── auth
@@ -574,7 +572,7 @@ import {
 
 ## Skeet CLI
 
-Skeet CLI を使って新たに Firebase functions を追加したり、
+Skeet CLI を使って新たに Cloud Functions for Firebase を追加したり、
 yarn コマンドを 各ファンクションごとに実行することができます。
 
 コマンド一覧
@@ -592,7 +590,7 @@ Options:
 Commands:
   create <appName>          Create Skeet Framework App
   server|s                  Run Firebase Emulator for Skeet APP
-  deploy                    Deploy Skeet APP to Firebase Cloud Functions
+  deploy                    Deploy Skeet APP to Firebase (GCP)
   init [options]            Initialize Google Cloud Setups for Skeet APP
   iam                       Skeet IAM Comannd to setup Google Cloud Platform
   yarn [options] <yarnCmd>  Skeet Yarn Comannd to run yarn command for multiple functions
