@@ -1,7 +1,7 @@
 ---
 id: skeet-firestore
 title: Skeet Firestore
-description: How to use Firestore in Skeet Framework.
+description: How to use type-safe Firestore in Skeet Framework.
 ---
 
 ## Skeet Firestore TypeDocs

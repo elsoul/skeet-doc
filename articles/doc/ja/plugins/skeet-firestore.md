@@ -1,7 +1,7 @@
 ---
 id: skeet-firestore
 title: Skeet Firestore
-description: Skeet フレームワーク における Firestore の使い方を解説します。
+description: Skeet フレームワーク における型安全な Firestore の使い方を解説します。
 ---
 
 ## Skeet Firestore TypeDocs
@@ -11,7 +11,7 @@ description: Skeet フレームワーク における Firestore の使い方を�
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework では Firestore を使うためのプラグインが用意されています。
-このプラグインを使うことで、Firestore のデータを簡単に追加・取得・更新・検索・削除することができます。
+このプラグインを使うことで、Firestore のデータを簡単に、しかも型安全な状態で追加・取得・更新・検索・削除することができます。
 
 | メソッド名           | 説明                   |
 | -------------------- | ---------------------- |
