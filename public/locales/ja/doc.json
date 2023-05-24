@@ -51,12 +51,15 @@
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "graphql-api": "GraphQL APIの構築",
-      "skeet-firestore": "Skeet Firestore",
       "firebase-user-authentification": "Firebase ログイン認証",
       "add-worker": "Workerを追加する",
       "setup-load-balancer": "ロードバランサーを設定する",
       "cloud-armor": "Cloud Armor の設定",
       "skeet-plugins": "Skeet プラグイン"
+    },
+    "plugins": {
+      "groupTitle": "プラグイン",
+      "skeet-firestore": "Skeet Firestore"
     },
     "frontend": {
       "groupTitle": "フロントエンド",

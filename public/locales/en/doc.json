@@ -25,7 +25,7 @@
       "body": "Skeet - Full-stack TypeScript Serverless Application Framework Tutorial."
     },
     "skeet-firestore": {
-      "title": "Skeet Firestore",
+      "title": "Firestore Plugin",
       "body": "Skeet Framework Plugins - Skeet Firestore."
     },
     "react-native": {
@@ -49,7 +49,6 @@
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
-      "skeet-firestore": "Skeet Firestore",
       "zero-to-deploy": "Zero to Deploy",
       "graphql-api": "Build GraphQL API",
       "firebase-user-authentification": "Firebase Login Authentification",
@@ -57,6 +56,10 @@
       "setup-load-balancer": "Setup Load Balancer",
       "cloud-armor": "Setup Cloud Armor",
       "skeet-plugins": "Skeet Plugins"
+    },
+    "plugins": {
+      "groupTitle": "Plugins",
+      "skeet-firestore": "Skeet Firestore"
     },
     "frontend": {
       "groupTitle": "Frontend",
