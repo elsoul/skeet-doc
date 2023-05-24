@@ -23,8 +23,9 @@ type Props = {
   children: ReactNode
 }
 
+const mainContentId = 'mainDocContent'
+
 export default function DocLayout({ children }: Props) {
-  const resetWindowScrollPosition = useCallback(() => window.scrollTo(0, 0), [])
   const router = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const { t } = useTranslation()
@@ -33,11 +34,20 @@ export default function DocLayout({ children }: Props) {
     return router.asPath.replace('/ja/', '/').replace('/en/', '/')
   }, [router.asPath])
 
-  useEffect(() => {
-    if (!router.asPath.includes('#')) {
-      resetWindowScrollPosition()
-      setSidebarOpen(false)
+  const resetWindowScrollPosition = useCallback(() => {
+    const element = document.getElementById(mainContentId)
+    if (element) {
+      element.scrollIntoView({ block: 'start' })
     }
+  }, [])
+  useEffect(() => {
+    ;(async () => {
+      setSidebarOpen(false)
+      await new Promise((resolve) => setTimeout(resolve, 100))
+      if (!router.asPath.includes('#')) {
+        resetWindowScrollPosition()
+      }
+    })()
   }, [router.asPath, resetWindowScrollPosition])
 
   return (
@@ -317,7 +327,10 @@ export default function DocLayout({ children }: Props) {
           </div>
 
           <div className="py-6">
-            <div className="mx-auto min-h-screen px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+            <div
+              id={mainContentId}
+              className="mx-auto min-h-screen px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+            >
               {children}
             </div>
           </div>
