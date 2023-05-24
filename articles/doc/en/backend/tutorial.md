@@ -544,7 +544,7 @@ export const addUserChatRoomMessage = onRequest(
 )
 ```
 
-※ Chat GPT API key configuration is required before trying this. Set the following contents in _functions/openai/.env_.
+※ Chat GPT (Open AI) API key configuration is required before trying this. Set the following contents in _functions/openai/.env_.
 
 ```
 CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
@@ -656,7 +656,7 @@ import { defaultHttpOption } from '@/routings'
 
 export const addStreamUserChatRoomMessage = onRequest(
   defaultHttpOption,
-  async (req: TypedRequestBody<AddUserChatRoomMessageParams>, res) => {
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
     try {
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
