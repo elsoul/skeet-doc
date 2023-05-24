@@ -50,7 +50,6 @@
       "initial-deploy": "最初のデプロイ",
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
-      "graphql-api": "GraphQL APIの構築",
       "firebase-user-authentification": "Firebase ログイン認証",
       "add-worker": "Workerを追加する",
       "setup-load-balancer": "ロードバランサーを設定する",

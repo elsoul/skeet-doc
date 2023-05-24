@@ -50,7 +50,6 @@
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
       "zero-to-deploy": "Zero to Deploy",
-      "graphql-api": "Build GraphQL API",
       "firebase-user-authentification": "Firebase Login Authentification",
       "add-worker": "Add Worker",
       "setup-load-balancer": "Setup Load Balancer",
