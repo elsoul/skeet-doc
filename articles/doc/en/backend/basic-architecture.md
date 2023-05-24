@@ -570,7 +570,7 @@ import {
 } from '@skeet-framework/firestore'
 ```
 
-- [@skeet-framework/firestore](/en/doc/backend/skeet-firestore)
+- [@skeet-framework/firestore](/en/doc/plugins/skeet-firestore)
 
 ## Skeet CLI
 

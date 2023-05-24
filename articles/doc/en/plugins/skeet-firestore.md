@@ -1,7 +1,7 @@
 ---
 id: skeet-firestore
 title: Skeet Firestore
-description: Skeet フレームワーク における Firestore の使い方を解説します。
+description: How to use type-safe Firestore in Skeet Framework.
 ---
 
 ## Skeet Firestore TypeDocs
@@ -10,10 +10,10 @@ description: Skeet フレームワーク における Firestore の使い方を�
 
 ## Skeet Firestore - Skeet Framework Plugin
 
-Skeet Framework では Firestore を使うためのプラグインが用意されています。
-このプラグインを使うことで、Firestore のデータを簡単に追加・取得・更新・検索・削除することができます。
+Skeet Framework provides a plugin for using Firestore.
+This plugin allows you to easily add/get/update/query/remove Firestore data.
 
-| メソッド名           | 説明                   |
+| Method Name          | Description            |
 | -------------------- | ---------------------- |
 | addCollectionItem    | Add Collection Item    |
 | getCollectionItem    | Get Collection Item    |
@@ -21,9 +21,9 @@ Skeet Framework では Firestore を使うためのプラグインが用意さ�
 | updateCollectionItem | Update Collection Item |
 | removeCollectionItem | Remove Collection Item |
 
-ネストされたコレクション、ドキュメントに対応しています。
+It supports nested collections and documents.
 
-| メソッド名                               | 説明                                           |
+| Method Name                              | Description                                    |
 | ---------------------------------------- | ---------------------------------------------- |
 | addChildCollectionItem                   | Add Child Collection Item                      |
 | addGrandChildCollectionItem              | Add Grand Child Collection Item                |
@@ -46,15 +46,15 @@ Skeet Framework では Firestore を使うためのプラグインが用意さ�
 | removeGrandGrandChildCollectionItem      | Remove Grand Grand Child Collection Item       |
 | removeGreatGrandGrandChildCollectionItem | Remove Great Grand Grand Child Collection Item |
 
-## Firestore プラグインのインストール
+## Installing the Firestore plugin
 
-Firestore プラグインをインストールするには、次のコマンドを実行します。
+To install the Firestore plugin, run the following command:
 
 ```bash
 $ yarn add @skeet-firebase/firestore
 ```
 
-Skeet CLI を使って複数の Functions にプラグインをインストールする場合は、次のコマンドを実行します。
+To install the plugin on multiple Functions using the Skeet CLI, run the following command:
 
 ```bash
 $ skeet yarn add -p @skeet-firebase/firestore
@@ -79,9 +79,9 @@ firebase.initializeApp({
 })
 ```
 
-## Skeet Firestore の基本構造
+## Basic Structure of Skeet Firestore
 
-Skeet Firestore では、次のような構造でネストされたデータを取得・更新・削除します。
+Skeet Firestore retrieves, updates, and removes data nested in the following structure:
 
 ```typescript
 const parentCollectionName = 'Parent'
@@ -91,7 +91,7 @@ const grandChildCollectionName = 'GrandChild'
 .
 .
 
-const docRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
+const doc = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
   parentCollectionName,
   childCollectionName,
   grandChildCollectionName,
@@ -103,9 +103,9 @@ const docRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child
   )
 ```
 
-## コレクションにドキュメントを追加する
+## Add Collection Item
 
-ID が自動生成される場合
+ID Auto Generate
 
 ```typescript
 import { addCollectionItem } from '@skeet-framework/firestore'
@@ -116,20 +116,17 @@ const run = async () => {
   const params: User = {
     username: 'Satoshi',
   }
-  const parentDocRef = await addCollectionItem<User>(
-    parentCollectionName,
-    params
-  )
-  console.log(parentCollectionName, parentDocRef)
+  const response = await addCollectionItem<User>(parentCollectionName, params)
+  console.log('Ref', response)
 }
 
 run()
 ```
 
-ID を指定する場合
+Define Custom ID
 
-この場合は uid を指定しているので、
-User コレクションの中に uid という ID のドキュメントが作成されます。
+In this case uid is specified, so
+A document with ID uid is created in the User collection
 
 ```typescript
 import { addCollectionItem } from '@skeet-framework/firestore'
@@ -141,18 +138,18 @@ const run = async () => {
     username: 'Satoshi',
   }
   const uid = 'uidstring'
-  const parentDocRef = await addCollectionItem<User>(
+  const response = await addCollectionItem<User>(
     parentCollectionName,
     params,
     uid
   )
-  console.log(parentCollectionName, parentDocRef)
+  console.log('Ref', response)
 }
 
 run()
 ```
 
-## ネストされたコレクションにドキュメントを追加する
+## Add Child Collection Item
 
 ```typescript
 import { addChildCollectionItem } from '@skeet-framework/firestore'
@@ -160,14 +157,13 @@ import { User, UserChatRoom } from '@/models/userModels.ts'
 
 const run = async () => {
   const parentCollectionName = 'User'
-  const childCollectionName = 'UserChatRoom'
-
   const params: User = {
     username: 'Satoshi',
   }
-  const userDocRef = await addCollectionItem<User>(parentCollectionName, params)
-  console.log(parentCollectionName, userDocRef)
+  const response = await addCollectionItem<User>(parentCollectionName, params)
+  console.log('Ref', response)
 
+  const childCollectionName = 'UserChatRoom'
   const childParams: UserChatRoom = {
     userRef: response.ref,
     model: 'gpt4',
@@ -175,12 +171,12 @@ const run = async () => {
     temperature: 0.8,
     stream: false,
   }
-  const userChatRoomDocRef = await addChildCollectionItem<UserChatRoom>(
+  const childResponse = await addChildCollectionItem<UserChatRoom>(
     parentCollectionName,
+    response.id,
     childCollectionName,
-    parentId,
     childParams
   )
-  console.log(childCollectionName, userChatRoomDocRef)
+  console.log('Ref', childResponse)
 }
 ```

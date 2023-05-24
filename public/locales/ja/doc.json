@@ -10,23 +10,23 @@
     },
     "quickstart": {
       "title": "クイックスタート",
-      "body": "Skeet - フルスタック TypeScript サーバーレスアプリケーションフレームワーク クイックスタート"
+      "body": "Skeet フレームワーク - バックエンド クイックスタート"
     },
     "basic-architecture": {
       "title": "基本アーキテクチャ",
-      "body": "Skeet - 基本アーキテクチャ"
+      "body": "バックエンドの基本的ツリー構造や使い方について説明します。"
     },
     "initial-deploy": {
       "title": "最初のデプロイ",
-      "body": "Skeet - 最初のデプロイ"
+      "body": "最初のデプロイを完了させると その後のコミットから CI/CD による自動デプロイが発動します。"
     },
     "tutorial": {
       "title": "チュートリアル",
-      "body": "Skeet - チュートリアル"
+      "body": "Skeet フレームワーク を使ってチャットアプリを作成するチュートリアルです。"
     },
     "skeet-firestore": {
       "title": "Skeet Firestore",
-      "body": "Skeet Framework プラグイン - Skeet Firestore."
+      "body": "Skeet フレームワーク における型安全な Firestore の使い方を解説します。"
     },
     "react-native": {
       "title": "React Native (Expo)",
@@ -51,12 +51,15 @@
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "graphql-api": "GraphQL APIの構築",
-      "skeet-firestore": "Skeet Firestore",
       "firebase-user-authentification": "Firebase ログイン認証",
       "add-worker": "Workerを追加する",
       "setup-load-balancer": "ロードバランサーを設定する",
       "cloud-armor": "Cloud Armor の設定",
       "skeet-plugins": "Skeet プラグイン"
+    },
+    "plugins": {
+      "groupTitle": "プラグイン",
+      "skeet-firestore": "Skeet Firestore"
     },
     "frontend": {
       "groupTitle": "フロントエンド",

@@ -7,8 +7,9 @@ import {
   DevicePhoneMobileIcon,
   AcademicCapIcon,
   BookOpenIcon,
-  ArrowUpRightIcon,
+  FireIcon,
   Cog6ToothIcon,
+  CloudArrowUpIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -65,17 +66,22 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.backend.initial-deploy',
         href: '/doc/backend/initial-deploy/',
-        icon: ArrowUpRightIcon,
+        icon: CloudArrowUpIcon,
       },
       {
         name: 'doc:menuNav.backend.tutorial',
         href: '/doc/backend/tutorial/',
         icon: AcademicCapIcon,
       },
+    ],
+  },
+  {
+    name: 'doc:menuNav.plugins.groupTitle',
+    children: [
       {
-        name: 'doc:menuNav.backend.skeet-firestore',
-        href: '/doc/backend/skeet-firestore/',
-        icon: Cog6ToothIcon,
+        name: 'doc:menuNav.plugins.skeet-firestore',
+        href: '/doc/plugins/skeet-firestore/',
+        icon: FireIcon,
       },
     ],
   },
