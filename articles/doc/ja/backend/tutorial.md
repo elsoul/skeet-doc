@@ -955,10 +955,10 @@ $ skeet yarn build
 
 Skeet Framework に 2 種類のデプロイ方法があります。
 
-- GitHub Actions による CD/CI
+- GitHub Actions による CI/CD
 - Skeet CLI によるデプロイ
 
-## GitHub Actions による CD/CI
+## GitHub Actions による CI/CD
 
 ```bash
 $ git add .

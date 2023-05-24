@@ -947,10 +947,10 @@ $ skeet yarn build
 
 Skeet Framework has two deployment methods.
 
-- CD/CI with GitHub Actions
+- CI/CD with GitHub Actions
 - Deploy with Skeet CLI
 
-## CD/CI with GitHub Actions
+## CI/CD with GitHub Actions
 
 ```bash
 $ git add .
