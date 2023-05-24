@@ -544,7 +544,7 @@ export const addUserChatRoomMessage = onRequest(
 )
 ```
 
-※ Chat GPT API key configuration is required before trying this. Set the following contents in _functions/openai/.env_.
+※ Chat GPT (Open AI) API key configuration is required before trying this. Set the following contents in _functions/openai/.env_.
 
 ```
 CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
@@ -656,7 +656,7 @@ import { defaultHttpOption } from '@/routings'
 
 export const addStreamUserChatRoomMessage = onRequest(
   defaultHttpOption,
-  async (req: TypedRequestBody<AddUserChatRoomMessageParams>, res) => {
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
     try {
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
@@ -770,6 +770,17 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+Also change the Params.
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  userChatRoomId: string
+  content: string
+}
+```
+
 _UserChatRoom_ settings created earlier from Firestore at [Firebase Emulator - Firestore](http://127.0.0.1:4000/firestore/data)
 
 _stream_ value to _true_
@@ -838,7 +849,7 @@ In this state, the backend API cannot be called from the frontend.
 Let's add routing to the load balancer by running the following command.
 
 ```bash
-$ skeet sync routes
+$ skeet sync routings
 ```
 
 This command will
