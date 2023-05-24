@@ -770,6 +770,17 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+Also change the Params.
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  userChatRoomId: string
+  content: string
+}
+```
+
 _UserChatRoom_ settings created earlier from Firestore at [Firebase Emulator - Firestore](http://127.0.0.1:4000/firestore/data)
 
 _stream_ value to _true_
@@ -838,7 +849,7 @@ In this state, the backend API cannot be called from the frontend.
 Let's add routing to the load balancer by running the following command.
 
 ```bash
-$ skeet sync routes
+$ skeet sync routings
 ```
 
 This command will
