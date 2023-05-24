@@ -23,7 +23,7 @@ type Props = {
   children: ReactNode
 }
 
-const mainContentId = 'mainDocContent'
+const mainContentId = 'docMainContent'
 
 export default function DocLayout({ children }: Props) {
   const router = useRouter()

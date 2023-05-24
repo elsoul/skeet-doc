@@ -570,7 +570,7 @@ import {
 } from '@skeet-framework/firestore'
 ```
 
-詳しくは、[Skeet Firestore](/ja/doc/backend/skeet-firestore) を参照してください。
+詳しくは、[Skeet Firestore](/ja/doc/plugins/skeet-firestore) を参照してください。
 
 ## Skeet CLI
 
