@@ -33,10 +33,13 @@ If you have never used Google Cloud before, follow this link to create a project
 
 [How to create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
+- It is also necessary to set up a billing account for the project.
+
 ## Gcloud CLI Auth login
 
 ```bash
 $ gcloud auth application-default login
+$ gcloud auth login
 ```
 
 ## Create a Firebase project
@@ -56,7 +59,7 @@ $ skeet create skeet-chatbot
 Configure the following settings with the Skeet init command.
 
 1. Region selection
-2. Specify a GitHub repository
+2. Specify a GitHub repository name
 3. Nameserver domain settings
 4. Load balancer subdomain settings
 
