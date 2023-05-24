@@ -21,7 +21,7 @@ $ npm install -g firebase-tools
 $ npm install -g @skeet-framework/cli
 ```
 
-## Login GitHUb CLI Auth
+## Login GitHub CLI Auth
 
 ```bash
 $ gh auth login

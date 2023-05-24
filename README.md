@@ -52,7 +52,7 @@ Document Web Media for Skeet Framework.
 ```bash
 # Node version (using nodenv)
 $ node -v
-v18.14.2
+v18.16.0
 
 # Install dependencies
 $ yarn install --frozen-lockfile

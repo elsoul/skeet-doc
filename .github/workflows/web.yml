@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18.14.2'
+          node-version: '18.16.0'
       - name: Install yarn and firebase tools
         run: npm i -g npm yarn firebase-tools
       - name: GitHub repository setting
