@@ -31,10 +31,13 @@ $ gh auth login
 
 [プロジェクトの作成方法](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
 
+※プロジェクトに対して請求アカウントの設定も必要です。
+
 ## Gcloud CLI Auth ログイン
 
 ```bash
 $ gcloud auth application-default login
+$ gcloud auth login
 ```
 
 ## Firebase プロジェクトの作成
@@ -54,7 +57,7 @@ $ skeet create skeet-chatbot
 Skeet init コマンドで以下の設定を行います。
 
 1. リージョンの選択
-2. GitHub リポジトリを指定
+2. GitHub リポジトリ名を指定
 3. ネームサーバーのドメイン設定
 4. ロードバランサーのサブドメイン設定
 
