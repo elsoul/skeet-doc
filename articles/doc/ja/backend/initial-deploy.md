@@ -100,7 +100,8 @@ https://your-domain.com/root にアクセスしてみましょう。
 
 ```json
 {
-  "status": "SKeet APP is running"
+  "status": "success",
+  "message": "Skeet APP is running!"
 }
 ```
 

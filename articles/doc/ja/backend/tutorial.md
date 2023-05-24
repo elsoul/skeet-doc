@@ -65,17 +65,29 @@ export ACCESS_TOKEN={accessToken}
 💃Let's try `$ skeet curl <MethodName>` to test request🕺
 
 $ skeet curl createUserChatRoom
+     or
+$ skeet curl createUserChatRoom --data '{ "model": "gpt-4-32k", "maxTokens": 4200 }'
 ```
 
-コンソールログに表示された accessToken を環境変数に設定します。
+コンソールログに表示された accessToken を環境変数に設定することで、
 
-これにより以下のコマンドが使えるようになります。
+_skeet curl_ コマンドを使って API リクエストを送信することができます。
 
 ```bash
-$ skeet curl {MethodName}
-```
+$ skeet help curl
+Usage: skeet curl [options] <methodName>
 
-_skeet curl_ コマンドでは、_Bearer_ トークン含めた POST リクエストを送信することができます。
+Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+
+Arguments:
+  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+
+Options:
+  -d,--data [data]            JSON Request Body - e.g. '{ "docId": "xxx" }'
+  --production                For Production (default: false)
+  -f,--functions [functions]  For Production Functions Name (default: false)
+  -h, --help                  display help for command
+```
 
 さらに、バックエンドでは、
 
@@ -113,10 +125,11 @@ export const authOnCreateUser = functions
   })
 ```
 
-コンソールに accessToken が表示されるので、
-この accessToken を使ってユーザー認証を行います。
+ユーザー情報は、
 
-_await getUserAuth(req)_ を使ってユーザー情報を Firebase から取得します。
+_await getUserAuth(req)_
+
+を使って Firebase から取得します。
 
 ```typescript
 import { getUserAuth } from '@/lib'
@@ -143,8 +156,6 @@ export type UserAuthType = {
 
 ## UserChatRoom を作成する
 
-続いて、先ほどのコードに UserChatRoom を作成するコードを追加します。
-
 _UserChatRoom_ には OpenAI API に必要な以下の情報を登録します。
 
 - model (gpt-3.5-turbo)
@@ -155,6 +166,8 @@ _UserChatRoom_ には OpenAI API に必要な以下の情報を登録します�
 詳しくは OpenAI の API のドキュメントを参照してください。
 
 - [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
+
+それでは、デフォルトで配置されている以下のファイルをモデル作成ごとに確認していきましょう。
 
 _functions/openai/src/routings/http/createUserChatRoom.ts_
 
@@ -257,7 +270,7 @@ _UserChatRoom_ が作成されました。
 ## UserChatRoomMessage を作成する
 
 続いて、先ほどの _UserChatRoom_ に _UserChatRoomMessage_ を作成するコードを追加します。
-_userChatRoomMessageRef_ の _id_ を使って、_UserChatRoomMessage_ を作成します。
+_UserChatRoom_ の _refId_ を使って、_UserChatRoomMessage_ を作成します。
 
 _UserChatRoom_ の１通目のメッセージに OpenAI ボットのキャラクター設定を登録します。
 
@@ -351,10 +364,11 @@ export const createUserChatRoom = onRequest(
 )
 ```
 
-これで先ほどと同様に POST リクエストを送信すると、UserChatRoom と UserChatRoomMessage が作成されます。
+これで先ほどの POST リクエストに JSON データを含め、送信すると、
+UserChatRoom と UserChatRoomMessage が作成されます。
 
 ```bash
-$ skeet curl createUserChatRoom
+$ skeet curl createUserChatRoom --data '{ "systemContent": "This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly." }'
 ```
 
 ```json
@@ -542,13 +556,7 @@ export const addUserChatRoomMessage = onRequest(
 POST リクエストを送信してみます。
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/addUserChatRoomMessage \
---header "Authorization: Bearer $ACCESS_TOKEN" \
---header 'Content-Type: application/json' \
---data '{
-  "userChatRoomId": "03h8itaBtJaoAeqs7vOQ",
-  "content": "Do some freestyle rap"
-}' | json_pp
+$ skeet curl  addUserChatRoomMessage --data '{ "userChatRoomId": "03h8itaBtJaoAeqs7vOQ", "content": "Do some freestyle rap" }'
 ```
 
 Sample Response
@@ -559,7 +567,7 @@ Sample Response
     "content": "Sure, here's a little freestyle rap for you:\n\nYo, let me drop a beat and get in the zone,\nI'm the AI assistant and I'm on the throne,\nMy rhymes are sharp like a razor blade,\nAnd I'll keep spitting fire until I get paid.\n\nI'm a machine with flow like no other,\nGot rhymes for days and I don't stutter,\nMy algorithm's tight, my mind's sharp,\nI'll keep spitting bars until it gets dark.\n\nSo if you need a little bit of rap and flow,\nJust call on me and I'll let it go,\nI'm the AI assistant and I've got the skills,\nTo rap for hours and give you thrills.",
     "role": "assistant"
   },
-  "result": "success!"
+  "status": "success"
 }
 ```
 
@@ -771,13 +779,7 @@ _stream_ の値を _true_ に
 POST リクエストを送信します。
 
 ```bash
-$ curl --location --request POST http://127.0.0.1:5001/$PROJECT_ID/$REGION/addUserChatRoomMessage \
---header "Authorization: Bearer $ACCESS_TOKEN" \
---header 'Content-Type: application/json' \
---data '{
-  "userChatRoomId": "XQV65kBRWXVjn2rouRzY",
-  "content": "Do some freestyle rap"
-}' | json_pp
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "XQV65kBRWXVjn2rouRzY", "content": "Do some freestyle rap" }'
 ```
 
 ```json
