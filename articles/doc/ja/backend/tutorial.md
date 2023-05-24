@@ -777,6 +777,17 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
+_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+
+Params も変更しましょう。
+
+```typescript
+export type AddStreamUserChatRoomMessageParams = {
+  userChatRoomId: string
+  content: string
+}
+```
+
 先ほど作成した _UserChatRoom_ の設定を [Firebase エミュレーター - Firestore](http://127.0.0.1:4000/firestore/data) の Firestore から
 
 _stream_ の値を _true_ に
@@ -845,7 +856,7 @@ Synced Models Types 🎉
 以下のコマンドを実行し、ロードバランサーにルーティングを追加しましょう。
 
 ```bash
-$ skeet sync routes
+$ skeet sync routings
 ```
 
 このコマンドにより、
