@@ -53,7 +53,7 @@ You can add multiple functions to functions.
 | functions/openai        | functions related to OpenAI API          |
 | package.json            | Backend package management               |
 | skeet-cloud.config.json | Skeet Framework configuration file       |
-| firebase.json           | Firebase の設定ファイル                  |
+| firebase.json           | Firebase Settings                        |
 
 ## Basic Structure of Skeet Functions
 
@@ -195,7 +195,7 @@ export const root = onRequest(
     } catch (error) {
       const errorLog = `root - ${error}`
       console.log(errorLog)
-      res.status(400).json({ result: 'root error!' })
+      res.status(500).json({ message: 'root error!' })
     }
   }
 )
@@ -256,9 +256,9 @@ export const pubsubExample = onMessagePublished(
   pubsubDefaultOption(TOPIC_NAME),
   async (event) => {
     try {
-      console.log({ result: 'success', topic: TOPIC_NAME, event })
+      console.log({ status: 'success', topic: TOPIC_NAME, event })
     } catch (error) {
-      console.error({ result: 'error', error: String(error) })
+      console.log({ status: 'error', message: String(error) })
     }
   }
 )
@@ -319,9 +319,9 @@ export const schedulerExample = onSchedule(
   schedulerDefaultOption,
   async (event) => {
     try {
-      console.log({ result: 'success', topic: TOPIC_NAME, event })
+      console.log({ status: 'success', topic: TOPIC_NAME, event })
     } catch (error) {
-      console.log({ result: 'error', message: String(error) })
+      console.log({ status: 'error', message: String(error) })
     }
   }
 )
@@ -373,8 +373,7 @@ export const firestoreExample = onDocumentCreated(
     try {
       console.log(event.params)
     } catch (error) {
-      const errorLog = `solanatransfer - ${error}`
-      console.log(errorLog)
+      console.log({ status: 'error', message: String(error) })
     }
   }
 )
@@ -448,7 +447,7 @@ export const authOnCreateUser = functions
       const userRef = await addCollectionItem<User>('User', userParams, uid)
       console.log({ status: 'success', userRef })
     } catch (error) {
-      console.log(`error - ${String(error)}`)
+      console.log({ status: 'error', message: String(error) })
     }
   })
 ```
@@ -459,40 +458,40 @@ In the Dev environment,
 For Firebase user registration and login,
 Use the _skeet login_ command.
 
+Run Skeet App in Dev environment
+
+```bash
+$ skeet s
+```
+
+Open a new terminal and run the _skeet login_ command.
+
 ```bash
 $ skeet login
-? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter>
-to proceed)
-  = Services =
-❯◯ openai
 ```
 
-Select _openai_ and press enter.
-
-```bash
-i  functions: Beginning execution of "us-central1-authOnCreateUser"
->  {
->    status: 'success',
->    userRef: {
->      __type__: 'ref',
->      collection: { __type__: 'collection', path: 'User' },
->      id: '65N7Yl6rWzGASPrqhjC7wyhqUfpg'
->    }
->  }
-```
+![画像](https://storage.googleapis.com/skeet-assets/animation/skeet-login-compressed.gif)
 
 Firebase user registration and Firestore user registration are completed.
 
-Copy the _accessToken_ displayed in the console,
-Used for dev environment login authentication.
+_ACCESS_TOKEN_ is stored in the local environment variable.
 
-If you simply send a POST request with _curl_,
-It is convenient to set the environment settings as follows.
+Now you can use _skeet curl_ to call the Cloud Functions endpoint.
 
 ```bash
-export $ACCESS_TOKEN={your-access-token}
-export $PROJECT_ID={your-project-id}
-export $REGION={your-region}
+$ skeet help curl
+Usage: skeet curl [options] <methodName>
+
+Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+
+Arguments:
+  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+
+Options:
+  -d,--data [data]            JSON Request Body - e.g. '{ "model": "gpt4", "maxTokens": 420 }'
+  --production                For Production (default: false)
+  -f,--functions [functions]  For Production Functions Name (default: false)
+  -h, --help                  display help for command
 ```
 
 ## Model definition
@@ -583,21 +582,23 @@ Usage: skeet [options] [command]
 CLI for Skeet - Full-stack TypeScript Serverless framework
 
 Options:
-  -V, --version             output the version number
-  -h, --help                display help for command
+  -V, --version                output the version number
+  -h, --help                   display help for command
 
 Commands:
-  create <appName>          Create Skeet Framework App
-  server|s                  Run Firebase Emulator for Skeet APP
-  deploy                    Deploy Skeet APP to Firebase (GCP)
-  init [options]            Initialize Google Cloud Setups for Skeet APP
-  iam                       Skeet IAM Comannd to setup Google Cloud Platform
-  yarn [options] <yarnCmd>  Skeet Yarn Comannd to run yarn command for multiple functions
-  add                       Skeet Add Comannd to add new functions
-  sync                      Skeet Sync Comannd to sync backend and frontend
-  delete|d                  Skeet Delete Command
-  list                      Show Skeet App List
-  help [command]            display help for command
+  create <appName>             Create Skeet Framework App
+  server|s                     Run Firebase Emulator for Skeet APP
+  deploy                       Deploy Skeet APP to Firebase Cloud Functions
+  init [options]               Initialize Google Cloud Setups for Skeet APP
+  iam                          Skeet IAM Comannd to setup Google Cloud Platform
+  yarn [options] <yarnCmd>     Skeet Yarn Comannd to run yarn command for multiple functions
+  add                          Skeet Add Comannd to add new functions
+  sync                         Skeet Sync Comannd to sync backend and frontend
+  delete|d                     Skeet Delete Command
+  login [options]              Skeet Login Command - Create Firebase Login Token
+  list                         Show Skeet App List
+  curl [options] <methodName>  Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+  help [command]               display help for command
 ```
 
 ### Skeet Yarn Install/Build
@@ -663,7 +664,8 @@ Options:
 
 Commands:
   functions <functionsName>
-  method <methoName>
+  method <methodName>
+  model <modelName>
   help [command]             display help for command
 ```
 
@@ -689,7 +691,33 @@ If you want to add a method to an existing Cloud Functions,
 run the following command and select the instance type.
 
 ```bash
-$ skeet add method <methodName>
+$ skeet add help method
+Usage: skeet add method [options] <methodName>
+
+Arguments:
+  methodName  Method Name - e.g. addStreamUserChat
+
+Options:
+  -h, --help  display help for command
+```
+
+e.g http method name - _createArticle_
+
+```bash
+$ skeet add method createArticle
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+❯ http
+  firestore
+  pubSub
+  scheduler
+  auth
+```
+
+Select the function to add the method to.
+
+```bash
+$ skeet add method createArticle
 ? Select Instance Type to add (Use arrow keys)
    = Instance Type =
 ❯ http
@@ -709,8 +737,8 @@ Next, select the function to add the method to.
   solana
 ? Select Instance Type to add http
 ? Select Functions to add solana
-✔️ ./functions/solana/src/types/http/createUserParams.ts created!
-✔️ ./functions/solana/src/routings/http/createUser.ts created!
+✔️ ./functions/openai/src/types/http/createArticleParams.ts created!
+✔️ ./functions/openai/src/routings/http/createArticle.ts created!
 ```
 
 New method and type definitions will be created.
@@ -723,17 +751,18 @@ Skeet Sync Command is a command to sync the latest model definitions to other ba
 $ skeet sync
 Usage: skeet sync [options] [command]
 
-Skeet Sync Comannd
+Skeet Sync Comannd to sync backend and frontend
 
 Options:
-  -h, --help      display help for command
+  -h, --help       display help for command
 
 Commands:
-  models          Sync Models
-  types           Sync Types
-  routings        Sync Routings
-  armors           Sync Cloud Armor Rules
-  help [command]  display help for command
+  models           Skeet Sync Models
+  types            Skeet Sync Types
+  routings         Skeet Sync Routings
+  armors           Skeet Sync Cloud Armor Rules
+  firebase:config  Export Firebase Config File to `./lib/firebaseConfig.ts`
+  help [command]   display help for command
 ```
 
 ### Skeet Sync Models
@@ -766,4 +795,53 @@ _skeet-cloud.config.json_ is a file that defines the rules for accessing the Clo
 
 ```bash
 $ skeet sync armors
+```
+
+### Skeet Sync Firebase Config
+
+_lib/firebaseConfig.ts_ will be generated by running the following command.
+
+```bash
+$ skeet sync firebase:config
+```
+
+### Skeet Curl Command
+
+_skeet curl_ is a command to call the Cloud Functions endpoint.
+
+** Please run _skeet login_ command to set _ACCESS_TOKEN_ in your env for Authorization **
+
+```bash
+$ skeet help curl
+Usage: skeet curl [options] <methodName>
+
+Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+
+Arguments:
+  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+
+Options:
+  -d,--data [data]            JSON Request Body - e.g. '{ "model": "gpt4", "maxTokens": 420 }'
+  --production                For Production (default: false)
+  -f,--functions [functions]  For Production Functions Name (default: false)
+  -h, --help                  display help for command
+```
+
+### Skeet Login Command
+
+Login to Firebase and set _ACCESS_TOKEN_ in your env for Authorization
+
+** run _skeet s_ in a new terminal before _skeet login_ **
+
+```bash
+$ skeet help login
+Usage: skeet login [options]
+
+Skeet Login Command - Create Firebase Login Token
+
+Options:
+  --production           For Production (default: false)
+  --email [email]        Login Email (default: "")
+  --password [password]  Login Password (default: "")
+  -h, --help             display help for command
 ```
