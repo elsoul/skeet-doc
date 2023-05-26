@@ -57,7 +57,6 @@ $ firebase login
 
 # Get FIREBASE_DEPLOY_TOKEN to use CI/CD
 $ firebase login:ci
-
 ```
 
 ## GitHub Actions (CI/CD)
