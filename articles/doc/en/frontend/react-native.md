@@ -6,11 +6,11 @@ description: Skeet Framework App Template with React Native(Expo)
 
 ![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-## Skeet App Template
+## Skeet App
 
 React Native (Expo) App Environment for Skeet Framework
 
-[GitHub - Skeet App Template](https://github.com/elsoul/skeet-app-template)
+[GitHub - Skeet App Boilerplate](https://github.com/elsoul/skeet-app)
 
 ## Aiming to
 
@@ -48,26 +48,13 @@ $ yarn install --frozen-lockfile
 $ yarn dev
 ```
 
-## Firebase Hosting
+## EAS Build
 
-You need to login to Firebase to use Firebase Hosting to publish your media website.
+[EAS Build](https://docs.expo.dev/build/introduction/)
 
-```bash
-# Install Firebase tools
-$ npm i -g firebase-tools
-
-# Login to Firebase to enable `yarn deploy` from local
-$ firebase login
-
-# Get FIREBASE_DEPLOY_TOKEN to use CI/CD
-$ firebase login:ci
+You need to run this command to setup EAS Build project.
+(Edit app.json for example changing names and deleting "extra" to build new project.)
 
 ```
-
-## GitHub Actions (CI/CD)
-
-Needs to set Secrets on GitHub to work with GitHub Actions.
-
-```
-FIREBASE_DEPLOY_TOKEN
+yarn build:configure
 ```
