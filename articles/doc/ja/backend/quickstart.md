@@ -39,9 +39,10 @@ Google Cloud の VPC 設定やセキュリティ目的の Cloud Armor 等セキ�
 
 ## 使い方
 
-### Skeet CLI のインストール
+### パッケージのインストール
 
 ```bash
+$ npm install -g firebase-tools
 $ npm i -g @skeet-framework/cli
 ```
 

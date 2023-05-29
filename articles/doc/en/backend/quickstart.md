@@ -42,6 +42,7 @@ Automatically complete the minimum required settings for security, such as Googl
 ### Install Skeet CLI
 
 ```bash
+$ npm install -g firebase-tools
 $ npm i -g @skeet-framework/cli
 ```
 
