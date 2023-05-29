@@ -9,7 +9,7 @@ description: How to use type-safe Firestore in Skeet Framework.
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
 This plugin is for Backend (Node.js) for now.
-After launching TypeSaurus X (Now we're using version 7), we'll migrate and it will allow to use on Frontend (React Native) as well.
+After launching TypeSaurus X (Now we're using version 7 as stable), we'll migrate and it will allow to use on Frontend (React Native) as well.
 
 TypeSaurus: https://github.com/kossnocorp/typesaurus
 
