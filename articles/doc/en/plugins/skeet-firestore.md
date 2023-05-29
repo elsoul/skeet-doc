@@ -8,6 +8,11 @@ description: How to use type-safe Firestore in Skeet Framework.
 
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
+This plugin is for Backend (Node.js) for now.
+After launching TypeSaurus X (Now we're using version 7), we'll migrate and it will allow to use on Frontend (React Native) as well.
+
+TypeSaurus: https://github.com/kossnocorp/typesaurus
+
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework provides a plugin for using Firestore.
@@ -66,17 +71,6 @@ $ skeet yarn add -p @skeet-firebase/firestore
 import * as admin from 'firebase-admin'
 
 admin.initializeApp()
-```
-
-or
-
-```typescript
-import * as firebase from 'firebase/app'
-import 'firebase/firestore'
-
-firebase.initializeApp({
-  // Project configuration
-})
 ```
 
 ## Basic Structure of Skeet Firestore
