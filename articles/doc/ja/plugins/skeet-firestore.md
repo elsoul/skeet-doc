@@ -9,7 +9,7 @@ description: Skeet フレームワーク における型安全な Firestore の�
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
 このプラグインは現在 Skeet バックエンド(Node.js)用です。
-TypeSaurus X (Now we're using version 7) のリリース後、Skeet フロントエンド(React Native)においても使用できるようになる予定です。
+TypeSaurus X (今は安定版の version 7 を使用しています) のリリース後、Skeet フロントエンド(React Native)においても使用できるようになる予定です。
 
 TypeSaurus: https://github.com/kossnocorp/typesaurus
 
