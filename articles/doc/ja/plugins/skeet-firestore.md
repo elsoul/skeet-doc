@@ -8,6 +8,11 @@ description: Skeet フレームワーク における型安全な Firestore の�
 
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
+このプラグインは現在 Skeet バックエンド(Node.js)用です。
+TypeSaurus X (今は安定版の version 7 を使用しています) のリリース後、Skeet フロントエンド(React Native)においても使用できるようになる予定です。
+
+TypeSaurus: https://github.com/kossnocorp/typesaurus
+
 ## Skeet Firestore - Skeet Framework Plugin
 
 Skeet Framework では Firestore を使うためのプラグインが用意されています。
@@ -66,17 +71,6 @@ $ skeet yarn add -p @skeet-firebase/firestore
 import * as admin from 'firebase-admin'
 
 admin.initializeApp()
-```
-
-or
-
-```typescript
-import * as firebase from 'firebase/app'
-import 'firebase/firestore'
-
-firebase.initializeApp({
-  // Project configuration
-})
 ```
 
 ## Skeet Firestore の基本構造
