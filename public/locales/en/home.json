@@ -1,6 +1,6 @@
 {
   "HeroRow": {
-    "title": "Let's start that idea immediately🚀",
-    "body": "Quickly build CI/CD-ready, Full-stack TypeScript Serverless Applications. You can start development right away with business logic (Functions). Start small and scale big."
+    "body1": "Full-stack Serverless Framework",
+    "body2": "for auto-scaling apps on Firebase."
   }
 }
