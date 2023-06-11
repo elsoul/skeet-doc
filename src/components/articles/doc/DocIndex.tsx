@@ -95,7 +95,8 @@ export default function DocIndex({}: Props) {
               {t('doc:title')}
             </h2>
             <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              {t('doc:body')}
+              {t('doc:body1')} <br />
+              {t('doc:body2')}
             </p>
           </div>
         </div>
