@@ -11,6 +11,8 @@ import {
   faGithub,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
+import Image from 'next/image'
+import GoogleCloudPartner from '@/assets/img/logo/partners/GoogleCloudPartner.png'
 
 export default function CommonFooter() {
   const { t } = useTranslation()
@@ -33,6 +35,21 @@ export default function CommonFooter() {
                       {t(nav.name)}
                     </Link>
                   ))}
+                </div>
+              </nav>
+              <nav className="mt-12 text-sm" aria-label="quick links">
+                <div className="flex flex-col items-center justify-center gap-6 text-center sm:-my-1 sm:flex-row">
+                  <a
+                    href="https://cloud.google.com/find-a-partner/partner/elsoul-labo-b-v"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Image
+                      src={GoogleCloudPartner}
+                      alt="Google Cloud Partner"
+                      className="w-32"
+                    />
+                  </a>
                 </div>
               </nav>
             </div>
