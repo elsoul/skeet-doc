@@ -12,7 +12,7 @@
     "feature1Title": "High Performance",
     "feature1Description": "Distributed systems leveraging various event triggers such as Auth and storage work more efficiently, and Firestore, a NoSQL database, scales flexibly and supports realtime stream.",
     "feature2Title": "Eco-friendly",
-    "feature2Description": "Computing resources automatically scale up to match your usage patterns, so you always use the only necessary machine resources. The design is both economical and environmentally friendly.",
+    "feature2Description": "Computing resources automatically scale to match your usage patterns, so you always have as much as you need. Skeet is designed to be economically and environmentally friendly.",
     "feature3Title": "Developer Experience",
     "feature3Description": "You can start writing app logic immediately without worrying about deploying or maintaining server infrastructure. TypeScript support makes apps more secure and improves development efficiency.",
     "feature4Title": "Security built-in",
