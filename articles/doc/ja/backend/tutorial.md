@@ -11,7 +11,11 @@ description: Skeet フレームワーク を使ってAIチャットアプリを�
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
 
-このチュートリアルでは 基本的なチャットボットアプリ を作成します。 **自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。** このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
+このチュートリアルでは 基本的なチャットボットアプリ を作成します。
+
+**自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。**
+
+このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
 
 この章では OpenAI の API を使ってチャットボットを作成します。
 
@@ -28,21 +32,7 @@ GitHub Copilot を使った強力なコード補完サポートを受けるこ�
 
 ## チュートリアルの前提条件
 
-このチュートリアルを進めるには次のものが必要です。
-
-- [Node.js](https://nodejs.org/ja/) 18.16.0 以上
-- [Yarn](https://yarnpkg.com/) 1.22.19 以上
-- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) 430.0.0 以上
-- [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
-- [GitHub CLI](https://cli.github.com/) 2.29.0 以上
-
-また、[クイックスタート](/ja/doc/backend/quickstart) が完了していない場合は、
-
-- Google Cloud プロジェクトの作成
-- Firebase プロジェクトの作成
-- Firebase Config の設定
-
-を完了してください。
+[クイックスタート](/ja/doc/backend/quickstart) が完了していない場合は先に完了させてください。
 
 ## ユーザー認証・ログイン機能の実装
 

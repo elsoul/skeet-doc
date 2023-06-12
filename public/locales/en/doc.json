@@ -68,6 +68,22 @@
     "web": {
       "groupTitle": "Web Media & Docs",
       "ssg-template": "SSG Template (Next.js)"
+    },
+    "skeet-cli": {
+      "groupTitle": "Skeet CLI",
+      "create": "skeet create",
+      "server": "skeet server",
+      "deploy": "skeet deploy",
+      "init": "skeet init",
+      "iam": "skeet iam",
+      "yarn": "skeet yarn",
+      "add": "skeet add",
+      "sync": "skeet sync",
+      "delete": "skeet delete",
+      "login": "skeet login",
+      "list": "skeet list",
+      "curl": "skeet curl",
+      "test": "skeet test"
     }
   },
   "headerNav": {
