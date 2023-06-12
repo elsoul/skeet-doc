@@ -2,5 +2,20 @@
   "HeroRow": {
     "body1": "Full-stack Serverless Framework",
     "body2": "for auto-scaling apps on Firebase."
+  },
+  "MainPurposeRow": {
+    "subtitle": "Do more, manage less",
+    "title1": "Reduce app development and operation costs and realize more plans.",
+    "title2": "",
+    "description1": "Skeet is an open-source full-stack app development solution.",
+    "description2": "You can start writing app logic immediately without worrying about infrastructure.",
+    "feature1Title": "High Performance",
+    "feature1Description": "Distributed systems leveraging various event triggers such as Auth and storage work more efficiently, and Firestore, a NoSQL database, scales flexibly and supports realtime stream.",
+    "feature2Title": "Eco-friendly",
+    "feature2Description": "Computing resources automatically scale to match your usage patterns, so you always have as much as you need. Skeet is designed to be economically and environmentally friendly.",
+    "feature3Title": "Developer Experience",
+    "feature3Description": "You can start writing app logic immediately without worrying about deploying or maintaining server infrastructure. TypeScript support makes apps more secure and improves development efficiency.",
+    "feature4Title": "Security built-in",
+    "feature4Description": "In addition to SSL support, DDoS attacks and bot countermeasures using Cloud Armor, minimal endpoint exposure, and Pub/Sub messaging can be easily applied to achieve Google-scale security."
   }
 }
