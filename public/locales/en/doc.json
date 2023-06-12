@@ -11,19 +11,19 @@
     },
     "quickstart": {
       "title": "Quickstart",
-      "body": "Skeet Framework - Backend Quickstart."
-    },
-    "basic-architecture": {
-      "title": "Basic Architecture",
-      "body": "Describes the basic tree structure and usage of the Skeet Framework backend."
-    },
-    "initial-deploy": {
-      "title": "Initial Deploy",
-      "body": "Once the first deployment is completed, automatic deployment by CI/CD will be triggered from subsequent commits"
+      "body": "Describes the setup for getting started with the Skeet framework."
     },
     "tutorial": {
       "title": "Tutorial",
-      "body": "This tutorial will create a OpenAI API chat app using Skeet Framework."
+      "body": "This tutorial will create a OpenAI Chat App using Skeet Framework."
+    },
+    "initial-deploy": {
+      "title": "Initial Deploy",
+      "body": "You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command."
+    },
+    "basic-architecture": {
+      "title": "Basic Architecture",
+      "body": "Describes the basic structure of the Skeet framework. Each directory of the application and each command of CLI are explained."
     },
     "skeet-firestore": {
       "title": "Firestore Plugin",
@@ -31,11 +31,11 @@
     },
     "react-native": {
       "title": "React Native (Expo)",
-      "body": "We're using React Native (Expo) on the frontend. We can use the Tailwind and React technology on mobile dev as well."
+      "body": "We're using React Native (Expo) on the frontend. We can use npm packages like the Tailwind on mobile dev as well."
     },
     "ssg-template": {
       "title": "SSG Template (Next.js)",
-      "body": "The project needs the website, blog and docs. So we have the starter for that with SSG on Next.js. SEO Ready."
+      "body": "The project needs the website, blog and docs. So we have the boilerplate for that with SSG on Next.js. SEO Ready."
     }
   },
   "menuNav": {
