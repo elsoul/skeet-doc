@@ -9,6 +9,8 @@ description: This tutorial will create a OpenAI API chat app using Skeet Framewo
 This tutorial uses the Skeet Framework to create a chat app.
 This is a comprehensive cloud application development tutorial including the programming language TypeScript, Firebase Firestore, and GitHub.
 
+![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
+
 This tutorial creates a basic chatbot app. **You may be tempted to skip this because you don't want to build a chatbot, but please read it.** The techniques you learn in this tutorial are fundamental to any Skeet Framework app, and mastering them will give you a deep understanding of Skeet.
 
 In this chapter, we will create a chatbot using OpenAI's API.

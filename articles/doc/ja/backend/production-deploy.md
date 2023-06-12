@@ -1,6 +1,6 @@
 ---
-id: initial-deploy
-title: 最初のデプロイ
+id: production-deploy
+title: 本番環境へデプロイ
 description: 最初のデプロイを完了させると その後のコミットから CI/CD による自動デプロイが発動します。
 ---
 
@@ -55,7 +55,7 @@ $ skeet create skeet-chatbot
 
 Skeet init コマンドで以下の設定を行います。
 
-1. プロジェクト ID の選択
+1. プロジェクト ID の設定
 1. リージョンの選択
 1. GitHub リポジトリ名を指定
 1. ネームサーバーのドメイン設定
@@ -123,6 +123,29 @@ Firebase UI が表示されれば成功です。
 ## Firebase Web APP の追加
 
 Firebase プロジェクトの設定画面から Web APP を追加します。
+
+## Firebase Config の設定
+
+設定完了後、Firebase Config をコピーしておきます。
+
+コピーしたファイルを
+
+`src/lib/firebaseConfig.ts`
+
+に貼り付けます。
+
+```javascript
+const firebaseConfig = {
+  apiKey: 'AIzaSyAwyELQ5bUI4O1QlIbn9vTR72-fDd4dUFw',
+  authDomain: 'skeet-chatbot.firebaseapp.com',
+  projectId: 'skeet-chatbot',
+  storageBucket: 'skeet-chatbot.appspot.com',
+  messagingSenderId: '316270971170',
+  appId: '1:316270971170:web:e1bc11b3e70fb840b97d7b',
+  measurementId: 'G-XP8HM3X7LS',
+}
+```
+
 これで Firebase エミュレーターを起動中に
 
 ```bash
