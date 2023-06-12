@@ -1,13 +1,12 @@
 ---
 id: initial-deploy
 title: Initial Deploy
-description: Once the first deployment is completed, automatic deployment by CI/CD will be triggered from subsequent commits
+description: You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command.
 ---
 
 ## First deploy
 
 In this chapter, we will proceed with the project name _skeet-demo_.
-The tutorial uses the project created here.
 
 ## Install Firebase CLI
 
@@ -51,7 +50,7 @@ If you have never used Google Firebase before, follow this link to create a proj
 ## Create a Skeet Framework project
 
 ```bash
-$ skeet create skeet-chatbot
+$ skeet create skeet-demo
 ```
 
 ### Initial deployment with Skeet Init command
@@ -126,25 +125,11 @@ If you can see the Firebase UI, you're good to go.
 
 Add Web APP from the Firebase project settings screen.
 
-## Configure Firebase Config
-
 Copy the Firebase Config after completing the settings.
 
 And Paste to
 
 `src/lib/firebaseConfig.ts`
-
-```javascript
-const firebaseConfig = {
-  apiKey: 'AIzaSyAwyELQ5bUI4O1QlIbn9vTR72-fDd4dUFw',
-  authDomain: 'skeet-chatbot.firebaseapp.com',
-  projectId: 'skeet-chatbot',
-  storageBucket: 'skeet-chatbot.appspot.com',
-  messagingSenderId: '316270971170',
-  appId: '1:316270971170:web:e1bc11b3e70fb840b97d7b',
-  measurementId: 'G-XP8HM3X7LS',
-}
-```
 
 Now while starting the Firebase emulator
 

@@ -11,19 +11,19 @@
     },
     "quickstart": {
       "title": "クイックスタート",
-      "body": "Skeet フレームワーク - バックエンド クイックスタート"
-    },
-    "basic-architecture": {
-      "title": "基本アーキテクチャ",
-      "body": "バックエンドの基本的ツリー構造や使い方について説明します。"
-    },
-    "initial-deploy": {
-      "title": "最初のデプロイ",
-      "body": "最初のデプロイを完了させると その後のコミットから CI/CD による自動デプロイが発動します。"
+      "body": "Skeet フレームワークを使い始めるための設定について説明します。"
     },
     "tutorial": {
       "title": "チュートリアル",
-      "body": "Skeet フレームワーク を使ってチャットアプリを作成するチュートリアルです。"
+      "body": "Skeet フレームワーク を使ってAIチャットアプリを作成するチュートリアルです。"
+    },
+    "initial-deploy": {
+      "title": "最初のデプロイ",
+      "body": "Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。"
+    },
+    "basic-architecture": {
+      "title": "基本アーキテクチャ",
+      "body": "Skeetフレームワークの基本構造について説明します。アプリの各ディレクトリやCLIの各コマンドを解説しています。"
     },
     "skeet-firestore": {
       "title": "Skeet Firestore",
@@ -31,7 +31,7 @@
     },
     "react-native": {
       "title": "React Native (Expo)",
-      "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどReact技術の資産を活かせます。"
+      "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどnpmの資産を活かせます。"
     },
     "ssg-template": {
       "title": "SSG テンプレート (Next.js)",

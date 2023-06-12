@@ -1,12 +1,12 @@
 ---
 id: backend-quickstart
 title: クイックスタート
-description: Skeet フレームワーク バックエンド クイックスタート
+description: Skeet フレームワークを使い始めるための設定について説明します。
 ---
 
 ## 🕺 Skeet とは？ 💃
 
-フルスタック TypeScript サーバーレスアプリケーションフレームワーク 'Skeet'。
+オープンソースのフルスタックサーバーレスアプリケーションフレームワーク 'Skeet'。
 
 Skeet はソフトウェア開発・運用のコストを下げるために生まれました。
 
@@ -53,7 +53,7 @@ Skeet App フロントエンドと Firebase エミュレーターが起動しま
 
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
 
-** ⚠️ skeetApp を完全に使用するには、_アクティベート Skeet ChatApp_ ステップを完了する必要があります ⚠️ **
+** ⚠️ Skeet App を完全に使用するには、_アクティベート Skeet ChatApp_ ステップを完了する必要があります ⚠️ **
 
 ## 🤖 アクティベート Skeet ChatApp 🤖
 

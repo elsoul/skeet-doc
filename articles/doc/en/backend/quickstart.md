@@ -1,14 +1,14 @@
 ---
 id: backend-quickstart
-title: Quick Start
-description: Skeet Framework Backend Quick Start
+title: Quickstart
+description: Describes the setup for getting started with the Skeet framework.
 ---
 
 ## 💃 What's Skeet? 🕺
 
 ⚡️ Reduce App Development and Maintenance Costs ⚡️
 
-Skeet is a full-stack TypeScript serverless application framework.
+Skeet is an Open-Source Full-stack Serverless Application Framework.
 
 Skeet was born to reduce the cost of software development and operation.
 
@@ -55,7 +55,7 @@ Now you have both frontend and backend running locally ⭐️
 
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
 
-**⚠️ You need to finish _Activate Skeet ChatApp_ step to fully use default skeetApp ⚠️**
+**⚠️ You need to finish _Activate Skeet ChatApp_ step to fully use default Skeet App ⚠️**
 
 ## 🤖 Activate Skeet ChatApp 🤖
 

@@ -1,7 +1,7 @@
 ---
 id: initial-deploy
 title: 最初のデプロイ
-description: 最初のデプロイを完了させると その後のコミットから CI/CD による自動デプロイが発動します。
+description: Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。
 ---
 
 この章では _skeet-demo_ というプロジェクト名で進めます。
@@ -123,6 +123,15 @@ Firebase UI が表示されれば成功です。
 ## Firebase Web APP の追加
 
 Firebase プロジェクトの設定画面から Web APP を追加します。
+
+設定完了後、Firebase Config をコピーしておきます。
+
+コピーしたファイルを
+
+`src/lib/firebaseConfig.ts`
+
+に貼り付けてください。
+
 これで Firebase エミュレーターを起動中に
 
 ```bash

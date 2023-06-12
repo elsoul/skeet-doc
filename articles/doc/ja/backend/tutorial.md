@@ -1,7 +1,7 @@
 ---
 id: tutorial
 title: チュートリアル
-description: Skeet Framework を使ってチャットアプリを作成するチュートリアルです。
+description: Skeet フレームワーク を使ってAIチャットアプリを作成するチュートリアルです。
 ---
 
 ## チュートリアル
