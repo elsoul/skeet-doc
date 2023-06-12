@@ -169,15 +169,15 @@ Let's create a chat room with the following settings.
 
 OpenAI Chat Room Settings
 
-| item             | description                                   | type                |
-| ---------------- | --------------------------------------------- | ------------------- |
-| Model            | OpenAI API のモデルを選択します。             | gpt3.5-turbo / gpt4 |
-| Max Tokens       | OpenAI API の Max Tokens を設定します。       | number              |
-| Temperature      | OpenAI API の Temperature を設定します。      | number              |
-| System Charactor | OpenAI API の System Charactor を設定します。 | string              |
+| item             | description                       | type                |
+| ---------------- | --------------------------------- | ------------------- |
+| Model            | Select OpenAI API's Model         | gpt3.5-turbo / gpt4 |
+| Max Tokens       | Set OpenAI API's Max Tokens       | number              |
+| Temperature      | Set OpenAI API's Temperature      | number              |
+| System Charactor | Set OpenAI API's System Charactor | string              |
 
 ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
 
 Now you are all set 🎉
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-hello.png)
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-stream.gif)
