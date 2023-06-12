@@ -100,15 +100,7 @@ Add Firebase Project
 - Select Region
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
-### 5. OpenAI API Key の作成・取得
-
-OpenAI API Key を作成・取得
-
-[https://beta.openai.com/](https://beta.openai.com/)
-
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
-
-### 6. Skeet init で Skeet ChatApp をアクティベート
+### 5. Skeet init で Skeet ChatApp をアクティベート
 
 _skeet init_ コマンドに _--only-dev_ オプションを付けて実行し、
 プロジェクト ID と リージョンを選択してください。
@@ -125,6 +117,14 @@ $ skeet init --only-dev
   southamerica-east1
   us-central1
 ```
+
+### 6. OpenAI API Key の作成・取得
+
+OpenAI API Key を作成・取得
+
+[https://beta.openai.com/](https://beta.openai.com/)
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
 
 OpenAI API Key を _.env_ ファイルに追加
 
