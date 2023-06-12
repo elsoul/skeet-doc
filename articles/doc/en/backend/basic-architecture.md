@@ -1,7 +1,7 @@
 ---
 id: basic-architecture
 title: Basic Architecture
-description: Describes the basic tree structure and usage of the Skeet Framework backend.
+description: Describes the basic structure of the Skeet framework. Each directory of the application and each command of CLI are explained.
 ---
 
 The basic structure of the Skeet Framework backend is as follows.
