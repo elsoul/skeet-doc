@@ -1,7 +1,7 @@
 ---
 id: backend-quickstart
 title: クイックスタート
-description: Skeet フレームワーク バックエンド クイックスタート
+description: Skeet フレームワークを使い始めるための設定について説明します。
 ---
 
 ## What's Skeet?
