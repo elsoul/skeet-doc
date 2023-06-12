@@ -1,7 +1,7 @@
 ---
 id: initial-deploy
 title: Initial Deploy
-description: Once the first deployment is completed, automatic deployment by CI/CD will be triggered from subsequent commits
+description: You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command.
 ---
 
 ## First deploy

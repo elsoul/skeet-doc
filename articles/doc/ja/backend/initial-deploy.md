@@ -1,7 +1,7 @@
 ---
 id: initial-deploy
 title: 最初のデプロイ
-description: 最初のデプロイを完了させると その後のコミットから CI/CD による自動デプロイが発動します。
+description: Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。
 ---
 
 この章では _skeet-demo_ というプロジェクト名で進めます。
