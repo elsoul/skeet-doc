@@ -181,4 +181,4 @@ To verify the email address epics.dev@gmail.com, follow this link: <Link>
 
 これで、チャットルームが使えるようになりました 🎉
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-hello.png)
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-stream.gif)
