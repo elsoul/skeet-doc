@@ -36,6 +36,10 @@
     "ssg-template": {
       "title": "SSG テンプレート (Next.js)",
       "body": "プロジェクトにはウェブサイトやブログ、ドキュメントが必要です。SEO ReadyなSSGテンプレートを用意しておきました。"
+    },
+    "skeet-cli": {
+      "title": "Skeet CLI",
+      "body": "Skeet CLI は Skeet フレームワーク を使用しているプロジェクトを作成するためのコマンドラインツールです。"
     }
   },
   "menuNav": {
@@ -68,6 +72,22 @@
     "web": {
       "groupTitle": "Webメディア & ドキュメント",
       "ssg-template": "SSG テンプレート (Next.js)"
+    },
+    "skeet-cli": {
+      "groupTitle": "Skeet CLI",
+      "create": "Skeet Create",
+      "server": "Skeet Server",
+      "deploy": "Skeet Deploy",
+      "init": "Skeet Init",
+      "iam": "Skeet iAM",
+      "yarn": "Skeet Yarn",
+      "add": "Skeet Add",
+      "sync": "Skeet Sync",
+      "delete": "Skeet Delete",
+      "login": "Skeet Login",
+      "list": "Skeet List",
+      "curl": "Skeet Curl",
+      "test": "Skeet Test"
     }
   },
   "headerNav": {

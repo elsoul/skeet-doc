@@ -8,7 +8,6 @@ import {
   AcademicCapIcon,
   BookOpenIcon,
   FireIcon,
-  Cog6ToothIcon,
   CloudArrowUpIcon,
 } from '@heroicons/react/24/outline'
 
@@ -38,6 +37,73 @@ export const commonFooterNav = [
   },
 ]
 
+const skeetCliNav = [
+  {
+    name: 'doc:menuNav.skeet-cli.create',
+    href: '/doc/skeet-cli/skeet-cli-create/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.server',
+    href: '/doc/skeet-cli/skeet-cli-server/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.deploy',
+    href: '/doc/skeet-cli/skeet-cli-deploy/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.init',
+    href: '/doc/skeet-cli/skeet-cli-init/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.iam',
+    href: '/doc/skeet-cli/skeet-cli-iam/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.yarn',
+    href: '/doc/skeet-cli/skeet-cli-yarn/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.add',
+    href: '/doc/skeet-cli/skeet-cli-add/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.sync',
+    href: '/doc/skeet-cli/skeet-cli-sync/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.delete',
+    href: '/doc/skeet-cli/skeet-cli-delete/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.login',
+    href: '/doc/skeet-cli/skeet-cli-login/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.list',
+    href: '/doc/skeet-cli/skeet-cli-list/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.curl',
+    href: '/doc/skeet-cli/skeet-cli-curl/',
+    icon: RocketLaunchIcon,
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.test',
+    href: '/doc/skeet-cli/skeet-cli-test/',
+    icon: RocketLaunchIcon,
+  },
+]
 export const docMenuNav = [
   { name: 'doc:menuNav.home', href: '/doc/', icon: HomeIcon },
   {
@@ -104,6 +170,10 @@ export const docMenuNav = [
         icon: WindowIcon,
       },
     ],
+  },
+  {
+    name: 'doc:menuNav.skeet-cli.groupTitle',
+    children: skeetCliNav,
   },
 ]
 
