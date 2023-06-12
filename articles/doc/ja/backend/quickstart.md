@@ -4,7 +4,7 @@ title: クイックスタート
 description: Skeet フレームワーク バックエンド クイックスタート
 ---
 
-## What's Skeet?
+## 🕺 Skeet とは？ 💃
 
 フルスタック TypeScript サーバーレスアプリケーションフレームワーク 'Skeet'。
 
@@ -16,7 +16,7 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
 
-## Dependency
+## 🧪 依存パッケージ 🧪
 
 - [TypeScript](https://www.typescriptlang.org/) 5.0.4 以上
 - [Node.js](https://nodejs.org/ja/) 18.16.0 以上
@@ -25,22 +25,22 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 
-## 使い方
+## 📗 使い方 📗
 
-### パッケージのインストール
+### ① パッケージのインストール
 
 ```bash
 $ npm i -g @skeet-framework/cli
 $ npm install -g firebase-tools
 ```
 
-### Skeet アプリの作成
+### ② Skeet アプリの作成
 
 ```bash
 $ skeet create <appName>
 ```
 
-### ローカルで起動
+### ③ ローカルで起動
 
 ```bash
 $ cd <appName>
@@ -57,19 +57,19 @@ Skeet App フロントエンドと Firebase エミュレーターが起動しま
 
 ## 🤖 アクティベート Skeet ChatApp 🤖
 
-### 1. Googel Cloud Project の作成
+### ① Googel Cloud Project の作成
 
 Create Google Cloud Project
 
 - [https://console.cloud.google.com/projectcreate](https://console.cloud.google.com/projectcreate)
 
-### 2. Firebase Project の追加
+### ② Firebase Project の追加
 
 Add Firebase Project
 
 - [https://console.firebase.google.com/](https://console.firebase.google.com/)
 
-### 3. Firebase 認証の有効化
+### ③ Firebase 認証の有効化
 
 - Activate Firebase Authentication
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
@@ -77,7 +77,7 @@ Add Firebase Project
 - Activate Google Sign-in
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
-### 4. Firebase Firestore の有効化
+### ④ Firebase Firestore の有効化
 
 - Activate Firestore
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
@@ -88,7 +88,7 @@ Add Firebase Project
 - Select Region
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
-### 5. Skeet init で Skeet ChatApp をアクティベート
+### ⑤ Skeet init コマンドの実行
 
 _skeet init_ コマンドに _--only-dev_ オプションを付けて実行し、
 プロジェクト ID と リージョンを選択してください。
@@ -106,7 +106,7 @@ $ skeet init --only-dev
   us-central1
 ```
 
-### 6. OpenAI API Key の作成・取得
+### ⑥ OpenAI API Key の作成・取得
 
 OpenAI API Key を作成・取得
 
@@ -130,6 +130,55 @@ CHAT_GPT_ORG=your-openai-api-org
 
 これで Skeet App を使う準備ができました 🎉
 
+## 📱 ユーザー登録・ログイン認証 📱
+
 ```bash
 $ skeet s
 ```
+
+ローカルで skeetApp を起動している状態で、
+
+[http://localhost:19006/register](http://localhost:19006/register)
+
+にアクセスしてください。
+
+メールアドレスとパスワードを入力してユーザー登録を行います。
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/user-register.png)
+
+作成が成功すると、コンソールログに以下のようなメッセージが表示されます。
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation.png)
+
+リンクをクリックし、メールアドレスの認証を行ってください。
+
+```bash
+To verify the email address epics.dev@gmail.com, follow this link: <Link>
+```
+
+成功すると、リンク先のページに以下のようなメッセージが表示されます。
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation-clicked.png)
+
+## ✉️ OpenAI チャットルームの作成 ✉️
+
+ログイン後、[http://localhost:19006/rooms](http://localhost:19006/rooms) にアクセスしてください。
+
+そして、チャットルームを作成します。
+
+以下の設定を選択して、チャットルームを作成してください。
+
+チャットルームの設定
+
+| 項目名           | 説明                                          | 型                  |
+| ---------------- | --------------------------------------------- | ------------------- |
+| Model            | OpenAI API のモデルを選択します。             | gpt3.5-turbo / gpt4 |
+| Max Tokens       | OpenAI API の Max Tokens を設定します。       | number              |
+| Temperature      | OpenAI API の Temperature を設定します。      | number              |
+| System Charactor | OpenAI API の System Charactor を設定します。 | string              |
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
+
+これで、チャットルームが使えるようになりました 🎉
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-hello.png)
