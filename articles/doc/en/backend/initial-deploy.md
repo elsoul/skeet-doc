@@ -7,7 +7,6 @@ description: You can learn how to publish your Skeet app. You can also set deplo
 ## First deploy
 
 In this chapter, we will proceed with the project name _skeet-demo_.
-The tutorial uses the project created here.
 
 ## Install Firebase CLI
 
@@ -51,7 +50,7 @@ If you have never used Google Firebase before, follow this link to create a proj
 ## Create a Skeet Framework project
 
 ```bash
-$ skeet create skeet-chatbot
+$ skeet create skeet-demo
 ```
 
 ### Initial deployment with Skeet Init command
