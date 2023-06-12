@@ -27,18 +27,6 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 - [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.0
 - [GitHub CLI](https://cli.github.com/) ^2.29.0
 
-## Cloud Network Architecture
-
-Automated to build all the Google Cloud VPC network settings;
-
-- Firewall
-- VPC Network
-- Subnet Network
-- VPC Connector
-- Load Balancer
-- Cloud Armor
-- Cloud DNS
-
 ## Usage
 
 ### Install Skeet CLI and Firebase CLI

@@ -569,6 +569,18 @@ import {
 
 - [@skeet-framework/firestore](/en/doc/plugins/skeet-firestore)
 
+## Cloud Network Architecture
+
+Automated to build all the Google Cloud VPC network settings;
+
+- Firewall
+- VPC Network
+- Subnet Network
+- VPC Connector
+- Load Balancer
+- Cloud Armor
+- Cloud DNS
+
 ## Skeet CLI
 
 Skeet CLI is a command line tool for Skeet Framework.

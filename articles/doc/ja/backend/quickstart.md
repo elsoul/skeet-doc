@@ -25,18 +25,6 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 
-## クラウドネットワーク構成
-
-Google Cloud の VPC 設定やセキュリティ目的の Cloud Armor 等セキュリティに最低限必要な設定は自動で完了します。
-
-- Firewall
-- VPC Network
-- Subnet Network
-- VPC Connector
-- Load Balancer
-- Cloud Armor
-- Cloud DNS
-
 ## 使い方
 
 ### パッケージのインストール

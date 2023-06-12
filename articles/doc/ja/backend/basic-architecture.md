@@ -578,6 +578,18 @@ import {
 
 詳しくは、[Skeet Firestore](/ja/doc/plugins/skeet-firestore) を参照してください。
 
+## クラウドネットワーク構成
+
+Google Cloud の VPC 設定やセキュリティ目的の Cloud Armor 等セキュリティに最低限必要な設定は自動で完了します。
+
+- Firewall
+- VPC Network
+- Subnet Network
+- VPC Connector
+- Load Balancer
+- Cloud Armor
+- Cloud DNS
+
 ## Skeet CLI
 
 Skeet CLI を使って新たに Cloud Functions for Firebase を追加したり、
