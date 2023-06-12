@@ -36,7 +36,7 @@ GitHub Copilot を使った強力なコード補完サポートを受けるこ�
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 
-また、[最初のデプロイ](/ja/doc/backend/initial-deploy) が完了していない場合は、
+また、[クイックスタート](/ja/doc/backend/quickstart) が完了していない場合は、
 
 - Google Cloud プロジェクトの作成
 - Firebase プロジェクトの作成
