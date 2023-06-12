@@ -108,10 +108,22 @@ OpenAI API Key を作成・取得
 
 ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
 
-### Skeet init で Skeet ChatApp をアクティベート
+### 6. Skeet init で Skeet ChatApp をアクティベート
+
+_skeet init_ コマンドに _--only-dev_ オプションを付けて実行し、
+プロジェクト ID と リージョンを選択してください。
 
 ```bash
 $ skeet init --only-dev
+? What's your GCP Project ID skeet-demo
+? Select Regions to deploy
+  europe-west1
+  europe-west2
+  europe-west3
+❯ europe-west6
+  northamerica-northeast1
+  southamerica-east1
+  us-central1
 ```
 
 OpenAI API Key を _.env_ ファイルに追加
