@@ -1,7 +1,7 @@
 ---
 id: basic-architecture
-title: 基本構造
-description: Skeet Framework バックエンドの基本的ツリー構造や使い方について説明します。
+title: 基本アーキテクチャ
+description: Skeetフレームワークの基本構造について説明します。アプリの各ディレクトリやCLIの各コマンドを解説しています。
 ---
 
 Skeet Framework バックエンドの基本的な構造は以下の通りです。

@@ -15,7 +15,7 @@
     },
     "tutorial": {
       "title": "Tutorial",
-      "body": "This tutorial will create a OpenAI Chat App using Skeet Framework."
+      "body": "This tutorial will create an OpenAI Chat App using Skeet Framework."
     },
     "initial-deploy": {
       "title": "Initial Deploy",
