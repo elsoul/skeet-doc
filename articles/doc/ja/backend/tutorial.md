@@ -9,6 +9,8 @@ description: Skeet Framework を使ってチャットアプリを作成するチ
 このチュートリアルでは Skeet Framework を使ってチャットアプリを作成します。
 プログラミング言語 TypeScript と Firebase Firestore, GitHub を含めた総合的なクラウドアプリの開発チュートリアルです。
 
+![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
+
 このチュートリアルでは 基本的なチャットボットアプリ を作成します。 **自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。** このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
 
 この章では OpenAI の API を使ってチャットボットを作成します。
