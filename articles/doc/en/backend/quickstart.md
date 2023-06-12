@@ -4,7 +4,7 @@ title: Quick Start
 description: Skeet Framework Backend Quick Start
 ---
 
-## What's Skeet?
+## 💃 What's Skeet? 🕺
 
 ⚡️ Reduce App Development and Maintenance Costs ⚡️
 
@@ -18,7 +18,7 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
 
-## Dependency
+## 🧪 Dependency 🧪
 
 - [TypeScript](https://www.typescriptlang.org/) ^5.0.0
 - [Node.js](https://nodejs.org/ja/) ^18.16.0
@@ -27,22 +27,22 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 - [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.0
 - [GitHub CLI](https://cli.github.com/) ^2.29.0
 
-## Usage
+## 📗 Usage 📗
 
-### Install Skeet CLI and Firebase CLI
+### ① Install Skeet CLI and Firebase CLI
 
 ```bash
 $ npm i -g @skeet-framework/cli
 $ npm install -g firebase-tools
 ```
 
-### Create Skeet App
+### ② Create Skeet App
 
 ```bash
 $ skeet create <appName>
 ```
 
-### Run local
+### ③ Run Skeet App
 
 ```bash
 $ cd <appName>
@@ -59,19 +59,19 @@ Now you have both frontend and backend running locally ⭐️
 
 ## 🤖 Activate Skeet ChatApp 🤖
 
-### 1. Create Googel Cloud Project
+### ① Create Googel Cloud Project
 
 Create Google Cloud Project
 
 - [https://console.cloud.google.com/projectcreate](https://console.cloud.google.com/projectcreate)
 
-### 2. Add Firebase Project
+### ② Add Firebase Project
 
 Add Firebase Project
 
 - [https://console.firebase.google.com/](https://console.firebase.google.com/)
 
-### 3. Activate Firebase Authentication
+### ③ Activate Firebase Authentication
 
 - Activate Firebase Authentication
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
@@ -79,7 +79,7 @@ Add Firebase Project
 - Activate Google Sign-in
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
-### 4. Activate Firebase Firestore
+### ④ Activate Firebase Firestore
 
 - Activate Firestore
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
@@ -90,7 +90,7 @@ Add Firebase Project
 - Select Region
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
-### 5. Skeet init to activate Skeet ChatApp
+### ⑤Skeet init to setup project
 
 Run _skeet init_ command and select your GCP Project ID and Regions to setup.
 
@@ -107,7 +107,11 @@ $ skeet init --only-dev
   us-central1
 ```
 
-### 6. Create OpenAI API Key(https://beta.openai.com/)
+### ⑥ Create OpenAI API Key
+
+Create OpenAI API Key
+
+- [https://beta.openai.com/](https://beta.openai.com/)
 
 ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
 
@@ -127,6 +131,53 @@ CHAT_GPT_ORG=your-openai-api-org
 
 Now you are ready to use Skeet ChatApp 🎉
 
+## 📱 User Registration and Authentication 📱
+
 ```bash
 $ skeet s
 ```
+
+Run Skeet App locally and access to
+
+[http://localhost:19006/register](http://localhost:19006/register)
+
+Let's create a new user account with your email address and password.
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/user-register.png)
+
+After registration, you will see the console log like below.
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation.png)
+
+Click the link in the console log to verify your email address.
+
+```bash
+To verify the email address epics.dev@gmail.com, follow this link: <Link>
+```
+
+Successfully verified your email address.
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation-clicked.png)
+
+## ✉️ Create OpenAI Chat Room ✉️
+
+After login, access this page to create a chat room.
+
+[http://localhost:19006/rooms](http://localhost:19006/rooms)
+
+Let's create a chat room with the following settings.
+
+OpenAI Chat Room Settings
+
+| item             | description                                   | type                |
+| ---------------- | --------------------------------------------- | ------------------- |
+| Model            | OpenAI API のモデルを選択します。             | gpt3.5-turbo / gpt4 |
+| Max Tokens       | OpenAI API の Max Tokens を設定します。       | number              |
+| Temperature      | OpenAI API の Temperature を設定します。      | number              |
+| System Charactor | OpenAI API の System Charactor を設定します。 | string              |
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
+
+Now you are all set 🎉
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-hello.png)
