@@ -6,7 +6,7 @@ description: Once the first deployment is completed, automatic deployment by CI/
 
 ## First deploy
 
-In this chapter, we will proceed with the project name _skeet-chatbot_.
+In this chapter, we will proceed with the project name _skeet-demo_.
 The tutorial uses the project created here.
 
 ## Install Firebase CLI

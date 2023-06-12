@@ -59,9 +59,9 @@ export const docMenuNav = [
         icon: RocketLaunchIcon,
       },
       {
-        name: 'doc:menuNav.backend.basic-architecture',
-        href: '/doc/backend/basic-architecture/',
-        icon: BookOpenIcon,
+        name: 'doc:menuNav.backend.tutorial',
+        href: '/doc/backend/tutorial/',
+        icon: AcademicCapIcon,
       },
       {
         name: 'doc:menuNav.backend.initial-deploy',
@@ -69,9 +69,9 @@ export const docMenuNav = [
         icon: CloudArrowUpIcon,
       },
       {
-        name: 'doc:menuNav.backend.tutorial',
-        href: '/doc/backend/tutorial/',
-        icon: AcademicCapIcon,
+        name: 'doc:menuNav.backend.basic-architecture',
+        href: '/doc/backend/basic-architecture/',
+        icon: BookOpenIcon,
       },
     ],
   },
