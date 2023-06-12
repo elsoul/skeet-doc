@@ -1,7 +1,7 @@
 ---
 id: backend-quickstart
-title: Quick Start
-description: Skeet Framework Backend Quick Start
+title: Quickstart
+description: Describes the setup for getting started with the Skeet framework.
 ---
 
 ## What's Skeet?
