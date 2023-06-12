@@ -36,7 +36,7 @@ To follow along with this tutorial, you need:
 - [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.1
 - [GitHub CLI](https://cli.github.com/) ^2.29.0
 
-Also, if the [initial deployment](/en/doc/backend/initial-deploy) has not been completed,
+Also, if the [Quickstart](/en/doc/backend/quickstart) has not been completed,
 
 Please complete the following steps.
 
