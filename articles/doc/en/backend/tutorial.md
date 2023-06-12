@@ -1,7 +1,7 @@
 ---
 id: tutorial
 title: Tutorial
-description: This tutorial will create a OpenAI API chat app using Skeet Framework.
+description: This tutorial will create an OpenAI Chat App using Skeet Framework.
 ---
 
 ## Tutorial

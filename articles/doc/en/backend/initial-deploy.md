@@ -126,25 +126,11 @@ If you can see the Firebase UI, you're good to go.
 
 Add Web APP from the Firebase project settings screen.
 
-## Configure Firebase Config
-
 Copy the Firebase Config after completing the settings.
 
 And Paste to
 
 `src/lib/firebaseConfig.ts`
-
-```javascript
-const firebaseConfig = {
-  apiKey: 'AIzaSyAwyELQ5bUI4O1QlIbn9vTR72-fDd4dUFw',
-  authDomain: 'skeet-chatbot.firebaseapp.com',
-  projectId: 'skeet-chatbot',
-  storageBucket: 'skeet-chatbot.appspot.com',
-  messagingSenderId: '316270971170',
-  appId: '1:316270971170:web:e1bc11b3e70fb840b97d7b',
-  measurementId: 'G-XP8HM3X7LS',
-}
-```
 
 Now while starting the Firebase emulator
 

@@ -123,6 +123,15 @@ Firebase UI が表示されれば成功です。
 ## Firebase Web APP の追加
 
 Firebase プロジェクトの設定画面から Web APP を追加します。
+
+設定完了後、Firebase Config をコピーしておきます。
+
+コピーしたファイルを
+
+`src/lib/firebaseConfig.ts`
+
+に貼り付けてください。
+
 これで Firebase エミュレーターを起動中に
 
 ```bash
