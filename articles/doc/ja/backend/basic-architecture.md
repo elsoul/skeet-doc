@@ -153,11 +153,15 @@ _routings/options/http/httpOptions.ts_
 
 ```ts
 import { HttpsOptions } from 'firebase-functions/v2/https'
-const project = process.env.PROJECT_ID || 'skeet-chat'
-const cors = ['http://localhost:4000', 'https://app.skeeter.app']
-const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
-const vpcConnector = `${project}-con`
+import dotenv from 'dotenv'
+dotenv.config()
+
+const appName = process.env.SKEET_APP_NAME || 'skeet-app'
+const project = process.env.PROJECT_ID || 'skeet-app'
 const region = process.env.REGION || 'europe-west6'
+const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${appName}-con`
+const cors = ['http://localhost:4000', 'https://app.skeet.dev']
 
 export const defaultHttpOption: HttpsOptions = {
   region,
@@ -171,6 +175,7 @@ export const defaultHttpOption: HttpsOptions = {
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
   cors,
+  timeoutSeconds: 540,
 }
 ```
 
@@ -189,7 +194,8 @@ export const root = onRequest(
   async (req: TypedRequestBody<RootParams>, res) => {
     try {
       res.json({
-        status: 'Skeet APP is Running!',
+        status: 'success',
+        message: 'Skeet Backend is running!',
         name: req.body.name || 'Anonymous',
       })
     } catch (error) {
