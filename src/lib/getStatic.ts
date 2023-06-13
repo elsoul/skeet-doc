@@ -43,10 +43,13 @@ export async function getI18nProps(
 
   const { pathname, img } = seo
   const title = seo.title[locale]
+
   const description = seo.description[locale]
+
   const siteName =
     locale === 'ja' ? siteConfig.sitenameJA : siteConfig.sitenameEN
 
+  console.log(siteName)
   const ogImage = img
     ? `https://${siteConfig.domain}${img}`
     : `https://${siteConfig.domain}/ogp.png`
