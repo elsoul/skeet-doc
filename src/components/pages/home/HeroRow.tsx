@@ -45,7 +45,7 @@ export default function HomeHeroRow() {
             fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
           />
         </svg>
-        <Container className="pb-40 pt-24 text-center lg:pt-32">
+        <Container className="py-24 text-center lg:py-32">
           <h1 className="font-display mx-auto max-w-4xl text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl">
             Effortless. <br />
             Serverless.

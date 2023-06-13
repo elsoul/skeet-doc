@@ -35,8 +35,8 @@ export default function Home({
     <>
       <HeroRow />
       <MainPurposeRow />
-      {/* <SkeetFeaturesRow />
-      <GoToQuickstartRow /> */}
+      <SkeetFeaturesRow />
+      <GoToQuickstartRow />
       <TopNewsRow articles={articles} urls={urls} />
       <DiscordRow />
     </>

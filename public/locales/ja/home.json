@@ -17,5 +17,21 @@
     "feature3Description": "デプロイやサーバーインフラのメンテナンスの心配無しに、すぐにアプリロジックから書き始めることができます。TypeScriptのサポートはアプリをより安全にし、さらに開発効率を向上させます。",
     "feature4Title": "堅牢なセキュリティ",
     "feature4Description": "SSL対応はもちろん、Cloud Armorを活用したDDoS攻撃及びbot対策や、最小限のエンドポイント露出及びPub/Subメッセージングの活用が簡単に適用でき、Google規模のセキュリティを実現できます。"
+  },
+  "SkeetFeaturesRow": {
+    "subtitle": "より優れたワークフロー",
+    "title": "新時代のアプリ開発プラットフォーム",
+    "description": "アプリの開発及び公開に必要なものはすべて揃っています。Skeetフレームワークのツール群は、分散し煩雑になりがちなサーバーレスアーキテクチャをできるだけ簡単に扱えるようにと設計されています。",
+    "feature1Title": "高性能なモニター",
+    "feature1Description": "Firebase Emulator Suiteはバックエンドを可視化します。認証情報からデータベース、ストレージやすべてのログを一元管理できるため、開発のスピードが上がります。",
+    "feature2Title": "強力なCLIツール",
+    "feature2Description": "Skeet CLIはGoogle Cloudのサーバーレス製品を組み合わせた分散システム構築をワンコマンドで完了させます。簡単な質問に答えるだけでアプリはデプロイ可能な状態に仕上がります。",
+    "feature3Title": "ゼロメンテナンス",
+    "feature3Description": "GitHub Actionsによる自動デプロイ、そしてデプロイされたリソースは必要な分だけ自動的にスケールするため、サーバーインフラのメンテナンスは基本的に必要ありません。"
+  },
+  "GoToQuickstartRow": {
+    "title1": "新しいアプリ開発を体感してください",
+    "title2": "すぐにWeb・iOS・Androidアプリを開発し公開できます",
+    "description": "Skeet チュートリアルでは、OpenAI APIを活用してAIチャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。"
   }
 }
