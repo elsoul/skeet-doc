@@ -13,7 +13,7 @@ export default function TopNewsRow({ articles, urls }: Props) {
 
   return (
     <>
-      <div className="py-24 sm:pb-48 sm:pt-36">
+      <div className="py-24 sm:py-36">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl">
