@@ -19,7 +19,6 @@ export type AppPropsWithLayout = AppProps & {
 }
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-  console.log(pageProps.title)
   return (
     <>
       <Head>
