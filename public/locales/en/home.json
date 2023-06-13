@@ -17,5 +17,21 @@
     "feature3Description": "You can start writing app logic immediately without worrying about deploying or maintaining server infrastructure. TypeScript support makes apps more secure and improves development efficiency.",
     "feature4Title": "Security built-in",
     "feature4Description": "In addition to SSL support, DDoS attacks and bot countermeasures using Cloud Armor, minimal endpoint exposure, and Pub/Sub messaging can be easily applied to achieve Google-scale security."
+  },
+  "SkeetFeaturesRow": {
+    "subtitle": "A better workflow",
+    "title": "A new-age app development platform",
+    "description": "Everything you need to develop and publish your app. The Skeet framework tools are designed to make handling serverless architectures, which tend to be distributed and complicated, as easy as possible.",
+    "feature1Title": "High performance monitor",
+    "feature1Description": "Firebase Emulator Suite makes your backend visible. The development speed will increase since you can centrally manage databases, storage, and all logs from authentication information.",
+    "feature2Title": "Powerful CLI Tool",
+    "feature2Description": "Skeet CLI completes constructing a distributed system that combines Google Cloud's serverless products with a single command. Just answer a few simple questions, and your app is ready to deploy.",
+    "feature3Title": "Zero-maintenance",
+    "feature3Description": "Automatic deployment with GitHub Actions and deployed resources automatically scale as needed, eliminating the need for server infrastructure maintenance."
+  },
+  "GoToQuickstartRow": {
+    "title1": "Experience new app development",
+    "title2": "You can immediately develop and publish web, iOS, and Android apps",
+    "description": "In the Skeet tutorial, we will develop an AI chatbot app using the OpenAI API and confirm that it can be deployed and used."
   }
 }
