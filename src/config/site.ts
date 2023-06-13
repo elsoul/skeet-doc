@@ -17,6 +17,8 @@ const siteConfig = {
   instagramAccount: 'elsoul_labo',
   githubAccount: 'elsoul',
   discordInvitationLink: 'https://discord.gg/H2HeqRq54J',
+  contactFormJA: 'https://forms.gle/TWg8oKKSBhtHfoB17',
+  contactFormEN: 'https://forms.gle/rCyKAAQKRg5bu4tEA',
 }
 
 export default siteConfig
