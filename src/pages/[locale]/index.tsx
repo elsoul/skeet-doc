@@ -9,6 +9,8 @@ import { getI18nProps } from '@/lib/getStatic'
 import TopNewsRow from '@/components/articles/news/TopNewsRow'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import MainPurposeRow from '@/components/pages/home/MainPurposeRow'
+import SkeetFeaturesRow from '@/components/pages/home/SkeetFeaturesRow'
+import GoToQuickstartRow from '@/components/pages/home/GoToQuickstartRow'
 
 const articleDirName = 'news'
 
@@ -33,6 +35,8 @@ export default function Home({
     <>
       <HeroRow />
       <MainPurposeRow />
+      <SkeetFeaturesRow />
+      <GoToQuickstartRow />
       <TopNewsRow articles={articles} urls={urls} />
       <DiscordRow />
     </>
