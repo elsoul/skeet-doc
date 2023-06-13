@@ -1,4 +1,5 @@
 {
+  "contactToTeam": "Talk with Team",
   "privacy": "Privacy",
   "404title": "Page not found",
   "404body": "Sorry, we couldn't find the page you're looking for.",
@@ -23,9 +24,16 @@
     "yes": "Yes, I Accept",
     "no": "No, I Do Not Accept"
   },
-  "DiscordRow": {
-    "title": "Community Discord",
-    "body": "If you have any inquiries, please create a support ticket in the community Discord.",
-    "button": "JOIN"
+  "ContactRow": {
+    "discord": {
+      "title": "Community Discord",
+      "body": "Community Discord is a gathering place for like-minded people. We look forward to your participation to check the latest information.",
+      "button": "JOIN"
+    },
+    "form": {
+      "title": "Talk with Team",
+      "body": "If you have any inquiries about development and support, please get in touch with us from here.",
+      "button": "Go"
+    }
   }
 }

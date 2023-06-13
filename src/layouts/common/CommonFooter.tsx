@@ -13,9 +13,11 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import Image from 'next/image'
 import GoogleCloudPartner from '@/assets/img/logo/partners/GoogleCloudPartner.png'
+import { useMemo } from 'react'
 
 export default function CommonFooter() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isJapanese = useMemo(() => i18n.language === 'ja', [i18n])
 
   return (
     <>
@@ -35,6 +37,18 @@ export default function CommonFooter() {
                       {t(nav.name)}
                     </Link>
                   ))}
+                  <a
+                    href={
+                      isJapanese
+                        ? siteConfig.contactFormJA
+                        : siteConfig.contactFormEN
+                    }
+                    className="text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200 sm:py-0"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t('common:contactToTeam')}
+                  </a>
                 </div>
               </nav>
               <nav className="mt-12 text-sm" aria-label="quick links">
