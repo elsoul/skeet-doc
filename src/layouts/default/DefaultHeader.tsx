@@ -1,6 +1,6 @@
 import { Popover, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useCallback, useEffect, useState, Fragment } from 'react'
+import { useCallback, useEffect, useState, Fragment, useMemo } from 'react'
 import { useTranslation } from 'next-i18next'
 import LanguageChanger from '@/components/utils/LanguageChanger'
 import ColorModeChanger from '@/components/utils/ColorModeChanger'
@@ -10,9 +10,11 @@ import { defaultMainNav } from '@/config/navs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
 import siteConfig from '@/config/site'
+import { Button } from '@/components/common/atoms/Button'
 
 export default function DefaultHeader() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const isJapanese = useMemo(() => i18n.language === 'ja', [i18n])
 
   const [scrollY, setScrollY] = useState(0)
   const [isScrollingUp, setIsScrollingUp] = useState(false)
@@ -76,6 +78,19 @@ export default function DefaultHeader() {
                   ))}
                 </Popover.Group>
                 <div className="hidden items-center justify-end gap-3 md:flex md:flex-1 lg:w-0">
+                  <Button
+                    href={
+                      isJapanese
+                        ? siteConfig.contactFormJA
+                        : siteConfig.contactFormEN
+                    }
+                    className="text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
+                    variant="outline"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t('common:contactToTeam')}
+                  </Button>
                   <LanguageChanger />
                   <ColorModeChanger />
                   <a
@@ -152,6 +167,19 @@ export default function DefaultHeader() {
                             {t(nav.name)}
                           </Link>
                         ))}
+                        <a
+                          href={
+                            isJapanese
+                              ? siteConfig.contactFormJA
+                              : siteConfig.contactFormEN
+                          }
+                          className="block w-full text-base font-medium text-gray-700 hover:text-gray-900 active:text-gray-800 dark:text-gray-50 dark:hover:text-gray-200"
+                          onClick={() => close()}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {t('common:contactToTeam')}
+                        </a>
                         <div className="flex flex-1 items-center justify-end gap-3">
                           <LanguageChanger />
                           <ColorModeChanger />

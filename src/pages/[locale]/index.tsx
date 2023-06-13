@@ -2,7 +2,6 @@ import { ReactElement } from 'react'
 import { getStaticPaths } from '@/lib/getStatic'
 import DefaultLayout from '@/layouts/default/DefaultLayout'
 import HeroRow from '@/components/pages/home/HeroRow'
-import DiscordRow from '@/components/pages/common/DiscordRow'
 import siteConfig from '@/config/site'
 import { getAllArticles, getArticleBySlug } from '@/utils/article'
 import { getI18nProps } from '@/lib/getStatic'
@@ -11,6 +10,7 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import MainPurposeRow from '@/components/pages/home/MainPurposeRow'
 import SkeetFeaturesRow from '@/components/pages/home/SkeetFeaturesRow'
 import GoToQuickstartRow from '@/components/pages/home/GoToQuickstartRow'
+import ContactRow from '@/components/pages/common/ContactRow'
 
 const articleDirName = 'news'
 
@@ -38,7 +38,7 @@ export default function Home({
       <SkeetFeaturesRow />
       <GoToQuickstartRow />
       <TopNewsRow articles={articles} urls={urls} />
-      <DiscordRow />
+      <ContactRow />
     </>
   )
 }
