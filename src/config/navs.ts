@@ -9,7 +9,7 @@ import {
   BookOpenIcon,
   FireIcon,
   CloudArrowUpIcon,
-  DocumentTextIcon,
+  CommandLineIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -42,67 +42,67 @@ const skeetCliNav = [
   {
     name: 'doc:menuNav.skeet-cli.create',
     href: '/doc/skeet-cli/skeet-cli-create/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.server',
     href: '/doc/skeet-cli/skeet-cli-server/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.deploy',
     href: '/doc/skeet-cli/skeet-cli-deploy/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.init',
     href: '/doc/skeet-cli/skeet-cli-init/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.iam',
     href: '/doc/skeet-cli/skeet-cli-iam/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.yarn',
     href: '/doc/skeet-cli/skeet-cli-yarn/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.add',
     href: '/doc/skeet-cli/skeet-cli-add/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.sync',
     href: '/doc/skeet-cli/skeet-cli-sync/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.delete',
     href: '/doc/skeet-cli/skeet-cli-delete/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.login',
     href: '/doc/skeet-cli/skeet-cli-login/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.list',
     href: '/doc/skeet-cli/skeet-cli-list/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.curl',
     href: '/doc/skeet-cli/skeet-cli-curl/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
   {
     name: 'doc:menuNav.skeet-cli.test',
     href: '/doc/skeet-cli/skeet-cli-test/',
-    icon: DocumentTextIcon,
+    icon: CommandLineIcon,
   },
 ]
 export const docMenuNav = [
