@@ -50,6 +50,7 @@ Home.getLayout = function getLayout(page: ReactElement) {
 const articleDirPrefix = `articles/${articleDirName}/`
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
+  console.log(ctx.params?.locale)
   const slugs = getAllArticles(articleDirPrefix).filter(
     (article) => article[0] !== 'ja'
   )
