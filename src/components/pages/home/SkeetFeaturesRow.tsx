@@ -62,7 +62,7 @@ export default function SkeetFeaturesRow() {
               <Image
                 src="https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif"
                 alt="Skeet App"
-                className="w-[52rem] shadow-xl ring-1 ring-gray-400/10 sm:w-[64rem]"
+                className="w-[52rem] shadow-xl sm:w-[64rem]"
                 width={2432}
                 height={1442}
               />
