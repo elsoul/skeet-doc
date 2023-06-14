@@ -525,6 +525,31 @@ if (messages.length === 2) {
 .
 ```
 
+それでは _functions/openai/src/index.ts_ に新しい関数を追加します。
+
+```typescript
+import admin from 'firebase-admin'
+import dotenv from 'dotenv'
+import { Request } from 'firebase-functions/v2/https'
+
+export interface TypedRequestBody<T> extends Request {
+  body: T
+}
+
+dotenv.config()
+admin.initializeApp()
+
+export {
+  root,
+  authOnCreateUser,
+  createUserChatRoom,
+  getUserChatRoomMessages,
+  addUserChatRoomMessage,
+  addStreamUserChatRoomMessage,
+  pubsubGenerateTitle,
+} from '@/routings'
+```
+
 これで PubSub トリガーを使ってタスクを切り分けることができました。
 それではテストをしてみます。
 
