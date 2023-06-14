@@ -163,7 +163,7 @@ const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
 const vpcConnector = `${appName}-con`
 const cors = ['http://localhost:4000', 'https://app.skeet.dev']
 
-export const defaultHttpOption: HttpsOptions = {
+export const publicHttpOption: HttpsOptions = {
   region,
   cpu: 1,
   memory: '1GiB',
@@ -185,12 +185,12 @@ _routings/http/root.ts_
 
 ```ts
 import { onRequest } from 'firebase-functions/v2/https'
-import { defaultHttpOption } from '@/routings/options'
+import { publicHttpOption } from '@/routings/options'
 import { TypedRequestBody } from '@/index'
 import { RootParams } from '@/types/http/rootParams'
 
 export const root = onRequest(
-  defaultHttpOption,
+  publicHttpOption,
   async (req: TypedRequestBody<RootParams>, res) => {
     try {
       res.json({
@@ -319,13 +319,11 @@ _routings/scheduler/schedulerExample.ts_
 import { onSchedule } from 'firebase-functions/v2/scheduler'
 import { schedulerDefaultOption } from '@/routings/options'
 
-const TOPIC_NAME = 'schedulerExample'
-
 export const schedulerExample = onSchedule(
   schedulerDefaultOption,
   async (event) => {
     try {
-      console.log({ status: 'success', topic: TOPIC_NAME, event })
+      console.log({ status: 'success' })
     } catch (error) {
       console.log({ status: 'error', message: String(error) })
     }
@@ -372,10 +370,10 @@ _routings/firestore/firestoreExample.ts_
 import { onDocumentCreated } from 'firebase-functions/v2/firestore'
 import { firestoreDefaultOption } from '@/routings/options'
 
-export const firestoreExample = onDocumentCreated(
+export const onExample = onDocumentCreated(
   firestoreDefaultOption('User/{userId}'),
   (event) => {
-    console.log('firestoreExample triggered')
+    console.log('onExample triggered')
     try {
       console.log(event.params)
     } catch (error) {
@@ -621,232 +619,4 @@ Commands:
   list                         Show Skeet App List
   curl [options] <methodName>  Skeet Curl Command - Call Cloud Functions Endpoint for Dev
   help [command]               display help for command
-```
-
-### Skeet Yarn Install/Build
-
-```bash
-$ skeet yarn install/build
-? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-  = Services =
-❯◯ openai
- ◯ solana
-```
-
-### Add Yarn Package
-
-指定したパッケージを選択したファンクションにインストールします。
-a を押すと全ての _functions_ を選択します。
-
-```bash
-$ skeet yarn add -p ${packageName}
-? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-  = Services =
-❯◯ openai
- ◯ solana
-```
-
-For Development
-
-```bash
-$ skeet yarn add -p ${packageName} -D
-? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-  = Services =
-❯◯ openai
- ◯ solana
-```
-
-### Skeet デプロイコマンド
-
-```bash
-$ skeet deploy
-? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
-  = Services =
-❯◯ openai
- ◯ solana
-```
-
-![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
-
-### Skeet Add コマンド
-
-```bash
-Usage: skeet add [options] [command]
-
-Skeet Add Comannd to add new functions
-
-Options:
-  -h, --help                 display help for command
-
-Commands:
-  functions <functionsName>
-  method <methodName>
-  model <modelName>
-  help [command]             display help for command
-```
-
-### Cloud Functions の追加
-
-新規に Cloud Functions を追加する場合は、
-以下のコマンドを実行します。
-
-```bash
-$ skeet add functions <functionName>
-```
-
-すると、
-以下のようなフォルダ構成が作成され、
-最新のモデルの定義がコピーされます。
-
-```bash
-├── functions
-│   ├── openai
-│   └── <functionName>
-```
-
-### メソッドの追加
-
-既存の Cloud Functions にメソッドを追加する場合は、
-メソッド名を指定して以下のコマンドを実行し、インスタンスタイプを選択します。
-
-```bash
-$ skeet add help method
-Usage: skeet add method [options] <methodName>
-
-Arguments:
-  methodName  Method Name - e.g. addStreamUserChat
-
-Options:
-  -h, --help  display help for command
-```
-
-_createArticle_ という http メソッドを追加する場合は、
-
-```bash
-$ skeet add method createArticle
-? Select Instance Type to add (Use arrow keys)
-   = Instance Type =
-❯ http
-  firestore
-  pubSub
-  scheduler
-  auth
-```
-
-メソッドを追加するするファンクションを選択します。
-
-```bash
-? Select Instance Type to add http
-? Select Functions to add (Use arrow keys)
-   = Functions =
-❯ openai
-? Select Instance Type to add http
-? Select Functions to add solana
-✔️ ./functions/openai/src/types/http/createArticleParams.ts created!
-✔️ ./functions/openai/src/routings/http/createArticle.ts created!
-```
-
-新しいメソッドと型定義が作成されます。
-
-### Skeet Sync コマンド
-
-Skeet Sync コマンドは複数のパッケージ間での同期を行います。
-
-```bash
-$ skeet sync
-Usage: skeet sync [options] [command]
-
-Skeet Sync Comannd to sync backend and frontend
-
-Options:
-  -h, --help       display help for command
-
-Commands:
-  models           Skeet Sync Models
-  types            Skeet Sync Types
-  routings         Skeet Sync Routings
-  armors           Skeet Sync Cloud Armor Rules
-  firebase:config  Export Firebase Config File to `./lib/firebaseConfig.ts`
-  help [command]   display help for command
-```
-
-### Skeet Sync Models
-
-最新のモデルの定義を他のバックエンドパッケージとフロントエンドのパッケージにコピーします。
-
-```bash
-$ skeet sync models
-```
-
-全てのバックエンドへの Http 通信の型定義をフロントエンドのパッケージにコピーします。
-
-### Skeet Sync Types
-
-```bash
-$ skeet sync types
-```
-
-全てのバックエンドの Http インスタンスのルーティングを自動でロードバランサーに設定します。
-
-### Skeet Sync Routings
-
-```bash
-$ skeet sync routings
-```
-
-_skeet-cloud.config.json_ に記述された Cloud Armor のルールを自動で設定します。
-
-### Skeet Sync Armor
-
-```bash
-$ skeet sync armors
-```
-
-### Skeet Sync Firebase Config
-
-_lib/firebaseConfig.ts_ に FirebaseConfig ファイルを自動で生成します。
-
-```bash
-$ skeet sync firebase:config
-```
-
-### Skeet Curl コマンド
-
-Functions のエンドポイントをテストするためのコマンドです。
-
-**ログイン認証が必要な場合は _skeet login_ コマンドで _ACCESS_TOKEN_ を環境変数に設定する必要があります。**
-
-```bash
-$ skeet help curl
-Usage: skeet curl [options] <methodName>
-
-Skeet Curl Command - Call Cloud Functions Endpoint for Dev
-
-Arguments:
-  methodName                  Method Name - e.g. skeet curl createUserChatRoom
-
-Options:
-  -d,--data [data]            JSON Request Body - e.g. '{ "model": "gpt4", "maxTokens": 420 }'
-  --production                For Production (default: false)
-  -f,--functions [functions]  For Production Functions Name (default: false)
-  -h, --help                  display help for command
-```
-
-### Skeet Login コマンド
-
-Firebase にログインして、_ACCESS_TOKEN_ を環境変数に設定します。
-
-** 別ウィンドウで _skeet s_ コマンドで Skeet APP を起動してから実行してください **
-
-```bash
-$ skeet help login
-Usage: skeet login [options]
-
-Skeet Login Command - Create Firebase Login Token
-
-Options:
-  --production           For Production (default: false)
-  --email [email]        Login Email (default: "")
-  --password [password]  Login Password (default: "")
-  -h, --help             display help for command
 ```
