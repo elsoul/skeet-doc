@@ -110,32 +110,91 @@ https://your-domain.com/root にアクセスしてみましょう。
 
 と表示されれば成功です。
 
-## Firebase エミュレーターの起動
+## ルーティングの追加・同期
 
 ```bash
-$ skeet s
+$ skeet sync routings
 ```
 
-http://localhost:4000 にアクセスしてみましょう。
+このコマンドにより、
 
-Firebase UI が表示されれば成功です。
+- ネットワークエンドポイントグループの作成
+- バックエンドサービスの作成
+- バックエンドサービスの追加
+- セキュリティーポリシーの適用
+- URL マップの作成
 
-## Firebase Web APP の追加
+を自動で行っています。
 
-Firebase プロジェクトの設定画面から Web APP を追加します。
+## Cloud Armor の追加・同期
 
-設定完了後、Firebase Config をコピーしておきます。
+_skeet-cloud.config.json_ に記述されている Cloud Armor の設定を同期します。
 
-コピーしたファイルを
+_skeet-cloud.config.json_
 
-`src/lib/firebaseConfig.ts`
+```json
+{
+  "app": {
+    "name": "skeet-example",
+    "projectId": "skeet-example",
+    "region": "asia-northeast1",
+    "appDomain": "skeeter.app",
+    "functionsDomain": "lb.skeeter.app"
+  },
+  "cloudArmor": [
+    {
+      "securityPolicyName": "skeet-skeet-example-armor",
+      "rules": [
+        {
+          "priority": "10",
+          "description": "Allow Your Home IP addresses",
+          "options": {
+            "src-ip-ranges": "your IP address",
+            "action": "allow"
+          }
+        },
+        {
+          "priority": "100",
+          "description": "Defense from SQLi attack",
+          "options": {
+            "action": "deny-403",
+            "expression": "evaluatePreconfiguredExpr('sqli-stable')"
+          }
+        },
+        {
+          "priority": "200",
+          "description": "Defense from XSS attack",
+          "options": {
+            "action": "deny-403",
+            "expression": "evaluatePreconfiguredExpr('xss-stable')"
+          }
+        },
+        {
+          "priority": "300",
+          "description": "Defense from NodeJS attack",
+          "options": {
+            "action": "deny-403",
+            "expression": "evaluatePreconfiguredExpr('nodejs-v33-stable')"
+          }
+        },
+        {
+          "priority": "2147483647",
+          "description": "Deny All IP addresses",
+          "options": {
+            "action": "deny-403"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-に貼り付けてください。
-
-これで Firebase エミュレーターを起動中に
+デフォルトの設定では 現在接続しているグローバル IP のみ通信を許可しています。
+必要に応じて変更してください。
 
 ```bash
-$ skeet login
+$ skeet sync armors
 ```
 
-コマンドが使えるようになりました。
+新規に Google Cloud Armor を作成または、更新されます。
