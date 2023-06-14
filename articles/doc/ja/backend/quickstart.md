@@ -110,7 +110,7 @@ $ skeet init --only-dev
 
 OpenAI API Key を作成・取得
 
-[https://beta.openai.com/](https://beta.openai.com/)
+- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
 
 ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
 

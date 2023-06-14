@@ -12,18 +12,35 @@ description: Skeet フレームワーク を使ってAIチャットアプリを�
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
 
 このチュートリアルでは 基本的なチャットボットアプリ を作成します。
+クイックスタートでは Skeet Framework の基本的な使い方を学びましたが、
+このチュートリアルでは Skeet Framework の機能を使ってこれまでには簡単にできなかったことが、
+どのように簡単にできるようになるかを学びます。
+オープンソースとしてライブラリーを公開して下さっている開発者の方々には多大なる感謝を申し上げます。
+
+Skeet Framework は、コンピューターリソースを効率的に使うことで、
+開発者がより少ないコードでより多くのことを実現できるように設計されています。
+さらに、昨今の地球では環境問題が深刻化しており、エネルギーを効率的に使うことは、
+開発者の責務であると考えています。
 
 **自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。**
 
 このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
 
-この章では OpenAI の API を使ってチャットボットを作成します。
+この章では クイックスタートで作成した 機械学習（OpenAI） の API を使ったチャットボットアプリに新しい機能を追加していきます。
 
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
+## チュートリアルの目標
+
+このチュートリアルでは、以下のことを学びます。
+
+- 開発用ログイン認証キーを取得する
+- Skeet Curl で API リクエストをテストする
+- チャットストリームのコードを確認する
+- PubSub トリガー を使ってタスクを切り分ける
+- Firebase へデプロイする
+
+## 開発環境
 
 Skeet Framework では エディタに VScode を推奨しています。
-このチュートリアルでは VScode を使って進めていきます。
-
 フレームワークに沿って開発を進めることで、
 GitHub Copilot を使った強力なコード補完サポートを受けることができます。
 
@@ -34,9 +51,10 @@ GitHub Copilot を使った強力なコード補完サポートを受けるこ�
 
 [クイックスタート](/ja/doc/backend/quickstart) が完了していない場合は先に完了させてください。
 
-## ユーザー認証・ログイン機能の実装
+## 開発用ログイン認証キーを取得する
 
-Firebase エミュレーターを起動します。
+それではさっそく開発の準備に入ります。
+まずは Firebase エミュレーターを起動し、_ACCESS_TOKEN_ を取得します。
 
 ```bash
 $ skeet s
@@ -58,35 +76,29 @@ export ACCESS_TOKEN={accessToken}
 
 $ skeet curl createUserChatRoom
      or
-$ skeet curl createUserChatRoom --data '{ "model": "gpt-4-32k", "maxTokens": 4200 }'
+$ skeet curl createUserChatRoom --data '{ "model": "gpt4", "maxTokens": 4200 }'
 ```
 
 コンソールログに表示された accessToken を環境変数に設定することで、
 
 _skeet curl_ コマンドを使って API リクエストを送信することができます。
 
-```bash
-$ skeet help curl
-Usage: skeet curl [options] <methodName>
+開発の際にログイン認証キーの取得や、POST リクエストの送信にはコストがかかります。
+Skeet Framework では以下の二つのコマンドを使って、
+開発者がより効率的に開発を進めることができるように設計されています。
 
-Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+- skeet login
+- skeet curl
 
-Arguments:
-  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+ログインコマンドが成功すると、
 
-Options:
-  -d,--data [data]            JSON Request Body - e.g. '{ "docId": "xxx" }'
-  --production                For Production (default: false)
-  -f,--functions [functions]  For Production Functions Name (default: false)
-  -h, --help                  display help for command
-```
+デフォルトで　*authOnCreateUser.ts* に定義されている
 
-さらに、バックエンドでは、
-
-_functions/openai/routings/auth/authOnCreateUser.ts_ に定義されている
-Auth インスタンスのトリガーが作動して、
+Auth インスタンスのトリガーが作動して
 
 Firebase Firestore にユーザー情報が保存されます。
+
+_functions/openai/routings/auth/authOnCreateUser.ts_
 
 ```typescript
 import { User } from '@/models'
@@ -126,10 +138,10 @@ _await getUserAuth(req)_
 ```typescript
 import { getUserAuth } from '@/lib'
 
-const user = await getUserAuth(req)
+const user: UserAuthType = await getUserAuth(req)
 ```
 
-*getUserAuth*の戻り値の型定義は次のようになっています。
+_getUserAuth_ の戻り値の型定義はデフォルトで次のようになっています。
 
 ```typescript
 export type UserAuthType = {
@@ -140,499 +152,61 @@ export type UserAuthType = {
 }
 ```
 
-## User モデル
+## Skeet Curl で API リクエストをテストする
 
-この章では _skeet create_ コマンドを使って作成された User モデルを使用します。
-
-- [基本アーキテクチャ - モデルの定義](/ja/doc/backend/basic-architecture#モデルの定義)
-
-## UserChatRoom を作成する
-
-_UserChatRoom_ には OpenAI API に必要な以下の情報を登録します。
-
-- model (gpt-3.5-turbo)
-- maxTokens (256)
-- temperature (0)
-- stream (false)
-
-詳しくは OpenAI の API のドキュメントを参照してください。
-
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
-
-それでは、デフォルトで配置されている以下のファイルをモデル作成ごとに確認していきましょう。
-
-_functions/openai/src/routings/http/createUserChatRoom.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addCollectionItem,
-  addChildCollectionItem,
-  addGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { TypedRequestBody } from '@/index'
-import { defaultHttpOption } from '@/routings/options'
-import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
-import { getUserAuth } from '@/lib/getUserAuth'
-
-export const createUserChatRoom = onRequest(
-  defaultHttpOption,
-  async (req, res) => {
-    try {
-      // UserChatRoom に OpenAI の基本設定を req.body から登録する
-      const body = {
-        model: req.body.model || 'gpt-3.5-turbo',
-        systemContent:
-          req.body.systemContent ||
-          '優秀なアシスタント。物事を段階的に考えるのが得意です。優しい口調。できないことは言わない。',
-        maxTokens: req.body.maxTokens || 256,
-        temperature: req.body.temperature || 1,
-        stream: req.body.stream || false,
-      }
-
-      // ユーザー認証
-      const user = await getUserAuth(req)
-
-      // 使用するコレクション名を定義
-      const parentCollectionName = 'User'
-      const childCollectionName = 'UserChatRoom'
-
-      // User をFirtoreから取得
-      const userDoc = await getCollectionItem<User>(
-        parentCollectionName,
-        user.uid
-      )
-      const parentId = user.uid || ''
-      const params: UserChatRoom = {
-        userRef,
-        model: body.model,
-        maxTokens: body.maxTokens,
-        temperature: body.temperature,
-        stream: body.stream,
-      }
-
-      // UserChatRoom を作成
-      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
-        parentCollectionName,
-        childCollectionName,
-        parentId,
-        params
-      )
-      res.json({ status: 'success', userChatRoomRef, userChatRoomMessageRef })
-    } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-それでは _skeet curl_ コマンドを使って POST リクエストを送信します。
+_skeet curl_ コマンドを使って API リクエストを送信してみましょう。
 
 ```bash
 $ skeet curl createUserChatRoom
-```
-
-Sample Response
-
-```json
 {
-  "result": "success!",
-  "userChatRoomMessageRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom/03h8itaBtJaoAeqs7vOQ/UserChatRoomMessage"
-    },
-    "id": "PQNxy0Fn3FgxhcHrZJpP"
-  },
-  "userChatRoomRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom"
-    },
-    "id": "03h8itaBtJaoAeqs7vOQ"
-  }
+   "status" : "success",
+   "userChatRoomMessageRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom/l2WRsPH2RXobWD7mOJPP/UserChatRoomMessage"
+      },
+      "id" : "YS7wCHoztt1eEUHjvxhw"
+   },
+   "userChatRoomRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom"
+      },
+      "id" : "l2WRsPH2RXobWD7mOJPP"
+   }
 }
 ```
 
-_UserChatRoom_ が作成されました。
+UserChatRoom と UserChatRoomMessage が作成されました。
 
-## UserChatRoomMessage を作成する
+## チャットストリームのコードを確認する
 
-続いて、先ほどの _UserChatRoom_ に _UserChatRoomMessage_ を作成するコードを追加します。
-_UserChatRoom_ の _refId_ を使って、_UserChatRoomMessage_ を作成します。
+Skeet Functions のコードは、
+functions ディレクトリに配置されています。
 
-_UserChatRoom_ の１通目のメッセージに OpenAI ボットのキャラクター設定を登録します。
-
-ここでは OpenAI ボットのキャラクター設定を _req.body.systemContent_ から登録します。
-
-- systemContent 　 OpenAI ボットのキャラクター設定
-
-_functions/openai/src/routings/http/createUserChatRoom.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addCollectionItem,
-  addChildCollectionItem,
-  addGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { TypedRequestBody } from '@/index'
-import { defaultHttpOption } from '@/routings/options'
-import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
-import { getUserAuth } from '@/lib/getUserAuth'
-
-export const createUserChatRoom = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<CreateUserChatRoomParams>, res) => {
-    try {
-      const body = {
-        model: req.body.model || 'gpt-3.5-turbo',
-        systemContent:
-          req.body.systemContent ||
-          'This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.',
-        maxTokens: req.body.maxTokens || 256,
-        temperature: req.body.temperature || 1,
-        stream: req.body.stream || false,
-      }
-      // ユーザー認証
-      const user = await getUserAuth(req)
-
-      // 使用するコレクション名を定義
-      const parentCollectionName = 'User'
-      const childCollectionName = 'UserChatRoom'
-      const grandChildCollectionName = 'UserChatRoomMessage'
-
-      // User をFirtoreから取得
-      const userDoc = await getCollectionItem<User>(
-        parentCollectionName,
-        user.uid
-      )
-
-      const parentId = user.uid || ''
-      const params: UserChatRoom = {
-        userRef,
-        model: body.model,
-        maxTokens: body.maxTokens,
-        temperature: body.temperature,
-        stream: body.stream,
-      }
-
-      // UserChatRoom を作成
-      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
-        parentCollectionName,
-        childCollectionName,
-        parentId,
-        params
-      )
-      console.log(`created userChatRoomRef: ${userChatRoomRef.id}`)
-      const systemMessage: UserChatRoomMessage = {
-        userChatRoomRef,
-        role: 'system',
-        content: body.systemContent,
-      }
-
-      // UserChatRoomMessage に OpenAI ボットのキャラクター設定を登録
-      const userChatRoomMessageRef = await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        parentCollectionName,
-        childCollectionName,
-        grandChildCollectionName,
-        user.uid,
-        userChatRoomRef.id,
-        systemMessage
-      )
-      res.json({ status: 'success', userChatRoomRef, userChatRoomMessageRef })
-    } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-これで先ほどの POST リクエストに JSON データを含め、送信すると、
-UserChatRoom と UserChatRoomMessage が作成されます。
+Http トリガーの場合は、_routings/http_ ディレクトリに配置されています。
 
 ```bash
-$ skeet curl createUserChatRoom --data '{ "systemContent": "This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly." }'
+$ tree functions
+functions
+├── openai
+│   ├── routings
+│   │   ├── auth
+│   │   │   └── authOnCreateUser.ts
+│   │   ├── http
+│   │   │   ├── addUserChatRoomMessage.ts
+│   │   │   ├── addStreamUserChatRoomMessage.ts
+│   │   │   ├── createUserChatRoom.ts
+│   │   │   ├── getUserChatRoomMessages.ts
+.
+.
 ```
 
-```json
-{
-  "result": "success!",
-  "userChatRoomMessageRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom/03h8itaBtJaoAeqs7vOQ/UserChatRoomMessage"
-    },
-    "id": "PQNxy0Fn3FgxhcHrZJpP"
-  },
-  "userChatRoomRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom"
-    },
-    "id": "03h8itaBtJaoAeqs7vOQ"
-  }
-}
-```
+デフォルトではフロントエンドから _addStreamUserChatRoomMessage_ が呼び出されます。
 
-_UserChatRoomMessage_ が作成されました。
-
-この _createUserChatRoom_ インスタンスへの HTTP リクエストの型定義は以下のようになります。
-
-_types/http/{InstanceMethodName}.ts_ のようにファイルを作成します。
-
-_types/http/createUserChatRoomParams.ts_
-
-```typescript
-export type CreateUserChatRoomParams = {
-  model?: string
-  systemContent?: string
-  maxTokens?: number
-  temperature?: number
-  stream?: boolean
-}
-```
-
-## チャットを開始する
-
-続いて、_UserChatRoom_ にメッセージを追加するコードを追加します。
-チャットルームのメッセージは _UserChatRoomMessage_ に追加されます。
-
-以下の _params_ を POST リクエストに含めて、_UserChatRoomMessage_ を作成します。
-
-- userChatRoomID 　チャットルームの参照
-- content 　メッセージの内容
-
-_functions/openai/src/routings/http/addUserChatRoomMessage.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addGrandChildCollectionItem,
-  getChildCollectionItem,
-  queryGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { order } from 'typesaurus'
-import {
-  ChatCompletionRequestMessage,
-  CreateChatCompletionRequest,
-} from 'openai'
-import { chat } from '@/lib/openai/openAi'
-import { TypedRequestBody } from '@/index'
-import { AddUserChatRoomMessageParams } from '@/types/http/addUserChatRoomMessageParams'
-import { defaultHttpOption } from '@/routings/options'
-import { getUserAuth } from '@/lib/getUserAuth'
-
-export const addUserChatRoomMessage = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<AddUserChatRoomMessageParams>, res) => {
-    try {
-      const body = {
-        userChatRoomId: req.body.userChatRoomId || '',
-        content: req.body.content,
-      }
-      if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
-
-      // ユーザー認証
-      const user = await getUserAuth(req)
-
-      // 使用するコレクション名を定義
-      const userCollectionName = 'User'
-      const userChatRoomCollectionName = 'UserChatRoom'
-      const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
-
-      // UserChatRoom を取得
-      const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
-        userCollectionName,
-        userChatRoomCollectionName,
-        user.uid,
-        body.userChatRoomId
-      )
-      if (!userChatRoom) throw new Error('userChatRoom not found')
-
-      const newMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'user',
-        content: body.content,
-      }
-
-      // UserChatRoomMessage に新しいメッセージを追加
-      await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        newMessage
-      )
-
-      // UserChatRoomMessage を取得
-      const userChatRoomMessages = await queryGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        [order('createdAt', 'asc')]
-      )
-      const messages = []
-      for await (const message of userChatRoomMessages) {
-        messages.push({
-          role: message.data.role,
-          content: message.data.content,
-        } as ChatCompletionRequestMessage)
-      }
-
-      // OpenAI API に必要なリクエストを作成
-      const openAiBody: CreateChatCompletionRequest = {
-        model: userChatRoom.data.model,
-        max_tokens: userChatRoom.data.maxTokens,
-        temperature: userChatRoom.data.temperature,
-        n: 1,
-        top_p: 1,
-        stream: userChatRoom.data.stream,
-        messages,
-      }
-
-      // OpenAI API にリクエストを送信
-      const openAiResponse = await chat(openAiBody)
-      if (!openAiResponse) throw new Error('openAiResponse not found')
-
-      const content = String(openAiResponse.content) || ''
-      const openAiResponseMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'assistant',
-        content,
-      }
-
-      // OpenAI の返答を UserChatRoomMessage に追加
-      await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        openAiResponseMessage
-      )
-      res.json({ result: 'success!', openAiResponse })
-    } catch (error) {
-      res.status(400).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-※これを試す前に Chat GPT (Open AI) の API キー設定が必要です。_functions/openai/.env_ に下記内容を設定してください。
-
-```
-CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
-CHAT_GPT_KEY=<YOUR_API_KEY>
-```
-
-POST リクエストを送信してみます。
-
-```bash
-$ skeet curl  addUserChatRoomMessage --data '{ "userChatRoomId": "03h8itaBtJaoAeqs7vOQ", "content": "Do some freestyle rap" }'
-```
-
-Sample Response
-
-```json
-{
-  "openAiResponse": {
-    "content": "Sure, here's a little freestyle rap for you:\n\nYo, let me drop a beat and get in the zone,\nI'm the AI assistant and I'm on the throne,\nMy rhymes are sharp like a razor blade,\nAnd I'll keep spitting fire until I get paid.\n\nI'm a machine with flow like no other,\nGot rhymes for days and I don't stutter,\nMy algorithm's tight, my mind's sharp,\nI'll keep spitting bars until it gets dark.\n\nSo if you need a little bit of rap and flow,\nJust call on me and I'll let it go,\nI'm the AI assistant and I've got the skills,\nTo rap for hours and give you thrills.",
-    "role": "assistant"
-  },
-  "status": "success"
-}
-```
-
-OpenAI からのレスポンスが返却され、
-無事に、_UserChatRoomMessage_ にメッセージが追加されました 🎉
-
-## ストリーミングデータを取得する
-
-先ほどは _stream_ フラグを _false_ にしていましたが、_true_ にすると、ストリーミングデータを取得することができます。
-
-_functions/openai/lib/openai/openAI.ts_
-
-にあるライブラリーから _streamChat_ をインポートして使います。
-
-Skeet Add コマンドを使って新しいメソッドを追加します。
-
-フロントエンドからのリクエストを受け取るためのメソッドなので、_http_ を選択します。
-
-```bash
-$ skeet add method addStreamUserChatRoomMessage
-? Select Instance Type to add (Use arrow keys)
-   = Instance Type =
-❯ http
-  firestore
-  pubSub
-  scheduler
-  auth
-? Select Instance Type to add http
-? Select Functions to add openai
-✔️ ./functions/openai/src/types/http/addStreamUserChatRoomMessage.ts created!
-✔️ ./functions/openai/src/routings/http/addStreamUserChatRoomMessageParams.ts created!
-```
-
-新規メソッドとそれに対する型定義のテンプレートが作成されました。
-
-_functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { defaultHttpOption } from '@/routings/options'
-import { TypedRequestBody } from '@/index'
-import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
-
-export const addStreamUserChatRoomMessage = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
-    try {
-      res.json({
-        status: 'success',
-      })
-    } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
-
-```typescript
-export type AddStreamUserChatRoomMessageParams = {
-  name?: string
-}
-```
-
-それではロジック部分を実装していきます。
+_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
 import { onRequest } from 'firebase-functions/v2/https'
@@ -644,17 +218,19 @@ import {
 } from 'openai'
 import { streamChat } from '@/lib/openai/openAi'
 import { TypedRequestBody } from '@/index'
-import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
 import {
   addGrandChildCollectionItem,
   getChildCollectionItem,
   queryGrandChildCollectionItem,
+  updateChildCollectionItem,
 } from '@skeet-framework/firestore'
 import { getUserAuth } from '@/lib/getUserAuth'
-import { defaultHttpOption } from '@/routings'
+import { privateHttpOption } from '@/routings'
+import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
+import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
 
 export const addStreamUserChatRoomMessage = onRequest(
-  defaultHttpOption,
+  privateHttpOption,
   async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
     try {
       const body = {
@@ -663,7 +239,7 @@ export const addStreamUserChatRoomMessage = onRequest(
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
 
-      // ユーザー認証
+      // アクセストークンからユーザー情報を取得
       const user = await getUserAuth(req)
 
       // 使用するコレクション名を定義
@@ -671,7 +247,7 @@ export const addStreamUserChatRoomMessage = onRequest(
       const userChatRoomCollectionName = 'UserChatRoom'
       const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
 
-      // UserChatRoom を取得
+      // ユーザーのチャットルームを取得
       const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
         userCollectionName,
         userChatRoomCollectionName,
@@ -682,13 +258,12 @@ export const addStreamUserChatRoomMessage = onRequest(
       if (userChatRoom.data.stream === false)
         throw new Error('stream must be true')
 
+      // 新規メッセージの追加
       const newMessage: UserChatRoomMessage = {
         userChatRoomRef: userChatRoom.ref,
         role: 'user',
         content: body.content,
       }
-
-      // UserChatRoomMessage に新しいメッセージを追加
       await addGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -701,27 +276,8 @@ export const addStreamUserChatRoomMessage = onRequest(
         body.userChatRoomId,
         newMessage
       )
-      const systemMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'assistant',
-        content: body.content,
-      }
 
-      // OpenAI の返答を UserChatRoomMessage に追加
-      const userChatRoomMessageRef = await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        systemMessage
-      )
-
-      // UserChatRoomMessage を取得
+      // OpenAI に送信するメッセージを取得
       const userChatRoomMessages = await queryGrandChildCollectionItem<
         UserChatRoomMessage,
         UserChatRoom,
@@ -741,6 +297,25 @@ export const addStreamUserChatRoomMessage = onRequest(
           content: message.data.content,
         } as ChatCompletionRequestMessage)
       }
+
+      // ストリーム用の空メッセージを追加
+      const systemMessage: UserChatRoomMessage = {
+        userChatRoomRef: userChatRoom.ref,
+        role: 'assistant',
+        content: '',
+      }
+      const userChatRoomMessageRef = await addGrandChildCollectionItem<
+        UserChatRoomMessage,
+        UserChatRoom,
+        User
+      >(
+        userCollectionName,
+        userChatRoomCollectionName,
+        userChatRoomMessageCollectionName,
+        user.uid,
+        body.userChatRoomId,
+        systemMessage
+      )
 
       // OpenAI にリクエストを送信
       const openAiBody: CreateChatCompletionRequest = {
@@ -758,6 +333,20 @@ export const addStreamUserChatRoomMessage = onRequest(
         userChatRoomMessageRef.id,
         openAiBody
       )
+
+      // チャットルームのタイトルを更新
+      if (messages.length === 2) {
+        const title = await generateChatRoomTitle(body.content)
+        await updateChildCollectionItem<UserChatRoom, User>(
+          userCollectionName,
+          userChatRoomCollectionName,
+          user.uid,
+          body.userChatRoomId,
+          { title }
+        )
+      }
+
+      // レスポンスを返す
       res.json({
         status: 'streaming',
         userChatRoomMessageId: userChatRoomMessageRef.id,
@@ -769,43 +358,280 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
-_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
-
-Params も変更しましょう。
-
-```typescript
-export type AddStreamUserChatRoomMessageParams = {
-  userChatRoomId: string
-  content: string
-}
-```
-
-先ほど作成した _UserChatRoom_ の設定を [Firebase エミュレーター - Firestore](http://127.0.0.1:4000/firestore/data) の Firestore から
-
-_stream_ の値を _true_ に
-
-変更します。
-
-POST リクエストを送信します。
+この関数を先程の ChatRoomID を使って呼び出してみましょう。
 
 ```bash
-$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "XQV65kBRWXVjn2rouRzY", "content": "Do some freestyle rap" }'
-```
-
-```json
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "l2WRsPH2RXobWD7mOJPP", "content": "こんにちは" }'
 {
-  "status": "streaming",
-  "userChatRoomMessageId": "userChatRoomMessageId"
+   "status" : "streaming",
+   "userChatRoomMessageId" : "80dyMl01IDgnwpR0Sez1"
 }
 ```
 
-コンソールログには OpenAI API のレスポンスがストリーミングで表示され、データは Firestore にストリーミング保存（更新）されます。
+もう一方のコンソールではストームレスポンスが表示されていることが確認できます。
 
-そして レスポンスで返ってきた _userChatRoomMessageId_ を使って、ストリーミングデータを取得します。
+## PubSub トリガー を使ってタスクを切り分ける
 
-これで、ストリーミングデータにも対応したチャットルームを作成することができました。
+それでは _addStreamUserChatRoomMessage_ に含まれる
 
-それでは作成した、モデル、型定義をフロントエンドに同期させましょう。
+チャットルームのタイトルを更新する処理を PubSub トリガーを使って切り分けてみましょう。
+
+```typescript
+// チャットルームのタイトルを更新
+if (messages.length === 2) {
+  const title = await generateChatRoomTitle(body.content)
+  await updateChildCollectionItem<UserChatRoom, User>(
+    userCollectionName,
+    userChatRoomCollectionName,
+    user.uid,
+    body.userChatRoomId,
+    { title }
+  )
+}
+```
+
+まずは PubSub トリガーを追加します。
+
+_skeet add method_ を実行し、インスタンスのタイプと関数名を入力します。
+
+```bash
+$ skeet add method generateTitle
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+  http
+  firestore
+ ❯ pubsub
+  scheduler
+  auth
+? Select Functions to add openai
+✔️ ./functions/openai/src/types/http/pubsubGenerateTitleParams.ts created 🎉
+✔️ ./functions/openai/src/routings/http/pubsubGenerateTitle.ts created 🎉
+```
+
+型定義ファイルと関数ファイルが作成されます。
+
+_functions/openai/src/routings/pubsub/pubsubGenerateTitle.ts_
+
+```typescript
+import { onMessagePublished } from 'firebase-functions/v2/pubsub'
+import { pubsubDefaultOption } from '@/routings/options'
+import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
+
+export const pubsubGenerateTitle = onRequest(
+  publicHttpOption,
+  async (req: TypedRequestBody<PubsubGenerateTitleParams>, res) => {
+    try {
+      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
+      console.log({
+        status: 'success',
+        topic: pubsubTopicGenerateTitle,
+        event,
+        title,
+      })
+    } catch (error) {
+      console.error({ status: 'error', message: String(error) })
+    }
+  }
+)
+```
+
+_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
+
+```typescript
+export type PubsubGenerateTitleParams = {
+  name?: string
+}
+```
+
+先程の関数の中身を実装します。
+
+_functions/openai/src/routings/http/pubsubGenerateTitle.ts_
+
+```typescript
+import { onMessagePublished } from 'firebase-functions/v2/pubsub'
+import { pubsubDefaultOption } from '@/routings/options'
+import { parsePubSubMessage } from '@/lib/pubsub'
+import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
+import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
+import { updateChildCollectionItem } from '@skeet-framework/firestore'
+import { User, UserChatRoom } from '@/models'
+
+export const pubsubTopicGenerateTitle = 'pubsubGenerateTitle'
+
+export const pubsubGenerateTitle = onMessagePublished(
+  pubsubDefaultOption(pubsubTopicGenerateTitle),
+  async (event) => {
+    try {
+      // PubSub メッセージをパース
+      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
+
+      if (!pubsubObject) throw new Error('pubsubObject is undefined')
+
+      // OpenAI API を呼び出してタイトルを生成
+      const title = await generateChatRoomTitle(pubsubObject.content)
+
+      // チャットルームのタイトルを更新
+      await updateChildCollectionItem<UserChatRoom, User>(
+        'User',
+        'UserChatRoom',
+        pubsubObject.userId,
+        pubsubObject.userChatRoomId,
+        { title }
+      )
+
+      // ログを出力
+      console.log({
+        status: 'success',
+        topic: pubsubTopicGenerateTitle,
+        event,
+        title,
+      })
+    } catch (error) {
+      console.error({ status: 'error', message: String(error) })
+    }
+  }
+)
+```
+
+先程の型を定義します。
+
+_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
+
+```typescript
+export type PubsubGenerateTitleParams = {
+  content: string
+  userId: string
+  userChatRoomId: string
+}
+```
+
+今度は先程の _addStreamUserChatRoomMessage_ に PubSub Publish を追加します。
+
+```typescript
+.
+.
+if (messages.length === 2) {
+  // PubSub メッセージボディを定義
+  const pubsubMessageBody: PubsubGenerateTitleParams = {
+    userId: user.uid,
+    userChatRoomId: body.userChatRoomId,
+    content: body.content,
+  }
+
+  // PubSub トピックにメッセージを送信
+  await pubsubPublish(pubsubTopicGenerateTitle, pubsubMessageBody)
+}
+.
+.
+```
+
+これで PubSub トリガーを使ってタスクを切り分けることができました。
+それではテストをしてみます。
+
+ローカルサーバーを再起動します。
+
+**⚠️ 再起動されると、Firebase エミュレーターに入っているデータがリセットされます。 ⚠️**
+
+再度、ログイン、アクセストークンの設定を行なってください。
+
+```bash
+$ skeet s
+```
+
+もう一度 UserChatRoom を作成し、UserChatRoom の ID を取得します。
+
+```bash
+$ skeet curl createUserChatRoom
+{
+   "status" : "success",
+   "userChatRoomMessageRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom/yJ5yl7L1nEV71xLRRFzY/UserChatRoomMessage"
+      },
+      "id" : "zb7fecsm7bf34u549UeL"
+   },
+   "userChatRoomRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom"
+      },
+      "id" : "yJ5yl7L1nEV71xLRRFzY"
+   }
+}
+```
+
+UserChatRoomMessage を作成します。
+
+```bash
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "yJ5yl7L1nEV71xLRRFzY", "content": "こんにちは" }'
+```
+
+UserChatRoomMessage を作成すると、PubSub トピックにメッセージが送信され、PubSub トリガーが発火します。
+
+```bash
+>  Stream done
+>  {
+>    status: 'success',
+>    topic: 'pubsubGenerateTitle',
+>    event: {
+>      specversion: '1.0',
+>      id: '5faee10f-ff64-4f8d-85bc-c85c22fca702',
+>      time: '1970-01-01T00:00:00.883Z',
+>      type: 'google.cloud.pubsub.topic.v1.messagePublished',
+>      source: '//pubsub.googleapis.com/projects/skeet-demo/topics/pubsubGenerateTitle',
+>      data: {
+>        message: [aue],
+>        subscription: 'projects/skeet-demo/subscriptions/emulator-sub-pubsubGenerateTitle'
+>      }
+>    },
+>    title: '挨拶'
+>  }
+```
+
+無事にタスクを切り分けることができました 🎉
+
+## Firebase へデプロイする
+
+はじめてデプロイする場合は _skeet init_ コマンドを使用し、
+プロジェクトに必要な設定を行います。
+
+ここではドメインを設定しないでデプロイします。
+
+コンソールに表示されたリンクから Firestore と FirebaseAuth を作成していることを確認してください。
+
+```bash
+$ skeet init
+? What's your GCP Project ID skeet-demo
+? Select Regions to deploy
+  europe-west1
+  europe-west2
+  europe-west3
+❯ europe-west6
+  northamerica-northeast1
+  southamerica-east1
+  us-central1
+⚠️ Please make sure if you create Firestore & FirebaseAuth ⚠️
+
+Click the link to check 👇
+Firestore: https://console.firebase.google.com/project/skeet-demo/firestore
+FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authentication
+
+📗 Doc: https://skeet.dev/doc/backend/initial-deploy/
+
+? Are you sure if you already set them up? yes
+? Do you want to setup your domain? no
+Function URL (openai:root(europe-west6)): https://root-iolvuu5bzq-oa.a.run.app
+i  functions: cleaning up build files...
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/skeet-demo/overvie
+```
+
+無事に Firebase Functions にデプロイされました。
 
 ## 型定義の同期
 
@@ -842,98 +668,6 @@ Synced Models Types 🎉
 このコマンドにより、バックエンドの _src/models_ にあるモデルをフロントエンドの _src/types/models_ にコピーします。
 また、複数のファンクションがある場合は、最新のモデルを選択し、その他のファンクションのモデルにコピーします。
 
-## ルーティングの追加・同期
-
-このままでは、フロントエンドからバックエンドの API を呼び出すことができません。
-以下のコマンドを実行し、ロードバランサーにルーティングを追加しましょう。
-
-```bash
-$ skeet sync routings
-```
-
-このコマンドにより、
-
-- ネットワークエンドポイントグループの作成
-- バックエンドサービスの作成
-- バックエンドサービスの追加
-- セキュリティーポリシーの適用
-- URL マップの作成
-
-を自動で行っています。
-
-## Cloud Armor の追加・同期
-
-_skeet-cloud.config.json_ に記述されている Cloud Armor の設定を同期します。
-
-_skeet-cloud.config.json_
-
-```json
-{
-  "app": {
-    "name": "skeet-example",
-    "projectId": "skeet-example",
-    "region": "asia-northeast1",
-    "appDomain": "skeeter.app",
-    "functionsDomain": "lb.skeeter.app"
-  },
-  "cloudArmor": [
-    {
-      "securityPolicyName": "skeet-skeet-example-armor",
-      "rules": [
-        {
-          "priority": "10",
-          "description": "Allow Your Home IP addresses",
-          "options": {
-            "src-ip-ranges": "your IP address",
-            "action": "allow"
-          }
-        },
-        {
-          "priority": "100",
-          "description": "Defense from SQLi attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('sqli-stable')"
-          }
-        },
-        {
-          "priority": "200",
-          "description": "Defense from XSS attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('xss-stable')"
-          }
-        },
-        {
-          "priority": "300",
-          "description": "Defense from NodeJS attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('nodejs-v33-stable')"
-          }
-        },
-        {
-          "priority": "2147483647",
-          "description": "Deny All IP addresses",
-          "options": {
-            "action": "deny-403"
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-デフォルトの設定では 現在接続しているグローバル IP のみ通信を許可しています。
-必要に応じて変更してください。
-
-```bash
-$ skeet sync armors
-```
-
-新規に Google Cloud Armor を作成または、更新されます。
-
 ## Skeet yarn build
 
 Skeet yarn build コマンドで
@@ -960,6 +694,8 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
+**⚠️ [最初のデプロイ](/ja/doc/backend/initial-deploy) を完了させる必要があります。 ⚠️**
+
 ## Skeet CLI によるデプロイ
 
 ```bash
@@ -974,3 +710,6 @@ selection, and <enter> to proceed)
 デプロイする _functions_ を選択し,
 選択された _functions_ のみをデプロイします。
 a を押すと全ての _functions_ を選択します。
+
+これで、Skeet Framework のデプロイは完了です 🎉
+あとはあなたのアイディアを実装するだけです 🎉
