@@ -7,48 +7,10 @@ description: Skeet アプリを公開する方法について説明します。G
 この章では _skeet-demo_ というプロジェクト名で進めます。
 チュートリアルではここで作成したプロジェクトを使用します。
 
-## Firebase CLI のインストール
-
-```bash
-$ npm install -g firebase-tools
-```
-
-## Skeet CLI のインストール
-
-```bash
-$ npm install -g @skeet-framework/cli
-```
-
 ## GitHub CLI Auth ログイン
 
 ```bash
 $ gh auth login
-```
-
-## Google Cloud プロジェクトの作成
-
-これまで Google Cloud を使ったことがない方はこちらのリンクを参考にプロジェクトを作成しましょう。
-
-[プロジェクトの作成方法](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-
-※プロジェクトに対して請求アカウントの設定も必要です。
-
-## Gcloud CLI Auth ログイン
-
-```bash
-$ gcloud auth login
-```
-
-## Firebase プロジェクトの作成
-
-これまで Google Firebase を使ったことがない方はこちらのリンクを参考にプロジェクトを作成しましょう。
-
-[プロジェクトの作成方法](https://firebase.google.com/docs/projects/learn-more?hl=ja)
-
-## Skeet Framework プロジェクトの作成
-
-```bash
-$ skeet create skeet-chatbot
 ```
 
 ### Skeet Init コマンドで最初のデプロイ

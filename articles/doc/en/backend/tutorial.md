@@ -389,6 +389,25 @@ $ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "l2WRsPH2R
 
 You can see that the stream data is displayed.
 
+
+You can also use the _skeet get https_ command to check the endpoint.
+```bash
+$ skeet get https
+┌──────────┬──────────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
+│ Function │ Endpoint                     │ ParamsPath                                                              │
+├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ openai   │ addStreamUserChatRoomMessage │ ./functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts │
+├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ openai   │ addUserChatRoomMessage       │ ./functions/openai/src/types/http/addUserChatRoomMessageParams.ts       │
+├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ openai   │ createUserChatRoom           │ ./functions/openai/src/types/http/createUserChatRoomParams.ts           │
+├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ openai   │ getUserChatRoomMessages      │ ./functions/openai/src/types/http/getUserChatRoomMessagesParams.ts      │
+├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ openai   │ root                         │ ./functions/openai/src/types/http/rootParams.ts                         │
+└──────────┴──────────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
+```
+
 ## Isolate tasks using PubSub triggers
 
 Then _addStreamUserChatRoomMessage_ contains
