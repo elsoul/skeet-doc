@@ -8,49 +8,10 @@ description: You can learn how to publish your Skeet app. You can also set deplo
 
 In this chapter, we will proceed with the project name _skeet-demo_.
 
-## Install Firebase CLI
-
-```bash
-$ npm install -g firebase-tools
-```
-
-## Install Skeet CLI
-
-```bash
-$ npm install -g @skeet-framework/cli
-```
-
 ## Login GitHub CLI Auth
 
 ```bash
 $ gh auth login
-```
-
-## Create Google Cloud Project
-
-If you have never used Google Cloud before, follow this link to create a project.
-
-[How to create a project](https://cloud.google.com/resource-manager/docs/creating-managing-projects)
-
-- It is also necessary to set up a billing account for the project.
-
-## Gcloud CLI Auth login
-
-```bash
-$ gcloud auth application-default login
-$ gcloud auth login
-```
-
-## Create a Firebase project
-
-If you have never used Google Firebase before, follow this link to create a project.
-
-[How to create a project](https://firebase.google.com/docs/projects/learn-more?hl=en)
-
-## Create a Skeet Framework project
-
-```bash
-$ skeet create skeet-demo
 ```
 
 ### Initial deployment with Skeet Init command
@@ -85,12 +46,18 @@ automatically.
 Once configured, you will see the nameserver domain settings in the console log.
 
 ```bash
-nameServers:
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-visibility: public
+🚸 === Copy & Paste below nameServer addresses to your DNS Setting === 🚸
+
+ns-cloud-a1.googledomains.com.
+ns-cloud-a2.googledomains.com.
+ns-cloud-a3.googledomains.com.
+ns-cloud-a4.googledomains.com.
+
+👷 === https will be ready in about an hour after your DNS settings === 👷
+
+✔ You are all set 🎉
+
+📗 Doc: https://skeet.dev
 ```
 
 ## Setting nameservers
