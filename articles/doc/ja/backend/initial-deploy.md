@@ -4,8 +4,19 @@ title: 最初のデプロイ
 description: Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。
 ---
 
-この章では _skeet-demo_ というプロジェクト名で進めます。
-チュートリアルではここで作成したプロジェクトを使用します。
+この章では VPN を作成し、ロードバランサーやネットワークセキュリティ、ルーティング、ドメイン設定など、
+本番環境に必要な設定を行い、アプリケーションをデプロイします。
+
+## 事前に用意するもの
+
+この章では前回の章で作成したアプリケーションに加え以下のものが必要になります。
+
+- ロードバランサーに設定するドメイン
+  ネームサーバーを変更できるドメインを用意してください。
+
+- GitHub アカウント
+  GitHub アカウントを用意し、ログイン認証をしてください。
+  _skeet init_ コマンドで GitHub リポジトリが作成されます。
 
 ## GitHub CLI Auth ログイン
 
@@ -17,11 +28,11 @@ $ gh auth login
 
 Skeet init コマンドで以下の設定を行います。
 
-1. プロジェクト ID の選択
-1. リージョンの選択
-1. GitHub リポジトリ名を指定
-1. ネームサーバーのドメイン設定
-1. ロードバランサーのサブドメイン設定
+- プロジェクト ID の選択
+- リージョンの選択
+- GitHub リポジトリ名を指定
+- ネームサーバーのドメイン設定
+- ロードバランサーのサブドメイン設定
 
 ```bash
 $ skeet init
@@ -46,12 +57,18 @@ $ skeet init
 設定が完了するとコンソールログにネームサーバーのドメイン設定が表示されます。
 
 ```bash
-nameServers:
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-- ns-cloud-dx.googledomains.com.
-visibility: public
+🚸 === Copy & Paste below nameServer addresses to your DNS Setting === 🚸
+
+ns-cloud-a1.googledomains.com.
+ns-cloud-a2.googledomains.com.
+ns-cloud-a3.googledomains.com.
+ns-cloud-a4.googledomains.com.
+
+👷 === https will be ready in about an hour after your DNS settings === 👷
+
+✔ You are all set 🎉
+
+📗 Doc: https://skeet.dev
 ```
 
 ## ネームサーバーの設定
