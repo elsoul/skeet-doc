@@ -6,54 +6,86 @@ description: This tutorial will create an OpenAI Chat App using Skeet Framework.
 
 ## Tutorial
 
-This tutorial uses the Skeet Framework to create a chat app.
-This is a comprehensive cloud application development tutorial including the programming language TypeScript, Firebase Firestore, and GitHub.
+This tutorial uses the Skeet Framework to create a chat app. This is a comprehensive cloud application development tutorial including the programming language TypeScript, Firebase Firestore, and GitHub.
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-chat-latest.gif)
 
-This tutorial creates a basic chatbot app. **You may be tempted to skip this because you don't want to build a chatbot, but please read it.** The techniques you learn in this tutorial are fundamental to any Skeet Framework app, and mastering them will give you a deep understanding of Skeet.
+This tutorial creates a basic chatbot app.
+I learned the basic usage of Skeet Framework in the quick start,
+This tutorial uses the power of the Skeet Framework to do things that weren't easy to do before.
+Learn how it can be done easily.
+We would like to express our deepest gratitude to the developers who have released their libraries as open source.
 
-In this chapter, we will create a chatbot using OpenAI's API.
+Skeet Framework efficiently uses computer resources to
+It's designed to help developers do more with less code.
+Furthermore, environmental problems are becoming more serious on the earth these days, and efficient use of energy is
+I think it's the developer's responsibility.
 
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
+**You may be tempted to skip this because you don't want to build a chatbot, but please read it.**
+
+The techniques you learn in this tutorial are fundamental to any Skeet Framework app, and mastering them will give you a deep understanding of Skeet.
+
+In this chapter, we will add new features to the chatbot app using the machine learning (OpenAI) API created in Quick Start.
+
+## The Goal of Tutorial
+
+In this tutorial you will learn:
+
+- How to set environment variables
+- Get a development login authentication key
+- test API requests with skeet curl
+- Check code for chat stream
+- Isolate tasks using PubSub triggers
+- Deploy to Firebase
+
+## Tutorial prerequisites
+
+If you haven't completed the [quick start](/en/doc/backend/quickstart), please complete it first.
+
+## Development environment
 
 Skeet Framework recommends VScode as editor.
-We will be using VScode for this tutorial.
-
 By proceeding with development according to the framework,
 Get powerful code completion support with GitHub Copilot.
 
 - [VScode](https://code.visualstudio.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 
-## Tutorial prerequisites
+Chatbot uses OpenAI's API.
 
-To follow along with this tutorial, you need:
+- [OpenAI](https://openai.com/)
 
-- [Node.js](https://nodejs.org/ja/) ^18.16.0
-- [Yarn](https://yarnpkg.com/) ^1.22.19
-- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) ^430.0.0
-- [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.1
-- [GitHub CLI](https://cli.github.com/) ^2.29.0
+## How to set environment variables
 
-Also, if the [Quickstart](/en/doc/backend/quickstart) has not been completed,
+Skeet Framework uses [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=en&gen=2nd) environment variables to manage sensitive information such as API keys.
 
-Please complete the following steps.
+using the _skeet add secret <secretKey>_ command
 
-- Create a Google Cloud project
-- Create a Firebase project
-- Firebase Config settings
+Set the OpenAI API key to an environment variable.
 
-## User Authentication/Login function
+```bash
+$ skeet add secret CHAT_GPT_ORG
+? Enter value for CHAT_GPT_ORG: <yourOpenAIKey>
+```
 
-Run Firebase Emulator
+Set CHAT_GPT_KEY as well.
+
+```bash
+$ skeet add secret CHAT_GPT_KEY
+? Enter value for CHAT_GPT_KEY: <yourOpenAIKey>
+```
+
+## Get a development login authentication key
+
+Now let's get ready for development.
+Start the Firebase emulator and get an _ACCESS_TOKEN_.
 
 ```bash
 $ skeet s
 ```
 
-Execute the following command in a separate window.
-Get the _accessToken_
+Run the following command in another window,
+Get an _accessToken_.
 
 ```bash
 $ skeet login
@@ -68,44 +100,41 @@ export ACCESS_TOKEN={accessToken}
 
 $ skeet curl createUserChatRoom
      or
-$ skeet curl createUserChatRoom --data '{ "model": "gpt-4-32k", "maxTokens": 4200 }'
+$ skeet curl createUserChatRoom --data '{ "model": "gpt4", "maxTokens": 4200 }'
 ```
 
 By setting the accessToken displayed in the console log to the environment variable,
 
 You can send API requests using the _skeet curl_ command.
 
-```bash
-$ skeet help curl
-Usage: skeet curl [options] <methodName>
+Acquiring login authentication keys and sending POST requests during development costs money.
+In Skeet Framework, using the following two commands,
+It's designed to help developers work more efficiently.
 
-Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+- skeet login
+- skeet curl
 
-Arguments:
-  methodName                  Method Name - e.g. skeet curl createUserChatRoom
+If the login command succeeds,
 
-Options:
-  -d,--data [data]            JSON Request Body - e.g. '{ "docId": "xxx" }'
-  --production                For Production (default: false)
-  -f,--functions [functions]  For Production Functions Name (default: false)
-  -h, --help                  display help for command
-```
+Defined in _authOnCreateUser.ts_ by default
 
-in the background, the Auth instance triggers and
+Auth instance trigger fired
+
 User information is stored in Firebase Firestore.
 
-Auth Instance Path: _functions/openai/routings/auth/authCreateUser.ts_
+_functions/openai/routings/auth/authOnCreateUser.ts_
 
 ```typescript
 import { User } from '@/models'
 import { addCollectionItem } from '@skeet-framework/firestore'
 import * as functions from 'firebase-functions/v1'
-import { authDefaultOption } from '@/routings'
-
-const region = process.env.REGION || 'asia-northeast1'
+import { authPublicOption } from '@/routings'
+import { gravatarIconUrl } from '@/utils/placeholder'
+import skeetConfig from '../../../skeetOptions.json'
+const region = skeetConfig.region
 
 export const authOnCreateUser = functions
-  .runWith(authDefaultOption)
+  .runWith(authPublicOption)
   .region(region)
   .auth.user()
   .onCreate(async (user) => {
@@ -114,26 +143,33 @@ export const authOnCreateUser = functions
       const userParams = {
         uid,
         email: email || '',
-        username: displayName || '',
-        iconUrl: photoURL || '',
+        username: displayName || email?.split('@')[0] || '',
+        iconUrl:
+          photoURL == '' || !photoURL
+            ? gravatarIconUrl(email ?? 'info@skeet.dev')
+            : photoURL,
       }
       const userRef = await addCollectionItem<User>('User', userParams, uid)
       console.log({ status: 'success', userRef })
     } catch (error) {
-      console.log(`error - ${String(error)}`)
+      console.log({ status: 'error', message: String(error) })
     }
   })
 ```
 
-Get user information from Firebase with _await getUserAuth(req)_
+User information is
+
+_await getUserAuth(req)_
+
+to get it from Firebase.
 
 ```typescript
 import { getUserAuth } from '@/lib'
 
-const user = await getUserAuth(req)
+const user: UserAuthType = await getUserAuth(req)
 ```
 
-The type definition of the return value of _getUserAuth_ is as follows.
+The default return type definition for _getUserAuth_ is:
 
 ```typescript
 export type UserAuthType = {
@@ -144,366 +180,137 @@ export type UserAuthType = {
 }
 ```
 
-## User model
+## test API requests with skeet curl
 
-This chapter uses a User model created using the _skeet create_ command.
-
-- [Basic architecture - model definition](/en/doc/backend/basic-architecture#model definition)
-
-## Create a UserChatRoom
-
-Register the following information required for the OpenAI API in _UserChatRoom_.
-
-- model (gpt-3.5-turbo)
-- maxTokens (256)
-- temperature (0)
-- stream (false)
-
-See the OpenAI API documentation for details.
-
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
-
-_functions/openai/src/routings/http/createUserChatRoom.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addCollectionItem,
-  addChildCollectionItem,
-  addGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { TypedRequestBody } from '@/index'
-import { defaultHttpOption } from '@/routings/options'
-import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
-import { getUserAuth } from '@/lib/getUserAuth'
-
-export const createUserChatRoom = onRequest(
-  defaultHttpOption,
-  async (req, res) => {
-    try {
-      // OpenAI Requet Body
-      const body = {
-        model: req.body.model || 'gpt-3.5-turbo',
-        systemContent:
-          req.body.systemContent ||
-          'This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.',
-        maxTokens: req.body.maxTokens || 256,
-        temperature: req.body.temperature || 1,
-        stream: req.body.stream || false,
-      }
-
-      // User Authentification
-      const user = await getUserAuth(req)
-
-      // Define Collection Names
-      const parentCollectionName = 'User'
-      const childCollectionName = 'UserChatRoom'
-
-      // Retrive User Data from Firestore
-      const userDoc = await getCollectionItem<User>(
-        parentCollectionName,
-        user.uid
-      )
-      const parentId = user.uid || ''
-      const params: UserChatRoom = {
-        userRef,
-        model: body.model,
-        maxTokens: body.maxTokens,
-        temperature: body.temperature,
-        stream: body.stream,
-      }
-
-      // Create UserChatRoom
-      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
-        parentCollectionName,
-        childCollectionName,
-        parentId,
-        params
-      )
-      res.json({ status: 'success', userChatRoomRef, userChatRoomMessageRef })
-    } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-Send POST Request to Cloud Functions with _skeet curl_
+Let's send an API request using the _skeet curl_ command.
 
 ```bash
 $ skeet curl createUserChatRoom
-```
-
-Sample Response
-
-```json
 {
-  "result": "success!",
-  "userChatRoomMessageRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom/03h8itaBtJaoAeqs7vOQ/UserChatRoomMessage"
-    },
-    "id": "PQNxy0Fn3FgxhcHrZJpP"
-  },
-  "userChatRoomRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom"
-    },
-    "id": "03h8itaBtJaoAeqs7vOQ"
-  }
+   "status" : "success",
+   "userChatRoomMessageRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom/l2WRsPH2RXobWD7mOJPP/UserChatRoomMessage"
+      },
+      "id" : "YS7wCHoztt1eEUHjvxhw"
+   },
+   "userChatRoomRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom"
+      },
+      "id" : "l2WRsPH2RXobWD7mOJPP"
+   }
 }
 ```
 
-_UserChatRoom_ created!
+UserChatRoom and UserChatRoomMessage are created.
 
-## Create UserChatRoomMessage
+## Check code for chat stream
 
-Then add code to create a _UserChatRoomMessage_ in the _UserChatRoom_ from earlier.
-Create a _UserChatRoomMessage_ with the _id_ of _userChatRoomMessageRef_.
+The code for Skeet Functions is
+located in the functions directory.
 
-Register OpenAI bot character settings in the first message of _UserChatRoom_.
-
-Here we register the OpenAI bot character settings from _req.body.systemContent_.
-
-- systemContent OpenAI bot character settings
-
-_functions/openai/src/routings/http/createUserChatRoom.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addCollectionItem,
-  addChildCollectionItem,
-  addGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { TypedRequestBody } from '@/index'
-import { defaultHttpOption } from '@/routings/options'
-import { CreateUserChatRoomParams } from '@/types/http/createUserChatRoomParams'
-import { getUserAuth } from '@/lib/getUserAuth'
-
-export const createUserChatRoom = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<CreateUserChatRoomParams>, res) => {
-    try {
-      const body = {
-        model: req.body.model || 'gpt-3.5-turbo',
-        systemContent:
-          req.body.systemContent ||
-          'This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly.',
-        maxTokens: req.body.maxTokens || 256,
-        temperature: req.body.temperature || 1,
-        stream: req.body.stream || false,
-      }
-      // User Authentification
-      const user = await getUserAuth(req)
-
-      // Define Collection Names
-      const parentCollectionName = 'User'
-      const childCollectionName = 'UserChatRoom'
-      const grandChildCollectionName = 'UserChatRoomMessage'
-
-      // Retrive User Data from Firestore
-      const userDoc = await getCollectionItem<User>(
-        parentCollectionName,
-        user.uid
-      )
-
-      const parentId = user.uid || ''
-      const params: UserChatRoom = {
-        userRef,
-        model: body.model,
-        maxTokens: body.maxTokens,
-        temperature: body.temperature,
-        stream: body.stream,
-      }
-
-      // Create UserChatRoom
-      const userChatRoomRef = await addChildCollectionItem<UserChatRoom, User>(
-        parentCollectionName,
-        childCollectionName,
-        parentId,
-        params
-      )
-      console.log(`created userChatRoomRef: ${userChatRoomRef.id}`)
-      const systemMessage: UserChatRoomMessage = {
-        userChatRoomRef,
-        role: 'system',
-        content: body.systemContent,
-      }
-
-      // add OpenAI bot character settings to the first message
-      const userChatRoomMessageRef = await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        parentCollectionName,
-        childCollectionName,
-        grandChildCollectionName,
-        user.uid,
-        userChatRoomRef.id,
-        systemMessage
-      )
-      res.json({ status: 'success', userChatRoomRef, userChatRoomMessageRef })
-    } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-Now if you send a POST request with JSON data, a UserChatRoom and a UserChatRoomMessage will be created.
+For Http triggers, they are located in the _routings/http_ directory.
 
 ```bash
-$ skeet curl createUserChatRoom --data '{ "systemContent": "This is a conversation with an AI assistant. The assistant is helpful, creative, clever, and very friendly." }'
+$ tree functions
+functions
+├── openai
+│   ├── routings
+│   │   ├── auth
+│   │   │   └── authOnCreateUser.ts
+│   │   ├── http
+│   │   │   ├── addUserChatRoomMessage.ts
+│   │   │   ├── addStreamUserChatRoomMessage.ts
+│   │   │   ├── createUserChatRoom.ts
+│   │   │   ├── getUserChatRoomMessages.ts
+.
+.
 ```
 
-```json
-{
-  "result": "success!",
-  "userChatRoomMessageRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom/03h8itaBtJaoAeqs7vOQ/UserChatRoomMessage"
-    },
-    "id": "PQNxy0Fn3FgxhcHrZJpP"
-  },
-  "userChatRoomRef": {
-    "__type__": "ref",
-    "collection": {
-      "__type__": "collection",
-      "path": "User/65N7Yl6rWzGASPrqhjC7wyhqUfpg/UserChatRoom"
-    },
-    "id": "03h8itaBtJaoAeqs7vOQ"
-  }
-}
-```
+_addStreamUserChatRoomMessage_ is called from the frontend by default.
 
-_UserChatRoomMessage_ created.
-
-The type definition for an HTTP request to this _createUserChatRoom_ instance looks like this:
-
-Create a file like _types/http/{InstanceMethodName}.ts_.
-
-_types/http/createUserChatRoomParams.ts_
-
-```typescript
-export type CreateUserChatRoomParams = {
-  model?: string
-  systemContent?: string
-  maxTokens?: number
-  temperature?: number
-  stream?: boolean
-}
-```
-
-## Start a chat
-
-Then add code to add a message to the _UserChatRoom_.
-Chat room messages are added to _UserChatRoomMessage_.
-
-Include the following _params_ in your POST request to create a _UserChatRoomMessage_.
-
-- _userChatRoomID_ 　 Reference to the chat room
-- _content_ content of the message
-
-_functions/openai/src/routings/http/addUserChatRoomMessage.ts_
+_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
 import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import {
-  addGrandChildCollectionItem,
-  getChildCollectionItem,
-  queryGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { order } from 'typesaurus'
-import {
-  ChatCompletionRequestMessage,
-  CreateChatCompletionRequest,
-} from 'openai'
-import { chat } from '@/lib/openai/openAi'
+import { CreateChatCompletionRequest } from 'openai'
+import { streamChat } from '@/lib/openai/openAi'
 import { TypedRequestBody } from '@/index'
-import { AddUserChatRoomMessageParams } from '@/types/http/addUserChatRoomMessageParams'
-import { defaultHttpOption } from '@/routings/options'
+import { updateChildCollectionItem } from '@skeet-framework/firestore'
 import { getUserAuth } from '@/lib/getUserAuth'
+import { publicHttpOption } from '@/routings'
+import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
+import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
+import { defineSecret } from 'firebase-functions/params'
+import {
+  User,
+  UserChatRoom,
+  userChatRoomCollectionName,
+  userCollectionName,
+} from '@/models'
+import { createUserChatRoomMessage } from '@/models/lib/createUserChatRoomMessage'
+import { getMessages } from '@/models/lib/getMessages'
+import { getUserChatRoom } from '@/models/lib/getUserChatRoom'
+import { sleep } from '@/utils/time'
+const chatGptOrg = defineSecret('CHAT_GPT_ORG')
+const chatGptKey = defineSecret('CHAT_GPT_KEY')
 
-export const addUserChatRoomMessage = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<AddUserChatRoomMessageParams>, res) => {
+export const addStreamUserChatRoomMessage = onRequest(
+  { ...publicHttpOption, secrets: [chatGptOrg, chatGptKey] },
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+    const organization = chatGptOrg.value()
+    const apiKey = chatGptKey.value()
+
     try {
+      if (!organization || !apiKey)
+        throw new Error(
+          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``
+        )
+
+      // Get Request Body
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
         content: req.body.content,
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
 
-      // User Authentification
+      // Get User Info from Firebase Auth
       const user = await getUserAuth(req)
 
-      // Define Collection Names
-      const userCollectionName = 'User'
-      const userChatRoomCollectionName = 'UserChatRoom'
-      const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
+      // Get UserChatRoom
+      const userChatRoom = await getUserChatRoom(user.uid, body.userChatRoomId)
+      if (userChatRoom.data.stream === false)
+        throw new Error('stream must be true')
 
-      // Retrive User Data from Firestore
-      const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
-        userCollectionName,
-        userChatRoomCollectionName,
-        user.uid,
-        body.userChatRoomId
-      )
-      if (!userChatRoom) throw new Error('userChatRoom not found')
+      // Add UserChatRoomMessage
+      await createUserChatRoomMessage(userChatRoom.ref, user.uid, body.content)
 
-      const newMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'user',
-        content: body.content,
+      // Get UserChatRoomMessages for OpenAI Request
+      const messages = await getMessages(user.uid, body.userChatRoomId)
+
+      console.log('messages.length', messages.length)
+      // Update UserChatRoom Title
+      if (messages.length === 2) {
+        const title = await generateChatRoomTitle(
+          body.content,
+          organization,
+          apiKey
+        )
+        await updateChildCollectionItem<UserChatRoom, User>(
+          userCollectionName,
+          userChatRoomCollectionName,
+          user.uid,
+          body.userChatRoomId,
+          { title }
+        )
       }
 
-      // Create UserChatRoomMessage
-      await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        newMessage
-      )
-
-      // Retrieve all messages in the chat room
-      const userChatRoomMessages = await queryGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        [order('createdAt', 'asc')]
-      )
-      const messages = []
-      for await (const message of userChatRoomMessages) {
-        messages.push({
-          role: message.data.role,
-          content: message.data.content,
-        } as ChatCompletionRequestMessage)
-      }
-
-      // Create OpenAI Request Body
+      // Send Request to OpenAI
       const openAiBody: CreateChatCompletionRequest = {
         model: userChatRoom.data.model,
         max_tokens: userChatRoom.data.maxTokens,
@@ -514,110 +321,57 @@ export const addUserChatRoomMessage = onRequest(
         messages,
       }
 
-      // Send Request to OpenAI
-      const openAiResponse = await chat(openAiBody)
-      if (!openAiResponse) throw new Error('openAiResponse not found')
-
-      const content = String(openAiResponse.content) || ''
-      const openAiResponseMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'assistant',
-        content,
-      }
-
-      // Save OpenAI Response to Firestore
-      await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        openAiResponseMessage
+      // Get OpenAI Stream
+      const stream = await streamChat(
+        openAiBody,
+        chatGptOrg.value(),
+        chatGptKey.value()
       )
-      res.json({ result: 'success!', openAiResponse })
-    } catch (error) {
-      res.status(400).json({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
+      const messageResults: string[] = []
+      let streamClosed = false
+      stream.on('data', async (chunk: Buffer) => {
+        const payloads = chunk.toString().split('\n\n')
+        for await (const payload of payloads) {
+          if (payload.includes('[DONE]')) return
+          if (payload.startsWith('data:')) {
+            const data = payload.replaceAll(/(\n)?^data:\s*/g, '')
+            try {
+              const delta = JSON.parse(data.trim())
+              const message = delta.choices[0].delta?.content
+              if (message == undefined) continue
 
-※ Chat GPT (Open AI) API key configuration is required before trying this. Set the following contents in _functions/openai/.env_.
+              console.log(message)
+              messageResults.push(message)
 
-```
-CHAT_GPT_ORG=<YOUR_ORGANIZATION_ID>
-CHAT_GPT_KEY=<YOUR_API_KEY>
-```
+              while (!streamClosed && res.writableLength > 0) {
+                await sleep(10)
+              }
 
-Send POST Request
-
-```bash
-$ skeet curl  addUserChatRoomMessage --data '{ "userChatRoomId": "03h8itaBtJaoAeqs7vOQ", "content": "Do some freestyle rap" }'
-```
-
-Sample Response
-
-```json
-{
-  "openAiResponse": {
-    "content": "Sure, here's a little freestyle rap for you:\n\nYo, let me drop a beat and get in the zone,\nI'm the AI assistant and I'm on the throne,\nMy rhymes are sharp like a razor blade,\nAnd I'll keep spitting fire until I get paid.\n\nI'm a machine with flow like no other,\nGot rhymes for days and I don't stutter,\nMy algorithm's tight, my mind's sharp,\nI'll keep spitting bars until it gets dark.\n\nSo if you need a little bit of rap and flow,\nJust call on me and I'll let it go,\nI'm the AI assistant and I've got the skills,\nTo rap for hours and give you thrills.",
-    "role": "assistant"
-  },
-  "result": "success!"
-}
-```
-
-A response from OpenAI is returned,
-Message successfully added to _UserChatRoomMessage_ 🎉
-
-## Get streaming data
-
-Earlier we set the _stream_ flag to _false_, but if we set it to _true_, we can get streaming data.
-
-_functions/openai/lib/openai/openAI.ts_
-
-Import and use _streamChat_ from the library found in .
-
-Add new method with _skeet add method_ command.
-
-This method is for receiving requests from the frontend, so select _http_.
-
-```bash
-$ skeet add method addStreamUserChatRoomMessage
-? Select Instance Type to add (Use arrow keys)
-   = Instance Type =
-❯ http
-  firestore
-  pubSub
-  scheduler
-  auth
-? Select Instance Type to add http
-? Select Functions to add openai
-✔️ ./functions/openai/src/types/http/addStreamUserChatRoomMessage.ts created!
-✔️ ./functions/openai/src/routings/http/addStreamUserChatRoomMessageParams.ts created!
-```
-
-New method and type definition template have been created.
-
-_functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
-
-```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { defaultHttpOption } from '@/routings/options'
-import { TypedRequestBody } from '@/index'
-import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
-
-export const addStreamUserChatRoomMessage = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
-    try {
-      res.json({
-        status: 'success',
+              // Send Message to Client
+              res.write(JSON.stringify({ text: message }))
+            } catch (error) {
+              console.log(`Error with JSON.parse and ${payload}.\n${error}`)
+            }
+          }
+        }
+        res.once('error', () => (streamClosed = true))
+        res.once('close', () => (streamClosed = true))
+        if (streamClosed) res.end('Stream disconnected')
       })
+
+      // Stream End
+      stream.on('end', async () => {
+        const message = messageResults.join('')
+        const lastMessage = await createUserChatRoomMessage(
+          userChatRoom.ref,
+          user.uid,
+          message,
+          'assistant'
+        )
+        console.log(`Stream end - messageId: ${lastMessage.id}`)
+        res.end('Stream done')
+      })
+      stream.on('error', (e: Error) => console.error(e))
     } catch (error) {
       res.status(500).json({ status: 'error', message: String(error) })
     }
@@ -625,192 +379,318 @@ export const addStreamUserChatRoomMessage = onRequest(
 )
 ```
 
-_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+Let's call this function with the ChatRoomID from earlier.
+Here we use the _--raw_ option to display the chunk data.
+
+```bash
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "l2WRsPH2RXobWD7mOJPP", "content": "Do some freestlye rap." }' --raw
+{ "text" : "streaming-data" }
+```
+
+You can see that the stream data is displayed.
+
+## Isolate tasks using PubSub triggers
+
+Then _addStreamUserChatRoomMessage_ contains
+
+Let's isolate the process of updating the chat room title using a PubSub trigger.
 
 ```typescript
-export type AddStreamUserChatRoomMessageParams = {
+// Update chat room title
+if (messages.length === 2) {
+  const title = await generateChatRoomTitle(body.content, organization, apiKey)
+  await updateChildCollectionItem<UserChatRoom, User>(
+    userCollectionName,
+    userChatRoomCollectionName,
+    user.uid,
+    body.userChatRoomId,
+    { title }
+  )
+}
+```
+
+First, add a PubSub trigger.
+
+Run _skeet add method_ and enter the instance type and function name.
+
+```bash
+$ skeet add method generateTitle
+? Select Instance Type to add (Use arrow keys)
+   = Instance Type =
+  http
+  firestore
+ ❯ pubsub
+  scheduler
+  auth
+? Select Functions to add openai
+✔️ ./functions/openai/src/types/http/pubsubGenerateTitleParams.ts created 🎉
+✔️ ./functions/openai/src/routings/http/pubsubGenerateTitle.ts created 🎉
+```
+
+A type definition file and a function file are created.
+
+_functions/openai/src/routings/pubsub/pubsubGenerateTitle.ts_
+
+```typescript
+import { onMessagePublished } from 'firebase-functions/v2/pubsub'
+import { pubsubDefaultOption } from '@/routings/options'
+import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
+
+export const pubsubGenerateTitle = onRequest(
+  publicHttpOption,
+  async (req: TypedRequestBody<PubsubGenerateTitleParams>, res) => {
+    try {
+      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
+      console.log({
+        status: 'success',
+        topic: pubsubTopicGenerateTitle,
+        event,
+        title,
+      })
+    } catch (error) {
+      console.error({ status: 'error', message: String(error) })
+    }
+  }
+)
+```
+
+_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
+
+```typescript
+export type PubsubGenerateTitleParams = {
   name?: string
 }
 ```
 
-Let's implement the logic part.
+Implement the contents of the previous function.
 
-_functions/openai/src/routings/http/addStreamUserChatRoomMessage.ts_
+_functions/openai/src/routings/http/pubsubGenerateTitle.ts_
 
 ```typescript
-import { onRequest } from 'firebase-functions/v2/https'
-import { User, UserChatRoom, UserChatRoomMessage } from '@/models'
-import { order } from 'typesaurus'
-import {
-  ChatCompletionRequestMessage,
-  CreateChatCompletionRequest,
-} from 'openai'
-import { streamChat } from '@/lib/openai/openAi'
-import { TypedRequestBody } from '@/index'
-import { AddUserChatRoomMessageParams } from '@/types/http/addUserChatRoomMessageParams'
-import {
-  addGrandChildCollectionItem,
-  getChildCollectionItem,
-  queryGrandChildCollectionItem,
-} from '@skeet-framework/firestore'
-import { getUserAuth } from '@/lib/getUserAuth'
-import { defaultHttpOption } from '@/routings'
+import { onMessagePublished } from 'firebase-functions/v2/pubsub'
+import { pubsubDefaultOption } from '@/routings/options'
+import { parsePubSubMessage } from '@/lib/pubsub'
+import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
+import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
+import { updateChildCollectionItem } from '@skeet-framework/firestore'
+import { User, UserChatRoom } from '@/models'
 
-export const addStreamUserChatRoomMessage = onRequest(
-  defaultHttpOption,
-  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+// define environment variables
+import { defineSecret } from 'firebase-functions/params'
+const chatGptOrg = defineSecret('CHAT_GPT_ORG')
+const chatGptKey = defineSecret('CHAT_GPT_KEY')
+
+export const pubsubTopicGenerateTitle = 'pubsubGenerateTitle'
+
+export const pubsubGenerateTitle = onMessagePublished(
+  // get API key from environment variable
+  {
+    ...pubsubDefaultOption(pubsubTopicGenerateTitle),
+    secrets: [chatGptOrg, chatGptKey],
+  },
+  async (event) => {
     try {
-      const body = {
-        userChatRoomId: req.body.userChatRoomId || '',
-        content: req.body.content,
-      }
-      if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
+      // Parse PubSub message
+      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
 
-      // User Authentication
-      const user = await getUserAuth(req)
+      if (!pubsubObject) throw new Error('pubsubObject is undefined')
 
-      // Define Collection Name
-      const userCollectionName = 'User'
-      const userChatRoomCollectionName = 'UserChatRoom'
-      const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
-
-      // Retrieve UserChatRoom from Firestore
-      const userChatRoom = await getChildCollectionItem<UserChatRoom, User>(
-        userCollectionName,
-        userChatRoomCollectionName,
-        user.uid,
-        body.userChatRoomId
-      )
-      if (!userChatRoom) throw new Error('userChatRoom not found')
-      if (userChatRoom.data.stream === false)
-        throw new Error('stream must be true')
-
-      const newMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'user',
-        content: body.content,
-      }
-
-      // Create UserChatRoomMessage
-      await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        newMessage
-      )
-      const systemMessage: UserChatRoomMessage = {
-        userChatRoomRef: userChatRoom.ref,
-        role: 'assistant',
-        content: body.content,
-      }
-
-      // Save OpenAI Response to Firestore
-      const userChatRoomMessageRef = await addGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        systemMessage
+      // Call OpenAI API to generate title
+      const title = await generateChatRoomTitle(
+        pubsubObject.content,
+        chatGptOrg,
+        chatGptKey
       )
 
-      // Retrieve all the chatRoom messages from Firestore
-      const userChatRoomMessages = await queryGrandChildCollectionItem<
-        UserChatRoomMessage,
-        UserChatRoom,
-        User
-      >(
-        userCollectionName,
-        userChatRoomCollectionName,
-        userChatRoomMessageCollectionName,
-        user.uid,
-        body.userChatRoomId,
-        [order('createdAt', 'asc')]
+      // Update chat room title
+      await updateChildCollectionItem<UserChatRoom, User>(
+        'User',
+        'UserChatRoom',
+        pubsubObject.userId,
+        pubsubObject.userChatRoomId,
+        { title }
       )
-      const messages = []
-      for await (const message of userChatRoomMessages) {
-        messages.push({
-          role: message.data.role,
-          content: message.data.content,
-        } as ChatCompletionRequestMessage)
-      }
 
-      // Send a request to OpenAI
-      const openAiBody: CreateChatCompletionRequest = {
-        model: userChatRoom.data.model,
-        max_tokens: userChatRoom.data.maxTokens,
-        temperature: userChatRoom.data.temperature,
-        n: 1,
-        top_p: 1,
-        stream: userChatRoom.data.stream,
-        messages,
-      }
-      await streamChat(
-        user.uid,
-        body.userChatRoomId,
-        userChatRoomMessageRef.id,
-        openAiBody
-      )
-      res.json({
-        status: 'streaming',
-        userChatRoomMessageId: userChatRoomMessageRef.id,
+      // output log
+      console.log({
+        status: 'success',
+        topic: pubsubTopicGenerateTitle,
+        event,
+        title,
       })
     } catch (error) {
-      res.status(500).json({ status: 'error', message: String(error) })
+      console.error({ status: 'error', message: String(error) })
     }
   }
 )
 ```
 
-_functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts_
+Define the previous type.
 
-Also change the Params.
+_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
 
 ```typescript
-export type AddStreamUserChatRoomMessageParams = {
-  userChatRoomId: string
+export type PubsubGenerateTitleParams = {
   content: string
+  userId: string
+  userChatRoomId: string
 }
 ```
 
-_UserChatRoom_ settings created earlier from Firestore at [Firebase Emulator - Firestore](http://127.0.0.1:4000/firestore/data)
+Now add PubSub Publish to _addStreamUserChatRoomMessage_ from earlier.
 
-_stream_ value to _true_
+```typescript
+.
+.
+if (messages.length === 2) {
+  // define PubSub message body
+  const pubsubMessageBody: PubsubGenerateTitleParams = {
+    userId: user.uid,
+    userChatRoomId: body.userChatRoomId,
+    content: body.content,
+  }
 
-change.
+  // send message to PubSub topic
+  await pubsubPublish(pubsubTopicGenerateTitle, pubsubMessageBody)
+}
+.
+.
+```
 
-Send a POST request.
+Now add a new function to _functions/openai/src/index.ts_.
+
+```typescript
+import admin from 'firebase-admin'
+import dotenv from 'dotenv'
+import { Request } from 'firebase-functions/v2/https'
+
+export interface TypedRequestBody<T> extends Request {
+  body: T
+}
+
+dotenv.config()
+admin.initializeApp()
+
+export {
+  root,
+  authOnCreateUser,
+  createUserChatRoom,
+  getUserChatRoomMessages,
+  addUserChatRoomMessage,
+  addStreamUserChatRoomMessage,
+  pubsubGenerateTitle,
+} from '@/routings'
+```
+
+Now you can use PubSub triggers to isolate tasks.
+Now let's test it.
+
+Restart your local server.
+
+**⚠️ Rebooting resets the data in the Firebase emulator. ⚠️**
+
+Please log in and set the access token again.
 
 ```bash
-$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "XQV65kBRWXVjn2rouRzY", "content": "Do some freestyle rap" }'
+$ skeet s
 ```
 
-```json
+Create a UserChatRoom again and get the ID of the UserChatRoom.
+
+```bash
+$ skeet curl createUserChatRoom
 {
-  "status": "streaming",
-  "userChatRoomMessageId": "userChatRoomMessageId"
+   "status" : "success",
+   "userChatRoomMessageRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom/yJ5yl7L1nEV71xLRRFzY/UserChatRoomMessage"
+      },
+      "id" : "zb7fecsm7bf34u549UeL"
+   },
+   "userChatRoomRef" : {
+      "__type__" : "ref",
+      "collection" : {
+         "__type__" : "collection",
+         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom"
+      },
+      "id" : "yJ5yl7L1nEV71xLRRFzY"
+   }
 }
 ```
 
-The console log shows the OpenAI API response in streaming, and the data is streamed (updated) to Firestore.
+Let's create UserChatRoomMessage
 
-And use the _userChatRoomMessageId_ returned in the response to get the streaming data.
+```bash
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "yJ5yl7L1nEV71xLRRFzY", "content": "Do some freestlye rap." }' --raw
+```
 
-You have now created a chat room that also supports streaming data.
+Creating a UserChatRoomMessage will send the message to the PubSub topic and fire the PubSub trigger.
 
-Now let's synchronize the created model and type definition to the front end.
+```bash
+>  Stream done
+>  {
+>    status: 'success',
+>    topic: 'pubsubGenerateTitle',
+>    event: {
+>      specversion: '1.0',
+>      id: '5faee10f-ff64-4f8d-85bc-c85c22fca702',
+>      time: '1970-01-01T00:00:00.883Z',
+>      type: 'google.cloud.pubsub.topic.v1.messagePublished',
+>      source: '//pubsub.googleapis.com/projects/skeet-demo/topics/pubsubGenerateTitle',
+>      data: {
+>        message: [aue],
+>        subscription: 'projects/skeet-demo/subscriptions/emulator-sub-pubsubGenerateTitle'
+>      }
+>    },
+>    title: 'Freestyle Rap'
+>  }
+```
 
-## Synchronization of type definitions
+Successfully the task is separated 🎉
+
+## Deploy to Firebase
+
+If you are deploying for the first time, use the _skeet init_ command,
+Make the necessary settings for your project.
+
+Deploy without setting the domain here.
+
+Make sure you have created Firestore and FirebaseAuth from the links provided in the console.
+
+```bash
+$ skeet init
+? What's your GCP Project ID skeet-demo
+? Select Regions to deploy
+  europe-west1
+  europe-west2
+  europe-west3
+❯ europe-west6
+  northamerica-northeast1
+  southamerica-east1
+  us-central1
+⚠️ Please make sure if you create Firestore & FirebaseAuth ⚠️
+
+Click the link to check 👇
+Firestore: https://console.firebase.google.com/project/skeet-demo/firestore
+FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authentication
+
+📗 Doc: https://skeet.dev/doc/backend/initial-deploy/
+
+? Are you sure if you already set them up? yes
+? Do you want to setup your domain? no
+Function URL (openai:root(europe-west6)): https://root-iolvuu5bzq-oa.a.run.app
+i  functions: cleaning up build files...
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/skeet-demo/overvie
+```
+
+You have successfully deployed to Firebase Functions.
+
+## Type definition synchronization
 
 Skeet Framework allows you to synchronize type definitions to the front end.
 
@@ -845,107 +725,16 @@ Synced Models Types 🎉
 This command copies the model from _src/models_ on the backend to _src/types/models_ on the frontend.
 Also, if you have multiple functions, select the latest model and copy it to the model of the other functions.
 
-## Adding and synchronizing routes
-
-In this state, the backend API cannot be called from the frontend.
-Let's add routing to the load balancer by running the following command.
-
-```bash
-$ skeet sync routings
-```
-
-This command will
-
-- Create network endpoint groups
-- Create backend service
-- Add backend service
-- Apply security policy
-- Create URL map
-
-is done automatically.
-
-## Add/Synchronize Cloud Armor
-
-Sync the Cloud Armor configuration described in _skeet-cloud.config.json_.
-
-_skeet-cloud.config.json_
-
-```json
-{
-  "app": {
-    "name": "skeet-example",
-    "projectId": "skeet-example",
-    "region": "asia-northeast1",
-    "appDomain": "skeeter.app",
-    "functionsDomain": "lb.skeeter.app"
-  },
-  "cloudArmor": [
-    {
-      "securityPolicyName": "skeet-skeet-example-armor",
-      "rules": [
-        {
-          "priority": "10",
-          "description": "Allow Your Home IP addresses",
-          "options": {
-            "src-ip-ranges": "your IP address",
-            "action": "allow"
-          }
-        },
-        {
-          "priority": "100",
-          "description": "Defense from SQLi attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('sqli-stable')"
-          }
-        },
-        {
-          "priority": "200",
-          "description": "Defense from XSS attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('xss-stable')"
-          }
-        },
-        {
-          "priority": "300",
-          "description": "Defense from NodeJS attack",
-          "options": {
-            "action": "deny-403",
-            "expression": "evaluatePreconfiguredExpr('nodejs-v33-stable')"
-          }
-        },
-        {
-          "priority": "2147483647",
-          "description": "Deny All IP addresses",
-          "options": {
-            "action": "deny-403"
-          }
-        }
-      ]
-    }
-  ]
-}
-```
-
-By default, only the currently connected global IP is allowed to communicate.
-Please change if necessary.
-
-```bash
-$ skeet sync armors
-```
-
-A new Google Cloud Armor is created or updated.
-
 ## Skeet yarn build
 
-press a key to select all _functions_.
+With the Skeet yarn build command
+Press the a key to build all functions.
 
 ```bash
 $ skeet yarn build
 ```
 
-## Deploying Skeet Framework
+## Skeet Deploy
 
 Skeet Framework has two deployment methods.
 
@@ -962,17 +751,22 @@ $ git push origin main
 
 GitHub Actions automatically deploy when you push to GitHub.
 
-## Deploying with Skeet CLI
+**⚠️ [Initial deployment](/en/doc/backend/initial-deploy) must be completed. ⚠️**
+
+## Deploy with Skeet CLI
 
 ```bash
 $ skeet deploy
 ? Select Services to run functions command (Press <space> to select, <a> to toggle all, <i> to invert
 selection, and <enter> to proceed)
-  =Services=
+  = Services =
 ❯◯ openai
- ◯ Solana
+ ◯ solana
 ```
 
 Select the _functions_ to deploy,
 Deploy only selected _functions_.
 Press a to select all _functions_.
+
+Skeet Framework is now deployed 🎉
+Now all you have to do is implement your idea 🎉
