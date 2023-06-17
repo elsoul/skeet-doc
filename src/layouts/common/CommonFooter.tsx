@@ -62,6 +62,7 @@ export default function CommonFooter() {
                       src={GoogleCloudPartner}
                       alt="Google Cloud Partner"
                       className="w-32"
+                      unoptimized
                     />
                   </a>
                 </div>

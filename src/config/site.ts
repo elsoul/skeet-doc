@@ -19,6 +19,8 @@ const siteConfig = {
   discordInvitationLink: 'https://discord.gg/H2HeqRq54J',
   contactFormJA: 'https://forms.gle/TWg8oKKSBhtHfoB17',
   contactFormEN: 'https://forms.gle/rCyKAAQKRg5bu4tEA',
+  feedbackFormJA: 'https://forms.gle/UfnDh6ohibqykSjy5',
+  feedbackFormEN: 'https://forms.gle/ruaNvwucx7gcUNXB9',
 }
 
 export default siteConfig

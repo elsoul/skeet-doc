@@ -38,5 +38,11 @@
     "title1": "What kind of apps can you create?",
     "title2": "Let's imagine using the demo AI chat app.",
     "button": "Try Demo!"
+  },
+  "FeedbackFormRow": {
+    "subtitle": "Feedback for Skeet",
+    "title": "Your feedback helps us a lot.",
+    "description": "We believe in the great potential of open-source innovation. We will continue to develop Skeet as an open source, and we will make improvements to improve it so that it can demonstrate its value as a public good. Your feedback is a great power for us and also for society. Please send us any comments, feedback, or bug reports.",
+    "button": "Send Feedback"
   }
 }

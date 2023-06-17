@@ -61,6 +61,7 @@ export default function GoToQuickstartRow() {
                 alt="Skeet App"
                 width={1824}
                 height={1080}
+                unoptimized
               />
             </div>
           </div>
