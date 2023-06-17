@@ -11,6 +11,8 @@ import MainPurposeRow from '@/components/pages/home/MainPurposeRow'
 import SkeetFeaturesRow from '@/components/pages/home/SkeetFeaturesRow'
 import GoToQuickstartRow from '@/components/pages/home/GoToQuickstartRow'
 import ContactRow from '@/components/pages/common/ContactRow'
+import SkeetDemoRow from '@/components/pages/home/SkeetDemoRow'
+import FeedbackFormRow from '@/components/pages/home/FeedbackFormRow'
 
 const articleDirName = 'news'
 
@@ -37,6 +39,8 @@ export default function Home({
       <MainPurposeRow />
       <SkeetFeaturesRow />
       <GoToQuickstartRow />
+      <SkeetDemoRow />
+      <FeedbackFormRow />
       <TopNewsRow articles={articles} urls={urls} />
       <ContactRow />
     </>
