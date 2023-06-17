@@ -65,6 +65,7 @@ export default function SkeetFeaturesRow() {
                 className="w-[52rem] shadow-xl sm:w-[64rem]"
                 width={2432}
                 height={1442}
+                unoptimized
               />
             </div>
           </div>
