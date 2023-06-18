@@ -14,6 +14,8 @@ import {
 import Image from 'next/image'
 import GoogleCloudPartner from '@/assets/img/logo/partners/GoogleCloudPartner.png'
 import { useMemo } from 'react'
+import ELSOULLaboLogoHorizontal from '@/assets/img/logo/ELSOULLaboLogoHorizontal.svg'
+import ELSOULLaboLogoHorizontalInvert from '@/assets/img/logo/ELSOULLaboLogoHorizontalInvert.svg'
 
 export default function CommonFooter() {
   const { t, i18n } = useTranslation()
@@ -53,6 +55,24 @@ export default function CommonFooter() {
               </nav>
               <nav className="mt-12 text-sm" aria-label="quick links">
                 <div className="flex flex-col items-center justify-center gap-6 text-center sm:-my-1 sm:flex-row">
+                  <a
+                    href="https://labo.elsoul.nl/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Image
+                      src={ELSOULLaboLogoHorizontal}
+                      alt="ELSOUL LABO B.V."
+                      className="w-32 dark:hidden"
+                      unoptimized
+                    />
+                    <Image
+                      src={ELSOULLaboLogoHorizontalInvert}
+                      alt="ELSOUL LABO B.V."
+                      className="hidden w-32 dark:block"
+                      unoptimized
+                    />
+                  </a>
                   <a
                     href="https://cloud.google.com/find-a-partner/partner/elsoul-labo-b-v"
                     target="_blank"
