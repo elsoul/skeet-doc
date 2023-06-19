@@ -130,17 +130,32 @@ Waiting for authentication...
 
 ### ⑤ How to setup Secret Key
 
-#### - Set Secret Key in Cloud Secret Manager
+#### - Upgrade to Firebase Blaze Plan
 
 Skeet Framework uses [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=en&gen=2nd) environment variables to manage sensitive information such as API keys.
 
 This command requires a Firebase Blaze or higher plan.
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/firebase-plan.png)
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/firebase-plan-en.png)
 
 From the Firebase console's bottom left menu, select _Upgrade_.
 
 - [Firebase Console](https://console.firebase.google.com/u/0/project/_/usage/details)
+
+#### - Cloud Usage of Skeet Framework
+
+Skeet Framework requires a Firebase Blaze plan or higher.
+
+Google Cloud Free Program should cover the usage fee for the development environment.
+
+The Google Cloud Free Tier has two parts:
+
+- A 90-day free trial with a $300 credit to use with any Google Cloud services.
+- Always Free, which provides limited access to many common Google Cloud resources, free of charge.
+
+[Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features?hl=ja)
+
+#### - Set Secret Key in Cloud Secret Manager
 
 using the _skeet add secret <secretKey>_ command
 

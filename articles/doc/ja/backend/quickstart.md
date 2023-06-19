@@ -130,7 +130,7 @@ Waiting for authentication...
 
 ### ⑤ 環境変数の設定方法
 
-#### - シークレットキーの設定
+#### - Firebase Blaze プランへのアップグレード
 
 Skeet Framework では環境変数を [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=ja&gen=2nd) 使って API キーなどの機密情報を管理します。
 
@@ -141,6 +141,20 @@ Skeet Framework では環境変数を [Cloud Secret Manager](https://firebase.go
 Firebase コンソールの左下のメニューから、_アップグレード_ を選択します。
 
 - [Firebase コンソール](https://console.firebase.google.com/u/0/project/_/usage/details)
+
+#### - Skeet Framework のクラウド使用料について
+
+Skeet Framework は Firebase Blaze プラン以上のプランが必要ですが、
+通常、開発環境への使用料は以下の無料枠内で収まります。
+
+Google Cloud の無料枠には 2 つの部分があります
+
+- 90 日間の無料トライアル。Google Cloud サービスで使用できる 300 ドルのクレジットが付いています。
+- Always Free は、多くの一般的な Google Cloud リソースへの制限付きアクセスを無料で提供します。
+
+[Google Cloud の無料プログラム](https://cloud.google.com/free/docs/free-cloud-features?hl=ja)
+
+#### - シークレットキーの設定
 
 _skeet add secret <secretKey>_ コマンドを使って
 
