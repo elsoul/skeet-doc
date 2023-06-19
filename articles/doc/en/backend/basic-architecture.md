@@ -576,7 +576,6 @@ In addition, code completion in CodePilot will work.
 _models/userModels.ts_
 
 ```ts
-import { Ref } from 'typesaurus'
 import { Ref, Timestamp } from '@skeet-framework/firestore'
 
 // Define Collection Name
