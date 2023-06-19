@@ -69,29 +69,45 @@ Add Firebase Project
 
 - [https://console.firebase.google.com/](https://console.firebase.google.com/)
 
-### ③ Firebase 認証の有効化
+### ③ Firebase ビルドの有効化
 
-- Activate Firebase Authentication
+以下の３つの Firebase ビルドを有効化してください。
+
+#### - Firebase 認証
+
+- Firebase Authentication の有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
 
-- Activate Google Sign-in
+- Google ログインの有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
-### ④ Firebase Firestore の有効化
+#### - Firebase Firestore
 
-- Activate Firestore
+- Firestore の有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
 
-- Select Native Mode
+- 環境を選択
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
 
-- Select Region
+- リージョンを選択
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
-### ⑤ Skeet init コマンドの実行
+#### - Firebase Storage
+
+- Firebase Storage の有効化
+  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-storage.png)
+
+- 環境を選択
+  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-storage.png)
+
+- リージョンを選択
+  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-storage.png)
+
+### ④ Skeet init コマンドの実行
 
 _skeet init_ コマンドに _--only-dev_ オプションを付けて実行し、
 プロジェクト ID と リージョンを選択してください。
+そして、表示された URL にアクセスし、Firebase アカウントへログインします。
 
 ```bash
 $ skeet init --only-dev
@@ -104,27 +120,52 @@ $ skeet init --only-dev
   northamerica-northeast1
   southamerica-east1
   us-central1
+
+Visit this URL on this device to log in:
+
+https://accounts.google.com/o/oauth2/auth?project...
+
+Waiting for authentication...
 ```
 
-### ⑥ OpenAI API Key の作成・取得
+### ⑤ 環境変数の設定方法
 
-OpenAI API Key を作成・取得
+#### - シークレットキーの設定
+
+Skeet Framework では環境変数を [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=ja&gen=2nd) 使って API キーなどの機密情報を管理します。
+
+このコマンドを利用するには、Firebase Blaze 以上のプランが必要です。
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/firebase-plan.png)
+
+Firebase コンソールの左下のメニューから、_アップグレード_ を選択します。
+
+- [Firebase コンソール](https://console.firebase.google.com/u/0/project/_/usage/details)
+
+_skeet add secret <secretKey>_ コマンドを使って
+
+OpenAI の API キーを環境変数に設定します。
+
+```bash
+$ skeet add secret CHAT_GPT_ORG
+? Enter value for CHAT_GPT_ORG: <yourOpenAIKey>
+```
+
+同様に CHAT_GPT_KEY も設定します。
+
+```bash
+$ skeet add secret CHAT_GPT_KEY
+? Enter value for CHAT_GPT_KEY: <yourOpenAIKey>
+```
+
+また、簡易的に試すには、_functions/openai/.env_ に記述することもできますが、
+この方法は、本番環境には反映されません。
+
+#### - OpenAI の API Key を作成・取得
 
 - [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
 
 ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
-
-OpenAI API Key を _.env_ ファイルに追加
-
-_./functions/openai/.env_
-
-```bash
-SKEET_APP_NAME=skeet-demo
-PROJECT_ID=skeet-demo-12356
-REGION=europe-west6
-CHAT_GPT_KEY=your-openai-api-key
-CHAT_GPT_ORG=your-openai-api-org
-```
 
 📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
 
