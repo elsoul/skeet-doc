@@ -32,7 +32,6 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 
 このチュートリアルでは、以下のことを学びます。
 
-- 環境変数の設定方法
 - 開発用ログイン認証キーを取得する
 - Skeet Curl で API リクエストをテストする
 - チャットストリームのコードを確認する
@@ -55,26 +54,6 @@ GitHub Copilot を使った強力なコード補完サポートを受けるこ�
 Chatbot には OpenAI の API を使います。
 
 - [OpenAI](https://openai.com/)
-
-## 環境変数の設定方法
-
-Skeet Framework では環境変数を [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=ja&gen=2nd) 使って API キーなどの機密情報を管理します。
-
-_skeet add secret <secretKey>_ コマンドを使って
-
-OpenAI の API キーを環境変数に設定します。
-
-```bash
-$ skeet add secret CHAT_GPT_ORG
-? Enter value for CHAT_GPT_ORG: <yourOpenAIKey>
-```
-
-同様に CHAT_GPT_KEY も設定します。
-
-```bash
-$ skeet add secret CHAT_GPT_KEY
-? Enter value for CHAT_GPT_KEY: <yourOpenAIKey>
-```
 
 ## 開発用ログイン認証キーを取得する
 
@@ -239,25 +218,28 @@ _functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
 import { onRequest } from 'firebase-functions/v2/https'
-import { CreateChatCompletionRequest } from 'openai'
-import { streamChat } from '@/lib/openai/openAi'
 import { TypedRequestBody } from '@/index'
 import { updateChildCollectionItem } from '@skeet-framework/firestore'
-import { getUserAuth } from '@/lib/getUserAuth'
+import { sleep } from '@/utils/time'
+import {
+  getUserAuth,
+  generateChatRoomTitle,
+  streamChat,
+  CreateChatCompletionRequest,
+} from '@/lib'
 import { publicHttpOption } from '@/routings'
 import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
-import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
 import { defineSecret } from 'firebase-functions/params'
 import {
   User,
   UserChatRoom,
   userChatRoomCollectionName,
   userCollectionName,
+  createUserChatRoomMessage,
+  getMessages,
+  getUserChatRoom,
 } from '@/models'
-import { createUserChatRoomMessage } from '@/models/lib/createUserChatRoomMessage'
-import { getMessages } from '@/models/lib/getMessages'
-import { getUserChatRoom } from '@/models/lib/getUserChatRoom'
-import { sleep } from '@/utils/time'
+
 const chatGptOrg = defineSecret('CHAT_GPT_ORG')
 const chatGptKey = defineSecret('CHAT_GPT_KEY')
 
@@ -330,6 +312,8 @@ export const addStreamUserChatRoomMessage = onRequest(
       )
       const messageResults: string[] = []
       let streamClosed = false
+      res.once('error', () => (streamClosed = true))
+      res.once('close', () => (streamClosed = true))
       stream.on('data', async (chunk: Buffer) => {
         const payloads = chunk.toString().split('\n\n')
         for await (const payload of payloads) {
@@ -355,8 +339,6 @@ export const addStreamUserChatRoomMessage = onRequest(
             }
           }
         }
-        res.once('error', () => (streamClosed = true))
-        res.once('close', () => (streamClosed = true))
         if (streamClosed) res.end('Stream disconnected')
       })
 
@@ -391,6 +373,7 @@ $ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "l2WRsPH2R
 ストリームデータが表示されていることが確認できます。
 
 また、_skeet get https_ コマンドを使って、エンドポイントを確認することもできます。
+
 ```bash
 $ skeet get https
 ┌──────────┬──────────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
