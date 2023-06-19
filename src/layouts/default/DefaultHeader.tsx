@@ -76,21 +76,20 @@ export default function DefaultHeader() {
                       {t(nav.name)}
                     </Link>
                   ))}
-                </Popover.Group>
-                <div className="hidden items-center justify-end gap-3 md:flex md:flex-1 lg:w-0">
-                  <Button
+                  <a
                     href={
                       isJapanese
                         ? siteConfig.contactFormJA
                         : siteConfig.contactFormEN
                     }
-                    className="text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
-                    variant="outline"
                     target="_blank"
                     rel="noreferrer"
+                    className="text-base font-medium text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
                   >
-                    {t('common:contactToTeam')}
-                  </Button>
+                    {t('common:navs.defaultMainNav.contact')}
+                  </a>
+                </Popover.Group>
+                <div className="hidden items-center justify-end gap-3 md:flex md:flex-1 lg:w-0">
                   <LanguageChanger />
                   <ColorModeChanger />
                   <a
@@ -178,25 +177,12 @@ export default function DefaultHeader() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          {t('common:contactToTeam')}
+                          {t('common:defaultMainNav.contact')}
                         </a>
+
                         <div className="flex flex-1 items-center justify-end gap-3">
                           <LanguageChanger />
                           <ColorModeChanger />
-                          <a
-                            href={`https://github.com/elsoul/skeet-cli`}
-                            className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"
-                            aria-label="GitHub"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            <FontAwesomeIcon
-                              icon={faGithub}
-                              size="sm"
-                              aria-label="GitHub icon"
-                              className="ml-2 mt-1.5 h-5 w-5"
-                            />
-                          </a>
                           <a
                             href={`${siteConfig.discordInvitationLink}`}
                             className="group text-gray-700 hover:text-gray-900 dark:text-gray-50 dark:hover:text-gray-200"

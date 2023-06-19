@@ -153,7 +153,7 @@ The Google Cloud Free Tier has two parts:
 - A 90-day free trial with a $300 credit to use with any Google Cloud services.
 - Always Free, which provides limited access to many common Google Cloud resources, free of charge.
 
-[Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features?hl=ja)
+[Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features)
 
 [Firabse Blaze Pricing Plans](https://firebase.google.com/pricing#blaze-calculator)
 

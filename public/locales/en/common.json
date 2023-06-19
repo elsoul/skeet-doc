@@ -10,11 +10,15 @@
   "navs": {
     "defaultMainNav": {
       "news": "News",
-      "doc": "Docs"
+      "doc": "Docs",
+      "enterprise": "Enterprise",
+      "contact": "Contact"
     },
     "commonFooterNav": {
       "news": "News",
       "doc": "Docs",
+      "enterprise": "Enterprise",
+      "contact": "Contact",
       "privacy": "Privacy"
     }
   },
