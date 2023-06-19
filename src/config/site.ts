@@ -21,6 +21,8 @@ const siteConfig = {
   contactFormEN: 'https://forms.gle/rCyKAAQKRg5bu4tEA',
   feedbackFormJA: 'https://forms.gle/UfnDh6ohibqykSjy5',
   feedbackFormEN: 'https://forms.gle/ruaNvwucx7gcUNXB9',
+  enterpriseFormJA: 'https://forms.gle/FLF4a29fbQU1ZkdcA',
+  enterpriseFormEN: 'https://forms.gle/hwBV6jMhAeu1parm8',
 }
 
 export default siteConfig

@@ -49,7 +49,7 @@ export default function CommonFooter() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    {t('common:contactToTeam')}
+                    {t('common:navs.commonFooterNav.contact')}
                   </a>
                 </div>
               </nav>
