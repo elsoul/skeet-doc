@@ -35,7 +35,7 @@ TypeScript is used for both the back-end and front-end, but Python can also be u
 
 We believe that many useful apps will be created using Skeet, and we will continue to develop and improve the Skeet framework.
 
-## 新しいアプリ開発を体感してください
+## Experience new app development
 
 ![Skeet - Full-stack Serverless Framework for auto-scaling apps on Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
