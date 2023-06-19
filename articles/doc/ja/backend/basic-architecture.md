@@ -153,15 +153,14 @@ _routings/options/http/httpOptions.ts_
 
 ```ts
 import { HttpsOptions } from 'firebase-functions/v2/https'
-import dotenv from 'dotenv'
-dotenv.config()
+import skeetOptions from '../../../skeetOptions.json'
 
-const appName = process.env.SKEET_APP_NAME || 'skeet-app'
-const project = process.env.PROJECT_ID || 'skeet-app'
-const region = process.env.REGION || 'europe-west6'
+const appName = skeetOptions.name
+const project = skeetOptions.projectId
+const region = skeetOptions.region
 const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
 const vpcConnector = `${appName}-con`
-const cors = ['http://localhost:4000', 'https://app.skeet.dev']
+const cors = true
 
 export const publicHttpOption: HttpsOptions = {
   region,
@@ -170,12 +169,28 @@ export const publicHttpOption: HttpsOptions = {
   maxInstances: 100,
   minInstances: 0,
   concurrency: 1,
+  timeoutSeconds: 540,
+  labels: {
+    skeet: 'http',
+  },
+}
+
+export const privateHttpOption: HttpsOptions = {
+  region,
+  cpu: 1,
+  memory: '1GiB',
+  maxInstances: 100,
+  minInstances: 0,
+  concurrency: 80,
   serviceAccount,
   ingressSettings: 'ALLOW_INTERNAL_AND_GCLB',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
   cors,
   timeoutSeconds: 540,
+  labels: {
+    skeet: 'http',
+  },
 }
 ```
 
@@ -225,13 +240,13 @@ _routings/options/pubsub/pubsubOptions.ts_
 
 ```ts
 import { PubSubOptions } from 'firebase-functions/v2/pubsub'
-import dotenv from 'dotenv'
-dotenv.config()
+import skeetOptions from '../../../skeetOptions.json'
 
-const project = process.env.PROJECT_ID || 'skeet-chat'
-const region = process.env.REGION || 'europe-west6'
-const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
-const vpcConnector = `${project}-con`
+const appName = skeetOptions.name
+const project = skeetOptions.projectId
+const region = skeetOptions.region
+const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${appName}-con`
 
 export const pubsubDefaultOption = (topic: string): PubSubOptions => ({
   topic,
@@ -245,6 +260,10 @@ export const pubsubDefaultOption = (topic: string): PubSubOptions => ({
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+  timeoutSeconds: 540,
+  labels: {
+    skeet: 'pubsub',
+  },
 })
 ```
 
@@ -255,16 +274,24 @@ _routings/pubsub/pubsubExample.ts_
 ```ts
 import { onMessagePublished } from 'firebase-functions/v2/pubsub'
 import { pubsubDefaultOption } from '@/routings/options'
+import { parsePubSubMessage } from '@/lib/pubsub'
+import { PubsubExampleParams } from '@/types/pubsub/pubsubExampleParams'
 
-export const TOPIC_NAME = 'pubsubExample'
+export const pubsubTopic = 'pubsubExample'
 
 export const pubsubExample = onMessagePublished(
-  pubsubDefaultOption(TOPIC_NAME),
+  pubsubDefaultOption(pubsubTopic),
   async (event) => {
     try {
-      console.log({ status: 'success', topic: TOPIC_NAME, event })
+      const pubsubObject = parsePubSubMessage<PubsubExampleParams>(event)
+      console.log({
+        status: 'success',
+        topic: pubsubTopic,
+        event,
+        pubsubObject,
+      })
     } catch (error) {
-      console.log({ status: 'error', message: String(error) })
+      console.error({ status: 'error', message: String(error) })
     }
   }
 )
@@ -280,23 +307,23 @@ export type PubsubExampleParams = {
 }
 ```
 
-### Scheduler インスタンスの設定
+### Schedule インスタンスの設定
 
-Scheduler デフォルトオプション設定
+Schedule デフォルトオプション設定
 
-_routings/options/scheduler/schedulerOptions.ts_
+_routings/options/schedule/scheduleOptions.ts_
 
 ```ts
 import { ScheduleOptions } from 'firebase-functions/v2/scheduler'
-import dotenv from 'dotenv'
-dotenv.config()
+import skeetOptions from '../../../skeetOptions.json'
 
-const project = process.env.PROJECT_ID || 'skeet-example'
-const region = process.env.REGION || 'europe-west6'
-const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
-const vpcConnector = `${project}-con`
+const appName = skeetOptions.name
+const project = skeetOptions.projectId
+const region = skeetOptions.region
+const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${appName}-con`
 
-export const schedulerDefaultOption: ScheduleOptions = {
+export const scheduleDefaultOption: ScheduleOptions = {
   region,
   schedule: 'every 1 hours',
   timeZone: 'UTC',
@@ -308,19 +335,23 @@ export const schedulerDefaultOption: ScheduleOptions = {
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+  timeoutSeconds: 540,
+  labels: {
+    skeet: 'schedule',
+  },
 }
 ```
 
-Scheduler インスタンスの設定は、_routings/scheduler/{schedulerInstance}_ に記述します。
+Schedule インスタンスの設定は、_routings/schedule/{scheduleInstance}_ に記述します。
 
-_routings/scheduler/schedulerExample.ts_
+_routings/schedule/scheduleExample.ts_
 
 ```ts
 import { onSchedule } from 'firebase-functions/v2/scheduler'
-import { schedulerDefaultOption } from '@/routings/options'
+import { scheduleDefaultOption } from '@/routings/options'
 
-export const schedulerExample = onSchedule(
-  schedulerDefaultOption,
+export const scheduleExample = onSchedule(
+  scheduleDefaultOption,
   async (event) => {
     try {
       console.log({ status: 'success' })
@@ -339,13 +370,13 @@ _routings/options/firestore/firestoreOptions.ts_
 
 ```ts
 import { DocumentOptions } from 'firebase-functions/v2/firestore'
-import dotenv from 'dotenv'
-dotenv.config()
+import skeetOptions from '../../../skeetOptions.json'
 
-const project = process.env.PROJECT_ID || 'skeet-example'
-const region = process.env.REGION || 'europe-west6'
-const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
-const vpcConnector = `${project}-con`
+const appName = skeetOptions.name
+const project = skeetOptions.projectId
+const region = skeetOptions.region
+const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${appName}-con`
 
 export const firestoreDefaultOption = (document: string): DocumentOptions => ({
   document,
@@ -359,6 +390,10 @@ export const firestoreDefaultOption = (document: string): DocumentOptions => ({
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+  timeoutSeconds: 540,
+  labels: {
+    skeet: 'firestore',
+  },
 })
 ```
 
@@ -370,10 +405,10 @@ _routings/firestore/firestoreExample.ts_
 import { onDocumentCreated } from 'firebase-functions/v2/firestore'
 import { firestoreDefaultOption } from '@/routings/options'
 
-export const onExample = onDocumentCreated(
+export const firestoreExample = onDocumentCreated(
   firestoreDefaultOption('User/{userId}'),
   (event) => {
-    console.log('onExample triggered')
+    console.log('firestoreExample triggered')
     try {
       console.log(event.params)
     } catch (error) {
@@ -399,15 +434,26 @@ Auth デフォルトオプション設定
 _routings/options/auth/authOptions.ts_
 
 ```ts
-import dotenv from 'dotenv'
 import { RuntimeOptions } from 'firebase-functions/v1'
-dotenv.config()
+import skeetOptions from '../../../skeetOptions.json'
 
-const project = process.env.PROJECT_ID || 'skeet-example'
-const serviceAccount = `${project}@${project}.iam.gserviceaccount.com`
-const vpcConnector = `${project}-con`
+const appName = skeetOptions.name
+const project = skeetOptions.projectId
 
-export const authDefaultOption: RuntimeOptions = {
+const serviceAccount = `${appName}@${project}.iam.gserviceaccount.com`
+const vpcConnector = `${appName}-con`
+
+export const authPublicOption: RuntimeOptions = {
+  memory: '1GB',
+  maxInstances: 100,
+  minInstances: 0,
+  timeoutSeconds: 300,
+  labels: {
+    skeet: 'auth',
+  },
+}
+
+export const authPrivateOption: RuntimeOptions = {
   memory: '1GB',
   maxInstances: 100,
   minInstances: 0,
@@ -416,6 +462,9 @@ export const authDefaultOption: RuntimeOptions = {
   ingressSettings: 'ALLOW_INTERNAL_ONLY',
   vpcConnector,
   vpcConnectorEgressSettings: 'PRIVATE_RANGES_ONLY',
+  labels: {
+    skeet: 'auth',
+  },
 }
 ```
 
@@ -431,12 +480,13 @@ _routings/auth/authOnCreateUser.ts_
 import { User } from '@/models'
 import { addCollectionItem } from '@skeet-framework/firestore'
 import * as functions from 'firebase-functions/v1'
-import { authDefaultOption } from '@/routings'
-
-const region = process.env.REGION || 'asia-northeast1'
+import { authPublicOption } from '@/routings'
+import { gravatarIconUrl } from '@/utils/placeholder'
+import skeetConfig from '../../../skeetOptions.json'
+const region = skeetConfig.region
 
 export const authOnCreateUser = functions
-  .runWith(authDefaultOption)
+  .runWith(authPublicOption)
   .region(region)
   .auth.user()
   .onCreate(async (user) => {
@@ -445,8 +495,11 @@ export const authOnCreateUser = functions
       const userParams = {
         uid,
         email: email || '',
-        username: displayName || '',
-        iconUrl: photoURL || '',
+        username: displayName || email?.split('@')[0] || '',
+        iconUrl:
+          photoURL == '' || !photoURL
+            ? gravatarIconUrl(email ?? 'info@skeet.dev')
+            : photoURL,
       }
       const userRef = await addCollectionItem<User>('User', userParams, uid)
       console.log({ status: 'success', userRef })
@@ -496,7 +549,8 @@ Arguments:
 
 Options:
   -d,--data [data]            JSON Request Body - e.g. '{ "model": "gpt4", "maxTokens": 420 }'
-  --production                For Production (default: false)
+  -r, --raw                   Show chunk data (default: false)
+  -p, --production            For Production (default: false)
   -f,--functions [functions]  For Production Functions Name (default: false)
   -h, --help                  display help for command
 ```
@@ -528,7 +582,12 @@ NoSQL データモデルは非常に柔軟であるため、
 _models/userModels.ts_
 
 ```ts
-import { Ref } from 'typesaurus'
+import { Ref, Timestamp } from '@skeet-framework/firestore'
+
+// Define Collection Name
+export const userCollectionName = 'User'
+export const userChatRoomCollectionName = 'UserChatRoom'
+export const userChatRoomMessageCollectionName = 'UserChatRoomMessage'
 
 // CollectionId: User
 // DocumentId: uid
@@ -537,20 +596,21 @@ export type User = {
   username: string
   email: string
   iconUrl: string
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Timestamp
+  updatedAt?: Timestamp
 }
 
 // CollectionId: UserChatRoom
 // DocumentId: auto
 export type UserChatRoom = {
   userRef: Ref<User>
+  title: string
   model: string
   maxTokens: number
   temperature: number
   stream: boolean
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Timestamp
+  updatedAt?: Timestamp
 }
 
 // CollectionId: UserChatRoomMessage
@@ -559,8 +619,8 @@ export type UserChatRoomMessage = {
   userChatRoomRef: Ref<UserChatRoom>
   role: string
   content: string
-  createdAt?: string
-  updatedAt?: string
+  createdAt?: Timestamp
+  updatedAt?: Timestamp
 }
 ```
 
@@ -575,18 +635,6 @@ import {
 ```
 
 詳しくは、[Skeet Firestore](/ja/doc/plugins/skeet-firestore) を参照してください。
-
-## クラウドネットワーク構成
-
-Google Cloud の VPC 設定やセキュリティ目的の Cloud Armor 等セキュリティに最低限必要な設定は自動で完了します。
-
-- Firewall
-- VPC Network
-- Subnet Network
-- VPC Connector
-- Load Balancer
-- Cloud Armor
-- Cloud DNS
 
 ## Skeet CLI
 
@@ -607,8 +655,8 @@ Options:
 
 Commands:
   create <appName>             Create Skeet Framework App
-  server|s                     Run Firebase Emulator for Skeet APP
-  deploy                       Deploy Skeet APP to Firebase Cloud Functions
+  server|s                     Run Skeet App
+  deploy                       Deploy Skeet APP to Firebase
   init [options]               Initialize Google Cloud Setups for Skeet APP
   iam                          Skeet IAM Comannd to setup Google Cloud Platform
   yarn [options] <yarnCmd>     Skeet Yarn Comannd to run yarn command for multiple functions
@@ -616,7 +664,8 @@ Commands:
   sync                         Skeet Sync Comannd to sync backend and frontend
   delete|d                     Skeet Delete Command
   login [options]              Skeet Login Command - Create Firebase Login Token
-  list                         Show Skeet App List
+  get                          Get Skeet App List
   curl [options] <methodName>  Skeet Curl Command - Call Cloud Functions Endpoint for Dev
+  test                         Skeet Jest Test Command
   help [command]               display help for command
 ```

@@ -7,16 +7,21 @@ description: Skeet アプリを公開する方法について説明します。G
 この章では VPN を作成し、ロードバランサーやネットワークセキュリティ、ルーティング、ドメイン設定など、
 本番環境に必要な設定を行い、アプリケーションをデプロイします。
 
+![画像](https://storage.googleapis.com/skeet-assets/animation/skeet-init-production.gif)
+
 ## 事前に用意するもの
 
-この章では前回の章で作成したアプリケーションに加え以下のものが必要になります。
+この章ではチュートリアルで作成したアプリケーションに加え以下のものが必要になります。
 
-- ロードバランサーに設定するドメイン
+- **ロードバランサーに設定するドメイン**
+
   ネームサーバーを変更できるドメインを用意してください。
 
-- GitHub アカウント
+- **GitHub アカウント**
+
   GitHub アカウントを用意し、ログイン認証をしてください。
-  _skeet init_ コマンドで GitHub リポジトリが作成されます。
+  _skeet init_ コマンドで GitHub リポジトリが作成され、
+  GitHub Actions によるデプロイが設定されます。
 
 ## GitHub CLI Auth ログイン
 
@@ -24,12 +29,33 @@ description: Skeet アプリを公開する方法について説明します。G
 $ gh auth login
 ```
 
-### Skeet Init コマンドで最初のデプロイ
+## Http インスタンスのオプションを更新
+
+チュートリアルでは HTTP インスタンスを作成しましたが、
+本番環境ではプライベートなネットワーク環境でロードバランサーからアクセスできるようにするために、
+
+使用するオプションを _publicHttpOption_ から　*privateHttpOption* に変更します。
+
+_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
+
+```typescript
+〜 中略 〜
+import { privateHttpOption } from '@/routings'
+export const addStreamUserChatRoomMessage = onRequest(
+  { ...privateHttpOption, secrets: [chatGptOrg, chatGptKey] },
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+〜 中略 〜
+```
+
+同様に、フロントエンドへ公開するインスタンスの関数のオプションも変更します。
+
+## Skeet Init コマンドで最初のデプロイ
 
 Skeet init コマンドで以下の設定を行います。
 
 - プロジェクト ID の選択
 - リージョンの選択
+- Firebase ログイン
 - GitHub リポジトリ名を指定
 - ネームサーバーのドメイン設定
 - ロードバランサーのサブドメイン設定
@@ -78,18 +104,22 @@ ns-cloud-a4.googledomains.com.
 
 これで最初のデプロイが完了しました。
 
-https://your-domain.com/root にアクセスしてみましょう。
+https://lb.your-domain.com/root にアクセスしてみましょう。
 
 ```json
 {
   "status": "success",
-  "message": "Skeet APP is running!"
+  "message": "Skeet Backend is running!",
+  "body": {}
 }
 ```
 
 と表示されれば成功です。
 
 ## ルーティングの追加・同期
+
+エンドポイントを追加した場合には、デプロイ後にルーティングの同期を行う必要があります。
+これにより、ロードバランサーの設定が更新されます。
 
 ```bash
 $ skeet sync routings

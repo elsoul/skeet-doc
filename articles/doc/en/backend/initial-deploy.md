@@ -4,9 +4,24 @@ title: Initial Deploy
 description: You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command.
 ---
 
-## First deploy
+In this chapter, we will create a VPN, configure load balancers, network security, routing, domain settings, etc.
+Make the necessary settings for the production environment and deploy the application.
 
-In this chapter, we will proceed with the project name _skeet-demo_.
+![画像](https://storage.googleapis.com/skeet-assets/animation/skeet-init-production.gif)
+
+## Things to prepare in advance
+
+For this chapter, in addition to the application created in the tutorial, you will need:
+
+- **Domain to set for load balancer**
+
+  Have a domain that allows you to change nameservers.
+
+- **GitHub account**
+
+  Prepare a GitHub account and perform login authentication.
+  The _skeet init_ command creates a GitHub repository and
+  Deploy with GitHub Actions is configured.
 
 ## Login GitHub CLI Auth
 
@@ -14,14 +29,34 @@ In this chapter, we will proceed with the project name _skeet-demo_.
 $ gh auth login
 ```
 
-### Initial deployment with Skeet Init command
+## Update Http instance options
+
+In the tutorial we created an HTTP instance,
+In order to allow access from the load balancer in a private network environment in the production environment,
+
+Change the option to use from _publicHttpOption_ to _privateHttpOption_.
+
+_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
+
+```typescript
+〜
+import { privateHttpOption } from '@/routings'
+export const addStreamUserChatRoomMessage = onRequest(
+  { ...privateHttpOption, secrets: [chatGptOrg, chatGptKey] },
+  async (req: TypedRequestBody<AddStreamUserChatRoomMessageParams>, res) => {
+〜
+```
+
+## Initial deployment with Skeet Init command
 
 Configure the following settings with the Skeet init command.
 
-1. Region selection
-2. Specify a GitHub repository name
-3. Nameserver domain settings
-4. Load balancer subdomain settings
+- Select Project ID
+- Region selection
+- Firebase login
+- Specify GitHub repository name
+- Nameserver domain settings
+- Load balancer subdomain settings
 
 ```bash
 $ skeet init
@@ -67,41 +102,90 @@ The domain settings will be reflected in about 30 minutes to 2 hours after the s
 
 You have now completed your first deployment.
 
-Let's go to https://your-domain.com/root.
+Let's go to https://lb.your-domain.com/root.
 
 ```json
 {
   "status": "success",
-  "message": "Skeet APP is running!"
+  "message": "Skeet Backend is running!",
+  "body": {}
 }
 ```
 
 is displayed, it is successful.
 
-## Start Firebase Emulator
+## Adding and synchronizing routes
+
+If you added endpoints, you'll need to synchronize routing after deployment.
+This will update the load balancer settings.
 
 ```bash
-$ skeet s
+$ skeet sync routings
 ```
 
-Let's go to http://localhost:4000.
+This command will
 
-If you can see the Firebase UI, you're good to go.
+- Create network endpoint groups
+- Create backend service
+- Add backend service
+- Apply security policy
+- Create URL map
 
-## Add Firebase Web APP
+is done automatically.
 
-Add Web APP from the Firebase project settings screen.
+## Add/Synchronize Cloud Armor
 
-Copy the Firebase Config after completing the settings.
+Sync the Cloud Armor configuration described in _skeet-cloud.config.json_.
 
-And Paste to
+_skeet-cloud.config.json_
 
-`src/lib/firebaseConfig.ts`
+```json
+{
+  "app": {
+    "name": "skeet-example",
+    "projectId": "skeet-example",
+    "region": "asia-northeast1",
+    "appDomain": "skeeter.app",
+    "functionsDomain": "lb.skeeter.app"
+  },
+  "cloudArmor": [
+    {
+      "securityPolicyName": "skeet-skeet-example-armor",
+      "rules": [
+        {
+          "priority": "10",
+          "description": "Allow Your Home IP addresses",
+          "options": {
+            "src-ip-ranges": "your IP address",
+            "action": "allow"
+          }
+        },
+        {
+          "priority": "300",
+          "description": "Defense from NodeJS attack",
+          "options": {
+            "action": "deny-403",
+            "expression": "evaluatePreconfiguredExpr('nodejs-v33-stable')"
+          }
+        },
+        {
+          "priority": "2147483647",
+          "description": "Deny All IP addresses",
+          "options": {
+            "action": "deny-403"
+          }
+        }
+      ]
+    }
+  ]
+}
+```
 
-Now while starting the Firebase emulator
+By default, only the currently connected global IP is allowed to communicate.
+Please change if necessary.
 
 ```bash
-$ skeet login
+$ skeet sync armors
 ```
 
-command is now available.
+A new Google Cloud Armor is created or updated.
