@@ -10,11 +10,15 @@
   "navs": {
     "defaultMainNav": {
       "news": "ニュース",
-      "doc": "ドキュメント"
+      "doc": "ドキュメント",
+      "enterprise": "エンタープライズ",
+      "contact": "お問い合わせ"
     },
     "commonFooterNav": {
       "news": "ニュース",
       "doc": "ドキュメント",
+      "enterprise": "エンタープライズ",
+      "contact": "お問い合わせ",
       "privacy": "プライバシーポリシー"
     }
   },
