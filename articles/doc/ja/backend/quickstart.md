@@ -154,6 +154,12 @@ Google Cloud の無料枠には 2 つの部分があります
 
 [Google Cloud の無料プログラム](https://cloud.google.com/free/docs/free-cloud-features?hl=ja)
 
+[Firabse Blaze プランの料金](https://firebase.google.com/pricing?hl=ja#blaze-calculator)
+
+**⚠️ また、想定外の請求を回避するために、予算のアラートなどを設定することをおすすめします。 ⚠️**
+
+- [想定外の請求を回避する](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
+
 #### - シークレットキーの設定
 
 _skeet add secret <secretKey>_ コマンドを使って

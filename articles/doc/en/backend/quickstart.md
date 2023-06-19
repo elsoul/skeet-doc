@@ -155,6 +155,12 @@ The Google Cloud Free Tier has two parts:
 
 [Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features?hl=ja)
 
+[Firabse Blaze Pricing Plans](https://firebase.google.com/pricing#blaze-calculator)
+
+**⚠️ We also recommend setting things like budget alerts to avoid unexpected charges. ⚠️**
+
+- [Avoid surprise bills](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
+
 #### - Set Secret Key in Cloud Secret Manager
 
 using the _skeet add secret <secretKey>_ command
