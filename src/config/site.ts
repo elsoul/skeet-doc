@@ -1,10 +1,8 @@
 const siteConfig = {
   domain: 'skeet.dev',
   copyright: 'ELSOUL LABO B.V.',
-  sitenameJA:
-    'Skeet - Firebase上に自動スケールするアプリを構築できるフルスタックサーバーレスフレームワーク',
-  sitenameEN:
-    'Skeet - Full-stack Serverless Framework for auto-scaling apps on Firebase.',
+  sitenameJA: 'Skeet - フルスタックサーバーレスフレームワーク',
+  sitenameEN: 'Skeet - Full-stack Serverless Framework',
   keywordsJA:
     'Skeet, TypeScript, サーバーレス, フルスタック, アプリケーション, フレームワーク, Firebase, Firestore, Cloud Functions, Google Cloud',
   keywordsEN:
