@@ -10,7 +10,6 @@ import { defaultMainNav } from '@/config/navs'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
 import siteConfig from '@/config/site'
-import { Button } from '@/components/common/atoms/Button'
 
 export default function DefaultHeader() {
   const { t, i18n } = useTranslation()
@@ -177,7 +176,7 @@ export default function DefaultHeader() {
                           target="_blank"
                           rel="noreferrer"
                         >
-                          {t('common:defaultMainNav.contact')}
+                          {t('common:navs.defaultMainNav.contact')}
                         </a>
 
                         <div className="flex flex-1 items-center justify-end gap-3">
