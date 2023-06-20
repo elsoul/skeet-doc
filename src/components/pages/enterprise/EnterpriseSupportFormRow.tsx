@@ -74,7 +74,7 @@ export default function EnterpriseSupportFormRow() {
                   </div>
                 ))}
               </dl>
-              <div className="col-span-1 h-full w-full bg-gray-50 p-4 shadow-md ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-600 lg:col-span-2">
+              <div className="col-span-1 h-full w-full bg-gray-50 p-8 shadow-md ring-1 ring-gray-200 dark:bg-gray-800 dark:ring-gray-600 lg:col-span-2">
                 <div className="flex h-full w-full flex-col items-center justify-center">
                   <div className="w-24">
                     <Image
