@@ -32,7 +32,7 @@
   "GoToQuickstartRow": {
     "title1": "新しいアプリ開発を体感してください",
     "title2": "すぐにWeb・iOS・Androidアプリを開発し公開できます",
-    "description": "Skeet チュートリアルでは、OpenAI APIを活用してAIチャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。"
+    "description": "Skeet チュートリアルでは、OpenAIのChatGPT APIを活用してAIチャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。"
   },
   "SkeetDemoRow": {
     "title1": "どんなアプリがつくれるの？",

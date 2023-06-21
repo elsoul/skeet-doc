@@ -32,7 +32,7 @@
   "GoToQuickstartRow": {
     "title1": "Experience new app development",
     "title2": "You can immediately develop and publish web, iOS, and Android apps",
-    "description": "In the Skeet tutorial, we will develop an AI chatbot app using the OpenAI API and confirm that it can be deployed and used."
+    "description": "In the Skeet tutorial, we will develop an AI chatbot app using OpenAI's ChatGPT API and confirm that it can be deployed and used."
   },
   "SkeetDemoRow": {
     "title1": "What kind of apps can you create?",
