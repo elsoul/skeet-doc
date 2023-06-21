@@ -39,5 +39,10 @@
       "body": "If you have any inquiries about development and support, please get in touch with us from here.",
       "button": "Go"
     }
+  },
+  "CTASectionRow": {
+    "subtitle": "Full-stack Serverless Framework for effective development.",
+    "button": "Get Started",
+    "demo": "Try Demo"
   }
 }

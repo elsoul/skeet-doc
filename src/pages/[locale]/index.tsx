@@ -13,6 +13,7 @@ import GoToQuickstartRow from '@/components/pages/home/GoToQuickstartRow'
 import ContactRow from '@/components/pages/common/ContactRow'
 import SkeetDemoRow from '@/components/pages/home/SkeetDemoRow'
 import FeedbackFormRow from '@/components/pages/home/FeedbackFormRow'
+import CTASectionRow from '@/components/pages/common/CTASectionRow'
 
 const articleDirName = 'news'
 
@@ -43,6 +44,7 @@ export default function Home({
       <FeedbackFormRow />
       <TopNewsRow articles={articles} urls={urls} />
       <ContactRow />
+      <CTASectionRow />
     </>
   )
 }
