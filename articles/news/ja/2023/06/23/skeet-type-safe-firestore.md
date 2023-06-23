@@ -2,7 +2,7 @@
 id: skeet-type-safe-firestore
 title: サーバーレスNoSQLデータベースのFirestoreを型安全に扱うことのできるオープンソースライブラリがリリース
 category: プレスリリース
-thumbnail: /news/2023/06/23/SkeetTypeSafeFirestore.png
+thumbnail: /news/2023/06/23/SkeetTypeSafeFirestore2.png
 ---
 
 ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステルダム)は 23 日、Google Cloud の サーバーレス NoSQL データベース である Firestore を型安全に扱うことのできるオープンソースライブラリ「Skeet Firestore」のリリースを発表しました。
