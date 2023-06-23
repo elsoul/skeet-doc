@@ -2,7 +2,7 @@
 id: skeet-type-safe-firestore
 title: Released an open-source library that can handle Firestore, a NoSQL database, in a type-safe manner
 category: Press release
-thumbnail: /news/2023/06/23/SkeetTypeSafeFirestore.png
+thumbnail: /news/2023/06/23/SkeetTypeSafeFirestore2.png
 ---
 
 ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced on the 23th the release of an open-source library "Skeet Firestore" that can handle Firestore, a serverless NoSQL database on Google Cloud, in a type-safe manner.
