@@ -24,6 +24,9 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) 430.0.0 以上
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
+- [Java](https://www.java.com/en/download/)
+
+* Skeet において Java を書くことはありませんが、システムを動かすために必要です
 
 ## 📗 使い方 📗
 
