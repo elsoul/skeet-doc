@@ -227,7 +227,7 @@ Successfully verified your email address.
 
 After login, access this page to create a chat room.
 
-[http://localhost:19006/rooms](http://localhost:19006/rooms)
+[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat)
 
 Let's create a chat room with the following settings.
 

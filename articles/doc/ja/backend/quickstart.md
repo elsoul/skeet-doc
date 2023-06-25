@@ -226,7 +226,7 @@ To verify the email address epics.dev@gmail.com, follow this link: <Link>
 
 ## ✉️ OpenAI チャットルームの作成 ✉️
 
-ログイン後、[http://localhost:19006/rooms](http://localhost:19006/rooms) にアクセスしてください。
+ログイン後、[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat) にアクセスしてください。
 
 そして、チャットルームを作成します。
 
