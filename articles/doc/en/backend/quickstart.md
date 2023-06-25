@@ -26,6 +26,9 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) ^430.0.0
 - [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.0
 - [GitHub CLI](https://cli.github.com/) ^2.29.0
+- [Java](https://www.java.com/en/download/)
+
+* We don't write Java but we need it for system working
 
 ## 📗 Usage 📗
 
@@ -224,7 +227,7 @@ Successfully verified your email address.
 
 After login, access this page to create a chat room.
 
-[http://localhost:19006/rooms](http://localhost:19006/rooms)
+[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat)
 
 Let's create a chat room with the following settings.
 
