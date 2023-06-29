@@ -21,7 +21,7 @@ Skeet チュートリアル(YouTube): https://www.youtube.com/watch?v=6em68qcSsJ
 
 ## どんなアプリがつくれるの？デモ AI チャットアプリを使って想像してみましょう
 
-![Skeet Demo AI Chat App](/news/2023/06/19/SkeeterAppSample16-9.png)
+![Skeet Demo AI Chat App](/news/2023/06/19/SkeetDemoPublished.png)
 
 Skeet は Firebase 上に自動スケールするアプリを構築できるフルスタックサーバーレスフレームワークです。
 
