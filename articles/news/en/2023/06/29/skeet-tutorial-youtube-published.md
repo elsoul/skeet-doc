@@ -21,7 +21,7 @@ Skeet Tutorial (YouTube): https://www.youtube.com/watch?v=6em68qcSsJE
 
 ## What kind of apps can you create? Let's imagine using the demo AI chat app.
 
-![Skeet Demo AI Chat App](/news/2023/06/19/SkeeterAppSample16-9.png)
+![Skeet Demo AI Chat App](/news/2023/06/19/SkeetDemoPublished.png)
 
 Skeet is a full-stack serverless framework that lets you build auto-scaling apps on top of Firebase.
 
