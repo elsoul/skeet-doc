@@ -9,7 +9,10 @@ export default function SkeetTutorialYouTubeRow() {
 
   return (
     <>
-      <Container className="pb-48 pt-20 lg:pb-60">
+      <Container className="pb-48 pt-48 lg:pb-60">
+        <h3 className="font-display mx-auto mb-8 max-w-4xl text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:mb-12 sm:text-5xl">
+          YouTube Tutorial
+        </h3>
         <YouTubeEmbed embedId={isJapanese ? '6em68qcSsJE' : '6em68qcSsJE'} />
       </Container>
     </>
