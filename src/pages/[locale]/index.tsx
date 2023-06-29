@@ -15,6 +15,7 @@ import SkeetDemoRow from '@/components/pages/home/SkeetDemoRow'
 import FeedbackFormRow from '@/components/pages/home/FeedbackFormRow'
 import CTASectionRow from '@/components/pages/common/CTASectionRow'
 import MediaLogoRow from '@/components/pages/common/MediaLogoRow'
+import SkeetTutorialYouTubeRow from '@/components/pages/common/SkeetTutorialYouTubeRow'
 
 const articleDirName = 'news'
 
@@ -41,6 +42,7 @@ export default function Home({
       <MainPurposeRow />
       <SkeetFeaturesRow />
       <GoToQuickstartRow />
+      <SkeetTutorialYouTubeRow />
       <SkeetDemoRow />
       <FeedbackFormRow />
       <TopNewsRow articles={articles} urls={urls} />
