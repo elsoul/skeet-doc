@@ -28,7 +28,7 @@ Get ready to use scalable Cloud Firestore and Cloud Functions securely right awa
 - [GitHub CLI](https://cli.github.com/) ^2.29.0
 - [Java](https://www.java.com/en/download/)
 
-* We don't write Java but we need it for system working
+※ We don't write Java but we need it for mobile apps working
 
 ## 📗 Usage 📗
 
@@ -45,6 +45,15 @@ $ npm install -g firebase-tools
 $ skeet create <appName>
 ```
 
+![Skeet Create Select Template](/doc-images/cli/SkeetCreateSelectTemplate.png)
+
+You can choose a template for the frontend.
+
+- [Next.js (React)](https://nextjs.org/)
+- [Expo (React Native)](https://expo.dev/)
+
+※ This tutorial uses the Expo version, but you can use the same procedure even using the Next.js version.
+
 ### ③ Run Skeet App
 
 ```bash
@@ -54,7 +63,9 @@ $ skeet s
 
 Now you have both frontend and backend running locally ⭐️
 
-📲 Frontend - [http://localhost:19006/](http://localhost:19006/)
+📲 Frontend(Next.js) - [http://localhost:4200/](http://localhost:4200/)
+
+📲 Frontend(Expo) - [http://localhost:19006/](http://localhost:19006/)
 
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
 

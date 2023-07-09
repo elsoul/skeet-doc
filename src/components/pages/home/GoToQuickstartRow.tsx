@@ -29,7 +29,7 @@ export default function GoToQuickstartRow() {
               </defs>
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-              <h2 className="text-xl font-bold tracking-tight text-white sm:text-2xl">
+              <h2 className="tracking-tigh bg-gradient-to-tr from-orange-500 to-yellow-300 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
                 {t('home:GoToQuickstartRow.title1')}
                 <br />
                 {t('home:GoToQuickstartRow.title2')}

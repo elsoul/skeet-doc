@@ -26,7 +26,7 @@ Skeet はソフトウェア開発・運用のコストを下げるために生�
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 - [Java](https://www.java.com/en/download/)
 
-* Skeet において Java を書くことはありませんが、システムを動かすために必要です
+※ Skeet において Java を書くことはありませんが、モバイルアプリを動かすために必要です
 
 ## 📗 使い方 📗
 
@@ -43,6 +43,15 @@ $ npm install -g firebase-tools
 $ skeet create <appName>
 ```
 
+![Skeet Create Select Template](/doc-images/cli/SkeetCreateSelectTemplate.png)
+
+フロントエンドのテンプレートを選択できます。
+
+- [Next.js (React)](https://nextjs.org/)
+- [Expo (React Native)](https://expo.dev/)
+
+※ 本チュートリアルでは Expo 版を利用していますが、Next.js 版を利用しても同じ手順で利用可能です。
+
 ### ③ ローカルで起動
 
 ```bash
@@ -52,7 +61,9 @@ $ skeet s
 
 Skeet App フロントエンドと Firebase エミュレーターが起動します。
 
-📲 Frontend - [http://localhost:19006/](http://localhost:19006/)
+📲 Frontend(Next.js) - [http://localhost:4200/](http://localhost:4200/)
+
+📲 Frontend(Expo) - [http://localhost:19006/](http://localhost:19006/)
 
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
 
