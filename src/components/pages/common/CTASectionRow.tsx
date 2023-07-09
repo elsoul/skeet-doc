@@ -24,7 +24,7 @@ export default function CTASectionRow() {
               {t('common:CTASectionRow.button')}
             </Link>
             <a
-              href="https://skeeter.app/"
+              href="https://skeeter.dev/"
               className="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-600 dark:text-white dark:hover:text-gray-300"
               target="_blank"
               rel="noopener noreferrer"
