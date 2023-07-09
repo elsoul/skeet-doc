@@ -164,19 +164,14 @@ export const docMenuNav = [
     name: 'doc:menuNav.frontend.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.frontend.react-native',
-        href: '/doc/frontend/react-native/',
-        icon: DevicePhoneMobileIcon,
-      },
-    ],
-  },
-  {
-    name: 'doc:menuNav.web.groupTitle',
-    children: [
-      {
-        name: 'doc:menuNav.web.ssg-template',
-        href: '/doc/web/ssg-template/',
+        name: 'doc:menuNav.frontend.nextjs-template',
+        href: '/doc/frontend/nextjs-template/',
         icon: WindowIcon,
+      },
+      {
+        name: 'doc:menuNav.frontend.react-native',
+        href: '/doc/frontend/expo-template/',
+        icon: DevicePhoneMobileIcon,
       },
     ],
   },
