@@ -42,7 +42,7 @@ Skeet を使えば、OpenAI の ChatGPT API を活用したアプリケーショ
 
 Skeet チュートリアルを完了させた状態のアプリをデモとして公開しています。
 
-Skeet デモ AI チャットアプリ: https://skeeter.app/
+Skeet デモ AI チャットアプリ: https://skeeter.dev/
 
 このデモの様に、一般的にアプリケーションが行う認証やデータベースの利用等、アプリの開発及び公開に必要なものはすべて揃っています。
 

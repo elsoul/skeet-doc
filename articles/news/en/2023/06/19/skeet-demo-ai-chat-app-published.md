@@ -9,7 +9,7 @@ ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced on the 19th th
 
 By using this demo, planners and developers can easily imagine what kind of applications can be created using "Skeet" in advance.
 
-Skeet Demo AI Chat App: https://skeeter.app/
+Skeet Demo AI Chat App: https://skeeter.dev/
 
 ## What kind of apps can you create? Let's imagine using the demo AI chat app.
 
@@ -27,7 +27,7 @@ With Skeet, you can quickly build and release applications leveraging the ChatGP
 
 We have released the app as a demo after completing the Skeet tutorial.
 
-Skeet Demo AI Chat App: https://skeeter.app/
+Skeet Demo AI Chat App: https://skeeter.dev/
 
 Like this demo, Skeet has everything you need to develop and publish an application, such as authentication and database usage that applications generally do.
 

@@ -147,8 +147,8 @@ _skeet-cloud.config.json_
     "name": "skeet-example",
     "projectId": "skeet-example",
     "region": "asia-northeast1",
-    "appDomain": "skeeter.app",
-    "functionsDomain": "lb.skeeter.app"
+    "appDomain": "skeeter.dev",
+    "functionsDomain": "lb.skeeter.dev"
   },
   "cloudArmor": [
     {
