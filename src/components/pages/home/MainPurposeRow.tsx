@@ -57,7 +57,7 @@ export default function MainPurposeRow() {
           <div className="py-24 sm:pb-64 sm:pt-32">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
               <div className="mx-auto max-w-2xl lg:text-center">
-                <h2 className="text-base font-semibold leading-7 text-emerald-600 dark:text-emerald-400">
+                <h2 className="bg-gradient-to-tr from-red-600 to-yellow-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
                   {t('home:MainPurposeRow.subtitle')}
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
@@ -74,7 +74,7 @@ export default function MainPurposeRow() {
                   {features.map((feature) => (
                     <div key={feature.name} className="relative pl-16">
                       <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
-                        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-emerald-600 dark:bg-emerald-500">
+                        <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-gradient-to-tr from-red-600 to-yellow-400">
                           <feature.icon
                             className="h-6 w-6 text-white"
                             aria-hidden="true"

@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import firebaseLogo from '@/assets/img/logo/projects/Firebase.svg'
 import googleCloudLogo from '@/assets/img/logo/projects/GoogleCloudHorizontal.svg'
-import reactLogo from '@/assets/img/logo/projects/react.svg'
+import nextLogo from '@/assets/img/logo/projects/nextjs.svg'
 import androidLogo from '@/assets/img/logo/projects/android.svg'
 import tailwindLogo from '@/assets/img/logo/projects/tailwindcss.svg'
 import iosLogo from '@/assets/img/logo/projects/ios.svg'
@@ -101,21 +101,21 @@ export default function HomeHeroRow() {
                     link: 'https://www.typescriptlang.org/',
                   },
                   {
-                    name: 'Expo',
-                    logo: expoLogo,
-                    link: 'https://expo.dev/',
+                    name: 'Next.js',
+                    logo: nextLogo,
+                    link: 'https://nextjs.org/',
                   },
                 ],
                 [
                   {
-                    name: 'React',
-                    logo: reactLogo,
-                    link: 'https://reactjs.org/',
-                  },
-                  {
                     name: 'Tailwindcss',
                     logo: tailwindLogo,
                     link: 'https://tailwindcss.com/',
+                  },
+                  {
+                    name: 'Expo',
+                    logo: expoLogo,
+                    link: 'https://expo.dev/',
                   },
                   {
                     name: 'iOS',
