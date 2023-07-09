@@ -29,13 +29,13 @@
       "title": "Firestore Plugin",
       "body": "How to use type-safe Firestore in Skeet Framework."
     },
-    "react-native": {
-      "title": "React Native (Expo)",
-      "body": "We're using React Native (Expo) on the frontend. We can use npm packages like the Tailwind on mobile dev as well."
+    "nextjs-template": {
+      "title": "Next.js Template (React)",
+      "body": "The settings necessary for web development, such as TypeScript, SEO support, multilingual support, SSG, PWA, etc., have been completed."
     },
-    "ssg-template": {
-      "title": "SSG Template (Next.js)",
-      "body": "The project needs the website, blog and docs. So we have the boilerplate for that with SSG on Next.js. SEO Ready."
+    "expo-template": {
+      "title": "Expo (React Native)",
+      "body": "Expo (React Native) on the frontend. We can use npm packages like the Tailwind on mobile dev as well."
     }
   },
   "menuNav": {
@@ -63,11 +63,9 @@
     },
     "frontend": {
       "groupTitle": "Frontend",
-      "react-native": "React Native (Expo)"
-    },
-    "web": {
-      "groupTitle": "Web Media & Docs",
-      "ssg-template": "SSG Template (Next.js)"
+      "react-native": "React Native (Expo)",
+      "nextjs-template": "Next.js (React)",
+      "expo-template": "Expo (React Native)"
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",

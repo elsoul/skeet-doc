@@ -29,13 +29,13 @@
       "title": "Skeet Firestore",
       "body": "Skeet フレームワーク における型安全な Firestore の使い方を解説します。"
     },
-    "react-native": {
-      "title": "React Native (Expo)",
-      "body": "React Native(Expo)を使用しているので、モバイル開発(ios,Android)においてもTailwindなどnpmの資産を活かせます。"
+    "nextjs-template": {
+      "title": "Next.js (React)",
+      "body": "Next.js (React) のボイラープレート。TypeScript、SEO対応、多言語対応、SSG、PWAなどWeb開発に必要な設定は完了しています。"
     },
-    "ssg-template": {
-      "title": "SSG テンプレート (Next.js)",
-      "body": "プロジェクトにはウェブサイトやブログ、ドキュメントが必要です。SEO ReadyなSSGテンプレートを用意しておきました。"
+    "expo-template": {
+      "title": "Expo (React Native)",
+      "body": "Expo (React Native)のボイラープレート。モバイル開発(ios,Android)においてもTailwindなどnpm、Reactの資産を活かせます。"
     },
     "skeet-cli": {
       "title": "Skeet CLI",
@@ -67,11 +67,8 @@
     },
     "frontend": {
       "groupTitle": "フロントエンド",
-      "react-native": "React Native (Expo)"
-    },
-    "web": {
-      "groupTitle": "Webメディア & ドキュメント",
-      "ssg-template": "SSG テンプレート (Next.js)"
+      "nextjs-template": "Next.js (React)",
+      "expo-template": "Expo (React Native)"
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",

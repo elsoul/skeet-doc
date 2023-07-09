@@ -1,7 +1,7 @@
 ---
-id: react-native
-title: React Native (Expo)
-description: Skeet Framework App Template with React Native(Expo)
+id: expo-template
+title: Expo (React Native)
+description: Skeet Framework App Template with Expo (React Native)
 ---
 
 ![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
@@ -18,7 +18,7 @@ React Native (Expo) App Environment for Skeet Framework
 - High Performance
 - Global Scale
 - Maintainable Code
-- Multi-Platform(iOS,Android,PWA)
+- Multi-Platform(iOS,Android,Web)
 
 ## Summary
 
@@ -34,19 +34,47 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [React Navigation - Routing](https://reactnavigation.org/)
 - [x] [Firebase](https://firebase.google.com/)
 
-## Quick start
+## Usage
 
 ```bash
-# Node version (using nodenv)
-$ node -v
-v18.16.0
-
-# Install dependencies
-$ yarn install --frozen-lockfile
-
-# Run dev server
-$ yarn dev
+$ npm i -g firebase-tools
+$ npm i -g @skeet-framework/cli
 ```
+
+```bash
+$ skeet create <project-name>
+```
+
+```bash
+$ cd <project-name>
+$ skeet s
+```
+
+Open a new terminal and run:
+
+```bash
+$ skeet login
+$ export ACCESS_TOKEN=<your-token>
+```
+
+**※ You need OpenAI API key to get success for default test.**
+
+_./functions/openai/.env_
+
+```bash
+CHAT_GPT_KEY=your-key
+CHAT_GPT_ORG=your-org
+```
+
+Test your app:
+
+```bash
+$ skeet test
+```
+
+Open Firebase Emulator: http://localhost:4000
+
+Open Front-end App: http://localhost:19006
 
 ## EAS Build
 

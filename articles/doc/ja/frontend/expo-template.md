@@ -1,16 +1,16 @@
 ---
-id: react-native
-title: React Native (Expo)
-description: Skeet フレームワークのアプリテンプレート。React Native (Expo)を使用。
+id: expo-template
+title: Expo (React Native) テンプレート
+description: Skeet フレームワークのアプリテンプレート。Expo (React Native) を使用しています。
 ---
 
-![Skeet App Boilerplate](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
+![Skeet Expo Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-## Skeet App
+## Skeet App Expo Template
 
-React Native (Expo) App Environment for Skeet Framework
+Expo (React Native) App Environment for Skeet Framework
 
-[GitHub - Skeet App Boilerplate](https://github.com/elsoul/skeet-app)
+[GitHub - Skeet App Expo Template](https://github.com/elsoul/skeet-app)
 
 ## 心がけ
 
@@ -18,7 +18,7 @@ React Native (Expo) App Environment for Skeet Framework
 - ハイパフォーマンス
 - グローバルスケール(多言語化含む)
 - メンテナンスしやすいコードベース
-- マルチプラットフォーム(iOS,Android,PWA)
+- マルチプラットフォーム(iOS,Android,Web)
 
 ## Summary
 
@@ -34,19 +34,47 @@ React Native (Expo) App Environment for Skeet Framework
 - [x] [React Navigation - Routing](https://reactnavigation.org/)
 - [x] [Firebase](https://firebase.google.com/)
 
-## クイックスタート
+## Usage
 
 ```bash
-# Node version (using nodenv)
-$ node -v
-v18.16.0
-
-# Install dependencies
-$ yarn install --frozen-lockfile
-
-# Run dev server
-$ yarn dev
+$ npm i -g firebase-tools
+$ npm i -g @skeet-framework/cli
 ```
+
+```bash
+$ skeet create <project-name>
+```
+
+```bash
+$ cd <project-name>
+$ skeet s
+```
+
+Open a new terminal and run:
+
+```bash
+$ skeet login
+$ export ACCESS_TOKEN=<your-token>
+```
+
+**※ You need OpenAI API key to get success for default test.**
+
+_./functions/openai/.env_
+
+```bash
+CHAT_GPT_KEY=your-key
+CHAT_GPT_ORG=your-org
+```
+
+Test your app:
+
+```bash
+$ skeet test
+```
+
+Open Firebase Emulator: http://localhost:4000
+
+Open Front-end App: http://localhost:19006
 
 ## EAS Build
 
