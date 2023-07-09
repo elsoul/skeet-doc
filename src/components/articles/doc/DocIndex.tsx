@@ -64,20 +64,20 @@ const actions = [
     iconBackground: 'bg-orange-50',
   },
   {
-    title: 'doc:actions.react-native.title',
-    body: 'doc:actions.react-native.body',
-    href: '/doc/frontend/react-native',
+    title: 'doc:actions.nextjs-template.title',
+    body: 'doc:actions.nextjs-template.body',
+    href: '/doc/frontend/nextjs-template',
     icon: DevicePhoneMobileIcon,
-    iconForeground: 'text-purple-700',
-    iconBackground: 'bg-purple-50',
-  },
-  {
-    title: 'doc:actions.ssg-template.title',
-    body: 'doc:actions.ssg-template.body',
-    href: '/doc/web/ssg-template',
-    icon: WindowIcon,
     iconForeground: 'text-cyan-700',
     iconBackground: 'bg-cyan-50',
+  },
+  {
+    title: 'doc:actions.expo-template.title',
+    body: 'doc:actions.expo-template.body',
+    href: '/doc/frontend/expo-template',
+    icon: WindowIcon,
+    iconForeground: 'text-purple-700',
+    iconBackground: 'bg-purple-50',
   },
 ]
 
