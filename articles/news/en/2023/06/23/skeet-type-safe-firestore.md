@@ -42,7 +42,7 @@ With Skeet, you can quickly build and release applications leveraging OpenAI's C
 
 We have released the app as a demo after completing the Skeet tutorial.
 
-Skeet Demo AI Chat App: https://skeeter.app/
+Skeet Demo AI Chat App: https://skeeter.dev/
 
 Like this demo, Skeet has everything you need to develop and publish an application, such as authentication and database usage that applications generally do.
 
