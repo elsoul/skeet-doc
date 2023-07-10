@@ -1,17 +1,17 @@
 const siteConfig = {
   domain: 'skeet.dev',
   copyright: 'ELSOUL LABO B.V.',
-  sitenameJA: 'Skeet - 高効率なフルスタックサーバーレスフレームワーク',
+  sitenameJA: 'Skeet - サーバーレスのフルスタックアプリフレームワーク',
   sitenameEN:
-    'Skeet - Full-stack Serverless Framework for efficient development',
+    'Skeet - Full-stack Serverless App Framework for efficient development',
   keywordsJA:
-    'Skeet, TypeScript, サーバーレス, フルスタック, アプリケーション, フレームワーク, Firebase, Firestore, Cloud Functions, Google Cloud',
+    'Skeet, TypeScript, サーバーレス, フルスタック, アプリケーション, フレームワーク, Firebase, Firestore, Cloud Functions, Google Cloud, ゼロメンテナンス, Next.js, Expo',
   keywordsEN:
-    'Skeet, TypeScript, Serverless, Full-stack, Application, Framework, Firebase, Firestore, Cloud Functions, Google Cloud',
+    'Skeet, TypeScript, Serverless, Full-stack, Application, Framework, Firebase, Firestore, Cloud Functions, Google Cloud, Zero Maintenance, Next.js, Expo',
   descriptionJA:
-    'Effortless. Serverless. Skeet は Firebase 上に自動スケールするアプリを構築できるフルスタックサーバーレスフレームワークです。',
+    'Effortless. Serverless. Skeet は Firebase 上にゼロメンテナンスアプリを構築できるサーバーレスのフルスタックアプリフレームワークです。',
   descriptionEN:
-    'Effortless. Serverless. Skeet is a Full-stack Serverless Framework for auto-scaling apps on Firebase.',
+    'Effortless. Serverless. Skeet is a Full-stack Serverless App Framework for zero-maintenance apps on Firebase.',
   twitterAccount: '@SkeetDev',
   instagramAccount: 'elsoul_labo',
   githubAccount: 'elsoul',
