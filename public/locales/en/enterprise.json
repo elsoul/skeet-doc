@@ -3,11 +3,11 @@
     "title": "Welcome to the Serverless world",
     "description": "Adopting serverless app development frees you from costly server management and gives you a fast development cycle.",
     "meritTitle1": "Technical Support Chat",
-    "meritDescription1": "You don't need to worry about new technology. The Skeet team will help you with a wide range of things, such as NoSQL database design, TypeScript, and serverless architecture security considerations while keeping the key points of the new architecture in mind.",
+    "meritDescription1": "You don't need to worry about new technology. The Skeet team will help you with a wide range of things, such as Firestore database design, TypeScript, serverless architecture security considerations, etc.",
     "meritTitle2": "Develop apps with the Skeet team",
     "meritDescription2": "You can proceed with app development with the team that developed Skeet. As a creator of Skeet and a Google Cloud partner, learn best practices for serverless development from our experienced team.",
     "meritTitle3": "Planning to migrate to Skeet?",
-    "meritDescription3": "Thinking of going serverless? The Skeet team will help with the migration and do a code audit. Reduce costs, improve scalability, and increase development agility by migrating your existing code to serverless.",
+    "meritDescription3": "The Skeet team will fully support your migration. Training and code audits are also available upon request. Reduce costs, improve scalability, and increase development agility by going serverless.",
     "cardTitle": "Enterprise Development Support",
     "cardButton": "Contact"
   }

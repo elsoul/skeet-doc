@@ -1,7 +1,7 @@
 {
   "HeroRow": {
-    "body1": "Firebase上に自動スケールするアプリを構築できる",
-    "body2": "フルスタックサーバーレスフレームワーク"
+    "body1": "Firebase上にゼロメンテナンスアプリを構築できる",
+    "body2": "サーバーレスのフルスタックアプリフレームワーク"
   },
   "MainPurposeRow": {
     "subtitle": "もっと多くを少ないコストで",
@@ -32,7 +32,7 @@
   "GoToQuickstartRow": {
     "title1": "新しいアプリ開発を体感してください",
     "title2": "すぐにWeb・iOS・Androidアプリを開発し公開できます",
-    "description": "Skeet チュートリアルでは、OpenAIのChatGPT APIを活用してAIチャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。"
+    "description": "Skeet チュートリアルでは、OpenAIのChatGPT API を活用してAIチャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。"
   },
   "SkeetDemoRow": {
     "title1": "どんなアプリがつくれるの？",
