@@ -6,13 +6,14 @@ description: Skeet フレームワークを使い始めるための設定につ�
 
 ## 🕺 Skeet とは？ 💃
 
-オープンソースのフルスタックサーバーレスアプリケーションフレームワーク 'Skeet'。
+⚡️ Do more, manage less ⚡️
 
-Skeet はソフトウェア開発・運用のコストを下げるために生まれました。
+アプリの開発・運用コストを下げ、もっと多くのプランを実現させましょう。
 
-サーバーレスアプリをすぐに開発スタート、そしてデプロイ。
+Skeet はオープンソースのフルスタックアプリ開発ソリューションです。
+すぐにアプリのロジックからスタートでき、インフラに関する心配は無用です。
 
-スケーラブルな Cloud Firestore、Cloud Functions を今すぐ安全に使い始める準備ができています。
+📱 Demo App made by Skeet: https://skeeter.dev/
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
 

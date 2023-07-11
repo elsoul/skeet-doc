@@ -6,15 +6,15 @@ description: Describes the setup for getting started with the Skeet framework.
 
 ## 💃 What's Skeet? 🕺
 
-⚡️ Reduce App Development and Maintenance Costs ⚡️
+⚡️ Do more, manage less ⚡️
 
-Skeet is an Open-Source Full-stack Serverless Application Framework.
+Reduce app development and operation costs and realize more plans.
 
-Skeet was born to reduce the cost of software development and operation.
+Skeet is an open-source full-stack app development solution.
 
-Start developing and deploying serverless apps quickly.
+You can start writing app logic immediately without worrying about infrastructure.
 
-Get ready to use scalable Cloud Firestore and Cloud Functions securely right away.
+📱 Demo App made by Skeet: https://skeeter.dev/
 
 ![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
 
@@ -90,32 +90,32 @@ Add Firebase Project
 #### - Activate Firebase Authentication
 
 - Activate Firebase Authentication
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
+  ![Firebase Authentication](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
 
 - Activate Google Sign-in
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
+  ![Google Sign in](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
 #### - Activate Firebase Firestore
 
 - Activate Firestore
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
+  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
 
 - Select Native Mode
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
+  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
 
 - Select Region
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
+  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
 #### - Firebase Storage
 
 - Activate Firebase Storage
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-storage.png)
+  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-storage.png)
 
 - Select Native Mode
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-storage.png)
+  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-storage.png)
 
 - Select Region
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-storage.png)
+  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-storage.png)
 
 ### ④ Skeet init to setup project
 
@@ -218,11 +218,11 @@ Run Skeet App locally and access to
 
 Let's create a new user account with your email address and password.
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/user-register.png)
+![User Register](https://storage.googleapis.com/skeet-assets/imgs/backend/user-register.png)
 
 After registration, you will see the console log like below.
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation.png)
+![Email Validation](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation.png)
 
 Click the link in the console log to verify your email address.
 
@@ -251,8 +251,8 @@ OpenAI Chat Room Settings
 | Temperature      | Set OpenAI API's Temperature      | number              |
 | System Charactor | Set OpenAI API's System Charactor | string              |
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
+![OpenAI ChatGPT AI Chat](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
 
 Now you are all set 🎉
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-stream.gif)
+![OpenAI ChatGPT AI Chat](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-stream.gif)
