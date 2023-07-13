@@ -5,7 +5,7 @@ category: Press release
 thumbnail: /news/2023/07/10/NewReleaseSkeetxNextjs.png
 ---
 
-ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced the release of the addition of Next.js (React) starter to Skeet, a TypeScript full-stack serverless framework. At the same time, a demo of a new AI chat app created with the same starter and ChatGPT API has also been released.
+ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced the release of the addition of Next.js (React) starter to Skeet, an open-source serverless framework. At the same time, a demo of a new AI chat app created with the same starter and ChatGPT API has also been released.
 
 Skeet AI Chat App Demo: https://skeeter.dev/
 
@@ -13,7 +13,7 @@ Skeet AI Chat App Demo: https://skeeter.dev/
 
 ![Skeet Next.js (React) Starter](/news/2023/07/10/WebAppBoilerplate.png)
 
-Skeet is a TypeScript full-stack serverless framework that lets you build auto-scaling apps on top of Firebase.
+Skeet is an open-source serverless framework that lets you build zero-maintenance apps on top of Firebase.
 
 Skeet allows you to get your app up and running quickly and maintain it for the long term at a low cost.
 
@@ -49,7 +49,7 @@ Skeet AI Chat App Demo: https://skeeter.dev/
 
 ## Experience new app development
 
-![Skeet - Full-stack Serverless Framework for auto-scaling apps on Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 You can immediately develop and publish web, iOS, and Android apps.
 

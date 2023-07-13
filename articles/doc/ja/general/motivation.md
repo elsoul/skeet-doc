@@ -1,7 +1,7 @@
 ---
 id: general-motivation
 title: モチベーション
-description: オープンソースのフルスタックサーバーレスフレームワーク Skeet 開発のモチベーション
+description: オープンソースのサーバーレスアプリフレームワーク Skeet 開発のモチベーション
 ---
 
 ## アプリの開発・メンテナンスコストを下げる

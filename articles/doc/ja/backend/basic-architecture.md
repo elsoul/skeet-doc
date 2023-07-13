@@ -647,7 +647,7 @@ yarn コマンドを 各ファンクションごとに実行することがで�
 $ skeet --help
 Usage: skeet [options] [command]
 
-CLI for Skeet - Full-stack TypeScript Serverless framework
+CLI for Skeet - Open-Source Serverless App Framework
 
 Options:
   -V, --version                output the version number
