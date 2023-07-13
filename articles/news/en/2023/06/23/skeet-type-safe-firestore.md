@@ -52,7 +52,7 @@ We believe that many useful apps will be created using Skeet, and we will contin
 
 ## Experience new app development
 
-![Skeet - Full-stack Serverless Framework for auto-scaling apps on Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 Experience new app development.
 

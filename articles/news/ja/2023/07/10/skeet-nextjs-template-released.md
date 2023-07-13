@@ -5,7 +5,7 @@ category: プレスリリース
 thumbnail: /news/2023/07/10/NewReleaseSkeetxNextjs.png
 ---
 
-ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステルダム)は、TypeScript フルスタックサーバーレスフレームワークの Skeet に Next.js (React) スターターを追加した新しいリリースを発表しました。合わせて、同スターター及び ChatGPT API で作成された新しい AI チャットアプリのデモも公開されています。
+ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステルダム)は、オープンソースの TypeScript フルスタックサーバーレスフレームワークの Skeet に Next.js (React) スターターを追加した新しいリリースを発表しました。合わせて、同スターター及び ChatGPT API で作成された新しい AI チャットアプリのデモも公開されています。
 
 Skeet AI チャットアプリデモ: https://skeeter.dev/
 
@@ -13,7 +13,7 @@ Skeet AI チャットアプリデモ: https://skeeter.dev/
 
 ![Skeet Next.js (React) Starter](/news/2023/07/10/WebAppBoilerplate.png)
 
-Skeet は Firebase 上に自動スケールするアプリを構築できる TypeScript 製のフルスタックサーバーレスフレームワークです。
+Skeet は Firebase 上にゼロメンテナンスアプリを構築できる オープンソースの TypeScript 製サーバーレスフレームワークです。
 
 Skeet は素早くアプリを立ち上げ、少ないコストで長期的にメンテナンスしていくことを可能にします。
 
@@ -49,7 +49,7 @@ Skeet AI チャットアプリデモ: https://skeeter.dev/
 
 ## 新しいアプリ開発を体感してください
 
-![Skeet - Full-stack Serverless Framework for auto-scaling apps on Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 Skeet を使えば、すぐに iOS・Android・Web アプリを開発し公開できます。
 
