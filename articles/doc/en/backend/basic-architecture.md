@@ -643,7 +643,7 @@ Command List
 $ skeet --help
 Usage: skeet [options] [command]
 
-CLI for Skeet - Full-stack TypeScript Serverless framework
+CLI for Skeet - Open-Source Serverless App framework
 
 Options:
   -V, --version                output the version number
