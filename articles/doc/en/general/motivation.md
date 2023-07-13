@@ -1,7 +1,7 @@
 ---
 id: general-motivation
 title: Motivation
-description: Motivation for the development of Skeet, an open-source full-stack serverless framework
+description: Motivation for the development of Skeet, an open-source serverless app framework
 ---
 
 ## Reduce app development and maintenance costs
