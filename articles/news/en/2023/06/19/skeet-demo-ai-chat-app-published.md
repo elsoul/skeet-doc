@@ -5,7 +5,7 @@ category: Press release
 thumbnail: /news/2023/06/19/SkeetDemoPublished.png
 ---
 
-ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced on the 19th the launch of a demo AI chat app built with "Skeet," an open-source library for building zero-maintenance serverless apps on Firebase.
+ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced on the 19th the launch of a demo AI chat app built with "Skeet," an open-source library for building zero-maintenance serverless apps on GCP (Google Cloud) and Firebase.
 
 By using this demo, planners and developers can easily imagine what kind of applications can be created using "Skeet" in advance.
 
@@ -15,7 +15,7 @@ Skeet Demo AI Chat App: https://skeeter.dev/
 
 ![Skeet Demo AI Chat App](/news/2023/06/19/SkeeterAppSample16-9.png)
 
-Skeet is an open-source serverless framework that lets you build auto-scaling apps on top of Firebase.
+Skeet is an open-source serverless framework that lets you build zero-maintenance apps on top of GCP (Google Cloud) and Firebase.
 
 Until now, releasing applications and publishing services required the preparation of application code and servers, and the construction and management of servers, in particular, was costly.
 
@@ -37,7 +37,7 @@ We believe that many useful apps will be created using Skeet, and we will contin
 
 ## Experience new app development
 
-![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 Experience new app development.
 

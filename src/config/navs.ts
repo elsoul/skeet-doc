@@ -14,10 +14,6 @@ import {
 
 export const defaultMainNav = [
   {
-    name: 'common:navs.defaultMainNav.news',
-    href: '/news/',
-  },
-  {
     name: 'common:navs.defaultMainNav.doc',
     href: '/doc/',
   },
@@ -25,13 +21,13 @@ export const defaultMainNav = [
     name: 'common:navs.defaultMainNav.enterprise',
     href: '/enterprise/',
   },
+  {
+    name: 'common:navs.defaultMainNav.news',
+    href: '/news/',
+  },
 ]
 
 export const commonFooterNav = [
-  {
-    name: 'common:navs.commonFooterNav.news',
-    href: '/news/',
-  },
   {
     name: 'common:navs.commonFooterNav.doc',
     href: '/doc/',
@@ -39,6 +35,10 @@ export const commonFooterNav = [
   {
     name: 'common:navs.defaultMainNav.enterprise',
     href: '/enterprise/',
+  },
+  {
+    name: 'common:navs.commonFooterNav.news',
+    href: '/news/',
   },
   {
     name: 'common:navs.commonFooterNav.privacy',

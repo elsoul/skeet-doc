@@ -4,13 +4,13 @@ const siteConfig = {
   sitenameJA: 'Skeet - オープンソースのサーバーレスアプリフレームワーク',
   sitenameEN: 'Skeet - Open-Source Serverless App Framework',
   keywordsJA:
-    'Skeet, TypeScript, オープンソース, サーバーレス, フレームワーク, アプリケーション, 開発, ソリューション, Firebase, Firestore, Cloud Functions, Google Cloud, ゼロメンテナンス, Next.js, Expo',
+    'Skeet, TypeScript, オープンソース, サーバーレス, フレームワーク, アプリケーション, 開発, ソリューション, Firebase, Firestore, Cloud Functions, GCP, Google Cloud, ゼロメンテナンス, Next.js, Expo, GraphQL, SQL',
   keywordsEN:
-    'Skeet, TypeScript, Open-Source, Serverless, Framework, Application, Development, Solution, Firebase, Firestore, Cloud Functions, Google Cloud, Zero Maintenance, Next.js, Expo',
+    'Skeet, TypeScript, Open-Source, Serverless, Framework, Application, Development, Solution, Firebase, Firestore, Cloud Functions, GCP, Google Cloud, Zero Maintenance, Next.js, Expo, GraphQL, SQL',
   descriptionJA:
-    'Effortless. Serverless. Skeet は Firebase 上にゼロメンテナンスアプリを構築できるオープンソースのサーバーレスフレームワークです。',
+    'Effortless. Serverless. Skeet は GCP (Google Cloud) と Firebase 上にゼロメンテナンスアプリを構築できるオープンソースのサーバーレスフレームワークです。',
   descriptionEN:
-    'Effortless. Serverless. Skeet is an Open-Source Serverless Framework for zero-maintenance apps on Firebase.',
+    'Effortless. Serverless. Skeet is an Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase.',
   twitterAccount: '@SkeetDev',
   instagramAccount: 'elsoul_labo',
   githubAccount: 'elsoul',
