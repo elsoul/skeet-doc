@@ -1,7 +1,7 @@
 {
   "HeroRow": {
-    "body1": "Open-Source Serverless Framework",
-    "body2": "for zero-maintenance apps on Firebase."
+    "body1": "Open-Source Serverless Framework for zero-maintenance",
+    "body2": "apps on GCP (Google Cloud) and Firebase."
   },
   "MainPurposeRow": {
     "subtitle": "Do more, manage less",

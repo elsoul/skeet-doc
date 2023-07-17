@@ -23,7 +23,7 @@ Skeet Tutorial (YouTube): https://www.youtube.com/watch?v=6em68qcSsJE
 
 ![Skeet Demo AI Chat App](/news/2023/06/19/SkeetDemoPublished.png)
 
-Skeet is an open-source serverless framework that lets you build auto-scaling apps on top of Firebase.
+Skeet is an open-source serverless framework that lets you build zero-maintenance apps on top of GCP (Google Cloud) and Firebase.
 
 Until now, releasing applications and publishing services required the preparation of application code and servers, and the construction and management of servers, in particular, was costly.
 
@@ -45,7 +45,7 @@ We believe that many useful apps will be created using Skeet, and we will contin
 
 ## Experience new app development
 
-![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 You can immediately develop and publish web, iOS, and Android apps.
 
