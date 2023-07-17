@@ -1,7 +1,7 @@
 {
   "title": "Skeet ドキュメント",
-  "body1": "Firebase上にゼロメンテナンスアプリを構築できる",
-  "body2": "オープンソースのサーバーレスフレームワーク",
+  "body1": "GCP (Google Cloud) と Firebase上にゼロメンテナンスアプリ",
+  "body2": "を構築できるオープンソースのサーバーレスフレームワーク",
   "previousPage": "前のページ",
   "nextPage": "次のページ",
   "actions": {

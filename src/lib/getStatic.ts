@@ -49,7 +49,6 @@ export async function getI18nProps(
   const siteName =
     locale === 'ja' ? siteConfig.sitenameJA : siteConfig.sitenameEN
 
-  console.log(siteName)
   const ogImage = img
     ? `https://${siteConfig.domain}${img}`
     : `https://${siteConfig.domain}/ogp.png`

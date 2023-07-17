@@ -13,7 +13,7 @@ Skeet AI チャットアプリデモ: https://skeeter.dev/
 
 ![Skeet Next.js (React) Starter](/news/2023/07/10/WebAppBoilerplate.png)
 
-Skeet は Firebase 上にゼロメンテナンスアプリを構築できる オープンソースの TypeScript 製サーバーレスフレームワークです。
+Skeet は GCP (Google Cloud) と Firebase 上にゼロメンテナンスアプリを構築できる オープンソースの TypeScript 製サーバーレスフレームワークです。
 
 Skeet は素早くアプリを立ち上げ、少ないコストで長期的にメンテナンスしていくことを可能にします。
 
@@ -49,7 +49,7 @@ Skeet AI チャットアプリデモ: https://skeeter.dev/
 
 ## 新しいアプリ開発を体感してください
 
-![Skeet - Open-Source Serverless Framework for zero-maintenance apps of Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 Skeet を使えば、すぐに iOS・Android・Web アプリを開発し公開できます。
 
