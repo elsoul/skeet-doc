@@ -50,7 +50,7 @@ export default function HomeHeroRow() {
             Effortless. <br />
             Serverless.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-sm font-bold tracking-tight text-gray-700 dark:text-gray-100 sm:text-lg">
+          <p className="mx-auto mt-6 max-w-lg text-sm font-bold tracking-tight text-gray-700 dark:text-gray-100 sm:text-lg">
             {isJapanese ? (
               <>
                 {t('home:HeroRow.body1')} <br />

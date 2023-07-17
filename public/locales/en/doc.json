@@ -1,7 +1,7 @@
 {
   "title": "Skeet Document",
-  "body1": "Open-Source Serverless App Framework",
-  "body2": "for zero-maintenance apps on Firebase.",
+  "body1": "Open-Source Serverless App Framework for zero-maintenance",
+  "body2": "apps on GCP (Google Cloud) and Firebase.",
   "previousPage": "Previous page",
   "nextPage": "Next page",
   "actions": {

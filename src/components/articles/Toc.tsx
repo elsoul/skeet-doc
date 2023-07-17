@@ -11,7 +11,6 @@ type Props = {
 
 export default function Toc({ toc, activeItemIds }: Props) {
   const { t } = useTranslation()
-  console.log(toc)
   return (
     <>
       {toc.length > 0 && (
