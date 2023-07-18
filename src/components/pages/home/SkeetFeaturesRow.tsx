@@ -33,7 +33,7 @@ export default function SkeetFeaturesRow() {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:ml-auto lg:pl-4 lg:pt-4">
               <div className="lg:max-w-lg">
-                <h2 className="bg-gradient-to-tr from-red-600 to-yellow-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
+                <h2 className="bg-gradient-to-tl from-green-500 via-blue-400 to-purple-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
                   {t('home:SkeetFeaturesRow.subtitle')}
                 </h2>
                 <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">

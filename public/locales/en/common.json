@@ -44,5 +44,10 @@
     "subtitle": "Open-Source Serverless App Framework for efficient development.",
     "button": "Get Started",
     "demo": "Try Demo"
+  },
+  "SkeetTutorialYouTubeRow": {
+    "subtitle": "YouTube Tutorial",
+    "title": "Create an GPT-4 AI chat app in 5 minutes",
+    "description": "In this tutorial, you can immediately deploy an AI chat application that uses the ChatGPT API (GPT-4) provided by OpenAI."
   }
 }
