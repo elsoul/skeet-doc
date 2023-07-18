@@ -44,5 +44,10 @@
     "subtitle": "オープンソースのサーバーレスアプリフレームワーク",
     "button": "クイックスタート",
     "demo": "デモを試す"
+  },
+  "SkeetTutorialYouTubeRow": {
+    "subtitle": "YouTube チュートリアル",
+    "title": "GPT-4 AI チャットアプリを5分で作成",
+    "description": "このチュートリアルではOpenAIの提供するChatGPT API (GPT-4)を利用したAIチャットアプリをすぐにデプロイして使うことができます。"
   }
 }
