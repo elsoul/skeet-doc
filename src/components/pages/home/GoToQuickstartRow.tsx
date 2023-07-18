@@ -6,7 +6,7 @@ export default function GoToQuickstartRow() {
   const { t } = useTranslation()
   return (
     <>
-      <div className="">
+      <div className="py-24">
         <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-40 lg:px-8">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl dark:bg-gray-950 sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
@@ -19,7 +19,7 @@ export default function GoToQuickstartRow() {
                 cy={512}
                 r={512}
                 fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
-                fillOpacity="0.7"
+                fillOpacity="0.5"
               />
               <defs>
                 <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
@@ -29,7 +29,7 @@ export default function GoToQuickstartRow() {
               </defs>
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-              <h2 className="tracking-tigh bg-gradient-to-tr from-orange-500 to-yellow-300 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
+              <h2 className="tracking-tigh bg-gradient-to-tr from-red-500 via-orange-400 to-yellow-300 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
                 {t('home:GoToQuickstartRow.title1')}
                 <br />
                 {t('home:GoToQuickstartRow.title2')}
@@ -40,13 +40,13 @@ export default function GoToQuickstartRow() {
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <Link
                   href="/doc/backend/quickstart"
-                  className="bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  className="bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   Get started
                 </Link>
                 <a
                   href="https://github.com/elsoul/skeet-cli"
-                  className="text-sm font-semibold leading-6 text-white"
+                  className="text-sm font-semibold leading-6 text-white hover:text-gray-200"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
