@@ -9,12 +9,14 @@
   "closeMenu": "メニューを閉じる",
   "navs": {
     "defaultMainNav": {
+      "quickstart": "クイックスタート",
       "news": "ニュース",
       "doc": "ドキュメント",
       "enterprise": "エンタープライズ",
       "contact": "お問い合わせ"
     },
     "commonFooterNav": {
+      "quickstart": "クイックスタート",
       "news": "ニュース",
       "doc": "ドキュメント",
       "enterprise": "エンタープライズ",
