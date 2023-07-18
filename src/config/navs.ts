@@ -18,6 +18,10 @@ export const defaultMainNav = [
     href: '/doc/',
   },
   {
+    name: 'common:navs.defaultMainNav.quickstart',
+    href: '/doc/backend/quickstart',
+  },
+  {
     name: 'common:navs.defaultMainNav.enterprise',
     href: '/enterprise/',
   },
@@ -31,6 +35,10 @@ export const commonFooterNav = [
   {
     name: 'common:navs.commonFooterNav.doc',
     href: '/doc/',
+  },
+  {
+    name: 'common:navs.commonFooterNav.quickstart',
+    href: '/doc/backend/quickstart',
   },
   {
     name: 'common:navs.defaultMainNav.enterprise',
