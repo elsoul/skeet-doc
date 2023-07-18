@@ -9,12 +9,14 @@
   "closeMenu": "Close menu",
   "navs": {
     "defaultMainNav": {
+      "quickstart": "Quickstart",
       "news": "News",
       "doc": "Docs",
       "enterprise": "Enterprise",
       "contact": "Contact"
     },
     "commonFooterNav": {
+      "quickstart": "Quickstart",
       "news": "News",
       "doc": "Docs",
       "enterprise": "Enterprise",
