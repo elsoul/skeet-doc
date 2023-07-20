@@ -8,6 +8,9 @@ import androidLogo from '@/assets/img/logo/projects/android.svg'
 import tailwindLogo from '@/assets/img/logo/projects/tailwindcss.svg'
 import iosLogo from '@/assets/img/logo/projects/ios.svg'
 import expoLogo from '@/assets/img/logo/projects/Expo.svg'
+import reactLogo from '@/assets/img/logo/projects/react.svg'
+import graphqlLogo from '@/assets/img/logo/projects/graphql.svg'
+import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
 import typescriptLogo from '@/assets/img/logo/projects/TypeScriptHorizontal.svg'
 import { Button } from '@/components/common/atoms/Button'
 import clsx from 'clsx'
@@ -101,21 +104,21 @@ export default function HomeHeroRow() {
                     link: 'https://www.typescriptlang.org/',
                   },
                   {
-                    name: 'Next.js',
-                    logo: nextLogo,
-                    link: 'https://nextjs.org/',
+                    name: 'Prisma',
+                    logo: prismaLogo,
+                    link: 'https://www.prisma.io/',
                   },
                 ],
                 [
                   {
-                    name: 'Tailwindcss',
-                    logo: tailwindLogo,
-                    link: 'https://tailwindcss.com/',
+                    name: 'GraphQL',
+                    logo: graphqlLogo,
+                    link: 'https://graphql.org/',
                   },
                   {
-                    name: 'Expo',
-                    logo: expoLogo,
-                    link: 'https://expo.dev/',
+                    name: 'React',
+                    logo: reactLogo,
+                    link: 'https://react.dev/',
                   },
                   {
                     name: 'iOS',
