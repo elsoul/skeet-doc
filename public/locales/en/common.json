@@ -12,6 +12,7 @@
       "quickstart": "Quickstart",
       "news": "News",
       "doc": "Docs",
+      "company": "Company",
       "enterprise": "Enterprise",
       "contact": "Contact"
     },
@@ -20,6 +21,7 @@
       "news": "News",
       "doc": "Docs",
       "enterprise": "Enterprise",
+      "company": "Company",
       "contact": "Contact",
       "privacy": "Privacy"
     }
@@ -51,5 +53,27 @@
     "subtitle": "YouTube Tutorial",
     "title": "Create an GPT-4 AI chat app in 5 minutes",
     "description": "In this tutorial, you can immediately deploy an AI chat application that uses the ChatGPT API (GPT-4) provided by OpenAI."
+  },
+  "OurWorksRow": {
+    "GoogleCloudPartner": {
+      "title": "Skeet Certified as a Google Cloud Integration Product",
+      "description": "Skeet, a full-stack serverless App framework for building zero-maintenance apps on Google Cloud and Firebase, has been certified as a Google Cloud integration product. ELSOUL LABO is an official partner of Google Cloud."
+    },
+    "WBSO": {
+      "title": "Epics has received WBSO accreditation from the Dutch government",
+      "description": "Epics, a Web3 product deployed on Solana, has received WBSO (Advanced Science and Technology Research) accreditation from the Dutch government. Epics is a social contribution blockchain game (BCG) that aims to realize a sustainable open-source development environment."
+    },
+    "SolanaValidator": {
+      "title": "ELSOUL LABO operates a validator for the Solana blockchain",
+      "description": "As a validator on the Solana chain, ELSOUL LABO is committed to ensuring the reliability and stability of the network. We will also contribute to the technical aspects of achieving Solana's fast and stable network."
+    },
+    "SolanaSummerCamp": {
+      "title": "Epics Placed 5th at Solana Summer Camp Hackathon 2022",
+      "description": "Epics DAO won 5th place out of over 18,000 applicants in the DAOs track at the Solana Summer Camp Hackathon held July 11-August 16, 2022."
+    },
+    "GoogleWeb3": {
+      "title": "ELSOUL LABO has been certified by Google Web3 Startups program",
+      "description": "ELSOUL LABO activities in the Web3 field, Epics DAO, were selected for the Google Cloud Web3 Startups program in recognition of their efforts to support open-source development."
+    }
   }
 }
