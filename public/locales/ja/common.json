@@ -12,6 +12,7 @@
       "quickstart": "クイックスタート",
       "news": "ニュース",
       "doc": "ドキュメント",
+      "company": "会社概要",
       "enterprise": "エンタープライズ",
       "contact": "お問い合わせ"
     },
@@ -20,6 +21,7 @@
       "news": "ニュース",
       "doc": "ドキュメント",
       "enterprise": "エンタープライズ",
+      "company": "会社概要",
       "contact": "お問い合わせ",
       "privacy": "プライバシーポリシー"
     }
@@ -51,5 +53,27 @@
     "subtitle": "YouTube チュートリアル",
     "title": "GPT-4 AI チャットアプリを5分で作成",
     "description": "このチュートリアルではOpenAIの提供するChatGPT API (GPT-4)を利用したAIチャットアプリをすぐにデプロイして使うことができます。"
+  },
+  "OurWorksRow": {
+    "GoogleCloudPartner": {
+      "title": "SkeetはGoogle Cloudのインテグレーションプロダクトとして認定されました",
+      "description": "Google Cloud及びFirebase上にゼロメンテナンスアプリを構築できるフルスタックサーバーレスフレームワークSkeetは、Google Cloudのインテグレーションプロダクトとして認定されました。エルソウルラボはGoogle Cloudの公式パートナーです。"
+    },
+    "WBSO": {
+      "title": "Epicsはオランダ政府よりWBSO(先端科学技術研究)の認定を受けました",
+      "description": "Web3プロダクトでSolana上に展開されているEpicsは、オランダ政府よりWBSO(先端科学技術研究)の認定を受けました。Epicsは社会貢献型ブロックチェーンゲーム(BCG)で、持続可能なオープンソース開発環境の実現を目指しています。"
+    },
+    "SolanaValidator": {
+      "title": "エルソウルラボはSolanaブロックチェーンのバリデーターを運営しています",
+      "description": "エルソウルラボは、Solana チェーンにおけるバリデーターとして、ネットワークの信頼性と安定性を担保することに尽力します。Solana の高速かつ安定したネットワークを実現するための技術的な側面についても貢献します。"
+    },
+    "SolanaSummerCamp": {
+      "title": "EpicsはSolana Summer Campハッカソン2022に5位入賞しました",
+      "description": "Epics DAO は、2022 年 7 月 11 日 - 8 月 16 日に開催された Solana サマーキャンプハッカソンの DAOs トラックにおいて、18,000 人を超える応募者の中、 5 位に入賞いたしました。"
+    },
+    "GoogleWeb3": {
+      "title": "エルソウルラボはGoogle Web3 Startupsプログラムに認定されました",
+      "description": "エルソウルラボのWeb3分野における活動のEpics DAO、オープンソース開発を応援する取り組みが認められ、Google Cloud Web3 Startupsプログラムに選出されました。"
+    }
   }
 }

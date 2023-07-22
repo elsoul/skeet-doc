@@ -29,6 +29,10 @@ export const defaultMainNav = [
     name: 'common:navs.defaultMainNav.news',
     href: '/news/',
   },
+  {
+    name: 'common:navs.defaultMainNav.company',
+    href: '/company/',
+  },
 ]
 
 export const commonFooterNav = [
@@ -47,6 +51,10 @@ export const commonFooterNav = [
   {
     name: 'common:navs.commonFooterNav.news',
     href: '/news/',
+  },
+  {
+    name: 'common:navs.commonFooterNav.company',
+    href: '/company/',
   },
   {
     name: 'common:navs.commonFooterNav.privacy',
