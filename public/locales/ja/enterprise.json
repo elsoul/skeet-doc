@@ -3,7 +3,7 @@
     "title": "サーバーレスの世界へようこそ",
     "description": "サーバーレスアプリ開発を採用することにより、コストのかかるサーバー管理から解放され、高速な開発サイクルを手にいれることができます。",
     "meritTitle1": "技術サポートチャット",
-    "meritDescription1": "新しい技術でも安心してください。Firestore (NoSQL) と Cloud SQL(RDB) データベースの設計やTypeScript、セキュリティの検討など、新しいアーキテクチャの要点を抑えながらSkeetチームが幅広くお手伝いします。",
+    "meritDescription1": "新しい技術でも安心してください。Firestore (NoSQL) と Cloud SQL(RDB) を組み合わせたデータベースの設計やTypeScript、セキュリティなど、新しいアーキテクチャの要点を抑えながらSkeetチームが幅広くお手伝いします。",
     "meritTitle2": "Skeetチームと共に開発",
     "meritDescription2": "Skeetの開発チームと共にアプリ開発を進めることができます。Skeetのクリエイターとして、そしてGoogle Cloudパートナーとして、経験豊富なチームからサーバーレス開発のベストプラクティスを学びましょう。",
     "meritTitle3": "Skeetの導入をお考えですか？",
