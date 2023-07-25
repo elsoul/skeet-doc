@@ -16,6 +16,7 @@ import FeedbackFormRow from '@/components/pages/home/FeedbackFormRow'
 import CTASectionRow from '@/components/pages/common/CTASectionRow'
 import MediaLogoRow from '@/components/pages/common/MediaLogoRow'
 import SkeetTutorialYouTubeRow from '@/components/pages/common/SkeetTutorialYouTubeRow'
+import WhyOpenSourceDevelopmentRow from '@/components/pages/common/WhyOpenSourceDevelopment'
 
 const articleDirName = 'news'
 
@@ -44,6 +45,7 @@ export default function Home({
       <GoToQuickstartRow />
       <SkeetTutorialYouTubeRow />
       <SkeetDemoRow />
+      <WhyOpenSourceDevelopmentRow />
       <FeedbackFormRow />
       <TopNewsRow articles={articles} urls={urls} />
       <MediaLogoRow />
