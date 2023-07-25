@@ -76,5 +76,22 @@
       "title": "ELSOUL LABO has been certified by Google Web3 Startups program",
       "description": "ELSOUL LABO activities in the Web3 field, Epics DAO, were selected for the Google Cloud Web3 Startups program in recognition of their efforts to support open-source development."
     }
+  },
+  "WhyOpenSourceDevelopmentRow": {
+    "subtitle": "Why Open-Source Software?",
+    "title": "Sustainable technology development and benefits for society as a whole",
+    "description": "Open-source software (OSS) development drives technological progress in modern society and enables new value creation.",
+    "feature1": {
+      "title": "Value as a public good",
+      "description": "Open-source software is free for anyone to use, improve, and redistribute. This makes OSS a public good for all mankind. People all over the world can enjoy its value without feeling financially constrained. As a result, innovation across society will be driven, and the equality and inclusiveness of the digital society will increase."
+    },
+    "feature2": {
+      "title": "Global cooperation",
+      "description": "In the world of OSS, developers all over the world work together to improve software beyond the boundaries of regions and organizations. Each person's perspective and expertise can be incorporated into the project, enhancing its quality. OSS is truly a global gathering place of knowledge and experience that consistently produces high-quality software."
+    },
+    "feature3": {
+      "title": "Preventing reinvention of the wheel",
+      "description": "OSS allows us to reuse code and prevents us from reinventing the wheel. As a result, developers can focus less on creating everything from scratch and more on solving specific problems and developing new features. This increases efficiency and enables faster higher-quality results."
+    }
   }
 }
