@@ -57,6 +57,10 @@ export const commonFooterNav = [
     href: '/company/',
   },
   {
+    name: 'common:navs.commonFooterNav.press-kits',
+    href: '/press-kits/',
+  },
+  {
     name: 'common:navs.commonFooterNav.privacy',
     href: '/legal/privacy-policy/',
   },

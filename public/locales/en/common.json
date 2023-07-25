@@ -23,7 +23,8 @@
       "enterprise": "Enterprise",
       "company": "Company",
       "contact": "Contact",
-      "privacy": "Privacy"
+      "privacy": "Privacy",
+      "press-kits": "Press Kits"
     }
   },
   "AgreeToPolicy": {
