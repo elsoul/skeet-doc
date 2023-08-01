@@ -10,6 +10,7 @@ import {
   FireIcon,
   CloudArrowUpIcon,
   CommandLineIcon,
+  CogIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -206,7 +207,7 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.plugins.skeet-utils',
         href: '/doc/plugins/skeet-utils/',
-        icon: FireIcon,
+        icon: CogIcon,
       },
     ],
   },
@@ -219,7 +220,7 @@ export const docMenuNav = [
         icon: WindowIcon,
       },
       {
-        name: 'doc:menuNav.frontend.react-native',
+        name: 'doc:menuNav.frontend.expo-template',
         href: '/doc/frontend/expo-template/',
         icon: DevicePhoneMobileIcon,
       },
