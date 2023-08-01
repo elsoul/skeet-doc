@@ -10,7 +10,7 @@ description: Skeet Framework App Template with Next.js (React) and GraphQL
 
 Next.js (React) + GraphQL App Environment for Skeet Framework
 
-[GitHub - Skeet App Next.js + GraphQL Template](https://github.com/elsoul/skeet-next)
+[GitHub - Skeet App Next.js + GraphQL Template](https://github.com/elsoul/skeet-graphql)
 
 ## Aiming to
 
