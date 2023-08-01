@@ -26,7 +26,7 @@ const actions = [
   {
     title: 'doc:actions.quickstart.title',
     body: 'doc:actions.quickstart.body',
-    href: '/doc/backend/quickstart',
+    href: '/doc/skeet-firestore/quickstart',
     icon: RocketLaunchIcon,
     iconForeground: 'text-yellow-700',
     iconBackground: 'bg-yellow-50',
@@ -34,7 +34,7 @@ const actions = [
   {
     title: 'doc:actions.tutorial.title',
     body: 'doc:actions.tutorial.body',
-    href: '/doc/backend/tutorial',
+    href: '/doc/skeet-firestore/tutorial',
     icon: AcademicCapIcon,
     iconForeground: 'text-green-700',
     iconBackground: 'bg-green-50',
@@ -42,7 +42,7 @@ const actions = [
   {
     title: 'doc:actions.initial-deploy.title',
     body: 'doc:actions.initial-deploy.body',
-    href: '/doc/backend/initial-deploy',
+    href: '/doc/skeet-firestore/initial-deploy',
     icon: CloudArrowUpIcon,
     iconForeground: 'text-teal-700',
     iconBackground: 'bg-teal-50',
@@ -50,7 +50,7 @@ const actions = [
   {
     title: 'doc:actions.basic-architecture.title',
     body: 'doc:actions.basic-architecture.body',
-    href: '/doc/backend/basic-architecture',
+    href: '/doc/skeet-firestore/basic-architecture',
     icon: BookOpenIcon,
     iconForeground: 'text-blue-700',
     iconBackground: 'bg-blue-50',

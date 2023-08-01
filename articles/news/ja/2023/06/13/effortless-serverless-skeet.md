@@ -59,4 +59,4 @@ GitHub Actions による自動デプロイ、そしてデプロイされたリ�
 
 Skeet チュートリアルでは、OpenAI API を活用して AI チャットボットのアプリを開発し、実際にデプロイして利用できることを確認します。
 
-Skeet チュートリアル: https://skeet.dev/ja/doc/backend/quickstart/
+Skeet チュートリアル: https://skeet.dev/ja/doc/skeet-firestore/quickstart/

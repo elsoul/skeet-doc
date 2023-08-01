@@ -1,6 +1,6 @@
 ---
 id: backend-quickstart
-title: クイックスタート
+title: クイックスタート - GraphQL
 description: Skeet フレームワークを使い始めるための設定について説明します。
 ---
 
@@ -13,9 +13,13 @@ description: Skeet フレームワークを使い始めるための設定につ�
 Skeet はオープンソースのフルスタックアプリ開発ソリューションです。
 すぐにアプリのロジックからスタートでき、インフラに関する心配は無用です。
 
+Skeet Framework は SQL と NoSQL を組み合わせて組み立てることができます。
+
+ここでは、Cloud SQL, GraphQL を使ったアプリを作成していきます。
+
 📱 Demo App made by Skeet: https://skeeter.dev/
 
-![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
+![https://storage.googleapis.com/skeet-assets/animation/skeet-db-studio.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-db-studio.gif)
 
 ## 🧪 依存パッケージ 🧪
 
@@ -46,12 +50,11 @@ $ skeet create <appName>
 
 ![Skeet Create Select Template](/doc-images/cli/SkeetCreateV022.png)
 
-フロントエンドのテンプレートを選択できます。
+ここでは
 
-- [Next.js (React)](https://nextjs.org/)
-- [Expo (React Native)](https://expo.dev/)
+Next.js (React) - GraphQL
 
-※ 本チュートリアルでは Expo 版を利用していますが、Next.js 版を利用しても同じ手順で利用可能です。
+テンプレートを選択します。
 
 ### ③ ローカルで起動
 
@@ -60,13 +63,13 @@ $ cd <appName>
 $ skeet s
 ```
 
-Skeet App フロントエンドと Firebase エミュレーターが起動します。
+Skeet App フロントエンドと Firebase エミュレーター, GraphQL PlayGround が起動します。
 
 📲 Frontend(Next.js) - [http://localhost:4200/](http://localhost:4200/)
 
-📲 Frontend(Expo) - [http://localhost:19006/](http://localhost:19006/)
-
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
+
+📊 GraphQL Playground - [http://localhost:3000/graphql](http://localhost:3000/graphql)
 
 ** ⚠️ Skeet App を完全に使用するには、_アクティベート Skeet ChatApp_ ステップを完了する必要があります ⚠️ **
 
@@ -86,7 +89,7 @@ Add Firebase Project
 
 ### ③ Firebase ビルドの有効化
 
-以下の３つの Firebase ビルドを有効化してください。
+以下の 2 つの Firebase ビルドを有効化してください。
 
 #### - Firebase 認証
 
@@ -95,17 +98,6 @@ Add Firebase Project
 
 - Google ログインの有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
-
-#### - Firebase Firestore
-
-- Firestore の有効化
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
-
-- 環境を選択
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
-
-- リージョンを選択
-  ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
 #### - Firebase Storage
 
@@ -121,12 +113,18 @@ Add Firebase Project
 ### ④ Skeet init コマンドの実行
 
 _skeet init_ コマンドに _--login_ オプションを付けて実行し、
-プロジェクト ID と リージョンを選択してください。
+
+- Google Cloud プロジェクト ID
+- Firebase プロジェクト ID
+- リージョン
+
+を選択してください。
 そして、表示された URL にアクセスし、Firebase アカウントへログインします。
 
 ```bash
 $ skeet init --login
 ? What's your GCP Project ID skeet-demo
+? What's your Firebase Project ID skeet-demo
 ? Select Regions to deploy
   europe-west1
   europe-west2
@@ -175,11 +173,22 @@ Google Cloud の無料枠には 2 つの部分があります
 
 - [想定外の請求を回避する](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
 
+#### - OpenAI の API Key を作成・取得
+
+- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
+
+📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
+
 #### - シークレットキーの設定
 
 _skeet add secret <secretKey>_ コマンドを使って
 
 OpenAI の API キーを環境変数に設定します。
+
+**初めてこのコマンドを実行する場合、Secret Manager が有効化されるため、
+数秒時間がかかることがあります。**
 
 ```bash
 $ skeet add secret CHAT_GPT_ORG
@@ -196,13 +205,48 @@ $ skeet add secret CHAT_GPT_KEY
 また、簡易的に試すには、_functions/openai/.env_ に記述することもできますが、
 この方法は、本番環境には反映されません。
 
-#### - OpenAI の API Key を作成・取得
+Discord Webhook URL も設定します。
 
-- [OpenAI API](https://beta.openai.com/docs/api-reference/introduction)
+```bash
+$ skeet add secret DISCORD_WEBHOOK_URL
+? Enter value for DISCORD_WEBHOOK_URL: <yourDiscordWebhookURL>
+```
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
+Discord Webhook を使わない場合は、
 
-📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
+_functions/openai/src/routings/auth/authOnCreateUser.ts_
+
+の以下の部分をコメントアウトまたは削除してください。
+
+```ts
+// const DISCORD_WEBHOOK_URL = defineSecret('DISCORD_WEBHOOK_URL')
+
+  .runWith({
+    ...authPublicOption,
+    secrets: [SKEET_GRAPHQL_ENDPOINT_URL],
+  })
+```
+
+```ts
+// Send Discord message when new user is created
+if (process.env.NODE_ENV === 'production') {
+  // await sendDiscord(content, DISCORD_WEBHOOK_URL.value())
+}
+```
+
+同様に、SKEET_GRAPHQL_ENDPOINT_URL も設定します。
+
+```bash
+$ skeet add secret SKEET_GRAPHQL_ENDPOINT_URL
+? Enter value for SKEET_GRAPHQL_ENDPOINT_URL: <yourSkeetGraphQLEndpointURL>
+```
+
+開発環境の場合は、以下のようになります。
+
+```bash
+$ skeet add secret SKEET_GRAPHQL_ENDPOINT_URL
+? Enter value for SKEET_GRAPHQL_ENDPOINT_URL: http://localhost:3000/graphql
+```
 
 これで Skeet App を使う準備ができました 🎉
 
@@ -214,7 +258,7 @@ $ skeet s
 
 ローカルで skeetApp を起動している状態で、
 
-[http://localhost:19006/register](http://localhost:19006/register)
+[http://localhost:4200/auth/register/](http://localhost:4200/auth/register/)
 
 にアクセスしてください。
 
@@ -238,7 +282,7 @@ To verify the email address epics.dev@gmail.com, follow this link: <Link>
 
 ## ✉️ OpenAI チャットルームの作成 ✉️
 
-ログイン後、[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat) にアクセスしてください。
+ログイン後、[http://localhost:4200/user/chat/](http://localhost:4200/user/chat/) にアクセスしてください。
 
 そして、チャットルームを作成します。
 
