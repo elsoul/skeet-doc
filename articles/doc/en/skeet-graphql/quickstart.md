@@ -1,22 +1,25 @@
 ---
 id: backend-quickstart
-title: Quickstart
+title: Quickstart - GraphQL
 description: Describes the setup for getting started with the Skeet framework.
 ---
 
-## 💃 What's Skeet? 🕺
+## 🕺 What is Skeet? 💃
 
 ⚡️ Do more, manage less ⚡️
 
-Reduce app development and operation costs and realize more plans.
+Let's lower the development and operation cost of the application and realize more plans.
 
-Skeet is an open-source full-stack app development solution.
+Skeet is an open source full-stack app development solution.
+You can start right away with your app logic and don't worry about infrastructure.
 
-You can start writing app logic immediately without worrying about infrastructure.
+Skeet Framework can be assembled with a combination of SQL and NoSQL.
+
+Here, we will create an application using Cloud SQL and GraphQL.
 
 📱 Demo App made by Skeet: https://skeeter.dev/
 
-![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
+![https://storage.googleapis.com/skeet-assets/animation/skeet-db-studio.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-db-studio.gif)
 
 ## 🧪 Dependency 🧪
 
@@ -47,12 +50,11 @@ $ skeet create <appName>
 
 ![Skeet Create Select Template](/doc-images/cli/SkeetCreateV022.png)
 
-You can choose a template for the frontend.
+In this tutorial, we will use the GraphQL template.
 
-- [Next.js (React)](https://nextjs.org/)
-- [Expo (React Native)](https://expo.dev/)
+Next.js (React)-GraphQL
 
-※ This tutorial uses the Expo version, but you can use the same procedure even using the Next.js version.
+Select a template.
 
 ### ③ Run Skeet App
 
@@ -61,13 +63,13 @@ $ cd <appName>
 $ skeet s
 ```
 
-Now you have both frontend and backend running locally ⭐️
+The Skeet App frontend and Firebase emulator, GraphQL PlayGround will start.
 
 📲 Frontend(Next.js) - [http://localhost:4200/](http://localhost:4200/)
 
-📲 Frontend(Expo) - [http://localhost:19006/](http://localhost:19006/)
-
 💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
+
+📊 GraphQL Playground - [http://localhost:3000/graphql](http://localhost:3000/graphql)
 
 **⚠️ You need to finish _Activate Skeet ChatApp_ step to fully use default Skeet App ⚠️**
 
@@ -94,17 +96,6 @@ Add Firebase Project
 
 - Activate Google Sign-in
   ![Google Sign in](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
-
-#### - Activate Firebase Firestore
-
-- Activate Firestore
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
-
-- Select Native Mode
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
-
-- Select Region
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
 
 #### - Firebase Storage
 
@@ -175,6 +166,14 @@ The Google Cloud Free Tier has two parts:
 
 - [Avoid surprise bills](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
 
+#### - Create OpenAI API Key
+
+- [https://beta.openai.com/](https://beta.openai.com/)
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
+
+📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
+
 #### - Set Secret Key in Cloud Secret Manager
 
 using the _skeet add secret <secretKey>_ command
@@ -196,13 +195,46 @@ $ skeet add secret CHAT_GPT_KEY
 You can also write it in _functions/openai/.env_ to try it easily,
 This method does not translate to production environments.
 
-#### - Create OpenAI API Key
+set Discord Webhook URL as well.
 
-- [https://beta.openai.com/](https://beta.openai.com/)
+```bash
+$ skeet add secret DISCORD_WEBHOOK_URL
+? Enter value for DISCORD_WEBHOOK_URL: <yourDiscordWebhookURL>
+```
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
+If you don't want to use Discord Webhook, please comment out or delete the following part in
 
-📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
+_functions/openai/src/routings/auth/authOnCreateUser.ts_
+
+```ts
+// const DISCORD_WEBHOOK_URL = defineSecret('DISCORD_WEBHOOK_URL')
+
+  .runWith({
+    ...authPublicOption,
+    secrets: [SKEET_GRAPHQL_ENDPOINT_URL],
+  })
+```
+
+```ts
+// Send Discord message when new user is created
+if (process.env.NODE_ENV === 'production') {
+  // await sendDiscord(content, DISCORD_WEBHOOK_URL.value())
+}
+```
+
+set SKEET_GRAPHQL_ENDPOINT_URL as well.
+
+```bash
+$ skeet add secret SKEET_GRAPHQL_ENDPOINT_URL
+? Enter value for SKEET_GRAPHQL_ENDPOINT_URL: <yourSkeetGraphQLEndpointURL>
+```
+
+In development environments, it will look like this.
+
+```bash
+$ skeet add secret SKEET_GRAPHQL_ENDPOINT_URL
+? Enter value for SKEET_GRAPHQL_ENDPOINT_URL: http://localhost:3000/graphql
+```
 
 Now you are ready to use Skeet ChatApp 🎉
 

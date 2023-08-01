@@ -62,4 +62,4 @@ Skeet チュートリアルでは、実際にこのデモのような AI チャ�
 
 ぜひお試しいただけますと幸いです。
 
-Skeet チュートリアル: https://skeet.dev/ja/doc/backend/quickstart/
+Skeet チュートリアル: https://skeet.dev/ja/doc/skeet-firestore/quickstart/

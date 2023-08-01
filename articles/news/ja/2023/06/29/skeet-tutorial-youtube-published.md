@@ -53,4 +53,4 @@ Skeet を使えば、すぐに iOS・Android・Web アプリを開発し公開�
 
 ドキュメント形式のチュートリアルもございますので、ぜひお試しいただけますと幸いです。
 
-Skeet チュートリアル: https://skeet.dev/ja/doc/backend/quickstart/
+Skeet チュートリアル: https://skeet.dev/ja/doc/skeet-firestore/quickstart/

@@ -59,4 +59,4 @@ You can immediately develop and publish web, iOS, and Android apps.
 
 In the Skeet tutorial, we will develop an AI chatbot app using the OpenAI API and confirm that it can be deployed and used.
 
-Skeet Tutorial: https://skeet.dev/en/doc/backend/quickstart/
+Skeet Tutorial: https://skeet.dev/en/doc/skeet-firestore/quickstart/

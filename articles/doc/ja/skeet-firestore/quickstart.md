@@ -1,6 +1,6 @@
 ---
 id: backend-quickstart
-title: クイックスタート
+title: クイックスタート - Firestore
 description: Skeet フレームワークを使い始めるための設定について説明します。
 ---
 
@@ -12,6 +12,10 @@ description: Skeet フレームワークを使い始めるための設定につ�
 
 Skeet はオープンソースのフルスタックアプリ開発ソリューションです。
 すぐにアプリのロジックからスタートでき、インフラに関する心配は無用です。
+
+Skeet Framework は SQL と NoSQL を組み合わせて組み立てることができます。
+
+ここでは、Firestore を使ったアプリを作成していきます。
 
 📱 Demo App made by Skeet: https://skeeter.dev/
 

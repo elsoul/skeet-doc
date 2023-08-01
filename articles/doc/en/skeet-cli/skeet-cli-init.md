@@ -13,7 +13,7 @@ Usage: skeet init [options]
 Initialize Google Cloud Setups for Skeet APP
 
 Options:
-  --only-dev       Skip Cloud Setup (default: false)
+  --login       Skip Cloud Setup (default: false)
   --only-config    Generate Skeet Cloud Config (default: false)
   --load-balancer  Setup Cloud Load Balancer (default: false)
   -h, --help       display help for command

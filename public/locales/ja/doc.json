@@ -48,8 +48,21 @@
       "groupTitle": "全般",
       "motivation": "モチベーション"
     },
-    "backend": {
-      "groupTitle": "バックエンド",
+    "skeet-graphql": {
+      "groupTitle": "Skeet GraphQL",
+      "quickstart": "クイックスタート",
+      "basic-architecture": "基本アーキテクチャ",
+      "initial-deploy": "最初のデプロイ",
+      "tutorial": "チュートリアル",
+      "zero-to-deploy": "ゼロからデプロイまで",
+      "firebase-user-authentification": "Firebase ログイン認証",
+      "add-worker": "Workerを追加する",
+      "setup-load-balancer": "ロードバランサーを設定する",
+      "cloud-armor": "Cloud Armor の設定",
+      "skeet-plugins": "Skeet プラグイン"
+    },
+    "skeet-firestore": {
+      "groupTitle": "Skeet Firestore",
       "quickstart": "クイックスタート",
       "basic-architecture": "基本アーキテクチャ",
       "initial-deploy": "最初のデプロイ",
@@ -63,7 +76,8 @@
     },
     "plugins": {
       "groupTitle": "プラグイン",
-      "skeet-firestore": "Skeet Firestore"
+      "skeet-firestore": "Skeet Firestore",
+      "skeet-utils": "Skeet Utils"
     },
     "frontend": {
       "groupTitle": "フロントエンド",
@@ -76,14 +90,17 @@
       "server": "Skeet Server",
       "deploy": "Skeet Deploy",
       "init": "Skeet Init",
-      "iam": "Skeet iAM",
       "yarn": "Skeet Yarn",
+      "login": "Skeet Login",
+      "curl": "Skeet Curl",
+      "generate": "Skeet Generate",
+      "docker": "Skeet Docker",
+      "db": "Skeet DB",
+      "iam": "Skeet iAM",
       "add": "Skeet Add",
       "sync": "Skeet Sync",
       "delete": "Skeet Delete",
-      "login": "Skeet Login",
       "list": "Skeet List",
-      "curl": "Skeet Curl",
       "test": "Skeet Test"
     }
   },
