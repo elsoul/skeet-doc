@@ -215,6 +215,7 @@ $ skeet s
 Run Skeet App locally and access to
 
 [http://localhost:19006/register](http://localhost:19006/register)
+(with Next.js: [http://localhost:4200/auth/register](http://localhost:4200/auth/register))
 
 Let's create a new user account with your email address and password.
 
@@ -239,6 +240,7 @@ Successfully verified your email address.
 After login, access this page to create a chat room.
 
 [http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat)
+(with Next.js: [http://localhost:4200/user/chat](http://localhost:4200/user/chat))
 
 Let's create a chat room with the following settings.
 
