@@ -49,7 +49,7 @@
       "motivation": "モチベーション"
     },
     "skeet-graphql": {
-      "groupTitle": "Skeet GraphQL",
+      "groupTitle": "GraphQL バックエンド",
       "quickstart": "クイックスタート",
       "basic-architecture": "基本アーキテクチャ",
       "initial-deploy": "最初のデプロイ",
@@ -62,7 +62,7 @@
       "skeet-plugins": "Skeet プラグイン"
     },
     "skeet-firestore": {
-      "groupTitle": "Skeet Firestore",
+      "groupTitle": "Firestore バックエンド",
       "quickstart": "クイックスタート",
       "basic-architecture": "基本アーキテクチャ",
       "initial-deploy": "最初のデプロイ",

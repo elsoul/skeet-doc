@@ -8,7 +8,7 @@ description: Skeet Framework App Template with Expo (React Native)
 
 ## Skeet App
 
-React Native (Expo) App Environment for Skeet Framework
+Expo (React Native) App Environment for Skeet Framework
 
 [GitHub - Skeet App Boilerplate](https://github.com/elsoul/skeet-app)
 

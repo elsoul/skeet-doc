@@ -4,7 +4,7 @@ title: 基本アーキテクチャ - GraphQL
 description: Skeetフレームワーク GraphQL バックエンドの基本構造について説明します。アプリの各ディレクトリやCLIの各コマンドを解説しています。
 ---
 
-Skeet Framework は SQL と NoSQL を組み合わせて組み立てることができます。
+Skeet Framework は SQL と NoSQL を組み合わせてアプリを構築できます。
 
 ここでは、GraphQL のバックエンドを構築するための基本構造を説明します。
 
