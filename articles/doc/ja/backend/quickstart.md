@@ -215,6 +215,7 @@ $ skeet s
 ローカルで skeetApp を起動している状態で、
 
 [http://localhost:19006/register](http://localhost:19006/register)
+(Next.js の場合: [http://localhost:4200/auth/register](http://localhost:4200/auth/register))
 
 にアクセスしてください。
 
@@ -239,6 +240,7 @@ To verify the email address epics.dev@gmail.com, follow this link: <Link>
 ## ✉️ OpenAI チャットルームの作成 ✉️
 
 ログイン後、[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat) にアクセスしてください。
+(Next.js の場合: [http://localhost:4200/user/chat](http://localhost:4200/user/chat))
 
 そして、チャットルームを作成します。
 
