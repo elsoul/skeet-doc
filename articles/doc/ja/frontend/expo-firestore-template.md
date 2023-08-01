@@ -1,16 +1,16 @@
 ---
-id: expo-template
-title: Expo (React Native) テンプレート
-description: Skeet フレームワークのアプリテンプレート。Expo (React Native) を使用しています。
+id: expo-firestore-template
+title: Expo (React Native) + Firestore テンプレート
+description: Skeet フレームワークのアプリテンプレート。Expo (React Native) と Firestore を使用しています。
 ---
 
 ![Skeet Expo Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-## Skeet App Expo Template
+## Skeet App Expo (React Native) + Firestore テンプレート
 
-Expo (React Native) App Environment for Skeet Framework
+Expo (React Native) + Firestore App Environment for Skeet Framework
 
-[GitHub - Skeet App Expo Template](https://github.com/elsoul/skeet-app)
+[GitHub - Skeet App Expo + Firestore Template](https://github.com/elsoul/skeet-app)
 
 ## 心がけ
 

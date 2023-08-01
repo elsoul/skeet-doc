@@ -215,13 +215,18 @@ export const docMenuNav = [
     name: 'doc:menuNav.frontend.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.frontend.nextjs-template',
-        href: '/doc/frontend/nextjs-template/',
+        name: 'doc:menuNav.frontend.nextjs-graphql-template',
+        href: '/doc/frontend/nextjs-graphql-template/',
         icon: WindowIcon,
       },
       {
-        name: 'doc:menuNav.frontend.expo-template',
-        href: '/doc/frontend/expo-template/',
+        name: 'doc:menuNav.frontend.nextjs-firestore-template',
+        href: '/doc/frontend/nextjs-firestore-template/',
+        icon: WindowIcon,
+      },
+      {
+        name: 'doc:menuNav.frontend.expo-firestore-template',
+        href: '/doc/frontend/expo-firestore-template/',
         icon: DevicePhoneMobileIcon,
       },
     ],

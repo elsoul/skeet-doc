@@ -1,16 +1,16 @@
 ---
-id: nextjs-template
-title: Next.js Template (React)
-description: Skeet Framework App Template with Next.js (React)
+id: nextjs-firestore-template
+title: Next.js (React) + Firestore Template
+description: Skeet Framework App Template with Next.js (React) and Firestore
 ---
 
-![Skeet Next.js Template](https://storage.googleapis.com/skeet-assets/imgs/samples/WebAppBoilerplate.png)
+![Skeet Next.js + Firestore Template](https://storage.googleapis.com/skeet-assets/imgs/samples/WebAppBoilerplate.png)
 
-## Skeet App Next.js Template
+## Skeet App Next.js (React) + Firestore Template
 
-Next.js (React) App Environment for Skeet Framework
+Next.js (React) + Firestore App Environment for Skeet Framework
 
-[GitHub - Skeet App Next.js Template](https://github.com/elsoul/skeet-next)
+[GitHub - Skeet App Next.js (React) + Firestore Template](https://github.com/elsoul/skeet-next)
 
 ## Aiming to
 
