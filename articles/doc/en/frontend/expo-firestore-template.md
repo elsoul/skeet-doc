@@ -1,16 +1,16 @@
 ---
-id: expo-template
-title: Expo (React Native)
-description: Skeet Framework App Template with Expo (React Native)
+id: expo-firestore-template
+title: Expo (React Native) + Firestore Template
+description: Skeet Framework App Template with Expo (React Native) + Firestore
 ---
 
 ![Skeet App Template](https://storage.googleapis.com/skeet-assets/imgs/samples/skeet-app-template.png)
 
-## Skeet App
+## Skeet App Expo (React Native) + Firestore Template
 
-Expo (React Native) App Environment for Skeet Framework
+Expo (React Native) + Firestore App Environment for Skeet Framework
 
-[GitHub - Skeet App Boilerplate](https://github.com/elsoul/skeet-app)
+[GitHub - Skeet App Expo (React Native) + Firestore Template](https://github.com/elsoul/skeet-app)
 
 ## Aiming to
 

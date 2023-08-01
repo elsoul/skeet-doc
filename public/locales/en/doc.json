@@ -77,8 +77,9 @@
     },
     "frontend": {
       "groupTitle": "Frontend",
-      "nextjs-template": "Next.js (React)",
-      "expo-template": "Expo (React Native)"
+      "nextjs-graphql-template": "Next.js + GraphQL",
+      "nextjs-firestore-template": "Next.js + Firestore",
+      "expo-firestore-template": "Expo + Firestore"
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",
