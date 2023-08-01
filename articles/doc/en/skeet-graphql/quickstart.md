@@ -60,6 +60,7 @@ Select a template.
 
 ```bash
 $ cd <appName>
+$ skeet docker psql
 $ skeet s
 ```
 

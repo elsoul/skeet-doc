@@ -60,6 +60,7 @@ Next.js (React) - GraphQL
 
 ```bash
 $ cd <appName>
+$ skeet docker psql
 $ skeet s
 ```
 
