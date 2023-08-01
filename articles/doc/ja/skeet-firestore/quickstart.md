@@ -13,7 +13,7 @@ description: Skeet フレームワークを使い始めるための設定につ�
 Skeet はオープンソースのフルスタックアプリ開発ソリューションです。
 すぐにアプリのロジックからスタートでき、インフラに関する心配は無用です。
 
-Skeet Framework は SQL と NoSQL を組み合わせて組み立てることができます。
+Skeet Framework は SQL と NoSQL を組み合わせてアプリを構築できます。
 
 ここでは、Firestore を使ったアプリを作成していきます。
 
