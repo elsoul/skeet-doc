@@ -45,7 +45,7 @@
       "motivation": "Motivation"
     },
     "skeet-graphql": {
-      "groupTitle": "Skeet GraphQL",
+      "groupTitle": "GraphQL Backend",
       "quickstart": "Quickstart",
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
@@ -58,7 +58,7 @@
       "skeet-plugins": "Skeet Plugins"
     },
     "skeet-firestore": {
-      "groupTitle": "Skeet Firestore",
+      "groupTitle": "Firestore Backend",
       "quickstart": "Quickstart",
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
@@ -72,11 +72,11 @@
     },
     "plugins": {
       "groupTitle": "Plugins",
-      "skeet-firestore": "Skeet Firestore"
+      "skeet-firestore": "Skeet Firestore",
+      "skeet-utils": "Skeet Utils"
     },
     "frontend": {
       "groupTitle": "Frontend",
-      "react-native": "React Native (Expo)",
       "nextjs-template": "Next.js (React)",
       "expo-template": "Expo (React Native)"
     },
