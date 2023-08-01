@@ -19,7 +19,7 @@ export const defaultMainNav = [
   },
   {
     name: 'common:navs.defaultMainNav.quickstart',
-    href: '/doc/backend/quickstart',
+    href: '/doc/skeet-firestore/quickstart',
   },
   {
     name: 'common:navs.defaultMainNav.enterprise',
@@ -42,7 +42,7 @@ export const commonFooterNav = [
   },
   {
     name: 'common:navs.commonFooterNav.quickstart',
-    href: '/doc/backend/quickstart',
+    href: '/doc/skeet-firestore/quickstart',
   },
   {
     name: 'common:navs.defaultMainNav.enterprise',
@@ -146,26 +146,51 @@ export const docMenuNav = [
     ],
   },
   {
-    name: 'doc:menuNav.backend.groupTitle',
+    name: 'doc:menuNav.skeet-graphql.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.backend.quickstart',
-        href: '/doc/backend/quickstart/',
+        name: 'doc:menuNav.skeet-graphql.quickstart',
+        href: '/doc/skeet-graphql/quickstart/',
         icon: RocketLaunchIcon,
       },
       {
-        name: 'doc:menuNav.backend.tutorial',
-        href: '/doc/backend/tutorial/',
+        name: 'doc:menuNav.skeet-graphql.tutorial',
+        href: '/doc/skeet-graphql/tutorial/',
         icon: AcademicCapIcon,
       },
       {
-        name: 'doc:menuNav.backend.initial-deploy',
-        href: '/doc/backend/initial-deploy/',
+        name: 'doc:menuNav.skeet-graphql.initial-deploy',
+        href: '/doc/skeet-graphql/initial-deploy/',
         icon: CloudArrowUpIcon,
       },
       {
-        name: 'doc:menuNav.backend.basic-architecture',
-        href: '/doc/backend/basic-architecture/',
+        name: 'doc:menuNav.skeet-graphql.basic-architecture',
+        href: '/doc/skeet-graphql/basic-architecture/',
+        icon: BookOpenIcon,
+      },
+    ],
+  },
+  {
+    name: 'doc:menuNav.skeet-firestore.groupTitle',
+    children: [
+      {
+        name: 'doc:menuNav.skeet-firestore.quickstart',
+        href: '/doc/skeet-firestore/quickstart/',
+        icon: RocketLaunchIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-firestore.tutorial',
+        href: '/doc/skeet-firestore/tutorial/',
+        icon: AcademicCapIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-firestore.initial-deploy',
+        href: '/doc/skeet-firestore/initial-deploy/',
+        icon: CloudArrowUpIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-firestore.basic-architecture',
+        href: '/doc/skeet-firestore/basic-architecture/',
         icon: BookOpenIcon,
       },
     ],
@@ -176,6 +201,11 @@ export const docMenuNav = [
       {
         name: 'doc:menuNav.plugins.skeet-firestore',
         href: '/doc/plugins/skeet-firestore/',
+        icon: FireIcon,
+      },
+      {
+        name: 'doc:menuNav.plugins.skeet-utils',
+        href: '/doc/plugins/skeet-utils/',
         icon: FireIcon,
       },
     ],

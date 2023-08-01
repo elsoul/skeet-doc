@@ -53,4 +53,4 @@ With the Skeet tutorial, you can actually build an AI chat app like this demo an
 
 We would appreciate it if you could try it.
 
-Skeet Tutorial: https://skeet.dev/en/doc/backend/quickstart/
+Skeet Tutorial: https://skeet.dev/en/doc/skeet-firestore/quickstart/

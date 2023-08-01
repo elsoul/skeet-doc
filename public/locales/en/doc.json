@@ -44,8 +44,21 @@
       "groupTitle": "General",
       "motivation": "Motivation"
     },
-    "backend": {
-      "groupTitle": "Backend",
+    "skeet-graphql": {
+      "groupTitle": "Skeet GraphQL",
+      "quickstart": "Quickstart",
+      "basic-architecture": "Basic Architecture",
+      "initial-deploy": "Initial Deploy",
+      "tutorial": "Tutorial",
+      "zero-to-deploy": "Zero to Deploy",
+      "firebase-user-authentification": "Firebase Login Authentification",
+      "add-worker": "Add Worker",
+      "setup-load-balancer": "Setup Load Balancer",
+      "cloud-armor": "Setup Cloud Armor",
+      "skeet-plugins": "Skeet Plugins"
+    },
+    "skeet-firestore": {
+      "groupTitle": "Skeet Firestore",
       "quickstart": "Quickstart",
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
@@ -69,19 +82,22 @@
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",
-      "create": "skeet create",
-      "server": "skeet server",
-      "deploy": "skeet deploy",
-      "init": "skeet init",
-      "iam": "skeet iam",
-      "yarn": "skeet yarn",
-      "add": "skeet add",
-      "sync": "skeet sync",
-      "delete": "skeet delete",
-      "login": "skeet login",
-      "list": "skeet list",
-      "curl": "skeet curl",
-      "test": "skeet test"
+      "create": "Skeet Create",
+      "server": "Skeet Server",
+      "deploy": "Skeet Deploy",
+      "init": "Skeet Init",
+      "yarn": "Skeet Yarn",
+      "login": "Skeet Login",
+      "curl": "Skeet Curl",
+      "generate": "Skeet Generate",
+      "docker": "Skeet Docker",
+      "db": "Skeet DB",
+      "iam": "Skeet iAM",
+      "add": "Skeet Add",
+      "sync": "Skeet Sync",
+      "delete": "Skeet Delete",
+      "list": "Skeet List",
+      "test": "Skeet Test"
     }
   },
   "headerNav": {
