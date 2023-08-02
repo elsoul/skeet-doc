@@ -12,7 +12,7 @@ export default function SkeetTutorialYouTubeRow() {
       <Container className="pb-48 pt-48 lg:pb-60">
         <div className="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
           <div className="mx-auto max-w-2xl sm:text-center">
-            <h2 className="bg-gradient-to-tl from-red-600 via-orange-500 to-yellow-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
+            <h2 className="bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
               {t('common:SkeetTutorialYouTubeRow.subtitle')}
             </h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
