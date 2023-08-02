@@ -1,11 +1,11 @@
 ---
 id: skeet-nextjs-graphql-template-released
-title: Skeet, a serverless framework for ultra-fast app development, now supports GraphQL and SQL (relational databases)
+title: Skeet, an open-source serverless framework, now supports GraphQL and SQL (relational databases)
 category: Press release
 thumbnail: /news/2023/08/01/skeet-graphql.png
 ---
 
-ELSOUL LABO B.V. (head office: Amsterdam, Netherlands) announced the major release of Skeet v1, a serverless framework for ultra-fast application development, on August 1, 2023. This release enables Skeet to develop using GraphQL and SQL (relational databases).
+On August 1, 2023, ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) announced the major release of Skeet v1, an open-source serverless framework that makes app development fast and zero-maintenance. This release enables Skeet developers to develop using GraphQL and SQL (relational database).
 
 ## Added new Next.js (React) + GraphQL API server option
 
@@ -42,7 +42,7 @@ In the new UI, you can generate your own GraphQL used on the front end by clicki
 
 By leveraging these tools, Skeet provides a platform for developers to develop applications more intuitively and efficiently. With this update, developers can realize even more productivity gains.
 
-Skeet is developed to reduce development and maintenance costs and improve the developer experience for all application development.
+Skeet is developed as open-source to reduce development and maintenance costs and improve the developer experience for all application development sites around the world.
 
 Experience state-of-the-art application development using Skeet.
 
