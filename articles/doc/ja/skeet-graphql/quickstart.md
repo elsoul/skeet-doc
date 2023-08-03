@@ -123,6 +123,9 @@ _skeet init_ コマンドに _--login_ オプションを付けて実行し、
 そして、表示された URL にアクセスし、Firebase アカウントへログインします。
 
 ```bash
+// Please login to Google Cloud if you have not
+$ gcloud auth login
+
 $ skeet init --login
 ? What's your GCP Project ID skeet-demo
 ? What's your Firebase Project ID skeet-demo

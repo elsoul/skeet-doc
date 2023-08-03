@@ -124,6 +124,9 @@ Run _skeet init_ command and select your GCP Project ID and Regions to setup.
 Then, please visit the URL to authenticate your Firebase account.
 
 ```bash
+// Please login to Google Cloud if you have not
+$ gcloud auth login
+
 $ skeet init --login
 ? What's your GCP Project ID skeet-demo
 ? Select Regions to deploy
