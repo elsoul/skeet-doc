@@ -97,7 +97,7 @@ Add Firebase Project
 - Firebase Authentication の有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
 
-- Google ログインの有効化
+- Email/Password ログインの有効化
   ![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
 #### - Firebase Storage
