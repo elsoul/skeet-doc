@@ -1,11 +1,11 @@
 ---
 id: effortless-serverless-skeet
-title: GCPとFirebase上にゼロメンテナンスのサーバーレスアプリを構築するオープンソースライブラリ"Skeet"をリリース
+title: GCPとFirebase上にフルスタックのサーバーレスアプリを構築するオープンソースライブラリ"Skeet"をリリース
 category: プレスリリース
 thumbnail: /news/2023/06/13/EffortlessServerlessSkeet.png
 ---
 
-ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステルダム)は 13 日、GCP (Google Cloud) と Firebase 上にゼロメンテナンスのサーバーレスアプリを構築するオープンソースライブラリである"Skeet"のリリースを発表しました。
+ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステルダム)は 13 日、GCP (Google Cloud) と Firebase 上にフルスタックのサーバーレスアプリを構築するオープンソースライブラリである"Skeet"のリリースを発表しました。
 
 Skeet: https://skeet.dev/
 

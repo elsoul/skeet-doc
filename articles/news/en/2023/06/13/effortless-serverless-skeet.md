@@ -1,11 +1,11 @@
 ---
 id: effortless-serverless-skeet
-title: Released "Skeet", an open-source library for building zero-maintenance serverless apps on Firebase
+title: Released "Skeet", an open-source library for building full-stack serverless apps on Firebase
 category: Press release
 thumbnail: /news/2023/06/13/EffortlessServerlessSkeet.png
 ---
 
-ELSOUL LABO B.V. (head office: Amsterdam, Netherlands) announced on the 13th the release of "Skeet," an open-source library for building zero-maintenance serverless applications on Firebase.
+ELSOUL LABO B.V. (head office: Amsterdam, Netherlands) announced on the 13th the release of "Skeet," an open-source library for building full-stack serverless applications on Firebase.
 
 Skeet: https://skeet.dev/
 
