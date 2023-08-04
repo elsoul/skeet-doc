@@ -30,7 +30,7 @@ Skeet Official Doc (Skeet Firestore): https://skeet.dev/en/doc/plugins/skeet-fir
 
 ![Skeet Demo AI Chat App](/news/2023/06/19/SkeeterAppSample16-9.png)
 
-Skeet is a full-stack serverless framework that lets you build zero-maintenance apps on top of GCP (Google Cloud) and Firebase.
+Skeet is a full-stack serverless framework that lets you build full-stack apps on top of GCP (Google Cloud) and Firebase.
 
 Until now, releasing applications and publishing services required the preparation of application code and servers, and the construction and management of servers, in particular, was costly.
 
@@ -52,7 +52,7 @@ We believe that many useful apps will be created using Skeet, and we will contin
 
 ## Experience new app development
 
-![Skeet - Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for full-stack apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 Experience new app development.
 

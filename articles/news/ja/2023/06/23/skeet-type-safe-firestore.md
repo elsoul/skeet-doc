@@ -52,7 +52,7 @@ Skeet を活用してたくさんの役に立つアプリが生まれること�
 
 ## 新しいアプリ開発を体感してください
 
-![Skeet - Open-Source Serverless Framework for zero-maintenance apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
+![Skeet - Open-Source Serverless Framework for full-stack apps on GCP (Google Cloud) and Firebase](/news/2023/06/13/EffortlessServerlessSkeet.png)
 
 新しいアプリ開発を体感してください。
 

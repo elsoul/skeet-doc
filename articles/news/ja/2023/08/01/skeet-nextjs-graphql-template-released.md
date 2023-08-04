@@ -11,7 +11,7 @@ ELSOUL LABO B.V. (エルソウルラボ, 本社: オランダ・アムステル�
 
 ![Skeet Next.js (React) + GraphQL Option](/news/2023/08/01/skeet-create-got-graphql.png)
 
-Skeet は GCP (Google Cloud) と Firebase 上にゼロメンテナンスアプリを構築できるオープンソースのサーバーレスフレームワークです。
+Skeet は GCP (Google Cloud) と Firebase 上にフルスタックアプリを構築できるオープンソースのサーバーレスフレームワークです。
 
 API から Web・iOS・Android アプリまでを TypeScript で超速開発することができます。
 

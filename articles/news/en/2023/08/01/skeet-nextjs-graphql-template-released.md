@@ -11,7 +11,7 @@ On August 1, 2023, ELSOUL LABO B.V. (Headquarters: Amsterdam, Netherlands) annou
 
 ![Skeet Next.js (React) + GraphQL Option](/news/2023/08/01/skeet-create-got-graphql.png)
 
-Skeet is an open-source serverless framework that allows you to build zero-maintenance apps on GCP (Google Cloud) and Firebase.
+Skeet is an open-source serverless framework that allows you to build full-stack apps on GCP (Google Cloud) and Firebase.
 
 You can develop super fast from API to web/iOS/Android apps with TypeScript.
 
