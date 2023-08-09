@@ -7,6 +7,8 @@
   "toc": "Table of Contents",
   "openMenu": "Open menu",
   "closeMenu": "Close menu",
+  "copy": "Copy",
+  "copied": "Copied!",
   "navs": {
     "defaultMainNav": {
       "quickstart": "Quickstart",
