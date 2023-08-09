@@ -1,7 +1,7 @@
 ---
-  id: skeet-cli-deploy
-  title: Skeet Deploy Command
-  description: skeet deploy command
+id: skeet-cli-deploy
+title: Skeet Deploy Command
+description: skeet deploy command
 ---
 
 Skeet Deploy Comannd is a command to deploy Skeet App to Firebase.
