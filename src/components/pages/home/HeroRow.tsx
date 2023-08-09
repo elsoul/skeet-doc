@@ -78,7 +78,7 @@ export default function HomeHeroRow() {
               GitHub
             </Button>
           </div>
-          <div className="relative mx-auto mt-10 max-w-sm bg-gray-900 p-4 text-white">
+          <div className="relative mx-auto mt-10 max-w-sm rounded-md bg-gray-900 p-4 text-white">
             <div className="absolute left-2 top-2 flex space-x-1.5">
               <div className="h-2.5 w-2.5 rounded-full bg-red-500"></div>
               <div className="h-2.5 w-2.5 rounded-full bg-yellow-400"></div>
