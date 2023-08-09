@@ -11,13 +11,22 @@ import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
 import typescriptLogo from '@/assets/img/logo/projects/TypeScriptHorizontal.svg'
 import { Button } from '@/components/common/atoms/Button'
 import clsx from 'clsx'
-import { useMemo } from 'react'
+import { useCallback, useState } from 'react'
+import { copyToClipboard } from '@/utils/userAction'
 
 export default function HomeHeroRow() {
-  const { t, i18n } = useTranslation()
-  const isJapanese = useMemo(() => {
-    return i18n.language === 'ja'
-  }, [i18n.language])
+  const { t } = useTranslation()
+
+  const [copyText, setCopyText] = useState('common:copy')
+
+  const handleClick = useCallback(() => {
+    copyToClipboard('npm i -g @skeet-framework/cli')
+    setCopyText('common:copied')
+
+    setTimeout(() => {
+      setCopyText('common:copy')
+    }, 2000)
+  }, [])
 
   return (
     <>
@@ -51,18 +60,11 @@ export default function HomeHeroRow() {
             Serverless.
           </h1>
           <p className="mx-auto mt-6 max-w-lg text-sm font-bold tracking-tight text-gray-700 dark:text-gray-100 sm:text-lg">
-            {isJapanese ? (
-              <>
-                {t('home:HeroRow.body1')} <br />
-                {t('home:HeroRow.body2')}
-              </>
-            ) : (
-              <>
-                {t('home:HeroRow.body1')} {t('home:HeroRow.body2')}
-              </>
-            )}
+            {t('home:HeroRow.body1')} <br />
+            {t('home:HeroRow.body2')}
           </p>
-          <div className="mt-10 flex justify-center gap-x-6">
+
+          <div className="mt-6 flex justify-center gap-x-6">
             <Button href="/doc" className="">
               {t('common:navs.defaultMainNav.doc')}
             </Button>
@@ -76,7 +78,27 @@ export default function HomeHeroRow() {
               GitHub
             </Button>
           </div>
-          <div className="mb-12 mt-36 lg:mt-48">
+          <div className="relative mx-auto mt-10 max-w-sm bg-gray-900 p-4 text-white">
+            <div className="absolute left-2 top-2 flex space-x-1.5">
+              <div className="h-2.5 w-2.5 rounded-full bg-red-500"></div>
+              <div className="h-2.5 w-2.5 rounded-full bg-yellow-400"></div>
+              <div className="h-2.5 w-2.5 rounded-full bg-green-500"></div>
+            </div>
+            <div className="absolute right-3 top-1.5 flex space-x-1.5">
+              <button
+                onClick={() => {
+                  handleClick()
+                }}
+                className="text-xs hover:text-gray-200"
+              >
+                {t(copyText)}
+              </button>
+            </div>
+            <div className="pt-4 text-left font-mono">
+              $ npm i -g @skeet-framework/cli
+            </div>
+          </div>
+          <div className="mb-12 mt-24 lg:mt-36">
             <ul
               role="list"
               className="mt-8 flex flex-col items-center justify-center gap-x-8 gap-y-10 sm:gap-x-0 xl:flex-row xl:gap-x-12 xl:gap-y-0"
