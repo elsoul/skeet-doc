@@ -36,7 +36,7 @@ In order to allow access from the load balancer in a private network environment
 
 Change the option to use from _publicHttpOption_ to _privateHttpOption_.
 
-_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
+_functions/skeet/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
 〜
@@ -47,7 +47,7 @@ export const addStreamUserChatRoomMessage = onRequest(
 〜
 ```
 
-_functions/openai/routings/auth/authOnCreateUser.ts_
+_functions/skeet/routings/auth/authOnCreateUser.ts_
 
 ```typescript
 〜

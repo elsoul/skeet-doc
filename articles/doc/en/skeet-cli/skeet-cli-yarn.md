@@ -30,8 +30,8 @@ Press a key to toggle all functions
 $ skeet yarn install/build
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
-❯◯ openai
- ◯ solana
+❯◯ skeet
+ ◯ graphql
 ```
 
 ## Add Yarn Package
@@ -43,8 +43,8 @@ Press a key to toggle all functions
 $ skeet yarn add -p ${packageName}
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
-❯◯ openai
- ◯ solana
+❯◯ skeet
+ ◯ graphql
 ```
 
 For Development
@@ -53,6 +53,6 @@ For Development
 $ skeet yarn add -p ${packageName} -D
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
-❯◯ openai
- ◯ solana
+❯◯ skeet
+ ◯ graphql
 ```

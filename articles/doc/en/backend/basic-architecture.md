@@ -38,7 +38,7 @@ You can add multiple functions to functions.
 │   ├── public
 │   └── types
 ├── functions
-│   └── openai
+│   └── skeet
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
@@ -50,7 +50,7 @@ You can add multiple functions to functions.
 | src/public              | Frontend source code                     |
 | src/types               | Frontend type definitions                |
 | functions               | Cloud Functions for Firebase source code |
-| functions/openai        | functions related to OpenAI API          |
+| functions/skeet         | functions related to OpenAI API etc.     |
 | package.json            | Backend package management               |
 | skeet-cloud.config.json | Skeet Framework configuration file       |
 | firebase.json           | Firebase Settings                        |
@@ -61,7 +61,7 @@ Skeet Functions are based on Cloud Functions for Firebase.
 The Cloud Functions for Firebase project will be placed under the _functions_ directory.
 You can add multiple functions to functions.
 
-e.g. _functions/openai_
+e.g. _functions/skeet_
 
 ```bash
 .
