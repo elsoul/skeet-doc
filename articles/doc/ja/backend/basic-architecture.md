@@ -38,7 +38,7 @@ functions には複数の functions を追加することができます。
 │   ├── public
 │   └── types
 ├── functions
-│   └── openai
+│   └── skeet
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
@@ -50,7 +50,7 @@ functions には複数の functions を追加することができます。
 | src/public              | フロントエンドのソースコード                |
 | src/types               | フロントエンドの型定義                      |
 | functions               | Cloud Functions for Firebase のソースコード |
-| functions/openai        | OpenAI API に関する functions               |
+| functions/skeet         | OpenAI API 等に関する functions             |
 | package.json            | バックエンドのパッケージ管理                |
 | skeet-cloud.config.json | Skeet Framework の設定ファイル              |
 | firebase.json           | Firebase の設定ファイル                     |
@@ -61,7 +61,7 @@ Skeet Functions は Cloud Functions for Firebase をベースにしています�
 _functions_ ディレクトリ以下に Cloud Functions for Firebase のプロジェクトが配置されます。
 functions には複数の functions を追加することができます。
 
-例: _functions/openai_
+例: _functions/skeet_
 
 ```bash
 .

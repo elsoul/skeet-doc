@@ -122,7 +122,7 @@ Auth instance trigger fired
 
 User information is stored in Firebase Firestore.
 
-_functions/openai/routings/auth/authOnCreateUser.ts_
+_functions/skeet/routings/auth/authOnCreateUser.ts_
 
 ```typescript
 import { User } from '@/models'
@@ -219,7 +219,7 @@ For Http triggers, they are located in the _routings/http_ directory.
 ```bash
 $ tree functions
 functions
-├── openai
+├── skeet
 │   ├── routings
 │   │   ├── auth
 │   │   │   └── authOnCreateUser.ts
@@ -234,7 +234,7 @@ functions
 
 _addStreamUserChatRoomMessage_ is called from the frontend by default.
 
-_functions/openai/routings/http/addStreamUserChatRoomMessage.ts_
+_functions/skeet/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
 import { onRequest } from 'firebase-functions/v2/https'
@@ -399,15 +399,15 @@ $ skeet get https
 ┌──────────┬──────────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
 │ Function │ Endpoint                     │ ParamsPath                                                              │
 ├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ openai   │ addStreamUserChatRoomMessage │ ./functions/openai/src/types/http/addStreamUserChatRoomMessageParams.ts │
+│ skeet   │ addStreamUserChatRoomMessage │ ./functions/skeet/src/types/http/addStreamUserChatRoomMessageParams.ts │
 ├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ openai   │ addUserChatRoomMessage       │ ./functions/openai/src/types/http/addUserChatRoomMessageParams.ts       │
+│ skeet   │ addUserChatRoomMessage       │ ./functions/skeet/src/types/http/addUserChatRoomMessageParams.ts       │
 ├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ openai   │ createUserChatRoom           │ ./functions/openai/src/types/http/createUserChatRoomParams.ts           │
+│ skeet   │ createUserChatRoom           │ ./functions/skeet/src/types/http/createUserChatRoomParams.ts           │
 ├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ openai   │ getUserChatRoomMessages      │ ./functions/openai/src/types/http/getUserChatRoomMessagesParams.ts      │
+│ skeet   │ getUserChatRoomMessages      │ ./functions/skeet/src/types/http/getUserChatRoomMessagesParams.ts      │
 ├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ openai   │ root                         │ ./functions/openai/src/types/http/rootParams.ts                         │
+│ skeet   │ root                         │ ./functions/skeet/src/types/http/rootParams.ts                         │
 └──────────┴──────────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -444,14 +444,14 @@ $ skeet add method generateTitle
  ❯ pubsub
   scheduler
   auth
-? Select Functions to add openai
-✔️ ./functions/openai/src/types/http/pubsubGenerateTitleParams.ts created 🎉
-✔️ ./functions/openai/src/routings/http/pubsubGenerateTitle.ts created 🎉
+? Select Functions to add skeet
+✔️ ./functions/skeet/src/types/http/pubsubGenerateTitleParams.ts created 🎉
+✔️ ./functions/skeet/src/routings/http/pubsubGenerateTitle.ts created 🎉
 ```
 
 A type definition file and a function file are created.
 
-_functions/openai/src/routings/pubsub/pubsubGenerateTitle.ts_
+_functions/skeet/src/routings/pubsub/pubsubGenerateTitle.ts_
 
 ```typescript
 import { onMessagePublished } from 'firebase-functions/v2/pubsub'
@@ -476,7 +476,7 @@ export const pubsubGenerateTitle = onRequest(
 )
 ```
 
-_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
+_functions/skeet/src/types/http/pubsubGenerateTitleParams.ts_
 
 ```typescript
 export type PubsubGenerateTitleParams = {
@@ -486,7 +486,7 @@ export type PubsubGenerateTitleParams = {
 
 Implement the contents of the previous function.
 
-_functions/openai/src/routings/http/pubsubGenerateTitle.ts_
+_functions/skeet/src/routings/http/pubsubGenerateTitle.ts_
 
 ```typescript
 import { onMessagePublished } from 'firebase-functions/v2/pubsub'
@@ -549,7 +549,7 @@ export const pubsubGenerateTitle = onMessagePublished(
 
 Define the previous type.
 
-_functions/openai/src/types/http/pubsubGenerateTitleParams.ts_
+_functions/skeet/src/types/http/pubsubGenerateTitleParams.ts_
 
 ```typescript
 export type PubsubGenerateTitleParams = {
@@ -579,7 +579,7 @@ if (messages.length === 2) {
 .
 ```
 
-Now add a new function to _functions/openai/src/index.ts_.
+Now add a new function to _functions/skeet/src/index.ts_.
 
 ```typescript
 import admin from 'firebase-admin'
@@ -702,7 +702,7 @@ FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authenticat
 
 ? Are you sure if you already set them up? yes
 ? Do you want to setup your domain? no
-Function URL (openai:root(europe-west6)): https://root-iolvuu5bzq-oa.a.run.app
+Function URL (skeet:root(europe-west6)): https://root-iolvuu5bzq-oa.a.run.app
 i  functions: cleaning up build files...
 
 ✔  Deploy complete!
@@ -718,13 +718,13 @@ Skeet Framework allows you to synchronize type definitions to the front end.
 
 ```bash
 $ skeet sync types
-⏳ Syncing openai...
-📃 Copying functions/openai/src/types/http/addUserChatRoomMessageParams.ts to src/types/http/openai/addUserChatRoomMessageParams.ts
-✔️ File copied: src/types/http/openai/addUserChatRoomMessageParams.ts
-📃 Copying functions/openai/src/types/http/createUserChatRoomParams.ts to src/types/http/openai/createUserChatRoomParams.ts
-✔️ File copied: src/types/http/openai/createUserChatRoomParams.ts
-📃 Copying functions/openai/src/types/http/getUserChatRoomParams.ts to src/types/http/openai/getUserChatRoomParams.ts
-✔️ File copied: src/types/http/openai/getUserChatRoomParams.ts
+⏳ Syncing skeet...
+📃 Copying functions/skeet/src/types/http/addUserChatRoomMessageParams.ts to src/types/http/skeet/addUserChatRoomMessageParams.ts
+✔️ File copied: src/types/http/skeet/addUserChatRoomMessageParams.ts
+📃 Copying functions/skeet/src/types/http/createUserChatRoomParams.ts to src/types/http/skeet/createUserChatRoomParams.ts
+✔️ File copied: src/types/http/skeet/createUserChatRoomParams.ts
+📃 Copying functions/skeet/src/types/http/getUserChatRoomParams.ts to src/types/http/skeet/getUserChatRoomParams.ts
+✔️ File copied: src/types/http/skeet/getUserChatRoomParams.ts
 ```
 
 This command copies the type definitions in _src/types/http_ on the backend to _src/types/http/{FunctionsName}_ on the frontend.
@@ -733,13 +733,13 @@ This command copies the type definitions in _src/types/http_ on the backend to _
 
 ```bash
 $ skeet sync models
-  openai
-? Select Original Copy of Model openai
-latestModel: openai
-Syncing openai...
-Copying functions/openai/src/models/index.ts to src/types/models/index.ts
+  skeet
+? Select Original Copy of Model skeet
+latestModel: skeet
+Syncing skeet...
+Copying functions/skeet/src/models/index.ts to src/types/models/index.ts
 ✔️ File copied: src/types/models/index.ts
-Copying functions/openai/src/models/userModels.ts to src/types/models/userModels.ts
+Copying functions/skeet/src/models/userModels.ts to src/types/models/userModels.ts
 ✔️ File copied: src/types/models/userModels.ts
 Synced Models Types 🎉
 ```
@@ -782,8 +782,8 @@ $ skeet deploy
 ? Select Services to run functions command (Press <space> to select, <a> to toggle all, <i> to invert
 selection, and <enter> to proceed)
   = Services =
-❯◯ openai
- ◯ solana
+❯◯ skeet
+ ◯ graphql
 ```
 
 Select the _functions_ to deploy,
