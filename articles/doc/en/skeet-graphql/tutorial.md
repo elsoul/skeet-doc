@@ -235,7 +235,7 @@ Auth instance trigger fired
 
 User information is stored in Firebase Firestore.
 
-_functions/openai/routings/auth/authOnCreateUser.ts_
+_functions/skeet/routings/auth/authOnCreateUser.ts_
 
 By default, a notification is sent to Discord when a user is created.
 
@@ -373,7 +373,7 @@ $ skeet deploy
 selection, and <enter> to proceed)
   = Services =
 ❯◯ graphql
- ◯ openai
+ ◯ skeet
 ```
 
 Select the _services_ to deploy,

@@ -45,7 +45,7 @@ GraphQL API source code is placed under the _graphql_ directory.
 │   ├── prisma
 │   └── src
 ├── functions
-│   └── openai
+│   └── skeet
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
@@ -59,7 +59,7 @@ GraphQL API source code is placed under the _graphql_ directory.
 | graphq/prisma           | Prisma source code                       |
 | graphq/src              | GraphQL source code                      |
 | functions               | Cloud Functions for Firebase source code |
-| functions/openai        | functions related to the OpenAI API      |
+| functions/skeet         | functions related to the OpenAI API etc  |
 | package.json            | Backend package management               |
 | skeet-cloud.config.json | Skeet Framework configuration file       |
 | firebase.json           | Firebase configuration file              |

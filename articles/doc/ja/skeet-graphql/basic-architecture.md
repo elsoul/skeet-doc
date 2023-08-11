@@ -45,7 +45,7 @@ _graphql_ ディレクトリ以下には GraphQL API のソースコードが配
 │   ├── prisma
 │   └── src
 ├── functions
-│   └── openai
+│   └── skeet
 ├── package.json
 ├── skeet-cloud.config.json
 └── firebase.json
@@ -59,7 +59,7 @@ _graphql_ ディレクトリ以下には GraphQL API のソースコードが配
 | graphq/prisma           | Prisma のソースコード                       |
 | graphq/src              | GraphQL のソースコード                      |
 | functions               | Cloud Functions for Firebase のソースコード |
-| functions/openai        | OpenAI API に関する functions               |
+| functions/skeet         | OpenAI API 等に関する functions             |
 | package.json            | バックエンドのパッケージ管理                |
 | skeet-cloud.config.json | Skeet Framework の設定ファイル              |
 | firebase.json           | Firebase の設定ファイル                     |

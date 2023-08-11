@@ -23,8 +23,8 @@ Press a key to toggle all functions
 $ skeet deploy
 ? Select Services to run yarn command (Press <space> to select, <a> to toggle all, <i> to invert selection, and <enter> to proceed)
   = Services =
-❯◯ openai
- ◯ solana
+❯◯ skeet
+ ◯ graphql
 ```
 
 ![Skeet Deploy](https://storage.googleapis.com/skeet-assets/animation/skeet-deploy-compressed.gif)
