@@ -236,7 +236,7 @@ Auth インスタンスのトリガーが作動して
 
 Firebase Firestore にユーザー情報が保存されます。
 
-_functions/openai/routings/auth/authOnCreateUser.ts_
+_functions/skeet/routings/auth/authOnCreateUser.ts_
 
 デフォルトの設定では、ユーザー作成時に Discord に通知が送信されます。
 
@@ -374,7 +374,7 @@ $ skeet deploy
 selection, and <enter> to proceed)
   = Services =
 ❯◯ graphql
- ◯ openai
+ ◯ skeet
 ```
 
 デプロイする _service_ を選択し,

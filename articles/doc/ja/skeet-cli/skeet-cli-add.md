@@ -36,7 +36,7 @@ new function will be created in the following directory.
 
 ```bash
 ├── functions
-│   ├── openai
+│   ├── skeet
 │   └── <functionName>
 ```
 
@@ -88,12 +88,12 @@ Next, select the function to add the method to.
 ? Select Instance Type to add http
 ? Select Functions to add (Use arrow keys)
    = Functions =
-❯ openai
+❯ skeet
   solana
 ? Select Instance Type to add http
-? Select Functions to add solana
-✔️ ./functions/openai/src/types/http/createArticleParams.ts created!
-✔️ ./functions/openai/src/routings/http/createArticle.ts created!
+? Select Functions to add skeet
+✔️ ./functions/skeet/src/types/http/createArticleParams.ts created!
+✔️ ./functions/skeet/src/routings/http/createArticle.ts created!
 ```
 
 New method and type definitions will be created.

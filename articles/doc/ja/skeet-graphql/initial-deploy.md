@@ -36,7 +36,7 @@ $ gh auth login
 
 使用するオプションを _publicHttpOption_ から　*privateHttpOption* に変更します。
 
-_functions/openai/routings/http/createStreamChatMessage.ts_
+_functions/skeet/routings/http/createStreamChatMessage.ts_
 
 ```typescript
 〜 中略 〜
@@ -47,7 +47,7 @@ export const createStreamChatMessage = onRequest(
 〜 中略 〜
 ```
 
-_functions/openai/routings/auth/authOnCreateUser.ts_
+_functions/skeet/routings/auth/authOnCreateUser.ts_
 
 ```typescript
 〜 中略 〜

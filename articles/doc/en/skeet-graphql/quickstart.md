@@ -196,7 +196,7 @@ $ skeet add secret CHAT_GPT_KEY
 ? Enter value for CHAT_GPT_KEY: <yourOpenAIKey>
 ```
 
-You can also write it in _functions/openai/.env_ to try it easily,
+You can also write it in _functions/skeet/.env_ to try it easily,
 This method does not translate to production environments.
 
 set Discord Webhook URL as well.
@@ -208,7 +208,7 @@ $ skeet add secret DISCORD_WEBHOOK_URL
 
 If you don't want to use Discord Webhook, please comment out or delete the following part in
 
-_functions/openai/src/routings/auth/authOnCreateUser.ts_
+_functions/skeet/src/routings/auth/authOnCreateUser.ts_
 
 ```ts
 // const DISCORD_WEBHOOK_URL = defineSecret('DISCORD_WEBHOOK_URL')
