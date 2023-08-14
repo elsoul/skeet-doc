@@ -83,7 +83,8 @@
       "groupTitle": "フロントエンド",
       "nextjs-graphql-template": "Next.js + GraphQL",
       "nextjs-firestore-template": "Next.js + Firestore",
-      "expo-firestore-template": "Expo + Firestore"
+      "expo-firestore-template": "Expo + Firestore",
+      "solana-firestore-template": "Solana Mobile Stack + Web"
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",

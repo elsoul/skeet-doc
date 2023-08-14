@@ -48,13 +48,6 @@ $ cd <project-name>
 $ skeet s
 ```
 
-開発中コンソールにて Auth を利用した確認も可能です:
-
-```bash
-$ skeet login
-$ export ACCESS_TOKEN=<your-token>
-```
-
 **※ OpenAI API key が必要です**
 
 _./functions/skeet/.env_
