@@ -229,6 +229,11 @@ export const docMenuNav = [
         href: '/doc/frontend/expo-firestore-template/',
         icon: DevicePhoneMobileIcon,
       },
+      {
+        name: 'doc:menuNav.frontend.solana-firestore-template',
+        href: '/doc/frontend/solana-firestore-template/',
+        icon: DevicePhoneMobileIcon,
+      },
     ],
   },
   {
