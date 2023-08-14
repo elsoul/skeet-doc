@@ -50,13 +50,6 @@ $ cd <project-name>
 $ skeet s
 ```
 
-Open a new terminal and run:
-
-```bash
-$ skeet login
-$ export ACCESS_TOKEN=<your-token>
-```
-
 **※ You need OpenAI API key to use ChatGPT.**
 
 _./functions/skeet/.env_
