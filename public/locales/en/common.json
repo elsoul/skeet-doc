@@ -62,21 +62,13 @@
       "title": "Skeet Certified as a Google Cloud Integration Product",
       "description": "Skeet, an open-source serverless framework for building full-stack apps on Google Cloud and Firebase, has been certified as a Google Cloud integration product. ELSOUL LABO is an official partner of Google Cloud."
     },
-    "WBSO": {
-      "title": "Epics has received WBSO accreditation from the Dutch government",
-      "description": "Epics, a Web3 product deployed on Solana, has received WBSO (Advanced Science and Technology Research) accreditation from the Dutch government. Epics is a social contribution blockchain game (BCG) that aims to realize a sustainable open-source development environment."
-    },
     "SolanaValidator": {
-      "title": "ELSOUL LABO operates a validator for the Solana blockchain",
-      "description": "As a validator on the Solana chain, ELSOUL LABO is committed to ensuring the reliability and stability of the network. We will also contribute to the technical aspects of achieving Solana's fast and stable network."
-    },
-    "SolanaSummerCamp": {
-      "title": "Epics Placed 5th at Solana Summer Camp Hackathon 2022",
-      "description": "Epics DAO won 5th place out of over 18,000 applicants in the DAOs track at the Solana Summer Camp Hackathon held July 11-August 16, 2022."
+      "title": "Skeet operates a validator for the Solana blockchain",
+      "description": "As a validator on the Solana chain, Skeet community is committed to ensuring the reliability and stability of the network. We will also contribute to the technical aspects of achieving Solana's fast and stable network."
     },
     "GoogleWeb3": {
       "title": "ELSOUL LABO has been certified by Google Web3 Startups program",
-      "description": "ELSOUL LABO activities in the Web3 field, Epics DAO, were selected for the Google Cloud Web3 Startups program in recognition of their efforts to support open-source development."
+      "description": "ELSOUL LABO activities in the Web3 and open-source field, Epics DAO and Skeet, were selected for the Google Cloud Web3 Startups program in recognition of their efforts to support open-source development."
     }
   },
   "WhyOpenSourceDevelopmentRow": {
