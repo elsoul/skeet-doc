@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import GoogleCloudSkeet from '@/assets/img/work/GoogleCloudSkeet.png'
-import WBSO2022Epics from '@/assets/img/work/WBSO2022Epics.jpg'
 import ValidatorListELSOUL from '@/assets/img/work/ValidatorListELSOUL.png'
-import SolanaSummerCampHackathon from '@/assets/img/work/SolanaSummerCampHackathon.jpg'
 import GoogleCloudWeb3Startups from '@/assets/img/work/GoogleCloudWeb3Startups.png'
 import { useTranslation } from 'next-i18next'
 
@@ -13,19 +11,9 @@ const works = [
     description: 'OurWorksRow.GoogleCloudPartner.description',
   },
   {
-    title: 'OurWorksRow.WBSO.title',
-    imageUrl: WBSO2022Epics,
-    description: 'OurWorksRow.WBSO.description',
-  },
-  {
     title: 'OurWorksRow.SolanaValidator.title',
     imageUrl: ValidatorListELSOUL,
     description: 'OurWorksRow.SolanaValidator.description',
-  },
-  {
-    title: 'OurWorksRow.SolanaSummerCamp.title',
-    imageUrl: SolanaSummerCampHackathon,
-    description: 'OurWorksRow.SolanaSummerCamp.description',
   },
   {
     title: 'OurWorksRow.GoogleWeb3.title',
