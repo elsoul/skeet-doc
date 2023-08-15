@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import GoogleCloudSkeet from '@/assets/img/work/GoogleCloudSkeet.png'
-import ValidatorListELSOUL from '@/assets/img/work/ValidatorListELSOUL.png'
+import ValidatorListSkeet from '@/assets/img/work/SkeetSolanaValidator.png'
 import GoogleCloudWeb3Startups from '@/assets/img/work/GoogleCloudWeb3Startups.png'
 import { useTranslation } from 'next-i18next'
 
@@ -12,7 +12,7 @@ const works = [
   },
   {
     title: 'OurWorksRow.SolanaValidator.title',
-    imageUrl: ValidatorListELSOUL,
+    imageUrl: ValidatorListSkeet,
     description: 'OurWorksRow.SolanaValidator.description',
   },
   {
