@@ -11,6 +11,7 @@ import {
   CloudArrowUpIcon,
   CommandLineIcon,
   CogIcon,
+  Cog6ToothIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -153,6 +154,11 @@ export const docMenuNav = [
         name: 'doc:menuNav.skeet-graphql.quickstart',
         href: '/doc/skeet-graphql/quickstart/',
         icon: RocketLaunchIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-graphql.setup',
+        href: '/doc/skeet-graphql/setup/',
+        icon: Cog6ToothIcon,
       },
       {
         name: 'doc:menuNav.skeet-graphql.tutorial',

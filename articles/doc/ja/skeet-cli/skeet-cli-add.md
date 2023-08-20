@@ -6,8 +6,6 @@
 
 Skeet Add Command creates a new function or method.
 
-````bash
-
 ```bash
 $ skeet help add
 Usage: skeet add [options] [command]
@@ -22,7 +20,7 @@ Commands:
   method <methodName>
   model <modelName>
   help [command]             display help for command
-````
+```
 
 ## Add Cloud Functions
 

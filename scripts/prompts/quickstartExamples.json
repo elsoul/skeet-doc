@@ -1,0 +1,110 @@
+[
+  {
+    "input": "Skeet FrameworkはSQLとNoSQLを組み合わせてアプリを構築できますか？",
+    "output": "はい、Skeet FrameworkはSQLとNoSQLを組み合わせてアプリを構築することが可能です。このドキュメントでは、Firestoreを使用したアプリの作成方法について説明しています。"
+  },
+  {
+    "input": "Skeet Frameworkを使用してアプリを作成すると、どのような利点がありますか？",
+    "output": "Skeet Frameworkを使用すると、アプリの開発・運用コストを下げ、より多くのプランを実現することが可能になります。また、すぐにアプリのロジックからスタートでき、インフラに関する心配は不要です。"
+  },
+  {
+    "input": "Skeetを使用するために必要な依存パッケージは何ですか？",
+    "output": "Skeetを使用するためには、以下の依存パッケージが必要です：TypeScript（バージョン5.0.4以上）、Node.js（バージョン18.16.0以上）、Yarn（バージョン1.22.19以上）、Google Cloud SDK（バージョン430.0.0以上）、Firebase CLI（バージョン12.0.1以上）、GitHub CLI（バージョン2.29.0以上）、およびJava。JavaはSkeetで直接使用するものではありませんが、モバイルアプリを動作させるために必要です。"
+  },
+  {
+    "input": "Skeetフレームワークとfirebase-toolsをインストールするにはどうすればいいですか？",
+    "output": "Skeetフレームワークとfirebase-toolsをインストールするには、以下のコマンドを実行します：\n\n```bash\n$ npm i -g @skeet-framework/cli\n$ npm install -g firebase-tools\n```"
+  },
+  {
+    "input": "Skeetアプリを作成する際にフロントエンドのテンプレートを選択できますか？",
+    "output": "はい、Skeetアプリを作成する際には、フロントエンドのテンプレートとしてNext.js（React）またはExpo（React Native）を選択できます。このチュートリアルではExpo版を使用していますが、Next.js版でも同様の手順で進められます。"
+  },
+  {
+    "input": "Skeetアプリを作成するコマンドは何ですか？",
+    "output": "Skeetアプリを作成するためのコマンドは $ skeet create <appName> です。"
+  },
+  {
+    "input": "Skeet Appをローカルで起動する方法は？",
+    "output": "Skeet Appをローカルで起動するには、まずアプリのディレクトリに移動し、$ skeet sコマンドを実行します。これにより、Skeet AppのフロントエンドとFirebaseエミュレーターが起動します。Next.jsのフロントエンドはhttp://localhost:4200/、Expoのフロントエンドはhttp://localhost:19006/、Firebaseエミュレーターはhttp://localhost:4000/でアクセスできます。"
+  },
+  {
+    "input": "Skeet Appを完全に使用するためにはどのようなステップが必要ですか？",
+    "output": "Skeet Appを完全に使用するには、「アクティベート Skeet ChatApp」ステップを完了する必要があります。このステップには、Google Cloud Projectの作成、Firebase Projectの追加、およびFirebaseビルドの有効化が含まれます。"
+  },
+  {
+    "input": "Skeet ChatAppをアクティベートするにはどうすればいいですか？",
+    "output": "Skeet ChatAppをアクティベートするには、Google Cloud Projectの作成、Firebase Projectの追加、およびFirebaseビルドの有効化などのステップが必要です。具体的な手順はドキュメントで詳しく説明されています。"
+  },
+  {
+    "input": "Google Cloud Projectを作成するにはどうすればいいですか？",
+    "output": "Google Cloud Projectを作成するには、Google Cloudのコンソールにアクセスし、新しいプロジェクトを作成します。具体的には、以下のURLにアクセスしてください：https://console.cloud.google.com/projectcreate"
+  },
+  {
+    "input": "Firebaseプロジェクトを追加するにはどうすればいいですか？",
+    "output": "Firebaseプロジェクトを追加するには、Firebaseのコンソールにアクセスし、指示に従って新しいプロジェクトを作成します。Firebaseのコンソールは以下のURLからアクセスできます：https://console.firebase.google.com/"
+  },
+  {
+    "input": "Firebase認証を有効にするにはどうすればいいですか？",
+    "output": "Firebase認証を有効にするには、まずFirebase Authenticationを有効化します。次に、Email/Passwordログインを有効化します。これらの手順は、Firebaseの管理画面から行うことができます。"
+  },
+  {
+    "input": "Firebase Firestoreを有効にするにはどうすればいいですか？",
+    "output": "Firebase Firestoreを有効にするには、まずFirestoreを有効化します。次に、環境を選択します。最後に、リージョンを選択します。これらの手順は、それぞれのスクリーンショットを参照してください。"
+  },
+  {
+    "input": "Firebase Storageを有効化する手順は何ですか？",
+    "output": "Firebase Storageを有効化するには、まずFirebase Storageを有効化します。次に、使用する環境を選択します。最後に、リージョンを選択します。これらの手順は、それぞれのスクリーンショットを参照してください。"
+  },
+  {
+    "input": "Skeet initコマンドを実行する方法は何ですか？",
+    "output": "Skeet initコマンドを実行するには、まずGoogle Cloudにログインしていない場合はログインする必要があります。その後、'skeet init --login'コマンドを実行し、プロジェクトIDとデプロイするリージョンを選択します。そして、表示されたURLにアクセスしてFirebaseアカウントにログインします。"
+  },
+  {
+    "input": "環境変数をどのように設定すればいいですか？",
+    "output": "環境変数の設定方法については、ドキュメントの該当部分で詳しく説明されています。具体的な手順や設定する環境変数の詳細は、ドキュメントを参照してください。"
+  },
+  {
+    "input": "Firebase Blazeプランへのアップグレードはなぜ必要ですか？",
+    "output": "Skeet Frameworkでは、APIキーなどの機密情報を管理するためにCloud Secret Managerを使用しています。この機能を利用するためには、Firebase Blaze以上のプランが必要となります。"
+  },
+  {
+    "input": "Firebase Blazeプランへのアップグレードはどのように行いますか？",
+    "output": "Firebase Blazeプランへのアップグレードは、Firebaseコンソールから行うことができます。コンソールの左下のメニューから「アップグレード」を選択し、指示に従ってプランをアップグレードします。"
+  },
+  {
+    "input": "Skeet Frameworkのクラウド使用料について教えてください。",
+    "output": "Skeet FrameworkはFirebaseのBlazeプラン以上が必要です。しかし、通常、開発環境での使用料はGoogle Cloudの無料枠内で収まることが多いです。Google Cloudの無料枠には90日間の無料トライアルと、Always Freeという制限付きの無料アクセスがあります。詳細な料金情報はGoogle CloudとFirebase Blazeの公式サイトをご覧ください。また、予期せぬ請求を避けるために、予算のアラートを設定することを強く推奨します。"
+  },
+  {
+    "input": "想定外の請求を回避するためにはどうすればいいですか？",
+    "output": "想定外の請求を回避するためには、予算のアラートを設定することをおすすめします。これにより、使用料が予算を超えた場合に通知を受け取ることができます。詳細な手順はFirebaseの公式ドキュメントを参照してください。"
+  },
+  {
+    "input": "OpenAIのAPIキーをどのように設定しますか？",
+    "output": "OpenAIのAPIキーを設定するには、'skeet add secret <secretKey>'コマンドを使用します。具体的には、'skeet add secret CHAT_GPT_ORG'と入力し、プロンプトに従ってAPIキーを入力します。同様に、'skeet add secret CHAT_GPT_KEY'を使用してCHAT_GPT_KEYも設定します。ただし、これらの設定は本番環境には反映されません。本番環境で使用するためには、別途設定が必要です。"
+  },
+  {
+    "input": "環境変数を設定する別の方法はありますか？",
+    "output": "はい、環境変数を簡易的に設定する方法として、'functions/openai/.env'に直接記述する方法があります。ただし、この方法で設定した環境変数は本番環境には反映されません。"
+  },
+  {
+    "input": "OpenAIのAPIキーを作成・取得するにはどうすればいいですか？",
+    "output": "OpenAIのAPIキーを作成・取得するには、OpenAIの公式ウェブサイトにアクセスし、指示に従ってAPIキーを作成します。詳細な手順はOpenAIの公式ドキュメンテーションを参照してください。これにより、Skeet Appを使用するための準備が整います。"
+  },
+  {
+    "input": "Skeet Appでユーザー登録とログイン認証を行う方法は何ですか？",
+    "output": "Skeet Appでユーザー登録とログイン認証を行うには、まずローカルでSkeet Appを起動します。次に、http://localhost:19006/register（Next.jsの場合はhttp://localhost:4200/auth/register）にアクセスし、メールアドレスとパスワードを入力してユーザー登録を行います。登録が成功すると、コンソールログにメールアドレス認証のリンクが表示されます。このリンクをクリックしてメールアドレスの認証を行うと、認証が成功したことを示すメッセージが表示されます。"
+  },
+  {
+    "input": "メールアドレスの認証はどのように行いますか？",
+    "output": "メールアドレスの認証は、ユーザー登録が成功した後に表示されるコンソールログのリンクをクリックすることで行います。リンクをクリックすると、認証が成功したことを示すメッセージが表示されます。"
+  },
+  {
+    "input": "OpenAIチャットルームを作成する方法は何ですか？",
+    "output": "OpenAIチャットルームを作成するには、まずログインした後、http://localhost:19006/user/open-ai-chat（Next.jsの場合はhttp://localhost:4200/user/chat）にアクセスします。次に、チャットルームを作成します。チャットルームの作成には、モデル（OpenAI APIのモデルを選択）、Max Tokens（OpenAI APIのMax Tokensを設定）、Temperature（OpenAI APIのTemperatureを設定）、System Charactor（OpenAI APIのSystem Charactorを設定）の設定が必要です。これらの設定を選択し、チャットルームを作成します。これでチャットルームが使えるようになります。"
+  },
+  {
+    "input": "チャットルームの設定で、Model、Max Tokens、Temperature、System Charactorの各項目は何を意味しますか？",
+    "output": "これらの設定項目はOpenAI APIの設定を指定します。'Model'は使用するOpenAI APIのモデルを選択します。'Max Tokens'はOpenAI APIの最大トークン数を設定します。'Temperature'はOpenAI APIのテンプレチャー（出力のランダム性を制御するパラメータ）を設定します。'System Charactor'はOpenAI APIのシステムキャラクターを設定します。これらの設定により、チャットルームの動作が変わります。"
+  }
+]
