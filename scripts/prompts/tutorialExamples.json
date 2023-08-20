@@ -1,0 +1,118 @@
+[
+  {
+    "input": "このチュートリアルでは何を学びますか？",
+    "output": "このチュートリアルでは、Skeet Frameworkを使用して基本的なチャットボットアプリを作成する方法を学びます。これには、プログラミング言語TypeScriptとFirebase Firestore、GitHubを含むクラウドアプリの開発が含まれます。また、Skeet Frameworkの機能を使用して、以前は難しかったタスクがどのように簡単になるかを学びます。"
+  },
+  {
+    "input": "Skeet Frameworkの設計思想は何ですか？",
+    "output": "Skeet Frameworkは、コンピューターリソースを効率的に使用することで、開発者がより少ないコードでより多くのことを実現できるように設計されています。また、環境問題が深刻化する現代社会において、エネルギーを効率的に使用することは開発者の責務であると考えています。"
+  },
+  {
+    "input": "このチュートリアルで学ぶ技法はどのようなものですか？",
+    "output": "このチュートリアルで学ぶ技法は、どのようなSkeet Frameworkのアプリにも適用可能な基本的なものです。これらの技法をマスターすることで、Skeetへの深い理解が得られます。具体的には、クイックスタートで作成した機械学習（OpenAI）のAPIを使用したチャットボットアプリに新しい機能を追加する方法を学びます。"
+  },
+  {
+    "input": "このチュートリアルの目標は何ですか？",
+    "output": "このチュートリアルの目標は、開発用ログイン認証キーの取得、Skeet CurlでのAPIリクエストのテスト、チャットストリームのコードの確認、PubSubトリガーを使ったタスクの切り分け、そしてFirebaseへのデプロイの方法を学ぶことです。"
+  },
+  {
+    "input": "チュートリアルを開始する前に必要な前提条件は何ですか？",
+    "output": "チュートリアルを開始する前に、クイックスタートが完了している必要があります。クイックスタートがまだ完了していない場合は、それを先に完了させてください。"
+  },
+  {
+    "input": "Skeet Frameworkで推奨される開発環境は何ですか？",
+    "output": "Skeet Frameworkでは、VScodeをエディタとして推奨しています。VScodeを使用すると、フレームワークに沿って開発を進めることで、GitHub Copilotを使った強力なコード補完サポートを受けることができます。また、ChatbotにはOpenAIのAPIを使用します。"
+  },
+  {
+    "input": "GitHub Copilotは何のために使用されますか？",
+    "output": "GitHub Copilotは、VScode内でコード補完サポートを提供するために使用されます。これにより、開発者はより効率的にコードを書くことができます。"
+  },
+  {
+    "input": "Chatbotの開発にはどのAPIを使用しますか？",
+    "output": "Chatbotの開発にはOpenAIのAPIを使用します。"
+  },
+  {
+    "input": "開発用のログイン認証キーをどのように取得しますか？",
+    "output": "開発用のログイン認証キーを取得するには、まずFirebaseエミュレーターを起動し、次に'skeet login'コマンドを実行します。これにより、accessTokenが生成されます。このaccessTokenを環境変数に設定することで、'skeet curl'コマンドを使用してAPIリクエストを送信することができます。"
+  },
+  {
+    "input": "Skeet Frameworkではどのように開発者が効率的に開発を進めることができますか？",
+    "output": "Skeet Frameworkでは、'skeet login'と'skeet curl'の2つのコマンドを提供しています。これらのコマンドを使用することで、開発者はログイン認証キーの取得やPOSTリクエストの送信を効率的に行うことができます。"
+  },
+  {
+    "input": "ログインコマンドが成功した場合、何が起こりますか？",
+    "output": "ログインコマンドが成功すると、デフォルトで'authOnCreateUser.ts'に定義されているAuthインスタンスのトリガーが作動します。これにより、Firebase Firestoreにユーザー情報が保存されます。"
+  },
+  {
+    "input": "ユーザー情報はどのようにして取得しますか？",
+    "output": "'await getUserAuth(req)'を使用してFirebaseからユーザー情報を取得します。この関数の戻り値はユーザーのuid、username、email、iconUrlを含むオブジェクトです。"
+  },
+  {
+    "input": "Skeet Curlを使用してAPIリクエストをテストする方法は何ですか？",
+    "output": "Skeet Curlを使用してAPIリクエストをテストするには、'skeet curl'コマンドに続けてAPI名を指定します。例えば、'skeet curl createUserChatRoom'というコマンドを実行すると、createUserChatRoom APIにリクエストが送信されます。成功すると、UserChatRoomとUserChatRoomMessageが作成され、その参照情報がレスポンスとして返されます。"
+  },
+  {
+    "input": "Skeet Functionsのコードはどこに配置されていますか？",
+    "output": "Skeet Functionsのコードは、functionsディレクトリに配置されています。特に、Httpトリガーの場合は、routings/httpディレクトリに配置されています。"
+  },
+  {
+    "input": "フロントエンドから呼び出されるデフォルトの関数は何ですか？",
+    "output": "フロントエンドからデフォルトで呼び出される関数は_addStreamUserChatRoomMessage_です。この関数は、functions/skeet/routings/http/addStreamUserChatRoomMessage.tsに配置されています。"
+  },
+  {
+    "input": "addStreamUserChatRoomMessage関数は何を行いますか？",
+    "output": "addStreamUserChatRoomMessage関数は、ユーザーがチャットルームにメッセージを追加するためのリクエストを処理します。この関数は、リクエストボディからユーザーチャットルームIDとコンテンツを取得し、Firebase Authからユーザー情報を取得します。次に、ユーザーチャットルームを取得し、ユーザーチャットルームメッセージを追加します。その後、OpenAIへのリクエストを送信し、OpenAIストリームを取得します。ストリームからのデータは、クライアントに送信されます。最後に、ストリームが終了したら、最後のメッセージを作成し、レスポンスを終了します。"
+  },
+  {
+    "input": "addStreamUserChatRoomMessage関数を呼び出すにはどうすればいいですか？",
+    "output": "addStreamUserChatRoomMessage関数を呼び出すには、skeet curlコマンドを使用します。このコマンドには、userChatRoomIdとcontentを含むデータオブジェクトを引数として渡します。また、--rawオプションを使用してチャンクデータを表示することもできます。"
+  },
+  {
+    "input": "Skeetで利用可能なエンドポイントを確認するにはどうすればいいですか？",
+    "output": "Skeetで利用可能なエンドポイントを確認するには、skeet get httpsコマンドを使用します。このコマンドは、利用可能なすべてのエンドポイントとそれぞれのパラメータパスを一覧表示します。"
+  },
+  {
+    "input": "PubSubトリガーを使ってタスクを切り分ける方法は何ですか？",
+    "output": "PubSubトリガーを使ってタスクを切り分けるには、まず新しいPubSubトリガーを追加します。これは、'skeet add method'を実行し、インスタンスのタイプと関数名を入力することで行います。次に、型定義ファイルと関数ファイルが作成されます。これらのファイルには、PubSubメッセージをパースし、OpenAI APIを呼び出してタイトルを生成し、チャットルームのタイトルを更新するなどの処理を実装します。最後に、PubSub Publishを追加し、新しい関数を追加します。これにより、PubSubトリガーを使ってタスクを切り分けることができます。"
+  },
+  {
+    "input": "PubSubトリガーを使ってタスクを切り分けた後、どのようにテストを行いますか？",
+    "output": "PubSubトリガーを使ってタスクを切り分けた後、テストを行うには、まずローカルサーバーを再起動します。次に、再度ログインし、アクセストークンの設定を行います。その後、UserChatRoomを作成し、UserChatRoomのIDを取得します。最後に、UserChatRoomMessageを作成します。これにより、PubSubトピックにメッセージが送信され、PubSubトリガーが発火します。これにより、タスクが正しく切り分けられているかを確認できます。"
+  },
+  {
+    "input": "SkeetをFirebaseに初めてデプロイする方法は何ですか？",
+    "output": "SkeetをFirebaseに初めてデプロイする場合、まず'skeet init'コマンドを使用してプロジェクトの設定を行います。このプロセスでは、GCPプロジェクトIDを入力し、デプロイするリージョンを選択します。FirestoreとFirebaseAuthが作成されていることを確認するためのリンクも提供されます。ドメインの設定はこの時点では行わず、設定が完了したらデプロイを行います。デプロイが成功すると、Firebase Functionsにデプロイされたことを示すメッセージが表示されます。"
+  },
+  {
+    "input": "Skeet Frameworkでは型定義をフロントエンドに同期させることができますか？",
+    "output": "はい、Skeet Frameworkでは型定義をフロントエンドに同期させることができます。これは、$ skeet sync typesコマンドを使用して行います。このコマンドにより、バックエンドのsrc/types/httpにある型定義がフロントエンドのsrc/types/http/{FunctionsName}にコピーされます。"
+  },
+  {
+    "input": "モデルを同期するためにはどのようなコマンドを使用しますか？",
+    "output": "モデルを同期するためには、$ skeet sync modelsというコマンドを使用します。このコマンドにより、バックエンドの _src/models_ にあるモデルがフロントエンドの _src/types/models_ にコピーされます。また、複数のファンクションがある場合は、最新のモデルを選択し、その他のファンクションのモデルにコピーします。"
+  },
+  {
+    "input": "モデルの同期は何を意味しますか？",
+    "output": "モデルの同期とは、バックエンドとフロントエンド間でデータモデルの一貫性を保つためのプロセスを指します。具体的には、バックエンドの _src/models_ にあるモデルをフロントエンドの _src/types/models_ にコピーすることで、両者間で同じデータ構造を共有することができます。これにより、データの不整合を防ぎ、アプリケーションの安定性を保つことができます。"
+  },
+  {
+    "input": "Skeet yarn buildコマンドは何を行うものですか？",
+    "output": "Skeet yarn buildコマンドは、全てのファンクションのビルドを行うコマンドです。このコマンドを実行すると、aキーを押すことで全てのファンクションがビルドされます。"
+  },
+  {
+    "input": "Skeet Frameworkをデプロイする方法は何ですか？",
+    "output": "Skeet Frameworkをデプロイするには2つの方法があります。一つはGitHub Actionsを使用したCI/CDによる方法、もう一つはSkeet CLIを使用した方法です。"
+  },
+  {
+    "input": "GitHub Actionsを使用してCI/CDを設定する方法は何ですか？",
+    "output": "GitHub Actionsを使用してCI/CDを設定するには、まず変更をステージングエリアに追加し、コミットメッセージを付けてコミットします。その後、mainブランチにプッシュします。GitHubにプッシュすると、GitHub Actionsにより自動的にデプロイが行われます。ただし、最初のデプロイを完了させる必要があります。"
+  },
+  {
+    "input": "Skeet CLIを使用してどのようにデプロイしますか？",
+    "output": "Skeet CLIを使用してデプロイするには、$ skeet deployコマンドを実行します。その後、デプロイするfunctionsを選択します。選択されたfunctionsのみがデプロイされます。全てのfunctionsを選択するには、aキーを押します。これで、Skeet Frameworkのデプロイが完了します。"
+  },
+  {
+    "input": "Skeet Frameworkのデプロイが完了したら、次に何をすればいいですか？",
+    "output": "Skeet Frameworkのデプロイが完了したら、あとはあなたのアイディアを実装するだけです。"
+  }
+]

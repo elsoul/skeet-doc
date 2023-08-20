@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "figaro-cloud-387909",
+  "private_key_id": "a52a43d23373c78d6713029e39293a6c6526132a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCraDruI488YJx6\niDq14scslEWW6iPslqqqfbZJvK5lbFdx7inQohr9lrd1ocs734sVDQBmkF0uFpfq\nRkVQliNrxVHFeyOqrKnFzhXH+npMLoO7/LscYgnTrvsEyhBT5C+CIk2lX5uBY7QC\nW2Zfv/eVKhMKisBUj6qUBmLJcTvvLy8IA/bRqwu5E5BWGE0j8qg0/FAga0cI/orn\nSr1wjHlNF6dWFdYfDKcA2JC8SvQeMgaFnYxjIC1UFSoh23IlDIOlYdakiTrxYNfF\nAlNTioFU7WAb8/6pXutZgu8qBdzGB2a4RH7Y1ezg6t+ADmck+11J63pqWLu08mJx\njfUIcce3AgMBAAECggEAGvtm32rYluQMbdt5Bn3C5bkXdUi5S/pxtjHg2p2phEy4\nPTaE/ZMvFYE+svU7pVqsra0kxYBvMpya4GWcbrGbtNDUbPZT6H+SoBEva5H543kl\nApgnqjGio2B1okzeoh4W/nDA8UnqFEWqJf7WUDdLVX9QjQXHfeg5rWCN93DsQtvT\nhvCsXkbZL+1kxZedeV3mT6c/7W+ZvbaCNld+Ng5wStk/Gh5c8RLeloC+0ruTl/i0\nDq6yRX4QJnV3UJzCI/UygWstiXrdRlK66k/Inin4pGEP46saQIgbmJhfy1fPFr2B\nPOROk5VJ3qm6oUO6OzWwdNeWCXxKC6HlsczqJJSdVQKBgQDwCF2f4ORLOdMsq6nc\n9cYMsYBNCpNPSQdOQhdA7CA/ttOrQM7RcHatevSL1jf+zMHP0EHVW3cHlBP+DCCz\nOJYXTdMZ9VlgoD/CmQjRY1wJXFCnuYEjHTD66uuqLZ2iW6hYN8zMcGXicsSjm19c\nJPxNvOTeDUmrt4JtlCAJQBVBKwKBgQC2zzTngwDn6INb6VoGywsBCpLdQ2PhbwoC\n0Y1Z6X0tVXYTALT7lsfo/Ltm5GbMfAZ3Ks/cZWO/9bzc+VPLzA8ItV1baDg1gYev\naxxJeU4M0BwTGeDmZpBgJ58wJhF9ia9epKiYSxXXPSmwNkPuR1PyirRgzoDP2J0l\n8YBvI5LVpQKBgEHv2mA39B6iFNuZkIDtVulXvUnslMjb49DgoOiptLYr7/uEQwwP\nm9pOA22CfEFXWApRSDRm+syvJcrM5BK3gauHKm1gE5xSiRFY3q4+YCMGI/XfJJVT\nyIe1DuXhwALAsP8C3RRv790D7/aNkOWMF273a9t/xPQR5hdZ8G76FpyfAoGBAJYg\nO9YT416Pt7B3RhNmEzdbs5g5i4DKa3I9HNPFx6K/GCQq5HXoMWvIgS3STAmJoNWk\nNudL7ErsR5lAt+wZPA9uwagbQm3OXdtVHvnHwK0NCsE081jCybXtU/F6kcqCk54p\norrOjrUf6WhoaAj6UppQBimp7GbEAOn0FgEvOZpxAoGAbZklZNmSe8G3Lds66aEB\nvXCa3zEUiN1qhM5Th77TVvamJ5eqPpjcr8QOt90FWDUTKTwFCm42LqKgkQzHyc40\n7v0zeox7HxrgIlqbVm0v47R0MRqFIt5RBiDB/i48swIzc9Qmoo4K4JFYaXuGvjKu\n5dv8mjesAUJb38DOFmkp1VE=\n-----END PRIVATE KEY-----\n",
+  "client_email": "figaro-cloud-387909@figaro-cloud-387909.iam.gserviceaccount.com",
+  "client_id": "112241370168904006153",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/figaro-cloud-387909%40figaro-cloud-387909.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
