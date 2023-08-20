@@ -1,0 +1,110 @@
+[
+  {
+    "input": "Skeet Frameworkの基本構造はどのようになっていますか？",
+    "output": "Skeet Frameworkの基本構造は次のようになっています。'src'ディレクトリにはフロントエンドのソースコードが配置されます。'functions'ディレクトリ以下にはCloud Functions for Firebaseのプロジェクトが配置されます。このディレクトリには複数のfunctionsを追加することができます。また、'package.json'はバックエンドのパッケージ管理、'skeet-cloud.config.json'はSkeet Frameworkの設定ファイル、'firebase.json'はFirebaseの設定ファイルとなっています。"
+  },
+  {
+    "input": "'src'ディレクトリは何を含んでいますか？",
+    "output": "'src'ディレクトリはフロントエンドのソースコードを含んでいます。具体的には、'public'ディレクトリと'types'ディレクトリがあります。'public'ディレクトリにはフロントエンドのソースコードが、'types'ディレクトリにはフロントエンドの型定義が配置されています。"
+  },
+  {
+    "input": "'functions'ディレクトリは何を含んでいますか？",
+    "output": "'functions'ディレクトリにはCloud Functions for Firebaseのソースコードが配置されています。具体的には、'skeet'ディレクトリがあり、ここにはOpenAI APIなどに関するfunctionsが配置されています。"
+  },
+  {
+    "input": "Skeet Functionsは何をベースにしていますか？",
+    "output": "Skeet FunctionsはCloud Functions for Firebaseをベースにしています。_functions_ディレクトリ以下にCloud Functions for Firebaseのプロジェクトが配置され、ここには複数のfunctionsを追加することができます。"
+  },
+  {
+    "input": "Skeet Functionsの基本的なディレクトリ構造はどのようなものですか？",
+    "output": "Skeet Functionsの基本的なディレクトリ構造は以下の通りです：\n- build.ts: ビルドスクリプト\n- devBuild.ts: ビルドスクリプト\n- dist: ビルド後のソースコード\n- nodemon.json: ローカルでの起動設定\n- package.json: バックエンドのパッケージ管理\n- src: ソースコード\n- src/index.ts: エントリーポイント\n- src/lib: ライブラリ\n- src/models: モデル\n- src/routings: ルーティング\n- src/scripts: スクリプト\n- src/types: 型定義\n- src/utils: ユーティリティ\n- tsconfig.json: TypeScriptの設定\n- yarn.lock: パッケージのロックファイル"
+  },
+  {
+    "input": "Skeet Functionsのインスタンスタイプは何がありますか？",
+    "output": "Skeet Functionsには以下の5つのインスタンスタイプがあります：\n\n1. Http: HTTPリクエストを受け取る関数\n2. PubSub: PubSubメッセージを受け取る関数\n3. Scheduler: スケジュールされた関数\n4. Firestore: Firestoreのドキュメントの作成、更新、削除などのトリガーを受け取る関数\n5. Auth: Firebaseユーザーアカウントの作成と削除などのトリガーを受け取る関数"
+  },
+  {
+    "input": "Skeet Rountingsの基本構造はどのようになっていますか？",
+    "output": "Skeet Rountingsの基本構造は、インスタンスのタイプによってルーティングの設定が異なります。また、Cloud Functions for Firebaseのオプション設定はroutings/optionsディレクトリ以下に配置されています。具体的なディレクトリ構造は、auth, firestore, http, options, pubsub, schedulerなどの各種機能ごとにファイルが分かれています。"
+  },
+  {
+    "input": "Httpのデフォルトオプション設定はどのように行いますか？",
+    "output": "Httpのデフォルトオプション設定は、_routings/options/http/httpOptions.ts_ ファイルで行います。ここでは、公開用とプライベート用の2つのオプションを設定します。それぞれのオプションには、リージョン、CPU、メモリ、最大インスタンス数、最小インスタンス数、同時接続数、タイムアウト秒数、ラベルなどの設定が含まれます。プライベートオプションには、さらにサービスアカウント、イングレス設定、VPCコネクタ、VPCコネクタのイグレス設定、CORSの設定が含まれます。"
+  },
+  {
+    "input": "Httpインスタンスの設定はどのように行いますか？",
+    "output": "Httpインスタンスの設定は、_routings/http/{httpInstance}_ ファイルで行います。ここでは、リクエストに対するレスポンスを定義します。例えば、_routings/http/root.ts_ ファイルでは、rootエンドポイントに対するレスポンスを定義しています。リクエストボディの型はTypedRequestBodyを使用して定義し、レスポンスはjson形式で返します。エラーハンドリングもこの中で行います。"
+  },
+  {
+    "input": "Httpインスタンスの型定義はどのように行いますか？",
+    "output": "Httpインスタンスの型定義は、_src/types/http/{httpInstance}Params.ts_ ファイルで行います。ここでは、リクエストボディの型を定義します。例えば、_types/http/rootParams.ts_ ファイルでは、rootエンドポイントのリクエストボディの型を定義しています。"
+  },
+  {
+    "input": "PubSubのデフォルトオプションはどのように設定しますか？",
+    "output": "PubSubのデフォルトオプションは、'routings/options/pubsub/pubsubOptions.ts'ファイルで設定します。ここでは、アプリ名、プロジェクトID、リージョン、サービスアカウント、VPCコネクタなどの情報を指定します。これらの情報は、'skeetOptions.json'ファイルから取得します。"
+  },
+  {
+    "input": "PubSubインスタンスのルーティングはどこに記述しますか？",
+    "output": "PubSubインスタンスのルーティングは、'routings/pubsub/{pubsubInstance}'ファイルに記述します。ここでは、メッセージがパブリッシュされたときの動作を定義します。"
+  },
+  {
+    "input": "PubSubインスタンスの型定義はどこに記述しますか？",
+    "output": "PubSubインスタンスの型定義は、'src/types/pubsub/{pubsubInstance}Params.ts'ファイルに記述します。ここでは、パブリッシュされるメッセージの型を定義します。"
+  },
+  {
+    "input": "Scheduleデフォルトオプションの設定はどのように行いますか？",
+    "output": "Scheduleのデフォルトオプションは、'routings/options/schedule/scheduleOptions.ts'ファイル内で設定します。ここでは、アプリ名、プロジェクトID、リージョン、サービスアカウント、VPCコネクタなどの情報を設定します。これらの情報は'skeetOptions.json'ファイルから取得します。"
+  },
+  {
+    "input": "Scheduleインスタンスの設定はどのように行いますか？",
+    "output": "Scheduleインスタンスの設定は、'routings/schedule/{scheduleInstance}'ディレクトリ内のファイルで行います。例えば、'routings/schedule/scheduleExample.ts'ファイルでは、onSchedule関数を使用してスケジュールを設定します。この関数は、デフォルトのスケジュールオプションと、スケジュール時に実行する非同期関数を引数に取ります。"
+  },
+  {
+    "input": "Firestoreのデフォルトオプションはどのように設定しますか？",
+    "output": "Firestoreのデフォルトオプションは、'routings/options/firestore/firestoreOptions.ts'ファイルで設定します。ここでは、アプリの名前、プロジェクトID、リージョン、サービスアカウント、VPCコネクタなどの情報を指定します。これらの情報は、'skeetOptions.json'ファイルから取得します。"
+  },
+  {
+    "input": "Firestoreインスタンスの設定はどこで行いますか？",
+    "output": "Firestoreインスタンスの設定は、'routings/firestore/{firestoreInstance}'で行います。具体的な設定は、'firestoreExample.ts'ファイルに記述されています。ここでは、ドキュメントが作成されたときにトリガーされるイベントハンドラを定義しています。"
+  },
+  {
+    "input": "Firestore Triggerのタイプは何がありますか？",
+    "output": "Firestore Triggerには、以下の4つのタイプがあります：\n1. onDocumentCreated: ドキュメントが作成されたときにトリガーされます。\n2. onDocumentDeleted: ドキュメントが削除されたときにトリガーされます。\n3. onDocumentUpdated: ドキュメントが更新されたときにトリガーされます。\n4. onDocumentWritten: ドキュメントが作成、更新、または削除されたときにトリガーされます。"
+  },
+  {
+    "input": "Authインスタンスのデフォルトオプション設定はどのように行いますか？",
+    "output": "Authインスタンスのデフォルトオプション設定は、'routings/options/auth/authOptions.ts'ファイルで行います。ここでは、RuntimeOptionsをインポートし、メモリ、最大インスタンス数、最小インスタンス数、タイムアウト秒数などのオプションを設定します。また、サービスアカウントやVPCコネクタなどの設定も行います。"
+  },
+  {
+    "input": "Authインスタンスのデフォルトファンクションは何を行いますか？",
+    "output": "Authインスタンスのデフォルトファンクションは、Firebaseユーザーが作成されたときに、そのユーザーのドキュメントを作成します。"
+  },
+  {
+    "input": "Authインスタンスの設定はどこで行いますか？",
+    "output": "Authインスタンスの設定は、'routings/auth/auth{MethodName}.ts'ファイルで行います。具体的には、ユーザーが作成されたときに実行される関数を定義します。この関数では、ユーザーの情報を取得し、その情報を使用して新しいユーザードキュメントを作成します。"
+  },
+  {
+    "input": "Dev環境でFirebaseユーザーの登録・ログインはどのように行いますか？",
+    "output": "Dev環境でFirebaseユーザーの登録・ログインを行うには、skeet loginコマンドを使用します。まず、Skeetアプリを起動し、別のターミナルウィンドウでskeet loginコマンドを実行します。これにより、Firebaseユーザー登録とFirestoreユーザー登録が完了します。コンソールに表示されるコードをコピーしてターミナルに貼り付けると、ACCESS_TOKENが環境変数に設定され、skeet curlコマンドが使用できるようになります。"
+  },
+  {
+    "input": "skeet curlコマンドはどのように使用しますか？",
+    "output": "skeet curlコマンドは、開発環境でCloud Functionsエンドポイントを呼び出すために使用します。基本的な使用方法は、skeet curl [options] <methodName>です。ここで、methodNameは呼び出すメソッドの名前です。オプションには、-dまたは--dataでJSONリクエストボディを指定したり、-rまたは--rawでチャンクデータを表示したり、-pまたは--productionで本番環境用にしたり、-fまたは--functionsで本番環境のFunctions名を指定したりできます。"
+  },
+  {
+    "input": "Skeetでモデルを定義する方法は何ですか？",
+    "output": "Skeetでは、モデルの定義を_src/models/{modelName}Models.ts_に記述します。型定義にはTypesaurusを使用します。NoSQLデータモデルは非常に柔軟であるため、モデルの定義は必須ではありませんが、それぞれのモデルにCollectionIdとDocumentIdをコメントで記述しておくことを推奨します。これにより、可読性が上がり、CodePilotでのコード補完が効くようになります。"
+  },
+  {
+    "input": "データの取得、更新、削除はどのように行いますか？",
+    "output": "データの取得、更新、削除は、@skeet-framework/firestoreプラグインを使用して行います。具体的には、addCollectionItemやgetCollectionItemなどの関数を使用します。詳細はSkeet Firestoreのドキュメンテーションを参照してください。"
+  },
+  {
+    "input": "Typesaurusとは何ですか？",
+    "output": "Typesaurusは、FirebaseのCloud FirestoreのためのTypeScript向けのライブラリです。型安全なAPIを提供し、Firestoreのデータを扱う際の型エラーを防ぐことができます。Skeetでは、モデルの型定義にTypesaurusを使用しています。"
+  },
+  {
+    "input": "Skeet CLIを使用して何ができますか？",
+    "output": "Skeet CLIを使用すると、新たにCloud Functions for Firebaseを追加したり、各関数ごとにyarnコマンドを実行することができます。また、Skeetアプリの作成、実行、デプロイ、Google Cloudの設定の初期化、Google Cloud Platformのセットアップ、新しい関数の追加、バックエンドとフロントエンドの同期、Firebaseログイントークンの作成、Skeetアプリリストの取得、開発用のCloud Functionsエンドポイントの呼び出し、テストなど、多くの操作を行うことができます。"
+  }
+]

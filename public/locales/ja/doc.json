@@ -13,6 +13,10 @@
       "title": "クイックスタート",
       "body": "Skeet フレームワークを使い始めるための設定について説明します。"
     },
+    "setup": {
+      "title": "セットアップ",
+      "body": "Skeet フレームワークを使い始めるための設定について説明します。"
+    },
     "tutorial": {
       "title": "チュートリアル",
       "body": "Skeet フレームワーク を使ってAIチャットアプリを作成するチュートリアルです。"
@@ -51,6 +55,7 @@
     "skeet-graphql": {
       "groupTitle": "GraphQL バックエンド",
       "quickstart": "クイックスタート",
+      "setup": "セットアップ",
       "basic-architecture": "基本アーキテクチャ",
       "initial-deploy": "最初のデプロイ",
       "tutorial": "チュートリアル",
@@ -64,6 +69,7 @@
     "skeet-firestore": {
       "groupTitle": "Firestore バックエンド",
       "quickstart": "クイックスタート",
+      "setup": "セットアップ",
       "basic-architecture": "基本アーキテクチャ",
       "initial-deploy": "最初のデプロイ",
       "tutorial": "チュートリアル",
@@ -76,8 +82,9 @@
     },
     "plugins": {
       "groupTitle": "プラグイン",
-      "skeet-firestore": "Skeet Firestore",
-      "skeet-utils": "Skeet Utils"
+      "skeet-ai": "Skeet AI",
+      "skeet-utils": "Skeet Utils",
+      "skeet-firestore": "Skeet Firestore"
     },
     "frontend": {
       "groupTitle": "フロントエンド",
@@ -88,6 +95,7 @@
     },
     "skeet-cli": {
       "groupTitle": "Skeet CLI",
+      "ai": "Skeet AI Assistant",
       "create": "Skeet Create",
       "server": "Skeet Server",
       "deploy": "Skeet Deploy",

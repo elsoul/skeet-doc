@@ -13,6 +13,10 @@
       "title": "Quickstart",
       "body": "Describes the setup for getting started with the Skeet framework."
     },
+    "setup": {
+      "title": "Setup",
+      "body": "Describes the setup for getting started with the Skeet framework."
+    },
     "tutorial": {
       "title": "Tutorial",
       "body": "This tutorial will create an Chat App using Skeet Framework."
@@ -47,6 +51,7 @@
     "skeet-graphql": {
       "groupTitle": "GraphQL Backend",
       "quickstart": "Quickstart",
+      "setup": "Setup",
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
@@ -60,6 +65,7 @@
     "skeet-firestore": {
       "groupTitle": "Firestore Backend",
       "quickstart": "Quickstart",
+      "setup": "Setup",
       "basic-architecture": "Basic Architecture",
       "initial-deploy": "Initial Deploy",
       "tutorial": "Tutorial",
@@ -72,6 +78,7 @@
     },
     "plugins": {
       "groupTitle": "Plugins",
+      "skeet-ai": "Skeet AI Assistant",
       "skeet-firestore": "Skeet Firestore",
       "skeet-utils": "Skeet Utils"
     },

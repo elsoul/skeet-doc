@@ -1,0 +1,16 @@
+[
+  {
+    "input": "Skeet Appをローカルで起動する方法は？",
+
+    "output": "Skeet Appをローカルで起動するには、まずアプリのディレクトリに移動し、$ skeet sコマンドを実行します。これにより、Skeet AppのフロントエンドとFirebaseエミュレーターが起動します。Next.jsのフロントエンドはhttp://localhost:4200/、Expoのフロントエンドはhttp://localhost:19006/、Firebaseエミュレーターはhttp://localhost:4000/でアクセスできます。"
+  },
+  {
+    "input": "Skeet Appを完全に使用するためにはどのようなステップが必要ですか？",
+    "output": "Skeet Appを完全に使用するには、「アクティベート Skeet ChatApp」ステップを完了する必要があります。このステップには、Google Cloud Projectの作成、Firebase Projectの追加、およびFirebaseビルドの有効化が含まれます。"
+  },
+  {
+    "input": "Firebaseビルドを有効にするにはどうすればいいですか？",
+
+    "output": "Firebase ビルドを有効にするには、指示に従って以下の３つの Firebase ビルドを有効化する必要があります。具体的な手順やビルドの詳細は、ドキュメントでさらに言及されているか、Firebaseの公式ドキュメントを参照してください。"
+  }
+]
