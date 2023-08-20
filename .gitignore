@@ -44,3 +44,4 @@ gcloud-key.json
 #firebase
 .firebase
 firebase-debug.log
+keyfile.json
