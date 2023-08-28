@@ -1,0 +1,74 @@
+[
+  {
+    "input": "Skeet CLIをインストールする方法は何ですか？",
+    "output": "Skeet CLIをインストールするには、以下のコマンドを実行します：$ npm i -g @skeet-framework/cli。これにより、Skeetフレームワークを効率的に利用するためのコマンドラインツールがインストールされます。"
+  },
+  {
+    "input": "SkeetはDockerを利用してローカルでの開発をサポートしていますか？",
+    "output": "はい、SkeetはDockerを利用してローカルでの開発をサポートしています。Dockerがまだインストールされていない場合は、公式のDockerドキュメンテーションを参照してインストールしてください。Mac、Windows、Linux用のDocker Desktopのインストールガイドが提供されています。"
+  },
+  {
+    "input": "Google Cloud Projectを作成する目的は何ですか？",
+    "output": "Google Cloud Projectを作成することで、Google Cloudの各種リソースを利用することが可能になります。これにより、アプリケーションの開発や運用に必要なサービスや機能を利用することができます。"
+  },
+  {
+    "input": "Google Cloud Projectを作成する方法は？",
+    "output": "Google Cloud Projectを作成するには、Google Cloudの公式ドキュメントを参照してください。具体的には、以下のリンクからプロジェクトの作成方法を確認できます：[Google Cloud プロジェクトの作成](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ja)"
+  },
+  {
+    "input": "Google Cloud VertexAIを有効にするにはどうすればいいですか？",
+    "output": "Google Cloud VertexAIを有効にするには、Skeet CLIのコマンド $ skeet iam ai を使用します。SkeetはGoogle Cloud VertexAIと統合されているため、このコマンドを実行するだけでVertexAIを有効にすることができます。"
+  },
+  {
+    "input": "Skeet AIアシスタントはどのように起動しますか？",
+    "output": "Skeet AIアシスタントを起動するには、コマンドラインで$ skeet aiと入力します。これにより、さまざまなクエリに対応するインタラクティブなツールが起動します。"
+  },
+  {
+    "input": "Skeet AIアシスタントはどのように使用しますか？",
+    "output": "Skeet AIアシスタントはインタラクティブなツールで、ユーザーが質問を入力すると対応する回答を提供します。例えば、「How to install skeet?」と質問すると、Skeetのインストール方法についての情報を提供します。"
+  },
+  {
+    "input": "Skeet AI Prismaを起動するにはどうすればいいですか？",
+    "output": "Skeet AI Prismaを起動するには、コマンドラインで$ skeet aiと入力します。起動すると、VertexAIが選択され、データベースのスキーマ生成モードになります。データベースのユースケースに関する情報を入力するように求められます。例えば、「ブログサイトを作りたいです。」と入力すると、ブログサイトに適したPrismaのスキーマが生成されます。"
+  },
+  {
+    "input": "Prismaのスキーマ生成モードとは何ですか？",
+    "output": "Prismaのスキーマ生成モードは、データベースのユースケースに関する情報を元に、データベースのスキーマを自動的に生成するモードです。このモードでは、ユーザーがデータベースのユースケースを説明すると、それに基づいたスキーマが生成されます。"
+  },
+  {
+    "input": "ブログサイトのためのPrismaスキーマはどのようになりますか？",
+    "output": "ブログサイトのためのPrismaスキーマは、PostモデルとCommentモデルを含む形で生成されます。Postモデルは、ブログの投稿を表し、Commentモデルは投稿へのコメントを表します。各モデルは、id、content、createdAt、updatedAtなどのフィールドを持ちます。また、PostモデルはUserモデルとのリレーションを持ち、CommentモデルはPostモデルとのリレーションを持ちます。"
+  },
+  {
+    "input": "Prismaのスキーマはどこに保存されていますか？",
+    "output": "Prismaのスキーマは./graphql/prisma/schema.prismaに保存されています。"
+  },
+  {
+    "input": "Prismaのスキーマを編集するにはどうすればいいですか？",
+    "output": "Prismaのスキーマを編集するには、まず./graphql/prisma/schema.prismaに保存されているスキーマを開きます。その後、必要に応じてスキーマを編集します。"
+  },
+  {
+    "input": "skeetテンプレートを作成するにはどうすればいいですか？",
+    "output": "skeetテンプレートを作成するには、$ skeet create <appName>コマンドを実行します。"
+  },
+  {
+    "input": "スキーマを元にデータベースのマイグレーションを行うとはどういうことですか？",
+    "output": "スキーマを元にデータベースのマイグレーションを行うというのは、スキーマの定義に基づいてデータベースの構造を変更または更新することを意味します。これにより、スキーマの変更がデータベースに反映されます。"
+  },
+  {
+    "input": "Skeetはデータベースのマイグレーションをどのように行いますか？",
+    "output": "SkeetはPrismaを利用してデータベースのマイグレーションを行います。具体的には、$ skeet db migrate <migrationName>コマンドを実行することでマイグレーションを作成・実行することができます。"
+  },
+  {
+    "input": "SkeetでGraphQL APIを自動生成する方法は何ですか？",
+    "output": "Skeetでは、スキーマからGraphQL APIを自動生成することができます。これを行うには、$ skeet g scaffoldというコマンドを実行します。"
+  },
+  {
+    "input": "SkeetではGraphQL APIをローカルで起動できますか？",
+    "output": "はい、SkeetではGraphQL APIをローカルで起動することが可能です。$ skeet sコマンドを実行することで起動し、http://localhost:3000/graphql でアクセスできます。"
+  },
+  {
+    "input": "SkeetはGraphQL APIからTypeScriptの型定義を自動生成できますか？",
+    "output": "はい、SkeetはGraphQL APIからTypeScriptの型定義を自動生成することが可能です。これを行うには、$ skeet sync typesというコマンドを使用します。"
+  }
+]
