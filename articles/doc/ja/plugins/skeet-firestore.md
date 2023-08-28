@@ -1,71 +1,45 @@
 ---
 id: skeet-firestore
 title: Skeet Firestore
-description: Skeet フレームワーク における型安全な Firestore の使い方を解説します。
+description: Skeet Framework の Firestore プラグインにおける型安全な Firestore 操作の使い方を解説します。
 ---
 
-## Skeet Firestore TypeDocs
+# Skeet Framework プラグイン - Firestore
+
+Skeet Firestore プラグインは、Firestore コンバーターを使用した CRUD Firestore 操作をサポートします。
+型安全性があり、使いやすく、テストもしやすいです。
+
+# インストール
+
+```bash
+$ skeet yarn add -p @skeet-framework/firestore
+```
+
+または
+
+```bash
+$ yarn add @skeet-framework/firestore
+```
+
+# Skeet Firestore Type ドキュメント
 
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
-このプラグインは現在 Skeet バックエンド(Node.js)用です。
-TypeSaurus X (今は安定版の version 7 を使用しています) のリリース後、Skeet フロントエンド(React Native)においても使用できるようになる予定です。
+# 特徴
 
-TypeSaurus: https://github.com/kossnocorp/typesaurus
+すべての CRUD 操作は Firestore コンバーターをサポートします。
+createdAt および updatedAt は Firebase ServerTimestamp で自動的にドキュメントに追加されます。
 
-## Skeet Firestore - Skeet Framework Plugin
+- [x] コレクションアイテムの追加
+- [x] 複数のコレクションアイテムの追加
+- [x] コレクションアイテムの取得
+- [x] コレクションアイテムのクエリ
+- [x] コレクションアイテムの更新
+- [x] コレクションアイテムの削除
 
-Skeet Framework では Firestore を使うためのプラグインが用意されています。
-このプラグインを使うことで、Firestore のデータを簡単に、しかも型安全な状態で追加・取得・更新・検索・削除することができます。
+# 使用方法
 
-| メソッド名           | 説明                   |
-| -------------------- | ---------------------- |
-| addCollectionItem    | Add Collection Item    |
-| getCollectionItem    | Get Collection Item    |
-| queryCollectionItem  | Query Collection Items |
-| updateCollectionItem | Update Collection Item |
-| removeCollectionItem | Remove Collection Item |
-
-ネストされたコレクション、ドキュメントに対応しています。
-
-| メソッド名                               | 説明                                           |
-| ---------------------------------------- | ---------------------------------------------- |
-| addChildCollectionItem                   | Add Child Collection Item                      |
-| addGrandChildCollectionItem              | Add Grand Child Collection Item                |
-| addGrandGrandChildCollectionItem         | Add Grand Grand Child Collection Item          |
-| addGreatGrandGrandChildCollectionItem    | Add Great Grand Grand Child Collection Item    |
-| getChildCollectionItem                   | Get Child Collection Item                      |
-| getGrandChildCollectionItem              | Get Grand Child Collection Item                |
-| getGrandGrandChildCollectionItem         | Get Grand Grand Child Collection Item          |
-| getGreatGrandGrandChildCollectionItem    | Get Great Grand Grand Child Collection Item    |
-| queryChildCollectionItem                 | Query Child Collection Items                   |
-| queryGrandChildCollectionItem            | Query Grand Child Collection Items             |
-| queryGrandGrandChildCollectionItem       | Query Grand Grand Child Collection Items       |
-| queryGreatGrandGrandChildCollectionItem  | Query Great Grand Grand Child Collection Items |
-| updateChildCollectionItem                | Update Child Collection Item                   |
-| updateGrandChildCollectionItem           | Update Grand Child Collection Item             |
-| updateGrandGrandChildCollectionItem      | Update Grand Grand Child Collection Item       |
-| updateGreatGrandGrandChildCollectionItem | Update Great Grand Grand Child Collection Item |
-| removeChildCollectionItem                | Remove Child Collection Item                   |
-| removeGrandChildCollectionItem           | Remove Grand Child Collection Item             |
-| removeGrandGrandChildCollectionItem      | Remove Grand Grand Child Collection Item       |
-| removeGreatGrandGrandChildCollectionItem | Remove Great Grand Grand Child Collection Item |
-
-## Firestore プラグインのインストール
-
-Firestore プラグインをインストールするには、次のコマンドを実行します。
-
-```bash
-$ yarn add @skeet-firebase/firestore
-```
-
-Skeet CLI を使って複数の Functions にプラグインをインストールする場合は、次のコマンドを実行します。
-
-```bash
-$ skeet yarn add -p @skeet-firebase/firestore
-```
-
-## Initialize
+## 初期化
 
 ```typescript
 import * as admin from 'firebase-admin'
@@ -73,108 +47,194 @@ import * as admin from 'firebase-admin'
 admin.initializeApp()
 ```
 
-## Skeet Firestore の基本構造
-
-Skeet Firestore では、次のような構造でネストされたデータを取得・更新・削除します。
+または
 
 ```typescript
-const parentCollectionName = 'Parent'
-const childCollectionName = 'Child'
-const grandChildCollectionName = 'GrandChild'
-.
-.
-.
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
 
-const docRef = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
-  parentCollectionName,
-  childCollectionName,
-  grandChildCollectionName,
-  ...,
-  parentId,
-  childId,
-  ...,
-  {Relation}Params
-  )
+firebase.initializeApp({
+  // プロジェクトの設定
+})
 ```
 
-## コレクションにドキュメントを追加する
+## コレクションアイテムの追加
 
-ID が自動生成される場合
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { add } from '@skeet-framework/firestore'
 
-```typescript
-import { addCollectionItem } from '@skeet-framework/firestore'
-import { User } from '@/models/userModels.ts'
+const db = admin.firestore()
+const data: User = {
+  name: 'John Doe',
+  age: 30,
+}
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const params: User = {
-    username: 'Satoshi',
+async function run() {
+  try {
+    const path = 'Users'
+    const docRef = await add<User>(db, path, data)
+    console.log(`ID付きのドキュメントが追加されました: \${docRef.id}`)
+  } catch (error) {
+    console.error(`ドキュメントの追加エラー: \${error}`)
   }
-  const parentDocRef = await addCollectionItem<User>(
-    parentCollectionName,
-    params
-  )
-  console.log(parentCollectionName, parentDocRef)
 }
 
 run()
 ```
 
-ID を指定する場合
+## 複数のコレクションアイテムの追加
 
-この場合は uid を指定しているので、
-User コレクションの中に uid という ID のドキュメントが作成されます。
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { adds } from '@skeet-framework/firestore'
 
-```typescript
-import { addCollectionItem } from '@skeet-framework/firestore'
-import { User } from '@/models/userModels.ts'
+const db = admin.firestore()
+const users: User[] = [
+  { name: 'John Doe', age: 30 },
+  { name: 'Jane Smith', age: 25 },
+  // ... 他のユーザー ...
+]
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const params: User = {
-    username: 'Satoshi',
+async function run() {
+  try {
+    const path = 'Users'
+    const results = await adds<User>(db, path, users)
+    console.log(
+      `${users.length} 人のユーザーが \${results.length} バッチで追加されました。`
+    )
+  } catch (error) {
+    console.error(`ドキュメントの追加エラー: \${error}`)
   }
-  const uid = 'uidstring'
-  const parentDocRef = await addCollectionItem<User>(
-    parentCollectionName,
-    params,
-    uid
-  )
-  console.log(parentCollectionName, parentDocRef)
 }
 
 run()
 ```
 
-## ネストされたコレクションにドキュメントを追加する
+## コレクションアイテムの取得
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { get } from '@skeet-framework/firestore'
+
+const db = admin.firestore()
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = 'user123'
+    const user = await get<User>(db, path, docId)
+    console.log(`ユーザー情報: \${JSON.stringify(user)}`)
+  } catch (error) {
+    console.error(`ドキュメントの取得エラー: \${error}`)
+  }
+}
+
+run()
+```
+
+## コレクションアイテムのクエリ
 
 ```typescript
-import { addChildCollectionItem } from '@skeet-framework/firestore'
-import { User, UserChatRoom } from '@/models/userModels.ts'
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { query } from '@skeet-framework/firestore'
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const childCollectionName = 'UserChatRoom'
+const db = admin.firestore()
 
-  const params: User = {
-    username: 'Satoshi',
+// 25歳以上のユーザーを取得するシンプルなクエリ
+const simpleConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+]
+
+// 名前順に並べ替えた25歳以上のユーザーを取得する高度なクエリ
+const advancedConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+  { field: 'name', orderDirection: 'asc' },
+]
+
+// 25歳以上のユーザーを取得し、結果を5つに制限するクエリ
+const limitedConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+  { limit: 5 },
+]
+
+async function run() {
+  try {
+    const path = 'Users'
+
+    // シンプルな条件を使用して取得
+    const usersByAge = await query<User>(db, path, simpleConditions)
+    console.log(`25歳以上のユーザーが \${usersByAge.length} 人見つかりました。`)
+
+    // 高度な条件を使用して取得
+    const orderedUsers = await query<User>(db, path, advancedConditions)
+    console.log(
+      `名前で昇順に並べた25歳以上のユーザーが \${orderedUsers.length} 人見つかりました。`
+    )
+
+    // 制限付きの条件を使用して取得
+    const limitedUsers = await query<User>(db, path, limitedConditions)
+    console.log(
+      `25歳以上のユーザーが \${limitedUsers.length} 人見つかりました（制限: 5人）。`
+    )
+  } catch (error) {
+    console.error(`コレクションのクエリエラー: \${error}`)
   }
-  const userDocRef = await addCollectionItem<User>(parentCollectionName, params)
-  console.log(parentCollectionName, userDocRef)
-
-  const childParams: UserChatRoom = {
-    userRef: response.ref,
-    model: 'gpt4',
-    maxTokens: 100,
-    temperature: 0.8,
-    stream: false,
-  }
-  const userChatRoomDocRef = await addChildCollectionItem<UserChatRoom>(
-    parentCollectionName,
-    childCollectionName,
-    parentId,
-    childParams
-  )
-  console.log(childCollectionName, userChatRoomDocRef)
 }
+
+run()
+```
+
+## コレクションアイテムの更新
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { update } from '@skeet-framework/firestore'
+
+const db = admin.firestore()
+const updatedData: User = {
+  age: 38,
+}
+
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = '123456'
+    const success = await update<User>(db, path, docId, updatedData)
+    if (success) {
+      console.log(`ID \${docId} のドキュメントが正常に更新されました。`)
+    }
+  } catch (error) {
+    console.error(`ドキュメントの更新エラー: \${error}`)
+  }
+}
+
+run()
+```
+
+## コレクションアイテムの削除
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { del } from '@skeet-framework/firestore'
+
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = '123456'
+    const success = await del(db, path, docId)
+    if (success) {
+      console.log(`ID \${docId} のドキュメントが正常に削除されました。`)
+    }
+  } catch (error) {
+    console.error(`ドキュメントの削除エラー: \${error}`)
+  }
+}
+
+run()
 ```

@@ -4,66 +4,40 @@ title: Skeet Firestore
 description: How to use type-safe Firestore in Skeet Framework.
 ---
 
-## Skeet Firestore TypeDocs
+# Skeet Framework Plugin - Firestore
+
+Skeet Firestore Plugin for CRUD Firestore operation with Firestore Converter.
+Type safe, easy to use, and easy to test.
+
+# Installation
+
+```bash
+$ skeet yarn add -p @skeet-framework/firestore
+```
+
+or
+
+```bash
+$ yarn add @skeet-framework/firestore
+```
+
+# Skeet Firestore TypeDoc
 
 - [Skeet Firestore TypeDoc](https://elsoul.github.io/skeet-firestore/)
 
-This plugin is for Backend (Node.js) for now.
-After launching TypeSaurus X (Now we're using version 7 as stable), we'll migrate and it will allow to use on Frontend (React Native) as well.
+# Features
 
-TypeSaurus: https://github.com/kossnocorp/typesaurus
+All CRUD operations are supported with Firestore Converter.
+createdAt and updatedAt are automatically added to the document with Firebase ServerTimestamp.
 
-## Skeet Firestore - Skeet Framework Plugin
+- [x] Add Collection Item
+- [x] Adds Collection Items
+- [x] Get Collection Item
+- [x] Query Collection Items
+- [x] Update Collection Item
+- [x] Delete Collection Item
 
-Skeet Framework provides a plugin for using Firestore.
-This plugin allows you to easily add/get/update/query/remove Firestore data.
-
-| Method Name          | Description            |
-| -------------------- | ---------------------- |
-| addCollectionItem    | Add Collection Item    |
-| getCollectionItem    | Get Collection Item    |
-| queryCollectionItem  | Query Collection Items |
-| updateCollectionItem | Update Collection Item |
-| removeCollectionItem | Remove Collection Item |
-
-It supports nested collections and documents.
-
-| Method Name                              | Description                                    |
-| ---------------------------------------- | ---------------------------------------------- |
-| addChildCollectionItem                   | Add Child Collection Item                      |
-| addGrandChildCollectionItem              | Add Grand Child Collection Item                |
-| addGrandGrandChildCollectionItem         | Add Grand Grand Child Collection Item          |
-| addGreatGrandGrandChildCollectionItem    | Add Great Grand Grand Child Collection Item    |
-| getChildCollectionItem                   | Get Child Collection Item                      |
-| getGrandChildCollectionItem              | Get Grand Child Collection Item                |
-| getGrandGrandChildCollectionItem         | Get Grand Grand Child Collection Item          |
-| getGreatGrandGrandChildCollectionItem    | Get Great Grand Grand Child Collection Item    |
-| queryChildCollectionItem                 | Query Child Collection Items                   |
-| queryGrandChildCollectionItem            | Query Grand Child Collection Items             |
-| queryGrandGrandChildCollectionItem       | Query Grand Grand Child Collection Items       |
-| queryGreatGrandGrandChildCollectionItem  | Query Great Grand Grand Child Collection Items |
-| updateChildCollectionItem                | Update Child Collection Item                   |
-| updateGrandChildCollectionItem           | Update Grand Child Collection Item             |
-| updateGrandGrandChildCollectionItem      | Update Grand Grand Child Collection Item       |
-| updateGreatGrandGrandChildCollectionItem | Update Great Grand Grand Child Collection Item |
-| removeChildCollectionItem                | Remove Child Collection Item                   |
-| removeGrandChildCollectionItem           | Remove Grand Child Collection Item             |
-| removeGrandGrandChildCollectionItem      | Remove Grand Grand Child Collection Item       |
-| removeGreatGrandGrandChildCollectionItem | Remove Great Grand Grand Child Collection Item |
-
-## Installing the Firestore plugin
-
-To install the Firestore plugin, run the following command:
-
-```bash
-$ yarn add @skeet-firebase/firestore
-```
-
-To install the plugin on multiple Functions using the Skeet CLI, run the following command:
-
-```bash
-$ skeet yarn add -p @skeet-firebase/firestore
-```
+# Usage
 
 ## Initialize
 
@@ -73,104 +47,190 @@ import * as admin from 'firebase-admin'
 admin.initializeApp()
 ```
 
-## Basic Structure of Skeet Firestore
-
-Skeet Firestore retrieves, updates, and removes data nested in the following structure:
+or
 
 ```typescript
-const parentCollectionName = 'Parent'
-const childCollectionName = 'Child'
-const grandChildCollectionName = 'GrandChild'
-.
-.
-.
+import * as firebase from 'firebase/app'
+import 'firebase/firestore'
 
-const doc = await {MethodName}{Relation}CollectionItem<..., GrandChild, Child, Parent>(
-  parentCollectionName,
-  childCollectionName,
-  grandChildCollectionName,
-  ...,
-  parentId,
-  childId,
-  ...,
-  {Relation}Params
-  )
+firebase.initializeApp({
+  // Project configuration
+})
 ```
 
 ## Add Collection Item
 
-ID Auto Generate
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { add } from '@skeet-framework/firestore'
 
-```typescript
-import { addCollectionItem } from '@skeet-framework/firestore'
-import { User } from '@/models/userModels.ts'
+const db = admin.firestore()
+const data: User = {
+  name: 'John Doe',
+  age: 30,
+}
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const params: User = {
-    username: 'Satoshi',
+async function run() {
+  try {
+    const path = 'Users'
+    const docRef = await add<User>(db, path, data)
+    console.log(`Document added with ID: ${docRef.id}`)
+  } catch (error) {
+    console.error(`Error adding document: ${error}`)
   }
-  const response = await addCollectionItem<User>(parentCollectionName, params)
-  console.log('Ref', response)
 }
 
 run()
 ```
 
-Define Custom ID
+## Adds Collection Items
 
-In this case uid is specified, so
-A document with ID uid is created in the User collection
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { adds } from '@skeet-framework/firestore'
 
-```typescript
-import { addCollectionItem } from '@skeet-framework/firestore'
-import { User } from '@/models/userModels.ts'
+const db = admin.firestore()
+const users: User[] = [
+  { name: 'John Doe', age: 30 },
+  { name: 'Jane Smith', age: 25 },
+  // ... more users ...
+]
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const params: User = {
-    username: 'Satoshi',
+async function run() {
+  try {
+    const path = 'Users'
+    const results = await adds<User>(db, path, users)
+    console.log(`Added ${users.length} users in ${results.length} batches.`)
+  } catch (error) {
+    console.error(`Error adding documents: ${error}`)
   }
-  const uid = 'uidstring'
-  const response = await addCollectionItem<User>(
-    parentCollectionName,
-    params,
-    uid
-  )
-  console.log('Ref', response)
 }
 
 run()
 ```
 
-## Add Child Collection Item
+## Get Collection Item
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { get } from '@skeet-framework/firestore'
+
+const db = admin.firestore()
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = 'user123'
+    const user = await get<User>(db, path, docId)
+    console.log(`User: ${JSON.stringify(user)}`)
+  } catch (error) {
+    console.error(`Error getting document: ${error}`)
+  }
+}
+
+run()
+```
+
+## Query Collection Items
 
 ```typescript
-import { addChildCollectionItem } from '@skeet-framework/firestore'
-import { User, UserChatRoom } from '@/models/userModels.ts'
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { query } from '@skeet-framework/firestore'
 
-const run = async () => {
-  const parentCollectionName = 'User'
-  const params: User = {
-    username: 'Satoshi',
-  }
-  const response = await addCollectionItem<User>(parentCollectionName, params)
-  console.log('Ref', response)
+const db = admin.firestore()
 
-  const childCollectionName = 'UserChatRoom'
-  const childParams: UserChatRoom = {
-    userRef: response.ref,
-    model: 'gpt4',
-    maxTokens: 100,
-    temperature: 0.8,
-    stream: false,
+// Simple query to get users over 25 years old
+const simpleConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+]
+
+// Advanced query to get users over 25 years old, ordered by their names
+const advancedConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+  { field: 'name', orderDirection: 'asc' },
+]
+
+// Query to get users over 25 years old and limit the results to 5
+const limitedConditions: QueryCondition[] = [
+  { field: 'age', operator: '>', value: 25 },
+  { limit: 5 },
+]
+
+async function run() {
+  try {
+    const path = 'Users'
+
+    // Using the simple conditions
+    const usersByAge = await query<User>(db, path, simpleConditions)
+    console.log(`Found ${usersByAge.length} users over 25 years old.`)
+
+    // Using the advanced conditions
+    const orderedUsers = await query<User>(db, path, advancedConditions)
+    console.log(
+      `Found ${orderedUsers.length} users over 25 years old, ordered by name.`
+    )
+
+    // Using the limited conditions
+    const limitedUsers = await query<User>(db, path, limitedConditions)
+    console.log(
+      `Found ${limitedUsers.length} users over 25 years old, limited to 5.`
+    )
+  } catch (error) {
+    console.error(`Error querying collection: ${error}`)
   }
-  const childResponse = await addChildCollectionItem<UserChatRoom>(
-    parentCollectionName,
-    response.id,
-    childCollectionName,
-    childParams
-  )
-  console.log('Ref', childResponse)
+}
+
+run()
+```
+
+## Update Collection Item
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { update } from '@skeet-framework/firestore'
+
+const db = admin.firestore()
+const updatedData: User = {
+  age: 38,
+}
+
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = '123456'
+    const success = await update<User>(db, path, docId, updatedData)
+    if (success) {
+      console.log(`Document with ID ${docId} updated successfully.`)
+    }
+  } catch (error) {
+    console.error(`Error updating document: ${error}`)
+  }
+}
+
+run()
+```
+
+## Delete Collection Item
+
+```ts
+import { firestore } from 'firebase-admin'
+import * as admin from 'firebase-admin'
+import { delete } from '@skeet-framework/firestore'
+
+async function run() {
+  try {
+    const path = 'Users'
+    const docId = '123456'
+    const success = await delete(db, path, docId)
+    if (success) {
+      console.log(`Document with ID ${docId} deleted successfully.`)
+    }
+  } catch (error) {
+    console.error(`Error deleting document: ${error}`)
+  }
 }
 ```

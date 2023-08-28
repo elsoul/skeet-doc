@@ -90,8 +90,8 @@ export const readMd = async (path: string) => {
 }
 
 const run = async () => {
-  await readMd('articles/doc/ja/general/motivation.md')
-  // await readMd('articles/doc/ja/skeet-firestore/initial-deploy.md')
+  // await readMd('articles/doc/ja/general/motivation.md')
+  await readMd('articles/doc/ja/skeet-graphql/quickstart.md')
   // await readMd('articles/doc/ja/skeet-firestore/tutorial.md')
   // await readMd('articles/doc/ja/skeet-firestore/quickstart.md')
   // await readMd('articles/doc/ja/skeet-firestore/basic-architecture.md')

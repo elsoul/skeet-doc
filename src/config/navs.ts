@@ -12,6 +12,7 @@ import {
   CommandLineIcon,
   CogIcon,
   Cog6ToothIcon,
+  BoltIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -205,6 +206,11 @@ export const docMenuNav = [
   {
     name: 'doc:menuNav.plugins.groupTitle',
     children: [
+      {
+        name: 'doc:menuNav.plugins.skeet-ai',
+        href: '/doc/plugins/skeet-ai/',
+        icon: BoltIcon,
+      },
       {
         name: 'doc:menuNav.plugins.skeet-firestore',
         href: '/doc/plugins/skeet-firestore/',
