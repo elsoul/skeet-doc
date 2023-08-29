@@ -22,8 +22,6 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 さらに、昨今の地球では環境問題が深刻化しており、エネルギーを効率的に使うことは、
 開発者の責務であると考えています。
 
-**自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。**
-
 このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
 
 この章では クイックスタートで作成した 機械学習（OpenAI） の API を使ったチャットボットアプリに新しい機能を追加していきます。
@@ -73,12 +71,12 @@ ORM には Prisma を使います。
 Skeet Framework では RDB スキーマを定義することで、
 GraphQL のスキーマを自動生成することができます。
 
-ここではデフォルトのスキーマに加えて、
-_@@unique([userId, chatRoomId])_ を _UserChatRoom_ に追加します。
+ここではデフォルトのモデルに加えて、
+ブログの記事を保存するためのモデルを追加します。
 
 _graphql/prisma/schema.prisma_
 
-```ts
+```typescript
 generator client {
   provider = "prisma-client-js"
 }
@@ -149,7 +147,6 @@ model UserChatRoom {
   ChatRoom   ChatRoom @relation(fields: [chatRoomId], references: [id])
 
   @@id([userId, chatRoomId])
-+ @@unique([userId, chatRoomId])
 }
 ```
 
