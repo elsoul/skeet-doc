@@ -22,8 +22,6 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 さらに、昨今の地球では環境問題が深刻化しており、エネルギーを効率的に使うことは、
 開発者の責務であると考えています。
 
-**自分はチャットボットを作りたいのではないから、と飛ばしたくなるかもしれませんが、是非目を通してみてください。**
-
 このチュートリアルで学ぶ技法はどのような Skeet Framework のアプリにおいても基本的なものであり、マスターすることで Skeet への深い理解が得られます。
 
 この章では クイックスタートで作成した 機械学習（OpenAI） の API を使ったチャットボットアプリに新しい機能を追加していきます。
@@ -34,13 +32,13 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 
 - 開発用ログイン認証キーを取得する
 - Skeet Curl で API リクエストをテストする
-- チャットストリームのコードを確認する
-- PubSub トリガー を使ってタスクを切り分ける
+- User 作成時にトリガーを作動させる
+- @skeet-framework/firestore を使ってデータを操作する
 - Firebase へデプロイする
 
 ## チュートリアルの前提条件
 
-[クイックスタート](/ja/doc/backend/quickstart) が完了していない場合は先に完了させてください。
+[セットアップ](/ja/doc/skeet-firestore/setup) が完了していない場合は先に完了させてください。
 
 ## 開発環境
 
@@ -94,6 +92,8 @@ Skeet Framework では以下の二つのコマンドを使って、
 - skeet login
 - skeet curl
 
+## ユーザー作成時にトリガーを作動させる
+
 ログインコマンドが成功すると、
 
 デフォルトで　*authOnCreateUser.ts* に定義されている
@@ -101,15 +101,17 @@ Skeet Framework では以下の二つのコマンドを使って、
 Auth インスタンスのトリガーが作動して
 
 Firebase Firestore にユーザー情報が保存されます。
+必要に応じて、このトリガーを使って Slack や Discord に通知を送信することもできます。
 
 _functions/skeet/routings/auth/authOnCreateUser.ts_
 
 ```typescript
+import { db } from '@/index'
 import { User } from '@/models'
-import { addCollectionItem } from '@skeet-framework/firestore'
+import { add } from '@skeet-framework/firestore'
 import * as functions from 'firebase-functions/v1'
 import { authPublicOption } from '@/routings'
-import { gravatarIconUrl } from '@/utils/placeholder'
+import { gravatarIconUrl } from '@skeet-framework/utils'
 import skeetConfig from '../../../skeetOptions.json'
 const region = skeetConfig.region
 
@@ -129,36 +131,34 @@ export const authOnCreateUser = functions
             ? gravatarIconUrl(email ?? 'info@skeet.dev')
             : photoURL,
       }
-      const userRef = await addCollectionItem<User>('User', userParams, uid)
-      console.log({ status: 'success', userRef })
+      const userRef = await add<User>(db, 'User', userParams, uid)
+      console.log({ status: 'success', userId: userRef.id })
     } catch (error) {
       console.log({ status: 'error', message: String(error) })
     }
   })
 ```
 
-ユーザー情報は、
+## @skeet-framework/firestore を使ってデータを操作する
 
-_await getUserAuth(req)_
+skeet framework では、_@skeet-framework/firestore_ を使って、
+Firestore へのデータの追加、取得、更新、削除を行うことができます。
 
-を使って Firebase から取得します。
-
-```typescript
-import { getUserAuth } from '@/lib'
-
-const user: UserAuthType = await getUserAuth(req)
-```
-
-_getUserAuth_ の戻り値の型定義はデフォルトで次のようになっています。
+以下のようなコードで、データの追加、取得、更新、削除を Firestore の Converter を使って行うことができます。
 
 ```typescript
-export type UserAuthType = {
-  uid: string
-  username: string
-  email: string
-  iconUrl: string
-}
+import { db } from '@/index'
+import { User } from '@/models'
+import { add, get, update, remove } from '@skeet-framework/firestore'
+
+const userCollectionPath = 'User'
+const userRef = await add<User>(db, userCollectionPath, userParams, uid)
+const user = await get<User>(db, userCollectionPath, uid)
+await update<User>(db, userCollectionPath, uid, { username: 'skeet' })
+await remove<User>(db, userCollectionPath, uid)
 ```
+
+詳しくは [@skeet-framework/firestore](/ja/doc/plugins/skeet-firestore) を参照してください。
 
 ## Skeet Curl で API リクエストをテストする
 
@@ -168,33 +168,20 @@ _skeet curl_ コマンドを使って API リクエストを送信してみま�
 $ skeet curl createUserChatRoom
 {
    "status" : "success",
-   "userChatRoomMessageRef" : {
-      "__type__" : "ref",
-      "collection" : {
-         "__type__" : "collection",
-         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom/l2WRsPH2RXobWD7mOJPP/UserChatRoomMessage"
-      },
-      "id" : "YS7wCHoztt1eEUHjvxhw"
-   },
-   "userChatRoomRef" : {
-      "__type__" : "ref",
-      "collection" : {
-         "__type__" : "collection",
-         "path" : "User/QIVG7UQUA2toIwCQOiXHqYh5sncE/UserChatRoom"
-      },
-      "id" : "l2WRsPH2RXobWD7mOJPP"
-   }
+   "userChatRoomId" : "dpToDGH4uF96KuCCuDOx"
 }
 ```
 
 UserChatRoom と UserChatRoomMessage が作成されました。
+この UserChatRoomId を使って、チャットストリームを開始します。
 
 ## チャットストリームのコードを確認する
 
 Skeet Functions のコードは、
 functions ディレクトリに配置されています。
+基本的に新規に追加する部分は、_routings_ ディレクトリに配置されています。
 
-Http トリガーの場合は、_routings/http_ ディレクトリに配置されています。
+Http トリガーの場合は、_routings/http_ に配置されます。
 
 ```bash
 $ tree functions
@@ -204,10 +191,11 @@ functions
 │   │   ├── auth
 │   │   │   └── authOnCreateUser.ts
 │   │   ├── http
-│   │   │   ├── addUserChatRoomMessage.ts
 │   │   │   ├── addStreamUserChatRoomMessage.ts
+│   │   │   ├── addUserChatRoomMessage.ts
+│   │   │   ├── addVertexMessage.ts
 │   │   │   ├── createUserChatRoom.ts
-│   │   │   ├── getUserChatRoomMessages.ts
+│   │   │   └── index.ts
 .
 .
 ```
@@ -217,28 +205,23 @@ functions
 _functions/skeet/routings/http/addStreamUserChatRoomMessage.ts_
 
 ```typescript
+import { db } from '@/index'
 import { onRequest } from 'firebase-functions/v2/https'
-import { TypedRequestBody } from '@/index'
-import { updateChildCollectionItem } from '@skeet-framework/firestore'
-import { sleep } from '@/utils/time'
-import {
-  getUserAuth,
-  generateChatRoomTitle,
-  streamChat,
-  CreateChatCompletionRequest,
-} from '@/lib'
-import { publicHttpOption } from '@/routings'
+import { getUserAuth } from '@/lib'
+import { publicHttpOption } from '@/routings/options'
 import { AddStreamUserChatRoomMessageParams } from '@/types/http/addStreamUserChatRoomMessageParams'
 import { defineSecret } from 'firebase-functions/params'
 import {
-  User,
   UserChatRoom,
-  userChatRoomCollectionName,
-  userCollectionName,
-  createUserChatRoomMessage,
-  getMessages,
-  getUserChatRoom,
+  UserChatRoomCN,
+  UserCN,
+  UserChatRoomMessage,
+  UserChatRoomMessageCN,
 } from '@/models'
+import { OpenAI, OpenAIMessage } from '@skeet-framework/ai'
+import { TypedRequestBody } from '@/types/http'
+import { add, get, query, update } from '@skeet-framework/firestore'
+import { inspect } from 'util'
 
 const chatGptOrg = defineSecret('CHAT_GPT_ORG')
 const chatGptKey = defineSecret('CHAT_GPT_KEY')
@@ -255,106 +238,99 @@ export const addStreamUserChatRoomMessage = onRequest(
           `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``
         )
 
-      // Get Request Body
+      // リクエストボディーの取得
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
         content: req.body.content,
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
 
-      // Get User Info from Firebase Auth
+      // ユーザー情報の取得
       const user = await getUserAuth(req)
 
-      // Get UserChatRoom
-      const userChatRoom = await getUserChatRoom(user.uid, body.userChatRoomId)
-      if (userChatRoom.data.stream === false)
-        throw new Error('stream must be true')
-
-      // Add UserChatRoomMessage
-      await createUserChatRoomMessage(userChatRoom.ref, user.uid, body.content)
-
-      // Get UserChatRoomMessages for OpenAI Request
-      const messages = await getMessages(user.uid, body.userChatRoomId)
-
-      console.log('messages.length', messages.length)
-      // Update UserChatRoom Title
-      if (messages.length === 2) {
-        const title = await generateChatRoomTitle(
-          body.content,
-          organization,
-          apiKey
-        )
-        await updateChildCollectionItem<UserChatRoom, User>(
-          userCollectionName,
-          userChatRoomCollectionName,
-          user.uid,
-          body.userChatRoomId,
-          { title }
-        )
-      }
-
-      // Send Request to OpenAI
-      const openAiBody: CreateChatCompletionRequest = {
-        model: userChatRoom.data.model,
-        max_tokens: userChatRoom.data.maxTokens,
-        temperature: userChatRoom.data.temperature,
-        n: 1,
-        top_p: 1,
-        stream: userChatRoom.data.stream,
-        messages,
-      }
-
-      // Get OpenAI Stream
-      const stream = await streamChat(
-        openAiBody,
-        chatGptOrg.value(),
-        chatGptKey.value()
+      // UserChatRoom の取得
+      const chatRoomPath = `${UserCN}/${user.uid}/${UserChatRoomCN}`
+      const userChatRoom = await get<UserChatRoom>(
+        db,
+        chatRoomPath,
+        body.userChatRoomId
       )
-      const messageResults: string[] = []
-      let streamClosed = false
-      res.once('error', () => (streamClosed = true))
-      res.once('close', () => (streamClosed = true))
-      stream.on('data', async (chunk: Buffer) => {
-        const payloads = chunk.toString().split('\n\n')
-        for await (const payload of payloads) {
-          if (payload.includes('[DONE]')) return
-          if (payload.startsWith('data:')) {
-            const data = payload.replaceAll(/(\n)?^data:\s*/g, '')
-            try {
-              const delta = JSON.parse(data.trim())
-              const message = delta.choices[0].delta?.content
-              if (message == undefined) continue
 
-              console.log(message)
-              messageResults.push(message)
+      // UseChatRoomMessage にメッセージを追加
+      const messagesPath = `${chatRoomPath}/${body.userChatRoomId}/${UserChatRoomMessageCN}`
+      await add<UserChatRoomMessage>(db, messagesPath, {
+        userChatRoomId: body.userChatRoomId,
+        content: body.content,
+        role: 'user',
+      })
 
-              while (!streamClosed && res.writableLength > 0) {
-                await sleep(10)
-              }
+      // OpenAI へ送信するメッセージの取得
+      const allMessages = await query<UserChatRoomMessage>(db, messagesPath, [
+        {
+          field: 'createdAt',
+          orderDirection: 'desc',
+        },
+        {
+          limit: 5,
+        },
+      ])
+      allMessages.reverse()
 
-              // Send Message to Client
-              res.write(JSON.stringify({ text: message }))
-            } catch (error) {
-              console.log(`Error with JSON.parse and ${payload}.\n${error}`)
-            }
-          }
+      let promptMessages = allMessages.map((message: UserChatRoomMessage) => {
+        return {
+          role: message.role,
+          content: message.content,
         }
-        if (streamClosed) res.end('Stream disconnected')
+      })
+      promptMessages.unshift({
+        role: 'system',
+        content: userChatRoom.context,
+      })
+      console.log('promptMessages', promptMessages)
+      const messages = {
+        messages: promptMessages as OpenAIMessage[],
+      }
+
+      console.log('messages.length', messages.messages.length)
+
+      // OpenAI のインスタンスを作成
+      const openAi = new OpenAI({
+        organizationKey: organization,
+        apiKey,
+        model: userChatRoom.model,
+        maxTokens: userChatRoom.maxTokens,
+        temperature: userChatRoom.temperature,
+        n: 1,
+        topP: 1,
+        stream: true,
       })
 
-      // Stream End
-      stream.on('end', async () => {
-        const message = messageResults.join('')
-        const lastMessage = await createUserChatRoomMessage(
-          userChatRoom.ref,
-          user.uid,
-          message,
-          'assistant'
-        )
-        console.log(`Stream end - messageId: ${lastMessage.id}`)
-        res.end('Stream done')
+      // 初回メッセージの場合はチャットルームのタイトルを更新
+      if (messages.messages.length === 2) {
+        const title = await openAi.generateTitle(body.content)
+        await update<UserChatRoom>(db, chatRoomPath, body.userChatRoomId, {
+          title,
+        })
+      }
+
+      // リクエストを OpenAI に送信
+      const stream = await openAi.promptStream(messages)
+      const messageResults: any[] = []
+      for await (const part of stream) {
+        const message = String(part.choices[0].delta.content)
+        if (message === '' || message === 'undefined') continue
+        console.log(inspect(message, false, null, true /* enable colors */))
+        res.write(JSON.stringify({ text: message }))
+        messageResults.push(message)
+      }
+
+      // OpenAI からのレスポンスをメッセージに追加
+      const message = messageResults.join('')
+      await add<UserChatRoomMessage>(db, messagesPath, {
+        userChatRoomId: body.userChatRoomId,
+        content: message,
+        role: 'assistant',
       })
-      stream.on('error', (e: Error) => console.error(e))
     } catch (error) {
       res.status(500).json({ status: 'error', message: String(error) })
     }
@@ -366,291 +342,28 @@ export const addStreamUserChatRoomMessage = onRequest(
 ここでは _--raw_ オプションを使ってチャンクデータを表示しています。
 
 ```bash
-$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "l2WRsPH2RXobWD7mOJPP", "content": "こんにちは" }' --raw
+$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "dpToDGH4uF96KuCCuDOx", "content": "こんにちは" }' --raw
 { "text" : "streaming-data" }
 ```
 
 ストリームデータが表示されていることが確認できます。
 
-また、_skeet get https_ コマンドを使って、エンドポイントを確認することもできます。
+また、_skeet list https_ コマンドを使って、エンドポイントを確認することもできます。
 
 ```bash
-$ skeet get https
-┌──────────┬──────────────────────────────┬─────────────────────────────────────────────────────────────────────────┐
-│ Function │ Endpoint                     │ ParamsPath                                                              │
-├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ skeet   │ addStreamUserChatRoomMessage │ ./functions/skeet/src/types/http/addStreamUserChatRoomMessageParams.ts │
-├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ skeet   │ addUserChatRoomMessage       │ ./functions/skeet/src/types/http/addUserChatRoomMessageParams.ts       │
-├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ skeet   │ createUserChatRoom           │ ./functions/skeet/src/types/http/createUserChatRoomParams.ts           │
-├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ skeet   │ getUserChatRoomMessages      │ ./functions/skeet/src/types/http/getUserChatRoomMessagesParams.ts      │
-├──────────┼──────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
-│ skeet   │ root                         │ ./functions/skeet/src/types/http/rootParams.ts                         │
-└──────────┴──────────────────────────────┴─────────────────────────────────────────────────────────────────────────┘
+$ skeet list https
+┌──────────┬──────────────────────────────┬────────────────────────────────────────────────────────────────────────┐
+│ Function │ Endpoint                     │ ParamsPath                                                             │
+├──────────┼──────────────────────────────┼────────────────────────────────────────────────────────────────────────┤
+│ skeet    │ addStreamUserChatRoomMessage │ ./functions/skeet/src/types/http/addStreamUserChatRoomMessageParams.ts │
+├──────────┼──────────────────────────────┼────────────────────────────────────────────────────────────────────────┤
+│ skeet    │ addUserChatRoomMessage       │ ./functions/skeet/src/types/http/addUserChatRoomMessageParams.ts       │
+├──────────┼──────────────────────────────┼────────────────────────────────────────────────────────────────────────┤
+│ skeet    │ addVertexMessage             │ ./functions/skeet/src/types/http/addVertexMessageParams.ts             │
+├──────────┼──────────────────────────────┼────────────────────────────────────────────────────────────────────────┤
+│ skeet    │ createUserChatRoom           │ ./functions/skeet/src/types/http/createUserChatRoomParams.ts           │
+└──────────┴──────────────────────────────┴────────────────────────────────────────────────────────────────────────┘
 ```
-
-## PubSub トリガー を使ってタスクを切り分ける
-
-それでは _addStreamUserChatRoomMessage_ に含まれる
-
-チャットルームのタイトルを更新する処理を PubSub トリガーを使って切り分けてみましょう。
-
-```typescript
-// チャットルームのタイトルを更新
-if (messages.length === 2) {
-  const title = await generateChatRoomTitle(body.content, organization, apiKey)
-  await updateChildCollectionItem<UserChatRoom, User>(
-    userCollectionName,
-    userChatRoomCollectionName,
-    user.uid,
-    body.userChatRoomId,
-    { title }
-  )
-}
-```
-
-まずは PubSub トリガーを追加します。
-
-_skeet add method_ を実行し、インスタンスのタイプと関数名を入力します。
-
-```bash
-$ skeet add method generateTitle
-? Select Instance Type to add (Use arrow keys)
-   = Instance Type =
-  http
-  firestore
- ❯ pubsub
-  scheduler
-  auth
-? Select Functions to add skeet
-✔️ ./functions/skeet/src/types/http/pubsubGenerateTitleParams.ts created 🎉
-✔️ ./functions/skeet/src/routings/http/pubsubGenerateTitle.ts created 🎉
-```
-
-型定義ファイルと関数ファイルが作成されます。
-
-_functions/skeet/src/routings/pubsub/pubsubGenerateTitle.ts_
-
-```typescript
-import { onMessagePublished } from 'firebase-functions/v2/pubsub'
-import { pubsubDefaultOption } from '@/routings/options'
-import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
-
-export const pubsubGenerateTitle = onRequest(
-  publicHttpOption,
-  async (req: TypedRequestBody<PubsubGenerateTitleParams>, res) => {
-    try {
-      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
-      console.log({
-        status: 'success',
-        topic: pubsubTopicGenerateTitle,
-        event,
-        title,
-      })
-    } catch (error) {
-      console.error({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-_functions/skeet/src/types/http/pubsubGenerateTitleParams.ts_
-
-```typescript
-export type PubsubGenerateTitleParams = {
-  name?: string
-}
-```
-
-先程の関数の中身を実装します。
-
-_functions/skeet/src/routings/http/pubsubGenerateTitle.ts_
-
-```typescript
-import { onMessagePublished } from 'firebase-functions/v2/pubsub'
-import { pubsubDefaultOption } from '@/routings/options'
-import { parsePubSubMessage } from '@/lib/pubsub'
-import { PubsubGenerateTitleParams } from '@/types/pubsub/pubsubGenerateTitleParams'
-import { generateChatRoomTitle } from '@/lib/openai/generateChatRoomTitle'
-import { updateChildCollectionItem } from '@skeet-framework/firestore'
-import { User, UserChatRoom } from '@/models'
-
-// 環境変数を定義
-import { defineSecret } from 'firebase-functions/params'
-const chatGptOrg = defineSecret('CHAT_GPT_ORG')
-const chatGptKey = defineSecret('CHAT_GPT_KEY')
-
-export const pubsubTopicGenerateTitle = 'pubsubGenerateTitle'
-
-export const pubsubGenerateTitle = onMessagePublished(
-  // API キーを環境変数から取得
-  {
-    ...pubsubDefaultOption(pubsubTopicGenerateTitle),
-    secrets: [chatGptOrg, chatGptKey],
-  },
-  async (event) => {
-    try {
-      // PubSub メッセージをパース
-      const pubsubObject = parsePubSubMessage<PubsubGenerateTitleParams>(event)
-
-      if (!pubsubObject) throw new Error('pubsubObject is undefined')
-
-      // OpenAI API を呼び出してタイトルを生成
-      const title = await generateChatRoomTitle(
-        pubsubObject.content,
-        chatGptOrg,
-        chatGptKey
-      )
-
-      // チャットルームのタイトルを更新
-      await updateChildCollectionItem<UserChatRoom, User>(
-        'User',
-        'UserChatRoom',
-        pubsubObject.userId,
-        pubsubObject.userChatRoomId,
-        { title }
-      )
-
-      // ログを出力
-      console.log({
-        status: 'success',
-        topic: pubsubTopicGenerateTitle,
-        event,
-        title,
-      })
-    } catch (error) {
-      console.error({ status: 'error', message: String(error) })
-    }
-  }
-)
-```
-
-先程の型を定義します。
-
-_functions/skeet/src/types/http/pubsubGenerateTitleParams.ts_
-
-```typescript
-export type PubsubGenerateTitleParams = {
-  content: string
-  userId: string
-  userChatRoomId: string
-}
-```
-
-今度は先程の _addStreamUserChatRoomMessage_ に PubSub Publish を追加します。
-
-```typescript
-.
-.
-if (messages.length === 2) {
-  // PubSub メッセージボディを定義
-  const pubsubMessageBody: PubsubGenerateTitleParams = {
-    userId: user.uid,
-    userChatRoomId: body.userChatRoomId,
-    content: body.content,
-  }
-
-  // PubSub トピックにメッセージを送信
-  await pubsubPublish(pubsubTopicGenerateTitle, pubsubMessageBody)
-}
-.
-.
-```
-
-それでは _functions/skeet/src/index.ts_ に新しい関数を追加します。
-
-```typescript
-import admin from 'firebase-admin'
-import dotenv from 'dotenv'
-import { Request } from 'firebase-functions/v2/https'
-
-export interface TypedRequestBody<T> extends Request {
-  body: T
-}
-
-dotenv.config()
-admin.initializeApp()
-
-export {
-  root,
-  authOnCreateUser,
-  createUserChatRoom,
-  getUserChatRoomMessages,
-  addUserChatRoomMessage,
-  addStreamUserChatRoomMessage,
-  pubsubGenerateTitle,
-} from '@/routings'
-```
-
-これで PubSub トリガーを使ってタスクを切り分けることができました。
-それではテストをしてみます。
-
-ローカルサーバーを再起動します。
-
-**⚠️ 再起動されると、Firebase エミュレーターに入っているデータがリセットされます。 ⚠️**
-
-再度、ログイン、アクセストークンの設定を行なってください。
-
-```bash
-$ skeet s
-```
-
-もう一度 UserChatRoom を作成し、UserChatRoom の ID を取得します。
-
-```bash
-$ skeet curl createUserChatRoom
-{
-   "status" : "success",
-   "userChatRoomMessageRef" : {
-      "__type__" : "ref",
-      "collection" : {
-         "__type__" : "collection",
-         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom/yJ5yl7L1nEV71xLRRFzY/UserChatRoomMessage"
-      },
-      "id" : "zb7fecsm7bf34u549UeL"
-   },
-   "userChatRoomRef" : {
-      "__type__" : "ref",
-      "collection" : {
-         "__type__" : "collection",
-         "path" : "User/j3JAchzRc3xOiJybFlSlohYmvTQj/UserChatRoom"
-      },
-      "id" : "yJ5yl7L1nEV71xLRRFzY"
-   }
-}
-```
-
-UserChatRoomMessage を作成します。
-
-```bash
-$ skeet curl addStreamUserChatRoomMessage --data '{ "userChatRoomId": "yJ5yl7L1nEV71xLRRFzY", "content": "こんにちは" }' --raw
-```
-
-UserChatRoomMessage を作成すると、PubSub トピックにメッセージが送信され、PubSub トリガーが発火します。
-
-```bash
->  Stream done
->  {
->    status: 'success',
->    topic: 'pubsubGenerateTitle',
->    event: {
->      specversion: '1.0',
->      id: '5faee10f-ff64-4f8d-85bc-c85c22fca702',
->      time: '1970-01-01T00:00:00.883Z',
->      type: 'google.cloud.pubsub.topic.v1.messagePublished',
->      source: '//pubsub.googleapis.com/projects/skeet-demo/topics/pubsubGenerateTitle',
->      data: {
->        message: [aue],
->        subscription: 'projects/skeet-demo/subscriptions/emulator-sub-pubsubGenerateTitle'
->      }
->    },
->    title: '挨拶'
->  }
-```
-
-無事にタスクを切り分けることができました 🎉
 
 ## Firebase へデプロイする
 
