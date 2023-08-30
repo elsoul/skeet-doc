@@ -235,28 +235,28 @@ export const addStreamUserChatRoomMessage = onRequest(
     try {
       if (!organization || !apiKey)
         throw new Error(
-          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``
+          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``,
         )
 
-      // リクエストボディーの取得
+      // Get Request Body
       const body = {
         userChatRoomId: req.body.userChatRoomId || '',
         content: req.body.content,
       }
       if (body.userChatRoomId === '') throw new Error('userChatRoomId is empty')
 
-      // ユーザー情報の取得
+      // Get User Info from Firebase Auth
       const user = await getUserAuth(req)
 
-      // UserChatRoom の取得
+      // Get UserChatRoom
       const chatRoomPath = `${UserCN}/${user.uid}/${UserChatRoomCN}`
       const userChatRoom = await get<UserChatRoom>(
         db,
         chatRoomPath,
-        body.userChatRoomId
+        body.userChatRoomId,
       )
 
-      // UseChatRoomMessage にメッセージを追加
+      // Add User Message to UserChatRoomMessage
       const messagesPath = `${chatRoomPath}/${body.userChatRoomId}/${UserChatRoomMessageCN}`
       await add<UserChatRoomMessage>(db, messagesPath, {
         userChatRoomId: body.userChatRoomId,
@@ -264,7 +264,8 @@ export const addStreamUserChatRoomMessage = onRequest(
         role: 'user',
       })
 
-      // OpenAI へ送信するメッセージの取得
+      // Get UserChatRoomMessages for OpenAI Request
+
       const allMessages = await query<UserChatRoomMessage>(db, messagesPath, [
         {
           field: 'createdAt',
@@ -293,7 +294,6 @@ export const addStreamUserChatRoomMessage = onRequest(
 
       console.log('messages.length', messages.messages.length)
 
-      // OpenAI のインスタンスを作成
       const openAi = new OpenAI({
         organizationKey: organization,
         apiKey,
@@ -304,8 +304,7 @@ export const addStreamUserChatRoomMessage = onRequest(
         topP: 1,
         stream: true,
       })
-
-      // 初回メッセージの場合はチャットルームのタイトルを更新
+      // Update UserChatRoom Title
       if (messages.messages.length === 2) {
         const title = await openAi.generateTitle(body.content)
         await update<UserChatRoom>(db, chatRoomPath, body.userChatRoomId, {
@@ -313,7 +312,7 @@ export const addStreamUserChatRoomMessage = onRequest(
         })
       }
 
-      // リクエストを OpenAI に送信
+      // Get OpenAI Stream
       const stream = await openAi.promptStream(messages)
       const messageResults: any[] = []
       for await (const part of stream) {
@@ -323,18 +322,17 @@ export const addStreamUserChatRoomMessage = onRequest(
         res.write(JSON.stringify({ text: message }))
         messageResults.push(message)
       }
-
-      // OpenAI からのレスポンスをメッセージに追加
       const message = messageResults.join('')
       await add<UserChatRoomMessage>(db, messagesPath, {
         userChatRoomId: body.userChatRoomId,
         content: message,
         role: 'assistant',
       })
+      res.end()
     } catch (error) {
       res.status(500).json({ status: 'error', message: String(error) })
     }
-  }
+  },
 )
 ```
 
