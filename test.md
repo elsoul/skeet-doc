@@ -1,9 +1,3 @@
----
-id: tutorial
-title: Tutorial - GraphQL
-description: How to create a chat app using Skeet Framework GraphQL
----
-
 ## Tutorial - GraphQL
 
 In this tutorial, we will create a chat app using the Skeet Framework GraphQL. This is a comprehensive cloud app development tutorial that includes the programming language TypeScript, GraphQL, and GitHub.
@@ -16,9 +10,7 @@ The Skeet Framework is designed to allow developers to achieve more with less co
 
 The techniques you will learn in this tutorial are basic for any Skeet Framework app and mastering them will give you a deep understanding of Skeet.
 
-In this chapter, we will add new features to the chatbot app using the machine learning (OpenAI) API that we created in the Quick Start.
-
-## Tutorial Objectives
+In this chapter, we will add new features to the chatbot app using the machine learning (OpenAI) API that we created in the Quick Start.## Tutorial Objectives
 
 In this tutorial, you will learn how to:
 
@@ -29,9 +21,7 @@ In this tutorial, you will learn how to:
 - Send API requests using the GraphQL Playground
 - Deploy to Cloud Run## Prerequisites for the Tutorial
 
-Please complete the [Quick Start](/en/doc/skeet-graphql/quickstart) if you have not done so already.
-
-## Development Environment
+Please complete the [Quick Start](/en/doc/skeet-graphql/quickstart) if you have not done so already.## Development Environment
 
 The Skeet Framework recommends using VScode as your editor. By following the framework, you can receive powerful code completion support using GitHub Copilot.
 
@@ -120,9 +110,7 @@ The settings for the following files will be automatically set by the _skeet cre
 - .eslintignore
 - .prettierrc
 - .prettierignore
-- tsconfig.json
-
-## Defining RDB Schema
+- tsconfig.json## Defining RDB Schema
 
 With Skeet Framework, you can automatically generate GraphQL schemas by defining RDB schemas.
 
@@ -263,23 +251,17 @@ model VertexChatRoomMessage {
 }
 ```
 
-Sample models necessary for creating a chatbot app using OpenAI and VertexAI APIs are defined.
-
-### Running the skeet db generate command
+Sample models necessary for creating a chatbot app using OpenAI and VertexAI APIs are defined.### Running the skeet db generate command
 
 Execute the following command to configure prisma and the database.
 
 ```bash
 $ skeet db generate
-```
-
-### Adding Models
+```### Adding Models
 
 You can add models directly to _schema.prisma_, but by running the _$ prisma_ mode of the _skeet ai_ command, you can automatically generate templates for Prisma models.
 
-Also, by using the _prettier-plugin-prisma_ plugin, you can automatically format Prisma schemas.
-
-### Running skeet ai in Prisma Mode
+Also, by using the _prettier-plugin-prisma_ plugin, you can automatically format Prisma schemas.### Running skeet ai in Prisma Mode
 
 After running the _skeet ai_ command, entering _$ prisma_ will put you in Prisma Mode.
 
@@ -356,15 +338,11 @@ Then run: skeet db migrate addPostAndComment
 
 
 ❓ Do you want me to run the migration now? (Yes/No)
-```
-
-### Editing prisma.schema
+```### Editing prisma.schema
 
 With the skeet framework, you can create migration files using the _skeet db migrate <migrationName>_ command. When you run the _skeet ai_ command as above, it suggests name candidates by inferring from the new schema to add <migrationName>.
 
-Copy the schema and paste it into _schema.prisma_. When you save, the format is automatically done, and the relations are automatically added.
-
-### Execute the skeet db migrate <migrationName> command
+Copy the schema and paste it into _schema.prisma_. When you save, the format is automatically done, and the relations are automatically added.### Execute the skeet db migrate <migrationName> command
 
 Next, if you input _yes_, the command will be executed, and a migration file will be created.
 
@@ -390,9 +368,7 @@ Running generate... - Nexus Prisma
 
 Then run: skeet g scaffold
 ❓ Do you want me to run scaffold now? (Yes/No)
-```
-
-### Running the skeet g scaffold command
+```### Running the skeet g scaffold command
 
 Once the migration file is created, you can automatically generate a GraphQL API with CRUD functionality by executing the _skeet g scaffold_ command.
 
@@ -410,9 +386,7 @@ Once the migration file is created, you can automatically generate a GraphQL API
 ✔ successfully created ✔ - ./graphql/src/graphql/modelManager/index.ts 🎉
 ```
 
-In this way, with Skeet GraphQL, you can automatically generate GraphQL schemas by defining the schema.
-
-### Opening the GraphQL Playground
+In this way, with Skeet GraphQL, you can automatically generate GraphQL schemas by defining the schema.### Opening the GraphQL Playground
 
 Now, let's run the _$ skeet s_ command to start the emulator.
 
@@ -463,7 +437,7 @@ export ACCESS_TOKEN={accessToken}
 
 By setting the accessToken displayed in the console log as an environment variable, you can send API requests using the _skeetGraphql_ function.
 
-When the login command is successful, the trigger of the Auth instance defined in _authOnCreateUser.ts_ by default is activated, and user information is saved in Firebase Firestore.
+When the login command is successful, the trigger of the Auth instance defined in *authOnCreateUser.ts* by default is activated, and user information is saved in Firebase Firestore.
 
 You can confirm that the user information is saved by accessing the following URL.
 
@@ -546,11 +520,9 @@ For detailed usage, please refer to the following document.
 
 - [@skeet-framework/utils](/en/doc/plugins/skeet-utils)
 
-In Skeet Framework GraphQL, it is recommended to handle data-related processing in the GraphQL API and handle tasks and third-party API processing in functions.
+In Skeet Framework GraphQL, it is recommended to handle data-related processing in the GraphQL API and handle tasks and third-party API processing in functions.## Retrieving User Information
 
-## Retrieving User Information
-
-User information can be retrieved from Firebase using
+User information can be retrieved from Firebase using 
 
 _await getLoginUser(req)_
 
@@ -569,23 +541,17 @@ export type UserAuthType = {
   email: string
   iconUrl: string
 }
-```
-
-## Deploying to Cloud Run
+```## Deploying to Cloud Run
 
 ```bash
 $ skeet deploy
-```
-
-## Skeet yarn build
+```## Skeet yarn build
 
 The Skeet yarn build command allows you to build all functions by pressing the 'a' key.
 
 ```bash
 $ skeet yarn build
-```
-
-## Deploying Skeet Framework
+```## Deploying Skeet Framework
 
 There are two ways to deploy the Skeet Framework.
 
