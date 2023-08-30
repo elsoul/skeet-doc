@@ -275,7 +275,11 @@ $ skeet db generate
 
 ### Adding Models
 
-You can add models directly to _schema.prisma_, but by running the _$ prisma_ mode of the _skeet ai_ command, you can automatically generate templates for Prisma models.
+You can add models directly to _schema.prisma_,
+
+but by running the _$ prisma_ mode of the _skeet ai_ command,
+
+you can automatically generate templates for Prisma models.
 
 Also, by using the _prettier-plugin-prisma_ plugin, you can automatically format Prisma schemas.
 
@@ -417,16 +421,17 @@ In this way, with Skeet GraphQL, you can automatically generate GraphQL schemas 
 Now, let's run the _$ skeet s_ command to start the emulator.
 
 You can also run the _$ skeet_ command within the skeet ai prompt.
+_-g_ is the option to start only GraphQL.
 
 ```bash
-You: $ skeet s
+You: $ skeet s -g
 ```
 
 If you have added a new GraphQL schema, it will be updated by running the _$ skeet s_ command.
 
 Open the GraphQL Playground and confirm that the schema has been updated.
 
-[http://localhost:4000/graphql](http://localhost:4000/graphql)
+[http://localhost:3000/graphql](http://localhost:3000/graphql)
 
 ![https://storage.googleapis.com/skeet-assets/imgs/backend/graphql-playground-post.png](https://storage.googleapis.com/skeet-assets/imgs/backend/graphql-playground-post.png)
 

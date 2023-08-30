@@ -9,10 +9,20 @@ const getRecentUpdatedFiles = async (
     const entries = fs.readdirSync(dirPath, { withFileTypes: true })
 
     const files = entries
-      .filter((fileDirent) => fileDirent.isFile())
+      .filter(
+        (fileDirent) =>
+          fileDirent.isFile() &&
+          !fileDirent.name.includes('.git') &&
+          !fileDirent.name.startsWith('.')
+      )
       .map((fileDirent) => path.join(dirPath, fileDirent.name))
 
-    const folders = entries.filter((folderDirent) => folderDirent.isDirectory())
+    const folders = entries.filter(
+      (folderDirent) =>
+        folderDirent.isDirectory() &&
+        !folderDirent.name.includes('.git') &&
+        !folderDirent.name.startsWith('.')
+    )
 
     for (const folder of folders) {
       files.push(...getFiles(path.join(dirPath, folder.name)))
@@ -30,6 +40,6 @@ const getRecentUpdatedFiles = async (
 }
 
 // 使用例
-getRecentUpdatedFiles('./articles').then((files) => {
+getRecentUpdatedFiles(`.`, 10).then((files) => {
   console.log(files)
 })

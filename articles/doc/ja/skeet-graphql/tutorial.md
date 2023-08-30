@@ -287,6 +287,7 @@ $ skeet db generate
 ### モデルを追加する
 
 _schema.prisma_ に直接モデルを追加することもできますが、
+
 _skeet ai_ コマンドの _$ prisma_ モードを実行することで、
 Prisma のモデルのテンプレートを自動生成することができます。
 
@@ -446,9 +447,10 @@ GraphQL のスキーマを自動生成することができます。
 エミュレーターを起動しましょう。
 
 skeet ai のプロンプトの中でも _$ skeet_ コマンドを実行することができます。
+_-g_ オプションをつけることで、GraphQL のみを起動することができます。
 
 ```bash
-You: $ skeet s
+You: $ skeet s -g
 ```
 
 新しく GraphQL のスキーマを追加した場合は、
@@ -457,7 +459,7 @@ _$ skeet s_ コマンドを実行することで、新しい GraphQL スキー�
 GraphQL Playground を開き、
 スキーマが更新されていることを確認しましょう。
 
-[http://localhost:4000/graphql](http://localhost:4000/graphql)
+[http://localhost:3000/graphql](http://localhost:3000/graphql)
 
 ![https://storage.googleapis.com/skeet-assets/imgs/backend/graphql-playground-post.png](https://storage.googleapis.com/skeet-assets/imgs/backend/graphql-playground-post.png)
 
