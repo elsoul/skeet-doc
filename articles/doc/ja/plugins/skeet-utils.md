@@ -16,7 +16,9 @@ description: Skeet Utils プラグイン
 - Time
 - Encryption
 
-- [Skeet Utils TypeDoc](https://elsoul.github.io/skeet-utils/)
+Skeet Utils TypeDoc
+
+- [https://elsoul.github.io/skeet-utils/](https://elsoul.github.io/skeet-utils/)
 
 ## Http
 
@@ -449,6 +451,14 @@ console.log(now) // 現在のUTC時間
 
 # モジュール: crypto
 
+crypto モジュールのデフォルト値。
+
+```ts
+export const algorithm = 'aes-256-cbc'
+export const inputEncoding = 'utf8'
+export const outputEncoding = 'base64'
+```
+
 ## `encrypt` 関数
 
 ### 説明：
@@ -500,16 +510,6 @@ export const encrypt = (
     throw new Error(`encrypt: ${error}`)
   }
 }
-```
-
-# モジュール: crypto
-
-crypto モジュールのデフォルト値。
-
-```ts
-export const algorithm = 'aes-256-cbc'
-export const inputEncoding = 'utf8'
-export const outputEncoding = 'base64'
 ```
 
 ## `decrypt` 関数

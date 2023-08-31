@@ -16,7 +16,9 @@ This plugin provides a set of utility functions for usual tasks.
 - Time
 - Encyption
 
-- [Skeet Utils TypeDoc](https://elsoul.github.io/skeet-utils/)
+Skeet Utils TypeDoc
+
+- [https://elsoul.github.io/skeet-utils/](https://elsoul.github.io/skeet-utils/)
 
 # Http
 
@@ -449,6 +451,14 @@ console.log(now) // Current UTC time
 
 # Module: crypto
 
+Default values for the crypto module.
+
+```ts
+export const algorithm = 'aes-256-cbc'
+export const inputEncoding = 'utf8'
+export const outputEncoding = 'base64'
+```
+
 ## `encrypt` Function
 
 ### Description:
@@ -500,16 +510,6 @@ export const encrypt = (
     throw new Error(`encrypt: ${error}`)
   }
 }
-```
-
-# Module: crypto
-
-Default values for the crypto module.
-
-```ts
-export const algorithm = 'aes-256-cbc'
-export const inputEncoding = 'utf8'
-export const outputEncoding = 'base64'
 ```
 
 ## `decrypt` Function
