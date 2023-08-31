@@ -186,11 +186,11 @@ Google Cloud の無料枠には 2 つの部分があります
 
 _skeet add secret <secretKey>_ コマンドを使って
 
-OpenAI の API キーを環境変数に設定します。
+OpenAI の Organization ID を環境変数に設定します。
 
 ```bash
 $ skeet add secret CHAT_GPT_ORG
-? Enter value for CHAT_GPT_ORG: <yourOpenAIKey>
+? Enter value for CHAT_GPT_ORG: <yourOpenAIOrganizationID>
 ```
 
 同様に CHAT_GPT_KEY も設定します。

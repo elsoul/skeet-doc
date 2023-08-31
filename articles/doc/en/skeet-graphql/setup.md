@@ -182,11 +182,11 @@ The Google Cloud Free Tier has two parts:
 
 using the _skeet add secret <secretKey>_ command
 
-Set the OpenAI API key as an environment variable.
+Set the OpenAI Organization ID as an environment variable.
 
 ```bash
 $ skeet add secret CHAT_GPT_ORG
-? Enter value for CHAT_GPT_ORG: <yourOpenAIKey>
+? Enter value for CHAT_GPT_ORG: <yourOpenAIOrganizationID>
 ```
 
 Set CHAT_GPT_KEY as well.
