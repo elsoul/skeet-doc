@@ -9,7 +9,7 @@
   },
   {
     "input": "Skeetを使用するために必要な依存パッケージは何ですか？",
-    "output": "Skeetを使用するためには、以下の依存パッケージが必要です：TypeScript（バージョン5.0.4以上）、Node.js（バージョン18.16.0以上）、Yarn（バージョン1.22.19以上）、Google Cloud SDK（バージョン430.0.0以上）、Firebase CLI（バージョン12.0.1以上）、GitHub CLI（バージョン2.29.0以上）、およびJava。JavaはSkeetで直接使用するものではありませんが、モバイルアプリを動作させるために必要です。"
+    "output": "Skeetを使用するためには、以下の依存パッケージが必要です：TypeScript（バージョン5.0.4以上）、Node.js（バージョン18.17.1以上）、Yarn（バージョン1.22.19以上）、Google Cloud SDK（バージョン430.0.0以上）、Firebase CLI（バージョン12.0.1以上）、GitHub CLI（バージョン2.29.0以上）、およびJava。JavaはSkeetで直接使用するものではありませんが、モバイルアプリを動作させるために必要です。"
   },
   {
     "input": "Skeetフレームワークとfirebase-toolsをインストールするにはどうすればいいですか？",
