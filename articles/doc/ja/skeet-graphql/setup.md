@@ -20,7 +20,7 @@ Skeet はオープンソースのフルスタックアプリ開発ソリュー�
 ## 🧪 依存パッケージ 🧪
 
 - [TypeScript](https://www.typescriptlang.org/) 5.0.4 以上
-- [Node.js](https://nodejs.org/ja/) 18.16.0 以上
+- [Node.js](https://nodejs.org/ja/) 18.17.1 以上
 - [Yarn](https://yarnpkg.com/) 1.22.19 以上
 - [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) 430.0.0 以上
 - [Firebase CLI](https://firebase.google.com/docs/cli) 12.0.1 以上
