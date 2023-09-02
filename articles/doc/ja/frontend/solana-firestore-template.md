@@ -70,6 +70,8 @@ Firebase エミュレータ: http://localhost:4000
 
 **※ ChatGPT を使うには OpenAI API が必要です。**
 
+_./functions/skeet/.secret.local_
+or
 _./functions/skeet/.env_
 
 ```bash

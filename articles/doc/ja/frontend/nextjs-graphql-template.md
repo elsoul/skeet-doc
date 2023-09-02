@@ -55,6 +55,8 @@ $ skeet s
 
 **※ OpenAI API key が必要です**
 
+_./functions/skeet/.secret.local_
+or
 _./functions/skeet/.env_
 
 ```bash

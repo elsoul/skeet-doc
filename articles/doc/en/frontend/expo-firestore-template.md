@@ -52,6 +52,8 @@ $ skeet s
 
 **※ You need OpenAI API key to use ChatGPT.**
 
+_./functions/skeet/.secret.local_
+or
 _./functions/skeet/.env_
 
 ```bash
