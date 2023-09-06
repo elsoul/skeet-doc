@@ -56,6 +56,11 @@
     "title": "GPT-4 AI チャットアプリを5分で作成",
     "description": "このチュートリアルではOpenAIの提供するChatGPT API (GPT-4)を利用したAIチャットアプリをすぐにデプロイして使うことができます。"
   },
+  "SkeetRTAYouTubeRow": {
+    "subtitle": "RTA (リアルタイムアタック)",
+    "title": "ChatGPT API AI チャットボット開発 RTA 世界新記録樹立",
+    "description": "本 RTA では、ゼロから ChatGPT API を使った AI チャットボットアプリを開発し、クラウド上(Google Cloud 及び Firebase)にリリースするまでの時間を計測しています。 Skeet フレームワークを用いることで、再現性のある爆速アプリ開発環境を構築し、開発者体験を向上させることができることが示されました。"
+  },
   "OurWorksRow": {
     "GoogleCloudPartner": {
       "title": "SkeetはGoogle Cloudのインテグレーションプロダクトとして認定されました",
