@@ -29,7 +29,7 @@ export default function GoToQuickstartRow() {
               </defs>
             </svg>
             <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-              <h2 className="tracking-tigh bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
+              <h2 className="tracking-tigh bg-gradient-to-b from-white via-gray-200 to-gray-300 bg-clip-text text-xl font-bold text-transparent sm:text-2xl">
                 {t('home:GoToQuickstartRow.title1')}
                 <br />
                 {t('home:GoToQuickstartRow.title2')}
@@ -39,7 +39,7 @@ export default function GoToQuickstartRow() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <Link
-                  href="/doc/backend/quickstart"
+                  href="/doc/skeet-firestore/quickstart"
                   className="bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                 >
                   Get started

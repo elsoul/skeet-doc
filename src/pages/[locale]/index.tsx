@@ -14,7 +14,7 @@ import ContactRow from '@/components/pages/common/ContactRow'
 import SkeetDemoRow from '@/components/pages/home/SkeetDemoRow'
 import CTASectionRow from '@/components/pages/common/CTASectionRow'
 import MediaLogoRow from '@/components/pages/common/MediaLogoRow'
-import SkeetTutorialYouTubeRow from '@/components/pages/common/SkeetTutorialYouTubeRow'
+import SkeetRTAYouTubeRow from '@/components/pages/common/SkeetRTAYouTubeRow'
 import WhyOpenSourceDevelopmentRow from '@/components/pages/common/WhyOpenSourceDevelopment'
 import OurWorksRow from '@/components/pages/common/OurWorksRow'
 
@@ -42,8 +42,8 @@ export default function Home({
       <HeroRow />
       <MainPurposeRow />
       <SkeetFeaturesRow />
+      <SkeetRTAYouTubeRow />
       <GoToQuickstartRow />
-      <SkeetTutorialYouTubeRow />
       <SkeetDemoRow />
       <WhyOpenSourceDevelopmentRow />
       <TopNewsRow articles={articles} urls={urls} />

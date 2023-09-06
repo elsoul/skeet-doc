@@ -57,6 +57,11 @@
     "title": "Create an GPT-4 AI chat app in 5 minutes",
     "description": "In this tutorial, you can immediately deploy an AI chat application that uses the ChatGPT API (GPT-4) provided by OpenAI."
   },
+  "SkeetRTAYouTubeRow": {
+    "subtitle": "Real-Time Attack",
+    "title": "Got the World Record of ChatGPT API AI Chatbot Development RTA",
+    "description": "In this RTA, the time taken to develop an AI chatbot app from scratch using the ChatGPT API and release it on the cloud (Google Cloud and Firebase) was measured. The use of the Skeet framework demonstrated that a rapid and reproducible app development environment can be established, thereby enhancing the developer experience."
+  },
   "OurWorksRow": {
     "GoogleCloudPartner": {
       "title": "Skeet Certified as a Google Cloud Integration Product",
