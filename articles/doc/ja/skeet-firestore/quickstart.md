@@ -31,7 +31,7 @@ Skeet Framework は SQL と NoSQL を組み合わせてアプリを構築でき�
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 - [Java](https://www.java.com/en/download/)
 
-※ Skeet において Java を書くことはありませんが、モバイルアプリを動かすために必要です
+※ Skeet において Java を書くことはありませんが、開発時のFirebase エミュレーターの実行やモバイルアプリを動かすために必要です
 
 ## 📗 使い方 📗
 
