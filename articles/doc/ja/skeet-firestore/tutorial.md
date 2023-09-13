@@ -369,13 +369,16 @@ $ skeet list https
 プロジェクトに必要な設定を行います。
 
 ここではドメインを設定しないでデプロイします。
+開発時にドメイン、ロードバランサ、GitHub Actionを設定しない場合は _skeet init --login_ コマンドを使用します。
 
-コンソールに表示されたリンクから Firestore と FirebaseAuth を作成していることを確認してください。
+### プロジェクトにデプロイ先の GCP,Firebase を設定する
 
 ```bash
-$ skeet init
+$ skeet init --login
 ? What's your GCP Project ID skeet-demo
-? Select Regions to deploy
+? What's your Firebase Project ID skeet-demo
+? Select Regions to deploy (Use arrow keys)
+   🌏 Regions 🌏 
   europe-west1
   europe-west2
   europe-west3
@@ -383,24 +386,71 @@ $ skeet init
   northamerica-northeast1
   southamerica-east1
   us-central1
-⚠️ Please make sure if you create Firestore & FirebaseAuth ⚠️
+(Move up and down to reveal more choices)
 
-Click the link to check 👇
-Firestore: https://console.firebase.google.com/project/skeet-demo/firestore
-FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authentication
+✔ Successfully Updated skeet-cloud.config.json 🎉
+- Preparing the list of your Firebase apps
+✔ Preparing the list of your Firebase apps
+- Creating your Web app
+✔ Creating your Web app
 
-📗 Doc: https://skeet.dev/doc/backend/initial-deploy/
+- Downloading configuration data of your Firebase WEB app
+✔ Downloading configuration data of your Firebase WEB app
+✔ Successfully Updated firebase.json 🎉
 
-? Are you sure if you already set them up? yes
-? Do you want to setup your domain? no
-Function URL (skeet:root(europe-west6)): https://root-iolvuu5bzq-oa.a.run.app
-i  functions: cleaning up build files...
+Created service account [skeet-demo].
+✔ Service account created successfully 🎉
+```
+### デプロイする
+
+```bash
+ $ skeet deploy
+? Select Services to run functions command webapp, skeet
+
+=== Deploying to 'skeet-demo'...
+
+i  deploying hosting
+✔  hosting[skeet-demo]: release complete
 
 ✔  Deploy complete!
 
-Project Console: https://console.firebase.google.com/project/skeet-demo/overvie
-```
+Project Console: https://console.firebase.google.com/project/skeet-demo/overview
+Hosting URL: https://skeet-demo.web.app
+$ npx ts-node build.ts
+Done in 4.75s.
 
+=== Deploying to 'skeet-demo'...
+
+i  deploying firestore
+i  firestore: reading indexes from firestore.indexes.json...
+i  cloud.firestore: checking firestore.rules for compilation errors...
+✔  cloud.firestore: rules file firestore.rules compiled successfully
+i  firestore: latest version of firestore.rules already up to date, skipping upload...
+✔  firestore: released rules firestore.rules to cloud.firestore
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/skeet-demo/overview
+
+=== Deploying to 'skeet-demo'...
+
+i  deploying functions
+
+i  functions: updating Node.js 18 (2nd Gen) function skeet:addStreamUserChatRoomMessage(europe-west6)...
+i  functions: updating Node.js 18 (2nd Gen) function skeet:addUserChatRoomMessage(europe-west6)...
+i  functions: updating Node.js 18 (2nd Gen) function skeet:addVertexMessage(europe-west6)...
+i  functions: updating Node.js 18 (1st Gen) function skeet:authOnCreateUser(europe-west6)...
+i  functions: updating Node.js 18 (2nd Gen) function skeet:createUserChatRoom(europe-west6)...
+✔  functions[skeet:authOnCreateUser(europe-west6)] Successful update operation.
+✔  functions[skeet:addStreamUserChatRoomMessage(europe-west6)] Successful update operation.
+✔  functions[skeet:addUserChatRoomMessage(europe-west6)] Successful update operation.
+✔  functions[skeet:addVertexMessage(europe-west6)] Successful update operation.
+✔  functions[skeet:createUserChatRoom(europe-west6)] Successful update operation.
+
+✔  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/skeet-demo/overview
+```
 無事に Firebase Functions にデプロイされました。
 
 ## 型定義の同期
@@ -464,7 +514,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-**⚠️ [最初のデプロイ](/ja/doc/backend/initial-deploy) を完了させる必要があります。 ⚠️**
+**⚠️ [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy) を完了させる必要があります。 ⚠️**
 
 ## Skeet CLI によるデプロイ
 
