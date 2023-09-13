@@ -369,7 +369,9 @@ $ skeet list https
 プロジェクトに必要な設定を行います。
 
 ここではドメインを設定しないでデプロイします。
-開発時にドメイン、ロードバランサ、GitHub Actionを設定しない場合は _skeet init --login_ コマンドを使用します。
+開発時にドメインを設定しない場合は _skeet init --login_ コマンドを使用します。
+
+本番環境へデプロイする場合は [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy) を参照してください。
 
 ### プロジェクトにデプロイ先の GCP,Firebase を設定する
 
