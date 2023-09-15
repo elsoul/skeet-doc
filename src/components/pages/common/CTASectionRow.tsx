@@ -18,7 +18,7 @@ export default function CTASectionRow() {
 
           <div className="mt-10 flex items-center gap-x-6 lg:mt-0 lg:flex-shrink-0">
             <Link
-              href="/doc/backend/quickstart"
+              href="/doc/skeet-firestore/quickstart/"
               className="bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-gray-200 dark:text-gray-900 dark:hover:bg-gray-300"
             >
               {t('common:CTASectionRow.button')}
