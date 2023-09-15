@@ -17,6 +17,8 @@ import MediaLogoRow from '@/components/pages/common/MediaLogoRow'
 import SkeetRTAYouTubeRow from '@/components/pages/common/SkeetRTAYouTubeRow'
 import WhyOpenSourceDevelopmentRow from '@/components/pages/common/WhyOpenSourceDevelopment'
 import OurWorksRow from '@/components/pages/common/OurWorksRow'
+import AIAutoCodeDevelopmentRow from '@/components/pages/common/AIAutoCodeDevelopmentRow'
+import SolanaMobileStackRow from '@/components/pages/common/SolanaMobileStackRow'
 
 const articleDirName = 'news'
 
@@ -40,6 +42,9 @@ export default function Home({
   return (
     <>
       <HeroRow />
+      <AIAutoCodeDevelopmentRow />
+      <SolanaMobileStackRow />
+      <CTASectionRow />
       <MainPurposeRow />
       <SkeetFeaturesRow />
       <SkeetRTAYouTubeRow />

@@ -529,7 +529,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-**⚠️ [最初のデプロイ](/ja/doc/backend/initial-deploy) を完了させる必要があります。 ⚠️**
+**⚠️ [最初のデプロイ](/ja/doc/skeet-graphql/initial-deploy/) を完了させる必要があります。 ⚠️**
 
 ## Skeet CLI によるデプロイ
 

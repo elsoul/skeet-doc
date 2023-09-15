@@ -92,5 +92,15 @@
       "title": "Preventing reinvention of the wheel",
       "description": "OSS allows us to reuse code and prevents us from reinventing the wheel. As a result, developers can focus less on creating everything from scratch and more on solving specific problems and developing new features. This increases efficiency and enables faster higher-quality results."
     }
+  },
+  "AIAutoCodeDevelopmentRow": {
+    "subtitle": "AI Auto-Code Development",
+    "title": "Rapid Development with AI Auto-Code",
+    "description": "As demonstrated in the video, auto-code development using Skeet allows for the automatic generation of code through interaction with AI. This significantly enhances the productivity of developers."
+  },
+  "SolanaMobileStackRow": {
+    "subtitle": "Solana Mobile Stack",
+    "title": "Supports Web3 & dApps Development",
+    "description": "With Skeet, you can quickly start developing on the Solana Mobile Stack as well as Solana's dApps, accelerating the development and release of Web3 and blockchain applications."
   }
 }

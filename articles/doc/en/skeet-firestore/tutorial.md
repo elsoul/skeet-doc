@@ -365,7 +365,7 @@ Click the link to check 👇
 Firestore: https://console.firebase.google.com/project/skeet-demo/firestore
 FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authentication
 
-📗 Doc: https://skeet.dev/doc/backend/initial-deploy/
+📗 Doc: https://skeet.dev/doc/skeet-firestore/initial-deploy/
 
 ? Are you sure if you already set them up? yes
 ? Do you want to setup your domain? no
@@ -440,7 +440,7 @@ $ git push origin main
 
 GitHub Actions automatically deploy when you push to GitHub.
 
-**⚠️ [Initial deployment](/en/doc/backend/initial-deploy) must be completed. ⚠️**
+**⚠️ [Initial deployment](/en/doc/skeet-firestore/initial-deploy/) must be completed. ⚠️**
 
 ## Deploy with Skeet CLI
 

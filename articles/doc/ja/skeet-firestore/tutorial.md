@@ -235,7 +235,7 @@ export const addStreamUserChatRoomMessage = onRequest(
     try {
       if (!organization || !apiKey)
         throw new Error(
-          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``,
+          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``
         )
 
       // Get Request Body
@@ -253,7 +253,7 @@ export const addStreamUserChatRoomMessage = onRequest(
       const userChatRoom = await get<UserChatRoom>(
         db,
         chatRoomPath,
-        body.userChatRoomId,
+        body.userChatRoomId
       )
 
       // Add User Message to UserChatRoomMessage
@@ -332,7 +332,7 @@ export const addStreamUserChatRoomMessage = onRequest(
     } catch (error) {
       res.status(500).json({ status: 'error', message: String(error) })
     }
-  },
+  }
 )
 ```
 
@@ -389,7 +389,7 @@ Click the link to check 👇
 Firestore: https://console.firebase.google.com/project/skeet-demo/firestore
 FirebaseAuth: https://console.firebase.google.com/project/skeet-demo/authentication
 
-📗 Doc: https://skeet.dev/doc/backend/initial-deploy/
+📗 Doc: https://skeet.dev/doc/skeet-firestore/initial-deploy/
 
 ? Are you sure if you already set them up? yes
 ? Do you want to setup your domain? no
@@ -464,7 +464,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-**⚠️ [最初のデプロイ](/ja/doc/backend/initial-deploy) を完了させる必要があります。 ⚠️**
+**⚠️ [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy/) を完了させる必要があります。 ⚠️**
 
 ## Skeet CLI によるデプロイ
 
