@@ -67,13 +67,13 @@
       "title": "Skeet Certified as a Google Cloud Integration Product",
       "description": "Skeet, an open-source serverless framework for building full-stack apps on Google Cloud and Firebase, has been certified as a Google Cloud integration product. ELSOUL LABO is an official partner of Google Cloud."
     },
+    "WBSO": {
+      "title": "Skeet received WBSO accreditation from the Dutch government",
+      "description": "Skeet has been selected for the WBSO (Advanced Science and Technology R&D) project for the fiscal year 2023 by the Dutch government. Skeet aims to reduce application development costs globally and promote more software innovation."
+    },
     "SolanaValidator": {
       "title": "Skeet operates a validator for the Solana blockchain",
       "description": "As a validator on the Solana chain, Skeet community is committed to ensuring the reliability and stability of the network. We will also contribute to the technical aspects of achieving Solana's fast and stable network."
-    },
-    "GoogleWeb3": {
-      "title": "ELSOUL LABO has been certified by Google Web3 Startups program",
-      "description": "ELSOUL LABO activities in the Web3 and open-source field, Epics DAO and Skeet, were selected for the Google Cloud Web3 Startups program in recognition of their efforts to support open-source development."
     }
   },
   "WhyOpenSourceDevelopmentRow": {

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import GoogleCloudSkeet from '@/assets/img/work/GoogleCloudSkeet.png'
 import ValidatorListSkeet from '@/assets/img/work/SkeetSolanaValidator.png'
-import GoogleCloudWeb3Startups from '@/assets/img/work/GoogleCloudWeb3Startups.png'
+import WBSO2023 from '@/assets/img/work/WBSO2023.png'
 import { useTranslation } from 'next-i18next'
 
 const works = [
@@ -11,14 +11,14 @@ const works = [
     description: 'OurWorksRow.GoogleCloudPartner.description',
   },
   {
+    title: 'OurWorksRow.WBSO.title',
+    imageUrl: WBSO2023,
+    description: 'OurWorksRow.WBSO.description',
+  },
+  {
     title: 'OurWorksRow.SolanaValidator.title',
     imageUrl: ValidatorListSkeet,
     description: 'OurWorksRow.SolanaValidator.description',
-  },
-  {
-    title: 'OurWorksRow.GoogleWeb3.title',
-    imageUrl: GoogleCloudWeb3Startups,
-    description: 'OurWorksRow.GoogleWeb3.description',
   },
 ]
 
