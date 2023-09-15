@@ -66,13 +66,13 @@
       "title": "SkeetはGoogle Cloudのインテグレーションプロダクトとして認定されました",
       "description": "Google Cloud及びFirebase上にフルスタックアプリを構築できるオープンソースのサーバーレスフレームワークSkeetは、Google Cloudのインテグレーションプロダクトとして認定されました。エルソウルラボはGoogle Cloudの公式パートナーです。"
     },
+    "WBSO": {
+      "title": "Skeetはオランダ政府よりWBSO(先端科学技術研究)の認定を受けました",
+      "description": "オランダ政府より 2023 年度の WBSO（先端科学技術研究開発）プロジェクトに採択されました。Skeet は、グローバルにアプリケーション開発コストを下げ、より多くのソフトウェアイノベーションを推進します。"
+    },
     "SolanaValidator": {
       "title": "Skeet は Solana ブロックチェーンのバリデーターを運営しています",
       "description": "Skeet 開発コミュニティは、Solana チェーンにおけるバリデーターとして、ネットワークの信頼性と安定性を担保することに尽力します。Solana の高速かつ安定したネットワークを実現するための技術的な側面についても貢献します。"
-    },
-    "GoogleWeb3": {
-      "title": "エルソウルラボはGoogle Web3 Startupsプログラムに認定されました",
-      "description": "エルソウルラボのWeb3分野における活動のEpics DAO、Skeet等オープンソース開発を応援する取り組みが認められ、Google Cloud Web3 Startupsプログラムに選出されました。"
     }
   },
   "WhyOpenSourceDevelopmentRow": {
