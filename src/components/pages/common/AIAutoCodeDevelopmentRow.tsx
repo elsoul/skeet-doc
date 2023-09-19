@@ -99,7 +99,7 @@ export default function AIAutoCodeDevelopmentRow() {
             <div className="sm:px-6 lg:px-0">
               <div className="shadow-2xl">
                 <YouTubeEmbed
-                  embedId={isJapanese ? '_aAN1nZ8dwg' : '_aAN1nZ8dwg'}
+                  embedId={isJapanese ? '_aAN1nZ8dwg' : 'e7J5HDhtpE4'}
                 />
               </div>
             </div>
