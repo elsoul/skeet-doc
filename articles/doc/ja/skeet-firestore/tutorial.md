@@ -235,7 +235,7 @@ export const addStreamUserChatRoomMessage = onRequest(
     try {
       if (!organization || !apiKey)
         throw new Error(
-          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``,
+          `ChatGPT organization or apiKey is empty\nPlease run \`skeet add secret CHAT_GPT_ORG/CHAT_GPT_KEY\``
         )
 
       // Get Request Body
@@ -253,7 +253,7 @@ export const addStreamUserChatRoomMessage = onRequest(
       const userChatRoom = await get<UserChatRoom>(
         db,
         chatRoomPath,
-        body.userChatRoomId,
+        body.userChatRoomId
       )
 
       // Add User Message to UserChatRoomMessage
@@ -332,7 +332,7 @@ export const addStreamUserChatRoomMessage = onRequest(
     } catch (error) {
       res.status(500).json({ status: 'error', message: String(error) })
     }
-  },
+  }
 )
 ```
 
@@ -516,7 +516,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-**⚠️ [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy) を完了させる必要があります。 ⚠️**
+**⚠️ [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy/) を完了させる必要があります。 ⚠️**
 
 ## Skeet CLI によるデプロイ
 

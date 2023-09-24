@@ -66,13 +66,13 @@
       "title": "SkeetはGoogle Cloudのインテグレーションプロダクトとして認定されました",
       "description": "Google Cloud及びFirebase上にフルスタックアプリを構築できるオープンソースのサーバーレスフレームワークSkeetは、Google Cloudのインテグレーションプロダクトとして認定されました。エルソウルラボはGoogle Cloudの公式パートナーです。"
     },
+    "WBSO": {
+      "title": "Skeetはオランダ政府よりWBSO(先端科学技術研究)の認定を受けました",
+      "description": "オランダ政府より 2023 年度の WBSO（先端科学技術研究開発）プロジェクトに採択されました。Skeet は、グローバルにアプリケーション開発コストを下げ、より多くのソフトウェアイノベーションを推進します。"
+    },
     "SolanaValidator": {
       "title": "Skeet は Solana ブロックチェーンのバリデーターを運営しています",
       "description": "Skeet 開発コミュニティは、Solana チェーンにおけるバリデーターとして、ネットワークの信頼性と安定性を担保することに尽力します。Solana の高速かつ安定したネットワークを実現するための技術的な側面についても貢献します。"
-    },
-    "GoogleWeb3": {
-      "title": "エルソウルラボはGoogle Web3 Startupsプログラムに認定されました",
-      "description": "エルソウルラボのWeb3分野における活動のEpics DAO、Skeet等オープンソース開発を応援する取り組みが認められ、Google Cloud Web3 Startupsプログラムに選出されました。"
     }
   },
   "WhyOpenSourceDevelopmentRow": {
@@ -91,5 +91,15 @@
       "title": "車輪の再発明の防止",
       "description": "OSSはコードを再利用することを可能にし、車輪の再発明を防止します。その結果、開発者は一から全てを作り出す労力を減らし、より具体的な問題解決や新たな機能の開発に焦点を合わせることができます。これにより効率性が高まり、より速く、より質の高い成果を生み出すことが可能となります。"
     }
+  },
+  "AIAutoCodeDevelopmentRow": {
+    "subtitle": "AI Auto-Code Development",
+    "title": "AI オートコードによる爆速開発",
+    "description": "動画でご覧いただけるように、Skeet を活用したオート(Auto)コード開発では、AI との対話によってコードを自動生成しながらアプリを開発していくことが可能なため、開発者の生産性を大幅に向上させることができます。"
+  },
+  "SolanaMobileStackRow": {
+    "subtitle": "Solana Mobile Stack",
+    "title": "Web3・dApps開発にも対応",
+    "description": "Skeet を使えばすぐに Solana Mobile Stack 及び、Solanaの dApps の開発をスタートでき、Web3・ブロックチェーンアプリの開発、そしてリリースを高速化することができます。"
   }
 }

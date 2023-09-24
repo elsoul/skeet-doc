@@ -255,7 +255,7 @@ Sample models necessary for creating a chatbot app using OpenAI and VertexAI API
 
 Execute the following command to configure prisma and the database.
 
-```bash
+````bash
 $ skeet db generate
 ```### Adding Models
 
@@ -283,7 +283,7 @@ You: $ prisma
 Skeet:
 🤖 Prisma Scheme Generating Mode 🤖
 Please describe your Database use case.
-```
+````
 
 You can add models as follows.
 
@@ -329,7 +329,7 @@ model Comment {
 In this way, you can use the skeet ai command to automatically generate model templates.
 If you are satisfied with this content, entering _Yes_ will cause the AI to automatically generate and display the next necessary migration command from the schema content.
 
-```bash
+````bash
 ❓ Is this schema good for you? (Yes/No) yes
 
 Edit: ./graphql/prisma/schema.prisma
@@ -384,7 +384,7 @@ Once the migration file is created, you can automatically generate a GraphQL API
 ✔ successfully created - ./graphql/src/graphql/modelManager/Comment/index.ts 🎉
 ✔ successfully created ✔ - ./graphql/src/graphql/index.ts 🎉
 ✔ successfully created ✔ - ./graphql/src/graphql/modelManager/index.ts 🎉
-```
+````
 
 In this way, with Skeet GraphQL, you can automatically generate GraphQL schemas by defining the schema.### Opening the GraphQL Playground
 
@@ -437,7 +437,7 @@ export ACCESS_TOKEN={accessToken}
 
 By setting the accessToken displayed in the console log as an environment variable, you can send API requests using the _skeetGraphql_ function.
 
-When the login command is successful, the trigger of the Auth instance defined in *authOnCreateUser.ts* by default is activated, and user information is saved in Firebase Firestore.
+When the login command is successful, the trigger of the Auth instance defined in _authOnCreateUser.ts_ by default is activated, and user information is saved in Firebase Firestore.
 
 You can confirm that the user information is saved by accessing the following URL.
 
@@ -522,7 +522,7 @@ For detailed usage, please refer to the following document.
 
 In Skeet Framework GraphQL, it is recommended to handle data-related processing in the GraphQL API and handle tasks and third-party API processing in functions.## Retrieving User Information
 
-User information can be retrieved from Firebase using 
+User information can be retrieved from Firebase using
 
 _await getLoginUser(req)_
 
@@ -534,7 +534,7 @@ const user: UserAuthType = await getLoginUser(req)
 
 The return type definition of getLoginUser is by default as follows:
 
-```typescript
+````typescript
 export type UserAuthType = {
   uid: string
   username: string
@@ -562,11 +562,11 @@ There are two ways to deploy the Skeet Framework.
 $ git add .
 $ git commit -m "first deploy"
 $ git push origin main
-```
+````
 
 Once you push to GitHub, the deployment will be carried out automatically by GitHub Actions.
 
-**⚠️ You must complete the [initial deployment](/en/doc/backend/initial-deploy). ⚠️**## Deploying with Skeet CLI
+**⚠️ You must complete the [initial deployment](/en/doc/skeet-firestore/initial-deploy/). ⚠️**## Deploying with Skeet CLI
 
 ```bash
 $ skeet deploy
