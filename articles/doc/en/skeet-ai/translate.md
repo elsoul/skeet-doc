@@ -1,0 +1,45 @@
+---
+  id: skeet-ai-translate
+  title: Skeet AI Translate Mode
+  description: skeet ai translate Mode
+---
+
+Translate mode uses AI to convert markdown format files,
+Translate JSON format files.
+
+## Skeet AI YouTube - 6/7. How to Use Translate Mode (Video)
+
+YouTube video link: https://www.youtube.com/watch?v=t3W4oYPaLNE
+
+[![How to Use Prisma Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-translate-en-6.png)](https://www.youtube.com/watch?v=t3W4oYPaLNE)
+
+## Launching Translate Mode
+
+```bash
+You: $ translate
+Skeet:
+🌐 Translation Mode 🌐
+Loading tmp/ai/translate.json...
+
+This command displays the most recently updated files
+
+$ skeet get files --limit 5 --translate
+
+ Current set:
+{
+  "langFrom": "en",
+  "langsTo": [
+    "ja"
+  ],
+  "paths": [
+    "/Users/fumi/Dev/ts/skeet-graphql/skeet-cloud.config.json",
+    "/Users/fumi/Dev/ts/skeet-graphql/functions/skeet/package.json",
+    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/firebase-export-metadata.json",
+    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/storage_export/buckets.json",
+    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/auth_export/config.json"
+  ]
+}
+? Are you ready to proceed? (Use arrow keys)
+❯ Yes
+  No
+```

@@ -1,263 +1,112 @@
 ---
 id: backend-quickstart
 title: Quickstart - Firestore
-description: Describes the setup for getting started with the Skeet framework.
+description: A simple guide to getting started with the Skeet framework.
 ---
 
-## 💃 What's Skeet? 🕺
+## Installing Skeet CLI
 
-⚡️ Do more, manage less ⚡️
-
-Reduce app development and operation costs and realize more plans.
-
-Skeet is an open-source full-stack app development solution.
-
-You can start writing app logic immediately without worrying about infrastructure.
-
-📱 Demo App made by Skeet: https://skeeter.dev/
-
-![https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif](https://storage.googleapis.com/skeet-assets/animation/skeet-cli-create-latest.gif)
-
-## 🧪 Dependency 🧪
-
-- [TypeScript](https://www.typescriptlang.org/) ^5.0.0
-- [Node.js](https://nodejs.org/ja/) ^18.17.1
-- [Yarn](https://yarnpkg.com/) ^1.22.19
-- [Google Cloud SDK](https://cloud.google.com/sdk/docs/install) ^430.0.0
-- [Firebase CLI](https://firebase.google.com/docs/cli) ^12.0.0
-- [GitHub CLI](https://cli.github.com/) ^2.29.0
-- [Java](https://www.java.com/en/download/)
-
-※ We don't write Java but we need it for mobile apps working
-
-## 📗 Usage 📗
-
-### ① Install Skeet/Firebase CLI
+Skeet CLI is a command line tool for efficiently using the Skeet framework. You can install it with the following command.
 
 ```bash
 $ npm i -g @skeet-framework/cli
-$ npm install -g firebase-tools
 ```
 
-### ② Create Skeet App
+## Creating a Google Cloud Project
+
+By creating a Google Cloud Project, you can utilize various resources of Google Cloud. Please refer to the official Google Cloud documentation to create a new project.
+
+- [Creating a Google Cloud Project](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=en)
+
+## Enabling Google Cloud VertexAI
+
+Skeet is integrated with Google Cloud VertexAI. Please enable VertexAI using the following command.
 
 ```bash
-$ skeet create <appName>
+$ skeet iam ai
 ```
 
-![Skeet Create Select Template](/doc-images/cli/SkeetCreateV022.png)
+## Launching Skeet AI Assistant
 
-You can choose a template for the frontend.
-
-- [Next.js (React)](https://nextjs.org/)
-- [Expo (React Native)](https://expo.dev/)
-
-※ This tutorial uses the Expo version, but you can use the same procedure even using the Next.js version.
-
-### ③ Run Skeet App
+The Skeet AI Assistant is an interactive tool for handling various queries.
 
 ```bash
-$ cd <appName>
-$ skeet s
+$ skeet ai
 ```
 
-Now you have both frontend and backend running locally ⭐️
-
-📲 Frontend(Next.js) - [http://localhost:4200/](http://localhost:4200/)
-
-📲 Frontend(Expo) - [http://localhost:19006/](http://localhost:19006/)
-
-💻 Firebase Emulator - [http://localhost:4000/](http://localhost:4000/)
-
-**⚠️ You need to finish _Activate Skeet ChatApp_ step to fully use default Skeet App ⚠️**
-
-## 🤖 Activate Skeet ChatApp 🤖
-
-### ① Create Googel Cloud Project
-
-Create Google Cloud Project
-
-- [https://console.cloud.google.com/projectcreate](https://console.cloud.google.com/projectcreate)
-
-### ② Add Firebase Project
-
-Add Firebase Project
-
-- [https://console.firebase.google.com/](https://console.firebase.google.com/)
-
-### ③ Activate Firebase Build
-
-#### - Activate Firebase Authentication
-
-- Activate Firebase Authentication
-  ![Firebase Authentication](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
-
-- Activate Email/Password Sign-in
-  ![Email/Password in](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
-
-#### - Activate Firebase Firestore
-
-- Activate Firestore
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-firestore.png)
-
-- Select Native Mode
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-firestore.png)
-
-- Select Region
-  ![Firestore](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-firestore.png)
-
-#### - Firebase Storage
-
-- Activate Firebase Storage
-  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-storage.png)
-
-- Select Native Mode
-  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/select-env-storage.png)
-
-- Select Region
-  ![Firebase Storage](https://storage.googleapis.com/skeet-assets/imgs/backend/select-region-storage.png)
-
-### ④ Skeet init to setup project
-
-Run _skeet init_ command and select your GCP Project ID and Regions to setup.
-
-Then, please visit the URL to authenticate your Firebase account.
+Upon launching, you will see a prompt like the one below. Try speaking to it.
 
 ```bash
-// Please login to Google Cloud if you have not
-$ gcloud auth login
+╔══════════════╤════════════════╗
+│ Option       │ Value          │
+╟──────────────┼────────────────╢
+│ AI Type      │ VertexAI       │
+╟──────────────┼────────────────╢
+│ Model        │ chat-bison@001 │
+╟──────────────┼────────────────╢
+│ Max Tokens   │ 1000           │
+╟──────────────┼────────────────╢
+│ Emotion Size │ 0              │
+╚══════════════╧════════════════╝
 
-$ skeet init --login
-? What's your GCP Project ID skeet-demo
-? Select Regions to deploy
-  europe-west1
-  europe-west2
-  europe-west3
-❯ europe-west6
-  northamerica-northeast1
-  southamerica-east1
-  us-central1
+🤖 Skeet AI Mode
+ $ <mode> to change AI mode 🤖
 
-Visit this URL on this device to log in:
+$ prisma
+$ typedoc
+$ translate
+$ firestore
+$ function
+$ method
+$ help
+$ q
 
-https://accounts.google.com/o/oauth2/auth?project...
+VertexAI has been selected 🤖 (Enter 'q' to quit)
 
-Waiting for authentication...
+
+? How can I assist you?
+
+You:
 ```
 
-### ⑤ How to setup Secret Key
+## Launching Skeet AI Firestore Mode
 
-#### - Upgrade to Firebase Blaze Plan
+While Skeet AI is running, if you type _$ firestore_, it will switch to a mode for generating Firestore models. When launched, you will be asked to provide information about your database use case. Let's try entering "I want to create a blog site."
 
-Skeet Framework uses [Cloud Secret Manager](https://firebase.google.com/docs/functions/config-env?hl=en&gen=2nd) environment variables to manage sensitive information such as API keys.
+````bash
+You: $ firestore
+Skeet:
+🔥 Firestore Model Generation Mode 🔥
+? Please describe your use case for Firestore.
 
-This command requires a Firebase Blaze or higher plan.
+Example: I want to create a blog app.
 
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/firebase-plan-en.png)
+You: I want to create a blog app.
+Skeet: How about this?
 
-From the Firebase console's bottom left menu, select _Upgrade_.
+```postModels.ts
+import { Timestamp, FieldValue } from '@skeet-framework/firestore'
+import { UserCN } from '@/models/userModels'
 
-- [Firebase Console](https://console.firebase.google.com/u/0/project/_/usage/details)
-
-#### - Cloud Usage of Skeet Framework
-
-Skeet Framework requires a Firebase Blaze plan or higher.
-
-Google Cloud Free Program should cover the usage fee for the development environment.
-
-The Google Cloud Free Tier has two parts:
-
-- A 90-day free trial with a $300 credit to use with any Google Cloud services.
-- Always Free, which provides limited access to many common Google Cloud resources, free of charge.
-
-[Free cloud features and trial offer](https://cloud.google.com/free/docs/free-cloud-features)
-
-[Firabse Blaze Pricing Plans](https://firebase.google.com/pricing#blaze-calculator)
-
-**⚠️ We also recommend setting things like budget alerts to avoid unexpected charges. ⚠️**
-
-- [Avoid surprise bills](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
-
-#### - Create OpenAI API Key
-
-- [https://beta.openai.com/](https://beta.openai.com/)
-
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
-
-📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
-
-#### - Set Secret Key in Cloud Secret Manager
-
-using the _skeet add secret <secretKey>_ command
-
-Set the OpenAI Organization ID as an environment variable.
-
-```bash
-$ skeet add secret CHAT_GPT_ORG
-? Enter value for CHAT_GPT_ORG: <yourOpenAIOrganizationID>
+// CollectionId: Post
+// DocumentId: auto
+// Path: User/${UserId}/Post
+export const PostCN = 'Post'
+export const genPostPath = (userId: string) => `${UserCN}/${userId}/${PostCN}`
+export type Post = {
+  id?: string
+  title: string
+  content: string
+  createdAt?: Timestamp | FieldValue
+  updatedAt?: Timestamp | FieldValue
+  userId: string
+}
 ```
 
-Set CHAT_GPT_KEY as well.
+? May I create this file?:
+postModels.ts (Use arrow keys)
+❯ Yes
+No
+````
 
-```bash
-$ skeet add secret CHAT_GPT_KEY
-? Enter value for CHAT_GPT_KEY: <yourOpenAIKey>
-```
-
-You can also write it in _functions/skeet/.secret.local_ or _functions/skeet/.env_ to try it easily,
-This method does not translate to production environments.
-
-Now you are ready to use Skeet ChatApp 🎉
-
-## 📱 User Login Auth 📱
-
-```bash
-$ skeet s
-```
-
-Run Skeet App locally and access to
-
-[http://localhost:19006/register](http://localhost:19006/register)
-(with Next.js: [http://localhost:4200/auth/register](http://localhost:4200/auth/register))
-
-Let's create a new user account with your email address and password.
-
-![User Register](https://storage.googleapis.com/skeet-assets/imgs/backend/user-register.png)
-
-After registration, you will see the console log like below.
-
-![Email Validation](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation.png)
-
-Click the link in the console log to verify your email address.
-
-```bash
-To verify the email address epics.dev@gmail.com, follow this link: <Link>
-```
-
-Successfully verified your email address.
-
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/email-validation-clicked.png)
-
-## ✉️ Create AI Chat Room ✉️
-
-After login, access this page to create a chat room.
-
-[http://localhost:19006/user/open-ai-chat](http://localhost:19006/user/open-ai-chat)
-(with Next.js: [http://localhost:4200/user/chat](http://localhost:4200/user/chat))
-
-Let's create a chat room with the following settings.
-
-OpenAI Chat Room Settings
-
-| item             | description                       | type                  |
-| ---------------- | --------------------------------- | --------------------- |
-| Model            | Select OpenAI API's Model         | gpt-3.5-turbo / gpt-4 |
-| Max Tokens       | Set OpenAI API's Max Tokens       | number                |
-| Temperature      | Set OpenAI API's Temperature      | number                |
-| System Charactor | Set OpenAI API's System Charactor | string                |
-
-![OpenAI ChatGPT AI Chat](https://storage.googleapis.com/skeet-assets/imgs/backend/create-chatroom.png)
-
-Now you are all set 🎉
-
-![OpenAI ChatGPT AI Chat](https://storage.googleapis.com/skeet-assets/imgs/backend/skeet-chat-stream.gif)
+If you select Yes, `postModels.ts` will be automatically generated.

@@ -1,6 +1,6 @@
 ---
 id: setup
-title: Setup - GraphQL
+title: Setup - Firestore
 description: Describes the setup for getting started with the Skeet framework.
 ---
 
@@ -93,7 +93,7 @@ Add Firebase Project
   ![Firebase Authentication](https://storage.googleapis.com/skeet-assets/imgs/backend/create-fb-auth.png)
 
 - Activate Email/Password Sign-in
-  ![Email/Password Sign in](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
+  ![Email/Password in](https://storage.googleapis.com/skeet-assets/imgs/backend/enable-fb-auth.png)
 
 #### - Activate Firebase Firestore
 
@@ -178,6 +178,14 @@ The Google Cloud Free Tier has two parts:
 
 - [Avoid surprise bills](https://firebase.google.com/docs/projects/billing/avoid-surprise-bills)
 
+#### - Create OpenAI API Key
+
+- [https://beta.openai.com/](https://beta.openai.com/)
+
+![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
+
+📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
+
 #### - Set Secret Key in Cloud Secret Manager
 
 using the _skeet add secret <secretKey>_ command
@@ -198,14 +206,6 @@ $ skeet add secret CHAT_GPT_KEY
 
 You can also write it in _functions/skeet/.secret.local_ or _functions/skeet/.env_ to try it easily,
 This method does not translate to production environments.
-
-#### - Create OpenAI API Key
-
-- [https://beta.openai.com/](https://beta.openai.com/)
-
-![画像](https://storage.googleapis.com/skeet-assets/imgs/backend/openai-api-key.png)
-
-📕 [OpenAI API Document](https://platform.openai.com/docs/introduction)
 
 Now you are ready to use Skeet ChatApp 🎉
 

@@ -13,6 +13,12 @@ import {
   CogIcon,
   Cog6ToothIcon,
   BoltIcon,
+  CircleStackIcon,
+  Cog8ToothIcon,
+  BookmarkIcon,
+  LanguageIcon,
+  NewspaperIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -187,6 +193,11 @@ export const docMenuNav = [
         icon: RocketLaunchIcon,
       },
       {
+        name: 'doc:menuNav.skeet-firestore.setup',
+        href: '/doc/skeet-firestore/setup/',
+        icon: Cog6ToothIcon,
+      },
+      {
         name: 'doc:menuNav.skeet-firestore.tutorial',
         href: '/doc/skeet-firestore/tutorial/',
         icon: AcademicCapIcon,
@@ -200,6 +211,46 @@ export const docMenuNav = [
         name: 'doc:menuNav.skeet-firestore.basic-architecture',
         href: '/doc/skeet-firestore/basic-architecture/',
         icon: BookOpenIcon,
+      },
+    ],
+  },
+  {
+    name: 'doc:menuNav.skeet-ai.groupTitle',
+    children: [
+      {
+        name: 'doc:menuNav.skeet-ai.skeet-ai-basic',
+        href: '/doc/skeet-ai/basic/',
+        icon: BookOpenIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.prisma',
+        href: '/doc/skeet-ai/prisma/',
+        icon: CircleStackIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.method',
+        href: '/doc/skeet-ai/method/',
+        icon: Cog8ToothIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.typedoc',
+        href: '/doc/skeet-ai/typedoc/',
+        icon: NewspaperIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.firestore',
+        href: '/doc/skeet-ai/firestore/',
+        icon: FireIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.translate',
+        href: '/doc/skeet-ai/translate/',
+        icon: LanguageIcon,
+      },
+      {
+        name: 'doc:menuNav.skeet-ai.function',
+        href: '/doc/skeet-ai/function/',
+        icon: ArrowPathIcon,
       },
     ],
   },

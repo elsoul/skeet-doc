@@ -1,6 +1,6 @@
 ---
 id: setup
-title: セットアップ - GraphQL
+title: セットアップ - Firestore
 description: Skeet フレームワークを使い始めるための設定について説明します。
 ---
 
@@ -12,6 +12,10 @@ description: Skeet フレームワークを使い始めるための設定につ�
 
 Skeet はオープンソースのフルスタックアプリ開発ソリューションです。
 すぐにアプリのロジックからスタートでき、インフラに関する心配は無用です。
+
+Skeet Framework は SQL と NoSQL を組み合わせてアプリを構築できます。
+
+ここでは、Firestore を使ったアプリを作成していきます。
 
 📱 Demo App made by Skeet: https://skeeter.dev/
 
@@ -27,7 +31,7 @@ Skeet はオープンソースのフルスタックアプリ開発ソリュー�
 - [GitHub CLI](https://cli.github.com/) 2.29.0 以上
 - [Java](https://www.java.com/en/download/)
 
-※ Skeet において Java を書くことはありませんが、モバイルアプリを動かすために必要です
+※ Skeet において Java を書くことはありませんが、開発時の Firebase エミュレーターの実行やモバイルアプリを動かすために必要です
 
 ## 📗 使い方 📗
 
