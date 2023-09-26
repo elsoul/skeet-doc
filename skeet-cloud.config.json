@@ -3,5 +3,17 @@
     "name": "figaro-cloud-387909",
     "projectId": "figaro-cloud-387909",
     "region": "europe-west6"
+  },
+  "ai": {
+    "lang": "en",
+    "ais": [
+      {
+        "name": "VertexAI",
+        "availableModels": [
+          "chat-bison@001",
+          "chat-bison-32k"
+        ]
+      }
+    ]
   }
 }

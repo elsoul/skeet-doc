@@ -76,6 +76,16 @@
       "cloud-armor": "Setup Cloud Armor",
       "skeet-plugins": "Skeet Plugins"
     },
+    "skeet-ai": {
+      "groupTitle": "Skeet AI",
+      "skeet-ai-basic": "Basic Usage",
+      "prisma": "Prisma Mode",
+      "method": "Method Mode",
+      "typedoc": "TypeDoc Mode",
+      "firestore": "Firestore Mode",
+      "translate": "Translate Mode",
+      "function": "Function Mode"
+    },
     "plugins": {
       "groupTitle": "Plugins",
       "skeet-ai": "Skeet AI Assistant",

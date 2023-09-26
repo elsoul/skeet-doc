@@ -80,6 +80,16 @@
       "cloud-armor": "Cloud Armor の設定",
       "skeet-plugins": "Skeet プラグイン"
     },
+    "skeet-ai": {
+      "groupTitle": "Skeet AI",
+      "skeet-ai-basic": "基本的な使い方",
+      "prisma": "Prisma モード",
+      "method": "Method モード",
+      "typedoc": "TypeDoc モード",
+      "firestore": "Firestore モード",
+      "translate": "Translate モード",
+      "function": "Function モード"
+    },
     "plugins": {
       "groupTitle": "プラグイン",
       "skeet-ai": "Skeet AI",
