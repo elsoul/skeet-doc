@@ -6,6 +6,7 @@
 
 Skeet Framework には、AI を使った機能が搭載されています。
 Skeet AI を使うことで、AI を使ったデバッグや、AI を使ったコード生成が可能になります。
+（_現時点では OpenAI のモデル gpt4 を推奨しています。_）
 
 ## Skeet AI YouTube - 1/7. 基本的な使い方（動画）
 
