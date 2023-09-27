@@ -8,9 +8,9 @@ Function mode allows you to automatically generate Firebase Functions.
 
 ## Skeet AI YouTube - 7/7. How to Use Function Mode (Video)
 
-YouTube video link: https://www.youtube.com/watch?v=pmpR4imC3go
+YouTube video link: https://youtu.be/mg_KOo5--ZI
 
-[![How to Use Function Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-function-en-7.png)](https://www.youtube.com/watch?v=pmpR4imC3go)
+[![How to Use Function Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-function-en-7.png)](https://youtu.be/mg_KOo5--ZI)
 
 ## Launching Function Mode
 
