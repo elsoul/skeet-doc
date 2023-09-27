@@ -6,6 +6,7 @@
 
 Skeet Framework has AI-powered features.
 Skeet AI enables AI debugging and AI code generation.
+（_At the moment, we recommend using the OpenAI model gpt4._）
 
 ## Skeet AI YouTube - 1/7. Basic Usage (Video)
 
