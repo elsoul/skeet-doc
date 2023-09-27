@@ -9,9 +9,9 @@ Translate JSON format files.
 
 ## Skeet AI YouTube - 6/7. How to Use Translate Mode (Video)
 
-YouTube video link: https://www.youtube.com/watch?v=t3W4oYPaLNE
+YouTube video link: https://www.youtube.com/watch?v=ejLqqAeos64
 
-[![How to Use Prisma Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-translate-en-6.png)](https://www.youtube.com/watch?v=t3W4oYPaLNE)
+[![How to Use Prisma Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-translate-en-6.png)](https://www.youtube.com/watch?v=ejLqqAeos64)
 
 ## Launching Translate Mode
 
