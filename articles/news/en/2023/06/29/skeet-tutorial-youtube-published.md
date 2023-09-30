@@ -19,7 +19,7 @@ As you progress through the Skeet tutorial, you can create your AI chat app, dep
 
 Skeet Tutorial (YouTube):
 
-https://www.youtube.com/watch?v=6em68qcSsJE
+https://www.youtube.com/watch?v=e7J5HDhtpE4
 
 ## What kind of apps can you create? Let's imagine using the demo AI chat app.
 
