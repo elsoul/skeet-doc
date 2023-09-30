@@ -8,9 +8,7 @@ Firestore モードは、Firestore のモデルを自動生成します。
 
 ## Skeet AI YouTube - 5/7. Firestore モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=2AvKaJAUe8Q
-
-[![Firestoreモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-firestore-ja-5.png)](https://www.youtube.com/watch?v=2AvKaJAUe8Q)
+https://www.youtube.com/watch?v=2AvKaJAUe8Q
 
 ## Firestore モードの起動
 

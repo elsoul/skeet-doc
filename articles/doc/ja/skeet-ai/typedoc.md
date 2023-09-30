@@ -8,9 +8,7 @@ TypeDoc モードでは TypeDoc の説明を既存の関数に追加すること
 
 ## Skeet AI YouTube - 4/7. TypeDoc モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=LycDdA9qsB8
-
-[![TypeDocモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-typedoc-ja-4.png)](https://www.youtube.com/watch?v=LycDdA9qsB8)
+https://www.youtube.com/watch?v=LycDdA9qsB8
 
 ## TypeDoc モードの起動
 

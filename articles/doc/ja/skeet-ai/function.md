@@ -8,9 +8,7 @@ Function モードでは、Firebase Functions を自動生成することがで�
 
 ## Skeet AI YouTube - 7/7. Function モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=pmpR4imC3go
-
-[![Functionモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-function-ja-7.png)](https://www.youtube.com/watch?v=pmpR4imC3go)
+https://www.youtube.com/watch?v=pmpR4imC3go
 
 ## Function モードの起動
 

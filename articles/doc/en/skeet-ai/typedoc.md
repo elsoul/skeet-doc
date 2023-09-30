@@ -8,9 +8,7 @@ TypeDoc mode allows you to add TypeDoc descriptions to existing functions.
 
 ## Skeet AI YouTube - 4/7. How to Use TypeDoc Mode (Video)
 
-YouTube video link: https://www.youtube.com/watch?v=LycDdA9qsB8
-
-[![How to Use TypeDoc Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-typedoc-en-4.png)](https://www.youtube.com/watch?v=LycDdA9qsB8)
+https://www.youtube.com/watch?v=LycDdA9qsB8
 
 ## Launching TypeDoc Mode
 

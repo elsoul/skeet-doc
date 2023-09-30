@@ -10,9 +10,7 @@ Skeet AI を使うことで、AI を使ったデバッグや、AI を使った�
 
 ## Skeet AI YouTube - 1/7. 基本的な使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=_aAN1nZ8dwg
-
-[![SkeetAIの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-basic-ja-1.png)](https://www.youtube.com/watch?v=_aAN1nZ8dwg)
+https://www.youtube.com/watch?v=_aAN1nZ8dwg
 
 ## Skeet AI
 

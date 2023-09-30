@@ -9,9 +9,7 @@ Method モードでは TypeScript の関数を生成することができます�
 
 ## Skeet AI YouTube - 3/7. Method モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=T9wKnDQq9Q4
-
-[![Methodモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-method-ja-3.png)](https://www.youtube.com/watch?v=T9wKnDQq9Q4)
+https://www.youtube.com/watch?v=T9wKnDQq9Q4
 
 ## Method モードの起動
 

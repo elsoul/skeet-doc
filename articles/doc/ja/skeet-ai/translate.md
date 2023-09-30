@@ -9,9 +9,7 @@ JSON 形式のファイルを翻訳します。
 
 ## Skeet AI YouTube - 6/7. Translate モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=t3W4oYPaLNE
-
-[![Prismaモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-translate-ja-6.png)](https://www.youtube.com/watch?v=t3W4oYPaLNE)
+https://www.youtube.com/watch?v=t3W4oYPaLNE
 
 ## Translate モードの起動
 

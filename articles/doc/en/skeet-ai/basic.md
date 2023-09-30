@@ -10,9 +10,7 @@ Skeet AI enables AI debugging and AI code generation.
 
 ## Skeet AI YouTube - 1/7. Basic Usage (Video)
 
-YouTube video link: https://www.youtube.com/watch?v=e7J5HDhtpE4
-
-[![How to use SkeetAI](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-basic-en-1.png)](https://www.youtube.com/watch?v=e7J5HDhtpE4)
+https://www.youtube.com/watch?v=e7J5HDhtpE4
 
 ## Skeet AI
 
