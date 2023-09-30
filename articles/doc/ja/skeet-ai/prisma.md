@@ -11,9 +11,7 @@ GraphQL のエンドポイントを生成します。
 
 ## Skeet AI YouTube - 2/7. Prisma モードの使い方（動画）
 
-YouTube 動画リンク: https://www.youtube.com/watch?v=n-ipl8ZFazM
-
-[![Prismaモードの使い方](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-prisma-ja-2.png)](https://www.youtube.com/watch?v=n-ipl8ZFazM)
+https://www.youtube.com/watch?v=n-ipl8ZFazM
 
 ## Prisma モードの起動
 

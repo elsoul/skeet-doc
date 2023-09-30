@@ -11,9 +11,7 @@ Generate a GraphQL endpoint.
 
 ## Skeet AI YouTube - 2/7. How to Use Prisma Mode (Video)
 
-YouTube video link: https://www.youtube.com/watch?v=01a4HIhNuvM
-
-[![How to Use Prisma Mode](https://storage.googleapis.com/skeet-assets/imgs/youtube/skeet-ai-prisma-en-2.png)](https://www.youtube.com/watch?v=01a4HIhNuvM)
+https://www.youtube.com/watch?v=01a4HIhNuvM
 
 ## Launching Prisma Mode
 
