@@ -61,4 +61,4 @@ Skeet Tutorial (Document): https://skeet.dev/en/doc/skeet-firestore/quickstart/
 
 Skeet Tutorial (YouTube):
 
-https://www.youtube.com/watch?v=6em68qcSsJE
+https://www.youtube.com/watch?v=e7J5HDhtpE4
