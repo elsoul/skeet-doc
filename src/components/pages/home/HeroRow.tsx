@@ -6,13 +6,13 @@ import googleCloudLogo from '@/assets/img/logo/projects/GoogleCloudHorizontal.sv
 import graphqlLogo from '@/assets/img/logo/projects/graphql.svg'
 import expoLogo from '@/assets/img/logo/projects/Expo.svg'
 import nextLogo from '@/assets/img/logo/projects/nextjs.svg'
-import apolloLogo from '@/assets/img/logo/projects/apollo.svg'
 import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
 import typescriptLogo from '@/assets/img/logo/projects/TypeScriptHorizontal.svg'
 import { Button } from '@/components/common/atoms/Button'
 import clsx from 'clsx'
 import { useCallback, useState } from 'react'
 import { copyToClipboard } from '@/utils/userAction'
+import openAILogo from '@/assets/img/logo/projects/OpenAI.svg'
 
 export default function HomeHeroRow() {
   const { t } = useTranslation()
@@ -135,9 +135,9 @@ export default function HomeHeroRow() {
                     link: 'https://graphql.org/',
                   },
                   {
-                    name: 'Apollo',
-                    logo: apolloLogo,
-                    link: 'https://www.apollographql.com/',
+                    name: 'OpenAI',
+                    logo: openAILogo,
+                    link: 'https://openai.com/',
                   },
                   {
                     name: 'Next.js',
