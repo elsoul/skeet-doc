@@ -9,6 +9,7 @@
     "meritTitle3": "Planning to migrate to Skeet?",
     "meritDescription3": "The Skeet team will fully support your migration. Training and code audits are also available upon request. Reduce costs, improve scalability, and increase development agility by going serverless.",
     "cardTitle": "Enterprise Development Support",
-    "cardButton": "Contact"
+    "cardButton": "Contact",
+    "detail": "Details can be found on Discord"
   }
 }

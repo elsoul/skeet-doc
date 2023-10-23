@@ -19,8 +19,8 @@ const siteConfig = {
   contactFormEN: 'https://forms.gle/rCyKAAQKRg5bu4tEA',
   feedbackFormJA: 'https://forms.gle/UfnDh6ohibqykSjy5',
   feedbackFormEN: 'https://forms.gle/ruaNvwucx7gcUNXB9',
-  enterpriseFormJA: 'https://forms.gle/FLF4a29fbQU1ZkdcA',
-  enterpriseFormEN: 'https://forms.gle/hwBV6jMhAeu1parm8',
+  enterpriseFormJA: 'https://discord.gg/WFWzDhepuU',
+  enterpriseFormEN: 'https://discord.gg/2DdgfJVmEK',
   downloadPressKitsJA:
     'https://storage.googleapis.com/elsoul-holdings/elsoul-labo/PressKits/2023-08-03/ELSOUL%20LABO%20B.V.%20%E3%83%95%E3%82%9A%E3%83%AC%E3%82%B9%E3%82%AD%E3%83%83%E3%83%88.zip',
   downloadPressKitsEN:
