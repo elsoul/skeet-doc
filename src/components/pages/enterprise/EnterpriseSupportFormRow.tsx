@@ -96,13 +96,16 @@ export default function EnterpriseSupportFormRow() {
                   <p className="mt-2 text-center text-sm font-light">
                     by ELSOUL LABO
                   </p>
+                  <p className="mt-4 text-center text-sm">
+                    {t('enterprise:EnterpriseSupportFormRow.detail')}
+                  </p>
                   <a
                     href={
                       isJapanese
                         ? siteConfig.enterpriseFormJA
                         : siteConfig.enterpriseFormEN
                     }
-                    className="mt-8 bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+                    className="mt-4 bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
                     rel="noreferrer"
                     target="_blank"
                   >
