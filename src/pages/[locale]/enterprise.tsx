@@ -5,7 +5,7 @@ import { getStaticPaths, makeStaticProps } from '@/lib/getStatic'
 import EnterpriseSupportFormRow from '@/components/pages/enterprise/EnterpriseSupportFormRow'
 
 const seo = {
-  pathname: '/',
+  pathname: '/enterprise',
   title: {
     ja: 'Skeet エンタープライズ開発サポート',
     en: 'Skeet Enterprise Development Support',
