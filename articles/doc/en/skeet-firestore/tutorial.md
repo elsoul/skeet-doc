@@ -440,7 +440,7 @@ $ git push origin main
 
 GitHub Actions automatically deploy when you push to GitHub.
 
-**⚠️ [Initial deployment](/en/doc/skeet-firestore/initial-deploy/) must be completed. ⚠️**
+**⚠️ [Deploy for Production](/en/doc/skeet-firestore/initial-deploy/) must be completed. ⚠️**
 
 ## Deploy with Skeet CLI
 

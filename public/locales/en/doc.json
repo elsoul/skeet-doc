@@ -22,7 +22,7 @@
       "body": "This tutorial will create an Chat App using Skeet Framework."
     },
     "initial-deploy": {
-      "title": "Initial Deploy",
+      "title": "Deploy for Production",
       "body": "You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command."
     },
     "basic-architecture": {
@@ -46,14 +46,15 @@
     "home": "Docs Home",
     "general": {
       "groupTitle": "General",
-      "motivation": "Motivation"
+      "motivation": "Motivation",
+      "overall-architecture": "Overall Architecture"
     },
     "skeet-graphql": {
       "groupTitle": "GraphQL Backend",
       "quickstart": "Quickstart",
       "setup": "Setup",
       "basic-architecture": "Basic Architecture",
-      "initial-deploy": "Initial Deploy",
+      "initial-deploy": "Deploy for Production",
       "tutorial": "Tutorial",
       "zero-to-deploy": "Zero to Deploy",
       "firebase-user-authentification": "Firebase Login Authentification",
@@ -67,7 +68,7 @@
       "quickstart": "Quickstart",
       "setup": "Setup",
       "basic-architecture": "Basic Architecture",
-      "initial-deploy": "Initial Deploy",
+      "initial-deploy": "Deploy for Production",
       "tutorial": "Tutorial",
       "zero-to-deploy": "Zero to Deploy",
       "firebase-user-authentification": "Firebase Login Authentification",

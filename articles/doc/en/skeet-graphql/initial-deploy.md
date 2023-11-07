@@ -1,6 +1,6 @@
 ---
 id: initial-deploy
-title: Initial Deploy - GraphQL
+title: Deploy for Production - GraphQL
 description: You can learn how to publish your Skeet app. You can also set deploy for each Commit with GitHub Actions with a single command.
 ---
 
@@ -60,7 +60,7 @@ export const authOnCreateUser = functions
 〜
 ```
 
-## Initial deployment with Skeet Init command
+## Deploy for Production with Skeet Init command
 
 Configure the following settings with the Skeet init command.
 
