@@ -22,7 +22,7 @@
       "body": "Skeet フレームワーク を使ってAIチャットアプリを作成するチュートリアルです。"
     },
     "initial-deploy": {
-      "title": "最初のデプロイ",
+      "title": "本番のデプロイ",
       "body": "Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。"
     },
     "basic-architecture": {
@@ -50,14 +50,15 @@
     "home": "ドキュメント ホーム",
     "general": {
       "groupTitle": "全般",
-      "motivation": "モチベーション"
+      "motivation": "モチベーション",
+      "overall-architecture": "全体アーキテクチャ"
     },
     "skeet-graphql": {
       "groupTitle": "GraphQL バックエンド",
       "quickstart": "クイックスタート",
       "setup": "セットアップ",
       "basic-architecture": "基本アーキテクチャ",
-      "initial-deploy": "最初のデプロイ",
+      "initial-deploy": "本番のデプロイ",
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "firebase-user-authentification": "Firebase ログイン認証",
@@ -71,7 +72,7 @@
       "quickstart": "クイックスタート",
       "setup": "セットアップ",
       "basic-architecture": "基本アーキテクチャ",
-      "initial-deploy": "最初のデプロイ",
+      "initial-deploy": "本番のデプロイ",
       "tutorial": "チュートリアル",
       "zero-to-deploy": "ゼロからデプロイまで",
       "firebase-user-authentification": "Firebase ログイン認証",

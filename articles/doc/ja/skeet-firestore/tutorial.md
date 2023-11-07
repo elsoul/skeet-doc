@@ -371,7 +371,7 @@ $ skeet list https
 ここではドメインを設定しないでデプロイします。
 開発時にドメインを設定しない場合は _skeet init --login_ コマンドを使用します。
 
-本番環境へデプロイする場合は [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy) を参照してください。
+本番環境へデプロイする場合は [本番のデプロイ](/ja/doc/skeet-firestore/initial-deploy) を参照してください。
 
 ### プロジェクトにデプロイ先の GCP,Firebase を設定する
 
@@ -380,7 +380,7 @@ $ skeet init --login
 ? What's your GCP Project ID skeet-demo
 ? What's your Firebase Project ID skeet-demo
 ? Select Regions to deploy (Use arrow keys)
-   🌏 Regions 🌏 
+   🌏 Regions 🌏
   europe-west1
   europe-west2
   europe-west3
@@ -403,6 +403,7 @@ $ skeet init --login
 Created service account [skeet-demo].
 ✔ Service account created successfully 🎉
 ```
+
 ### デプロイする
 
 ```bash
@@ -453,6 +454,7 @@ i  functions: updating Node.js 18 (2nd Gen) function skeet:createUserChatRoom(eu
 
 Project Console: https://console.firebase.google.com/project/skeet-demo/overview
 ```
+
 無事に Firebase Functions にデプロイされました。
 
 ## 型定義の同期
@@ -516,7 +518,7 @@ $ git push origin main
 
 GitHub に push すると、GitHub Actions により、自動でデプロイが行われます。
 
-**⚠️ [最初のデプロイ](/ja/doc/skeet-firestore/initial-deploy/) を完了させる必要があります。 ⚠️**
+**⚠️ [本番のデプロイ](/ja/doc/skeet-firestore/initial-deploy/) を完了させる必要があります。 ⚠️**
 
 ## Skeet CLI によるデプロイ
 

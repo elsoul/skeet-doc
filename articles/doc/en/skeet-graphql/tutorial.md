@@ -472,7 +472,7 @@ $ git push origin main
 
 Once you push to GitHub, the deployment will be carried out automatically by GitHub Actions.
 
-**⚠️ You must complete the [initial deployment](/en/doc/skeet-graphql/initial-deploy/). ⚠️**## Deploying with Skeet CLI
+**⚠️ You must complete the [Deploy for Production](/en/doc/skeet-graphql/initial-deploy/). ⚠️**## Deploying with Skeet CLI
 
 ```bash
 $ skeet deploy

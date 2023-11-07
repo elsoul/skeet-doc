@@ -1,6 +1,6 @@
 ---
 id: initial-deploy
-title: 最初のデプロイ - GraphQL
+title: 本番のデプロイ - GraphQL
 description: Skeet アプリを公開する方法について説明します。GitHub ActionsによるCommit毎のデプロイもワンコマンドで設定できます。
 ---
 
@@ -62,7 +62,7 @@ export const authOnCreateUser = functions
 
 同様に、フロントエンドへ公開するインスタンスの関数のオプションも変更します。
 
-## Skeet Init コマンドで最初のデプロイ
+## Skeet Init コマンドで本番のデプロイ
 
 Skeet init コマンドで以下の設定を行います。
 
@@ -118,7 +118,7 @@ ns-cloud-a4.googledomains.com.
 上記で表示された４つのレコードをドメインのネームサーバーに設定します。
 設定完了後３０分〜２時間程度でドメインの設定が反映されます。（ネームサーバーの設定によって異なります）
 
-これで最初のデプロイが完了しました。
+これで本番のデプロイが完了しました。
 
 https://lb.your-domain.com/root にアクセスしてみましょう。
 
