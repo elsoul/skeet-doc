@@ -19,6 +19,7 @@ import WhyOpenSourceDevelopmentRow from '@/components/pages/common/WhyOpenSource
 import OurWorksRow from '@/components/pages/common/OurWorksRow'
 import AIAutoCodeDevelopmentRow from '@/components/pages/common/AIAutoCodeDevelopmentRow'
 import SolanaMobileStackRow from '@/components/pages/common/SolanaMobileStackRow'
+import SkeetArchitectureRow from '@/components/pages/common/SkeetArchitectureRow'
 
 const articleDirName = 'news'
 
@@ -42,6 +43,7 @@ export default function Home({
   return (
     <>
       <HeroRow />
+      <SkeetArchitectureRow />
       <AIAutoCodeDevelopmentRow />
       <SolanaMobileStackRow />
       <CTASectionRow />
