@@ -33,8 +33,11 @@ Please complete the [Quick Start](/en/doc/skeet-graphql/quickstart) if you have 
 
 ## Development Environment
 
-The Skeet Framework recommends using VScode as your editor. By following the framework, you can receive powerful code completion support using GitHub Copilot.
+Skeet Framework recommends VScode or Cursor as the editor.
+By proceeding with development according to the framework,
+Get powerful code completion support using GitHub Copilot and OpenAI.
 
+- [Cursor](https://cursor.sh/)
 - [VScode](https://code.visualstudio.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 - [Eslint](https://eslint.org/)
@@ -58,9 +61,10 @@ Skeet CLI is a command-line tool for efficiently using the Skeet framework. You 
 $ npm i -g @skeet-framework/cli
 ```
 
-### Example of Vscode settings
+### Example of Vscode/Cursor settings
 
 By adding the following settings to Vscode's _settings.json_, you can streamline development.
+If you use a cursor, you can import the VScode settings as is.
 
 **⚠️ These settings are just an example. ⚠️**
 

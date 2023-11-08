@@ -43,10 +43,11 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 
 ## 開発環境
 
-Skeet Framework では エディタに VScode を推奨しています。
+Skeet Framework では エディタに VScode または Cursor を推奨しています。
 フレームワークに沿って開発を進めることで、
-GitHub Copilot を使った強力なコード補完サポートを受けることができます。
+GitHub Copilot 及び OpenAI を使った強力なコード補完サポートを受けることができます。
 
+- [Cursor](https://cursor.sh/)
 - [VScode](https://code.visualstudio.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 - [Eslint](https://eslint.org/)
@@ -67,10 +68,11 @@ ORM には Prisma を使います。
 - [MySQL](https://www.mysql.com/)
 - [Prisma](https://www.prisma.io/)
 
-### Vscode の設定の例
+### Vscode/Cursor の設定の例
 
 Vscode の _settings.json_ に次の設定を追加することで、
 開発を効率化することができます。
+Cursor を使う場合は、VScode の設定をそのままインポートすることができます。
 
 **⚠️ この設定はあくまで例です。 ⚠️**
 
