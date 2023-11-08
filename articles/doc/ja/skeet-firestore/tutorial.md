@@ -42,10 +42,11 @@ Skeet Framework は、コンピューターリソースを効率的に使うこ�
 
 ## 開発環境
 
-Skeet Framework では エディタに VScode を推奨しています。
+Skeet Framework では エディタに VScode または Cursor を推奨しています。
 フレームワークに沿って開発を進めることで、
-GitHub Copilot を使った強力なコード補完サポートを受けることができます。
+GitHub Copilot 及び OpenAI を使った強力なコード補完サポートを受けることができます。
 
+- [Cursor](https://cursor.sh/)
 - [VScode](https://code.visualstudio.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 

@@ -34,8 +34,11 @@ If you haven't completed the [setup](/en/doc/skeet-firestore/setup), please do s
 
 ## Development Environment
 
-The Skeet Framework recommends using VScode as the editor. By following the framework guidelines, developers can leverage powerful code completion support with GitHub Copilot.
+The Skeet Framework recommends using VScode as the editor. By following the framework guidelines, Skeet Framework recommends VScode or Cursor as the editor.
+By proceeding with development according to the framework,
+Get powerful code completion support using GitHub Copilot and OpenAI.
 
+- [Cursor](https://cursor.sh/)
 - [VScode](https://code.visualstudio.com/)
 - [GitHub Copilot](https://copilot.github.com/)
 
