@@ -48,7 +48,7 @@ $ npm install -g firebase-tools
 $ skeet create <appName>
 ```
 
-![Skeet Create Select Template](/doc-images/cli/SkeetCreateV022.png)
+![Skeet Create Select Template](/doc-images/cli/skeet-create-list.png)
 
 フロントエンドのテンプレートを選択できます。
 
@@ -56,6 +56,14 @@ $ skeet create <appName>
 - [Expo (React Native)](https://expo.dev/)
 
 ※ 本チュートリアルでは Expo 版を利用していますが、Next.js 版を利用しても同じ手順で利用可能です。
+
+また、オプションをつけることで、バックエンドのみのテンプレートを選択できます。
+
+```bash
+$ skeet create <appName> --backend
+```
+
+![Skeet Create Select Template](/doc-images/cli/skeet-create-backend-list.png)
 
 ### ③ ローカルで起動
 

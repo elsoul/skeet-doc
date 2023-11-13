@@ -45,7 +45,7 @@ $ npm install -g firebase-tools
 $ skeet create <appName>
 ```
 
-![Skeet Create Select Template](/doc-images/cli/SkeetCreateV022.png)
+![Skeet Create Select Template](/doc-images/cli/skeet-create-list.png)
 
 You can choose a template for the frontend.
 
