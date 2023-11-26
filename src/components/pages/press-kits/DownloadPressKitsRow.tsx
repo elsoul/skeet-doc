@@ -23,10 +23,10 @@ export default function DownloadPressKitsRow() {
       <div className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="bg-gradient-to-tl from-red-400 via-purple-400 to-blue-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
+            <h2 className="bg-gradient-to-tl from-red-400 via-purple-400 to-blue-400 bg-clip-text text-lg font-semibold leading-7 tracking-tight text-transparent">
               Press Kits
             </h2>
-            <p className="mt-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <p className="mt-3 text-4xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-6xl">
               {t('press-kits:DownloadPressKitsRow.title')}
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
@@ -38,14 +38,14 @@ export default function DownloadPressKitsRow() {
               <dl className="col-span-1 grid grid-cols-1 gap-y-10 lg:col-span-3">
                 {merits.map((item) => (
                   <div key={item.title} className="relative pl-16">
-                    <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
+                    <dt className="text-lg font-semibold leading-7 tracking-tight text-gray-900 dark:text-white">
                       <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center rounded-sm bg-gray-50 text-gray-600 ring-1 ring-inset ring-gray-500/10 dark:bg-gray-800">
                         <item.icon
                           className="h-6 w-6 text-gray-600 dark:text-gray-200"
                           aria-hidden="true"
                         />
                       </div>
-                      {t(item.title)}
+                      <p className="mt-1">{t(item.title)}</p>
                     </dt>
                     <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
                       {t(item.description)}
@@ -69,10 +69,10 @@ export default function DownloadPressKitsRow() {
                       unoptimized
                     />
                   </div>
-                  <p className="mt-6 text-center font-bold">
+                  <p className="mt-6 text-center font-bold tracking-tight">
                     {t('press-kits:DownloadPressKitsRow.cardTitle')}
                   </p>
-                  <p className="mt-2 text-center text-sm font-light">
+                  <p className="mt-2 text-center text-sm font-light tracking-tight">
                     by ELSOUL LABO
                   </p>
                   <a

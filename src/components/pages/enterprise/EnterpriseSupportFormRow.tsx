@@ -36,7 +36,7 @@ export default function EnterpriseSupportFormRow() {
     <>
       <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="mx-auto lg:text-center">
             <span className="inline-flex items-center gap-x-1.5 px-2 py-1 text-xs font-medium text-gray-900 ring-1 ring-inset ring-gray-200 dark:text-white">
               <svg
                 className="h-1.5 w-1.5 fill-green-500"
@@ -47,26 +47,26 @@ export default function EnterpriseSupportFormRow() {
               </svg>
               Support
             </span>
-            <p className="mt-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <p className="mx-auto mt-3 max-w-xl text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-6xl">
               {t('enterprise:EnterpriseSupportFormRow.title')}
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-gray-600 dark:text-gray-300">
               {t('enterprise:EnterpriseSupportFormRow.description')}
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <div className="grid max-w-xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-5 lg:gap-y-16">
+            <div className="mx-auto grid max-w-xl grid-cols-1 gap-x-16 gap-y-16 lg:max-w-none lg:grid-cols-5 lg:gap-y-16">
               <dl className="col-span-1 grid grid-cols-1 gap-y-10 lg:col-span-3">
                 {merits.map((item) => (
                   <div key={item.title} className="relative  pl-16">
-                    <dt className="text-base font-semibold leading-7 text-gray-900 dark:text-white">
+                    <dt className="text-lg font-semibold leading-7 tracking-tight text-gray-900 dark:text-white">
                       <div className="absolute left-0 top-0 flex h-10 w-10 items-center justify-center bg-gray-50 text-gray-600 ring-1 ring-inset ring-gray-500/10 dark:bg-gray-800">
                         <item.icon
                           className="h-6 w-6 text-gray-600 dark:text-gray-200"
                           aria-hidden="true"
                         />
                       </div>
-                      {t(item.title)}
+                      <p className="mt-1">{t(item.title)}</p>
                     </dt>
                     <dd className="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
                       {t(item.description)}
@@ -90,10 +90,10 @@ export default function EnterpriseSupportFormRow() {
                       unoptimized
                     />
                   </div>
-                  <p className="mt-6 text-center font-bold">
+                  <p className="mt-6 text-center font-bold tracking-tight">
                     {t('enterprise:EnterpriseSupportFormRow.cardTitle')}
                   </p>
-                  <p className="mt-2 text-center text-sm font-light">
+                  <p className="mt-2 text-center text-sm font-light tracking-tight">
                     by ELSOUL LABO
                   </p>
                   <p className="mt-4 text-center text-sm">
