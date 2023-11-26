@@ -10,13 +10,16 @@ import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
 import typescriptLogo from '@/assets/img/logo/projects/TypeScriptHorizontal.svg'
 import { Button } from '@/components/common/atoms/Button'
 import clsx from 'clsx'
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { copyToClipboard } from '@/utils/userAction'
 import openAILogo from '@/assets/img/logo/projects/OpenAI.svg'
+import { BookOpenIcon } from '@heroicons/react/24/outline'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 export default function HomeHeroRow() {
-  const { t } = useTranslation()
-
+  const { t, i18n } = useTranslation()
+  const isJapanese = useMemo(() => i18n.language === 'ja', [i18n.language])
   const [copyText, setCopyText] = useState('common:copy')
 
   const handleClick = useCallback(() => {
@@ -55,17 +58,26 @@ export default function HomeHeroRow() {
           />
         </svg>
         <Container className="py-24 text-center lg:py-32">
-          <h1 className="font-display mx-auto max-w-4xl text-5xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-7xl">
-            Effortless. <br />
-            Serverless.
+          <h1 className="font-display mx-auto max-w-4xl text-6xl font-extrabold tracking-tighter text-gray-900 dark:text-gray-50 sm:text-8xl md:text-9xl">
+            Just Build It.
           </h1>
-          <p className="mx-auto mt-6 max-w-lg text-sm font-bold tracking-tight text-gray-700 dark:text-gray-100 sm:text-lg">
-            {t('home:HeroRow.body1')} <br />
-            {t('home:HeroRow.body2')}
+          <p
+            className={clsx(
+              isJapanese ? 'max-w-3xl' : 'max-w-xl',
+              'text-md mx-auto mt-6  font-medium tracking-tight text-gray-700 dark:text-gray-100 sm:text-xl'
+            )}
+          >
+            {t('home:HeroRow.body1')} <br className="hidden sm:block" />
+            {t('home:HeroRow.body2')} <br className="hidden sm:block" />
+            {t('home:HeroRow.body3')}
           </p>
 
           <div className="mt-6 flex justify-center gap-x-6">
             <Button href="/doc" className="">
+              <BookOpenIcon
+                className="mr-2 inline-block h-5 w-5"
+                aria-hidden="true"
+              />
               {t('common:navs.defaultMainNav.doc')}
             </Button>
             <Button
@@ -75,6 +87,10 @@ export default function HomeHeroRow() {
               target="_blank"
               rel="noreferrer"
             >
+              <FontAwesomeIcon
+                icon={faGithub}
+                className="mr-2 inline-block h-5 w-5"
+              />
               GitHub
             </Button>
           </div>

@@ -40,7 +40,7 @@ export default function OurWorksRow() {
                   alt={work.title}
                   unoptimized
                 />
-                <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900 dark:text-white">
+                <h3 className="mt-6 text-lg font-bold leading-8 tracking-tight text-gray-900 dark:text-white">
                   {t(work.title)}
                 </h3>
                 <p className="mt-4 text-base leading-7 text-gray-600 dark:text-gray-200">

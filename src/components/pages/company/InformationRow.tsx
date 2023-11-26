@@ -7,10 +7,10 @@ export default function InformationRow() {
       <Container className="my-40">
         <div>
           <div>
-            <h3 className="text-2xl font-semibold leading-6 text-gray-900 dark:text-gray-50">
+            <h3 className="text-3xl font-bold leading-6 tracking-tighter text-gray-900 dark:text-gray-50">
               {t('company:InformationRow.title')}
             </h3>
-            <p className="mt-1 max-w-2xl text-sm text-gray-500 dark:text-gray-300">
+            <p className="mt-2 max-w-2xl text-sm font-semibold text-gray-500 dark:text-gray-300">
               {t('company:InformationRow.body')}
             </p>
           </div>

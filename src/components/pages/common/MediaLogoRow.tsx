@@ -13,7 +13,7 @@ export default function MediaLogoRow() {
   return (
     <>
       <Container className="py-24 text-center lg:py-32">
-        <h2 className="font-display mx-auto max-w-4xl text-2xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-5xl">
+        <h2 className="font-display mx-auto max-w-4xl text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-gray-50 sm:text-6xl">
           Media
         </h2>
 

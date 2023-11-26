@@ -51,7 +51,7 @@ export default function DocPagination({}: Props) {
                         <ArrowSmallLeftIcon className="mr-2 h-3 w-3" />
                         {t('doc:previousPage')}
                       </p>
-                      <h3 className="mt-2 font-semibold leading-6 text-gray-900 group-hover:text-gray-600 dark:text-gray-50 dark:group-hover:text-gray-300">
+                      <h3 className="mt-2 font-semibold leading-6 tracking-tight text-gray-900 group-hover:text-gray-600 dark:text-gray-50 dark:group-hover:text-gray-300">
                         <span className="absolute inset-0" />
                         {t(pageInfo.previousPage.name)}
                       </h3>

@@ -1,7 +1,8 @@
 {
   "HeroRow": {
-    "body1": "Open-Source Serverless Framework for full-stack apps",
-    "body2": "on GCP (Google Cloud) and Firebase."
+    "body1": "Skeet is an open-source TypeScript serverless framework.",
+    "body2": "It supports all kinds of application development,",
+    "body3": "from small-scale tasks to global full-stack scaling."
   },
   "MainPurposeRow": {
     "subtitle": "Do more, manage less",

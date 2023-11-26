@@ -8,10 +8,10 @@ export default function CTASectionRow() {
       <div className="">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:justify-between lg:px-8">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-              Effortless. Serverless.
+            <h2 className="text-6xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-7xl">
+              Just Build It.
             </h2>
-            <p className="text-lg font-medium tracking-tight text-gray-400 dark:text-gray-400 sm:text-xl">
+            <p className="text-xl font-bold tracking-tight text-gray-400 dark:text-gray-400 sm:text-2xl">
               {t('common:CTASectionRow.subtitle')}
             </p>
           </div>

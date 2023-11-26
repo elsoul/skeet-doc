@@ -1,7 +1,8 @@
 {
   "HeroRow": {
-    "body1": "GCP (Google Cloud) と Firebase上にフルスタックアプリ",
-    "body2": "を構築できるオープンソースのサーバーレスフレームワーク"
+    "body1": "Skeet はオープンソースのTypeScript製サーバーレスフレームワークです。",
+    "body2": "小規模タスクからグローバルスケールのフルスタックまで、",
+    "body3": "あらゆるアプリ開発に対応しています。"
   },
   "MainPurposeRow": {
     "subtitle": "もっと多くを少ないコストで",
