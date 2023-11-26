@@ -10,13 +10,13 @@ export default function SkeetArchitectureRow() {
       <Container className="mb-32 sm:mb-48">
         <div className="px-6 pb-10 pt-24 sm:pb-16 sm:pt-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="bg-gradient-to-t from-blue-500 via-purple-400 to-pink-300 bg-clip-text text-base font-semibold leading-7 text-transparent">
+            <h2 className="bg-gradient-to-tr from-green-400 via-blue-400 to-purple-400 bg-clip-text text-lg font-semibold leading-7 tracking-tight text-transparent">
               {t('common:SkeetArchitectureRow.subtitle')}
             </h2>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            <h2 className="mt-2 text-4xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-6xl">
               {t('common:SkeetArchitectureRow.title')}
             </h2>
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-200">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600 dark:text-gray-200">
               {t('common:SkeetArchitectureRow.description')}
             </p>
           </div>

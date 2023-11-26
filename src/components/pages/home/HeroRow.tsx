@@ -68,7 +68,8 @@ export default function HomeHeroRow() {
             )}
           >
             {t('home:HeroRow.body1')} <br className="hidden sm:block" />
-            {t('home:HeroRow.body2')}
+            {t('home:HeroRow.body2')} <br className="hidden sm:block" />
+            {t('home:HeroRow.body3')}
           </p>
 
           <div className="mt-6 flex justify-center gap-x-6">

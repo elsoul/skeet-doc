@@ -39,10 +39,10 @@ export default function SkeetDemoRow() {
           />
         </svg>
         <div className="mx-auto max-w-7xl px-6 py-64 sm:py-96 lg:px-8">
-          <p className="mb-3 text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <p className="mb-8 text-4xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-4xl">
             {t('home:SkeetDemoRow.title1')}
           </p>
-          <p className="text-3xl font-bold leading-8 tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <p className="text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-5xl">
             {t('home:SkeetDemoRow.title2')}
           </p>
           <div className="mt-10 flex items-center gap-x-6">

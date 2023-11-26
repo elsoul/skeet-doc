@@ -13,10 +13,10 @@ export default function SolanaMobileStackRow() {
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:ml-auto lg:pl-4 lg:pt-4">
               <div className="lg:max-w-lg">
-                <h2 className="bg-gradient-to-tl from-green-500 via-blue-400 to-purple-400 bg-clip-text text-base font-semibold leading-7 text-transparent">
+                <h2 className="bg-gradient-to-tl from-green-500 via-blue-400 to-purple-400 bg-clip-text text-lg font-semibold leading-7 tracking-tight text-transparent">
                   {t('common:SolanaMobileStackRow.subtitle')}
                 </h2>
-                <p className="mt-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+                <p className="mt-2 text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white sm:text-5xl">
                   {t('common:SolanaMobileStackRow.title')}
                 </p>
                 <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">

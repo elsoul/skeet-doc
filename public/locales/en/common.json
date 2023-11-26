@@ -99,9 +99,9 @@
     "description": "With Skeet, you can quickly start developing on the Solana Mobile Stack as well as Solana's dApps, accelerating the development and release of Web3 and blockchain applications."
   },
   "SkeetArchitectureRow": {
-    "subtitle": "Open-Source App Development Tool",
-    "title": "TypeScript Serverless Framework",
-    "description": "Flexible and modular, Skeet enables selective feature integration for tailored app development. It streamlines adding web or mobile interfaces and data analytics, supports Web3 apps, and offers auto-scaling with cost-effective pricing. The CLI automates infrastructure management, freeing developers from the complexities of system design and maintenance, while ensuring CI/CD readiness and robust security.",
-    "link": "Overall Architecture"
+    "subtitle": "Start coding to solve the problems",
+    "title": "Concentrate on Desired Functionalities",
+    "description": "Skeet consistently utilizes TypeScript to enable the creation of essential features and UI as needed, without the worry of infrastructure design and management. Just write the code to solve the problems, and you're ready to go global.",
+    "link": "Explore the Full Architecture"
   }
 }
