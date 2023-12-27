@@ -33,8 +33,19 @@ Skeet はオープンソースのフルスタックアプリ開発ソリュー�
 
 ### ① パッケージのインストール
 
+Skeet CLI は Skeet フレームワークを効率的に利用するためのコマンドラインツールです。以下のコマンドでインストールできます。
+すでに npm がインストールされている場合は、以下のコマンドでインストールできます。
+
 ```bash
 $ npm i -g @skeet-framework/cli
+$ npm install -g firebase-tools
+```
+
+npm がインストールされていない場合は、以下のコマンドでインストールできます。
+(このコマンドは、nodenv, node, npm, @skeet-framework/cli をインストールし .profile/.zshrc を編集します。)
+
+```bash
+$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.0.0)"
 $ npm install -g firebase-tools
 ```
 

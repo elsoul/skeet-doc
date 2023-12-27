@@ -34,8 +34,19 @@ You can start writing app logic immediately without worrying about infrastructur
 
 ### ① Install Skeet/Firebase CLI
 
+Skeet CLI is a command line tool for efficiently using the Skeet framework. You can install it with the following command.
+If npm is already installed, you can install it with the following command.
+
 ```bash
 $ npm i -g @skeet-framework/cli
+$ npm install -g firebase-tools
+```
+
+If npm is not installed, you can install it with the following command.
+(This command installs nodenv, node, npm, @skeet-framework/cli and edits .profile/.zshrc.)
+
+```bash
+$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.0.0)"
 $ npm install -g firebase-tools
 ```
 
