@@ -10,10 +10,18 @@ This guide will help you quickly get started with the Skeet framework.
 
 ## Installing Skeet CLI
 
-The Skeet CLI is a command-line tool designed for efficient usage of the Skeet framework. Install it with the following command:
+Skeet CLI is a command line tool for efficiently using the Skeet framework. You can install it with the following command.
+If npm is already installed, you can install it with the following command.
 
 ```bash
 $ npm i -g @skeet-framework/cli
+```
+
+If npm is not installed, you can install it with the following command.
+(This command installs nodenv, node, npm, @skeet-framework/cli and edits .profile/.zshrc.)
+
+```bash
+$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.0.0)"
 ```
 
 ## Docker Installation
