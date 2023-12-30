@@ -56,12 +56,7 @@ export default function BooksRow() {
                         <Image
                           src={project.logo}
                           alt={project.name}
-                          className={clsx(
-                            'w-full hover:opacity-60 dark:grayscale',
-                            project.name === 'React'
-                              ? 'dark:invert-0'
-                              : 'dark:invert'
-                          )}
+                          className={clsx('w-full hover:opacity-60')}
                           width={1920}
                           height={1080}
                           unoptimized
