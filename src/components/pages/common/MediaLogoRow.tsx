@@ -8,13 +8,15 @@ import YomiuriLogo from '@/assets/img/logo/media/yomiuri.svg'
 import BiglobeLogo from '@/assets/img/logo/media/biglobe.svg'
 import WithnewsLogo from '@/assets/img/logo/media/withnews.png'
 import GendaiLogo from '@/assets/img/logo/media/gendai.png'
+import { useTranslation } from 'next-i18next'
 
 export default function MediaLogoRow() {
+  const { t } = useTranslation()
   return (
     <>
       <Container className="py-24 text-center lg:py-32">
         <h2 className="font-display mx-auto max-w-4xl text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-gray-50 sm:text-6xl">
-          Media
+          {t('media')}
         </h2>
 
         <div className="mb-12 mt-16 lg:mt-24">

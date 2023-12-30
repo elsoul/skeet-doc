@@ -9,6 +9,9 @@
   "closeMenu": "メニューを閉じる",
   "copy": "コピー",
   "copied": "コピーしました!",
+  "media": "メディア",
+  "news": "ニュース",
+  "books": "本",
   "navs": {
     "defaultMainNav": {
       "quickstart": "クイックスタート",

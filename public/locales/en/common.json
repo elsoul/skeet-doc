@@ -9,6 +9,9 @@
   "closeMenu": "Close menu",
   "copy": "Copy",
   "copied": "Copied!",
+  "media": "Media",
+  "news": "News",
+  "books": "Books",
   "navs": {
     "defaultMainNav": {
       "quickstart": "Quickstart",
