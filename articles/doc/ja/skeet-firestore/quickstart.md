@@ -19,7 +19,7 @@ npm がインストールされていない場合は、以下のコマンドで�
 (このコマンドは、nodenv, node, npm, @skeet-framework/cli をインストールし .profile/.zshrc を編集します。)
 
 ```bash
-$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.0.0)"
+$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/v1.0.2-install)"
 ```
 
 ## Google Cloud Project の作成
