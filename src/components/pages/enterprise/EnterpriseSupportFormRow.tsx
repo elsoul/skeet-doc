@@ -100,11 +100,7 @@ export default function EnterpriseSupportFormRow() {
                     {t('enterprise:EnterpriseSupportFormRow.detail')}
                   </p>
                   <a
-                    href={
-                      isJapanese
-                        ? siteConfig.enterpriseFormJA
-                        : siteConfig.enterpriseFormEN
-                    }
+                    href={siteConfig.discordInvitationLink}
                     className="mt-4 bg-gray-900 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
                     rel="noreferrer"
                     target="_blank"
