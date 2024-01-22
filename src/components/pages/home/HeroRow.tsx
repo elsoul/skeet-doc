@@ -58,7 +58,7 @@ export default function HomeHeroRow() {
           />
         </svg>
         <Container className="py-24 text-center lg:py-32">
-          <h1 className="font-display mx-auto max-w-4xl text-6xl font-extrabold tracking-tighter text-gray-900 dark:text-gray-50 sm:text-8xl md:text-9xl">
+          <h1 className="font-display mx-auto max-w-4xl bg-gradient-to-t from-gray-600 via-gray-700 to-gray-900 bg-clip-text text-6xl font-extrabold tracking-tighter text-transparent dark:from-gray-200 dark:via-gray-50 dark:to-white sm:text-8xl md:text-9xl">
             Just Build It.
           </h1>
           <p
