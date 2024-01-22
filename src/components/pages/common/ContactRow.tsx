@@ -60,11 +60,7 @@ export default function ContactRow() {
               <div className="mt-5 sm:ml-6 sm:mt-0 sm:flex sm:flex-shrink-0 sm:items-center">
                 <Button
                   color="white"
-                  href={
-                    isJapanese
-                      ? siteConfig.contactFormJA
-                      : siteConfig.contactFormEN
-                  }
+                  href={siteConfig.discordInvitationLink}
                   target="_blank"
                   rel="noreferrer"
                   className=""
