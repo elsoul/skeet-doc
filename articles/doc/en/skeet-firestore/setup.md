@@ -84,7 +84,7 @@ Now you have both frontend and backend running locally ⭐️
 
 ## 🤖 Activate Skeet ChatApp 🤖
 
-### ① Create Googel Cloud Project
+### ① Create Google Cloud Project
 
 Create Google Cloud Project
 
