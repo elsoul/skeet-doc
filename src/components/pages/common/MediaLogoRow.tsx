@@ -7,7 +7,7 @@ import RakutenLogo from '@/assets/img/logo/media/rakuten.svg'
 import YomiuriLogo from '@/assets/img/logo/media/yomiuri.svg'
 import BiglobeLogo from '@/assets/img/logo/media/biglobe.svg'
 import WithnewsLogo from '@/assets/img/logo/media/withnews.png'
-import GendaiLogo from '@/assets/img/logo/media/gendai.png'
+import CoinPostLogo from '@/assets/img/logo/media/coinpost.png'
 import { useTranslation } from 'next-i18next'
 
 export default function MediaLogoRow() {
@@ -41,14 +41,14 @@ export default function MediaLogoRow() {
                 {
                   name: '読売新聞',
                   logo: YomiuriLogo,
-                  link: 'https://yab.yomiuri.co.jp/adv/feature/release/detail/000000042000105962.html',
+                  link: 'https://yab.yomiuri.co.jp/adv/feature/release/detail/000000080000105962.html',
                 },
               ],
               [
                 {
                   name: 'BIGLOBE',
                   logo: BiglobeLogo,
-                  link: 'https://news.biglobe.ne.jp/economy/0619/prt_230619_7473457246.html',
+                  link: 'https://news.biglobe.ne.jp/economy/1208/prt_231208_5435112600.html',
                 },
                 {
                   name: 'Withnews',
@@ -56,9 +56,9 @@ export default function MediaLogoRow() {
                   link: 'https://withnews.jp/pressrelease/article/9674',
                 },
                 {
-                  name: '現代ビジネス',
-                  logo: GendaiLogo,
-                  link: 'https://gendai.media/ud/pressrelease/648fbf82760b069464000057',
+                  name: 'CoinPost',
+                  logo: CoinPostLogo,
+                  link: 'https://coinpost.jp/?post_type=pressrelease&p=489167',
                 },
               ],
             ].map((group, groupIndex) => (
