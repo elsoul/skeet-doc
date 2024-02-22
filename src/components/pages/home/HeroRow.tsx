@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
 import firebaseLogo from '@/assets/img/logo/projects/Firebase.svg'
 import googleCloudLogo from '@/assets/img/logo/projects/GoogleCloudHorizontal.svg'
-import graphqlLogo from '@/assets/img/logo/projects/graphql.svg'
+import pnpmLogo from '@/assets/img/logo/projects/pnpm-logo.svg'
 import expoLogo from '@/assets/img/logo/projects/Expo.svg'
 import nextLogo from '@/assets/img/logo/projects/nextjs.svg'
 import prismaLogo from '@/assets/img/logo/projects/prisma.svg'
@@ -146,9 +146,9 @@ export default function HomeHeroRow() {
                 ],
                 [
                   {
-                    name: 'GraphQL',
-                    logo: graphqlLogo,
-                    link: 'https://graphql.org/',
+                    name: 'pnpm',
+                    logo: pnpmLogo,
+                    link: 'https://pnpm.io/',
                   },
                   {
                     name: 'OpenAI',
