@@ -1,6 +1,7 @@
 import Container from '@/components/common/atoms/Container'
 import { useTranslation } from 'next-i18next'
 import Image from 'next/image'
+import SkeetArchiectureV2 from '@/assets/img/product/skeet/SkeetArchitectureV2.jpg'
 
 export default function SkeetArchitectureRow() {
   const { t } = useTranslation()
@@ -39,9 +40,7 @@ export default function SkeetArchitectureRow() {
             rel="noopener noreferrer"
           >
             <Image
-              src={
-                'https://storage.googleapis.com/skeet-assets/imgs/SkeetArchitecture.png'
-              }
+              src={SkeetArchiectureV2}
               width={1920}
               height={1080}
               // className="shadow-2xl"
