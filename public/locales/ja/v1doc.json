@@ -1,4 +1,6 @@
 {
+  "warningThisIsV1": "注意: これは Skeet Ver.1 用のドキュメントです。まずは最新バージョンのSkeetを確認していただくことをおすすめします。",
+  "toNewVersionButton": "最新バージョンを確認",
   "title": "Skeet ドキュメント",
   "body1": "GCP (Google Cloud) と Firebase上にフルスタックアプリ",
   "body2": "を構築できるオープンソースのサーバーレスフレームワーク",
