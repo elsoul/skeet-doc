@@ -17,11 +17,11 @@ You: $ typedoc
 Skeet:
 📚 Typedoc モード 📚
 ? Typedocを生成するためのファイルパスを選択してください。 (Use arrow keys)
-❯ /Users/fumi/Dev/ts/skeet-graphql/tmp/ai/history-ja.jsonl
-  /Users/fumi/Dev/ts/skeet-graphql/skeet-cloud.config.json
-  /Users/fumi/Dev/ts/skeet-graphql/graphql/build.ts
-  /Users/fumi/Dev/ts/skeet-graphql/graphql/devBuild.ts
-  /Users/fumi/Dev/ts/skeet-graphql/functions/skeet/yarn.lock
+❯ /Users/fumi/Dev/ts/skeet-sql/tmp/ai/history-ja.jsonl
+  /Users/fumi/Dev/ts/skeet-sql/skeet-cloud.config.json
+  /Users/fumi/Dev/ts/skeet-sql/sql/build.ts
+  /Users/fumi/Dev/ts/skeet-sql/sql/devBuild.ts
+  /Users/fumi/Dev/ts/skeet-sql/functions/skeet/yarn.lock
 ```
 
 最近編集したファイルが候補として表示されます。

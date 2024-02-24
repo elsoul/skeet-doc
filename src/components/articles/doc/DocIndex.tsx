@@ -26,7 +26,7 @@ const actions = [
   {
     title: 'doc:actions.quickstart.title',
     body: 'doc:actions.quickstart.body',
-    href: '/doc/skeet-graphql/quickstart',
+    href: '/doc/skeet-firestore/quickstart',
     icon: RocketLaunchIcon,
     iconForeground: 'text-yellow-700',
     iconBackground: 'bg-yellow-50',
@@ -34,7 +34,7 @@ const actions = [
   {
     title: 'doc:actions.tutorial.title',
     body: 'doc:actions.tutorial.body',
-    href: '/doc/skeet-graphql/tutorial',
+    href: '/doc/skeet-firestore/tutorial',
     icon: AcademicCapIcon,
     iconForeground: 'text-green-700',
     iconBackground: 'bg-green-50',
@@ -42,7 +42,7 @@ const actions = [
   {
     title: 'doc:actions.initial-deploy.title',
     body: 'doc:actions.initial-deploy.body',
-    href: '/doc/skeet-graphql/initial-deploy',
+    href: '/doc/skeet-firestore/initial-deploy',
     icon: CloudArrowUpIcon,
     iconForeground: 'text-teal-700',
     iconBackground: 'bg-teal-50',
@@ -50,7 +50,7 @@ const actions = [
   {
     title: 'doc:actions.basic-architecture.title',
     body: 'doc:actions.basic-architecture.body',
-    href: '/doc/skeet-graphql/basic-architecture',
+    href: '/doc/skeet-firestore/basic-architecture',
     icon: BookOpenIcon,
     iconForeground: 'text-blue-700',
     iconBackground: 'bg-blue-50',
@@ -66,7 +66,7 @@ const actions = [
   {
     title: 'doc:actions.nextjs-template.title',
     body: 'doc:actions.nextjs-template.body',
-    href: '/doc/frontend/nextjs-graphql-template',
+    href: '/doc/frontend/nextjs-firestore-template',
     icon: DevicePhoneMobileIcon,
     iconForeground: 'text-cyan-700',
     iconBackground: 'bg-cyan-50',

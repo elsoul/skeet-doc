@@ -102,11 +102,6 @@ const skeetCliNav = [
     icon: CommandLineIcon,
   },
   {
-    name: 'doc:menuNav.skeet-cli.yarn',
-    href: '/doc/skeet-cli/skeet-cli-yarn/',
-    icon: CommandLineIcon,
-  },
-  {
     name: 'doc:menuNav.skeet-cli.add',
     href: '/doc/skeet-cli/skeet-cli-add/',
     icon: CommandLineIcon,
@@ -124,16 +119,6 @@ const skeetCliNav = [
   {
     name: 'doc:menuNav.skeet-cli.login',
     href: '/doc/skeet-cli/skeet-cli-login/',
-    icon: CommandLineIcon,
-  },
-  {
-    name: 'doc:menuNav.skeet-cli.list',
-    href: '/doc/skeet-cli/skeet-cli-list/',
-    icon: CommandLineIcon,
-  },
-  {
-    name: 'doc:menuNav.skeet-cli.curl',
-    href: '/doc/skeet-cli/skeet-cli-curl/',
     icon: CommandLineIcon,
   },
   {
@@ -156,36 +141,6 @@ export const docMenuNav = [
         name: 'doc:menuNav.general.overall-architecture',
         href: '/doc/general/overall-architecture/',
         icon: RectangleGroupIcon,
-      },
-    ],
-  },
-  {
-    name: 'doc:menuNav.skeet-graphql.groupTitle',
-    children: [
-      {
-        name: 'doc:menuNav.skeet-graphql.quickstart',
-        href: '/doc/skeet-graphql/quickstart/',
-        icon: RocketLaunchIcon,
-      },
-      {
-        name: 'doc:menuNav.skeet-graphql.setup',
-        href: '/doc/skeet-graphql/setup/',
-        icon: Cog6ToothIcon,
-      },
-      {
-        name: 'doc:menuNav.skeet-graphql.tutorial',
-        href: '/doc/skeet-graphql/tutorial/',
-        icon: AcademicCapIcon,
-      },
-      {
-        name: 'doc:menuNav.skeet-graphql.initial-deploy',
-        href: '/doc/skeet-graphql/initial-deploy/',
-        icon: CloudArrowUpIcon,
-      },
-      {
-        name: 'doc:menuNav.skeet-graphql.basic-architecture',
-        href: '/doc/skeet-graphql/basic-architecture/',
-        icon: BookOpenIcon,
       },
     ],
   },
@@ -283,11 +238,6 @@ export const docMenuNav = [
     name: 'doc:menuNav.frontend.groupTitle',
     children: [
       {
-        name: 'doc:menuNav.frontend.nextjs-graphql-template',
-        href: '/doc/frontend/nextjs-graphql-template/',
-        icon: WindowIcon,
-      },
-      {
         name: 'doc:menuNav.frontend.nextjs-firestore-template',
         href: '/doc/frontend/nextjs-firestore-template/',
         icon: WindowIcon,
@@ -304,10 +254,10 @@ export const docMenuNav = [
       },
     ],
   },
-  {
-    name: 'doc:menuNav.skeet-cli.groupTitle',
-    children: skeetCliNav,
-  },
+  // {
+  //   name: 'doc:menuNav.skeet-cli.groupTitle',
+  //   children: skeetCliNav,
+  // },
 ]
 
 export const docHeaderNav = [
