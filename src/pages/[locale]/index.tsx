@@ -50,7 +50,6 @@ export default function Home({
       <CTASectionRow />
       <MainPurposeRow />
       <SkeetFeaturesRow />
-      <SkeetRTAYouTubeRow />
       <GoToQuickstartRow />
       <SkeetDemoRow />
       <WhyOpenSourceDevelopmentRow />
