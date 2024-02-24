@@ -16,8 +16,8 @@ export default function DocsVersionChanger({ version }: Props) {
       <Menu as="div">
         <Menu.Button
           className={clsx(
-            'text-gray-600',
-            'group inline-flex items-center justify-center border border-gray-600 px-3 py-1 text-base font-medium hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2'
+            'text-gray-600 dark:text-gray-200',
+            'group inline-flex items-center justify-center border border-gray-600 px-3 py-1 text-base font-medium hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:border-gray-200'
           )}
         >
           <span
@@ -39,12 +39,12 @@ export default function DocsVersionChanger({ version }: Props) {
           leaveTo="opacity-0 translate-y-1"
         >
           <Menu.Items className="fixed z-20 mt-3 h-auto w-32 transform px-2">
-            <div className="shadow-lg ring-1 ring-black ring-opacity-5">
+            <div className="shadow-lg ring-1 ring-black ring-opacity-5 dark:ring-white">
               <Menu.Item>
                 {({ close }) => (
                   <>
                     <div
-                      className="group relative z-50 inline-flex items-center bg-white px-5 py-6 text-gray-900 hover:cursor-pointer dark:bg-gray-900"
+                      className="group relative z-50 inline-flex w-full items-center bg-white px-5 py-6 text-gray-900 hover:cursor-pointer dark:bg-gray-800 dark:text-white"
                       role="button"
                       onClick={async () => {
                         await routerPush('/doc/')
@@ -63,7 +63,7 @@ export default function DocsVersionChanger({ version }: Props) {
                 {({ close }) => (
                   <>
                     <div
-                      className="group relative z-50 inline-flex items-center bg-white px-5 py-6 text-gray-900 hover:cursor-pointer dark:bg-gray-900"
+                      className="group relative z-50 inline-flex w-full items-center bg-white px-5 py-6 text-gray-900 hover:cursor-pointer dark:bg-gray-800 dark:text-white"
                       role="button"
                       onClick={async () => {
                         await routerPush('/v1doc/')
