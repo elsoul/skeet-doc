@@ -30,11 +30,11 @@ $ skeet get files --limit 5 --translate
     "ja"
   ],
   "paths": [
-    "/Users/fumi/Dev/ts/skeet-graphql/skeet-cloud.config.json",
-    "/Users/fumi/Dev/ts/skeet-graphql/functions/skeet/package.json",
-    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/firebase-export-metadata.json",
-    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/storage_export/buckets.json",
-    "/Users/fumi/Dev/ts/skeet-graphql/tmp/data/auth_export/config.json"
+    "/Users/fumi/Dev/ts/skeet-sql/skeet-cloud.config.json",
+    "/Users/fumi/Dev/ts/skeet-sql/functions/skeet/package.json",
+    "/Users/fumi/Dev/ts/skeet-sql/tmp/data/firebase-export-metadata.json",
+    "/Users/fumi/Dev/ts/skeet-sql/tmp/data/storage_export/buckets.json",
+    "/Users/fumi/Dev/ts/skeet-sql/tmp/data/auth_export/config.json"
   ]
 }
 ? 実行する準備はできていますか？ (Use arrow keys)

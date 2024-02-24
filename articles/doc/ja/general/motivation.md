@@ -24,7 +24,7 @@ Skeet は素早くアプリを立ち上げ、少ないコストで長期的に�
 
 ## GCP (Google Cloud) と Firebase を活用したサーバーレスアーキテクチャ
 
-![Effortless Serverless Skeet](/doc-images/motivation/EffortlessServerlessSkeet.png)
+![Skeet - Just Build it.](https://storage.googleapis.com/skeet-assets/imgs/v2/SkeetV2JA.jpg)
 
 GCP (Google Cloud)と Firebase は、ユーザーに愛されるアプリやゲームの構築と拡大を支援するアプリ開発プラットフォームです。Google のインフラが支える、世界中の多くの企業から高い信頼を得ているサービスです。
 
@@ -42,7 +42,7 @@ GCP (Google Cloud) と Firebase プロダクトを組み合わせて利用すれ
 
 Skeet は Firebase 及び Google Cloud プロダクトの組み合わせをより簡単に使いやすくする、オープンソースのフルスタックサーバーレスアプリ開発ソリューションです。
 
-Skeet CLI は Firebase プロダクトの設定・デプロイ・管理だけでなく、GCP (Google Cloud)の VPN ネットワークの設定、ドメインやネームサーバー設定、ロードバランサーの管理、Cloud Armor によるセキュリティの設定、GitHub Actions による CI & CD など、実際にアプリを開発する上で必要な多くのことをワンコマンドで提供しています。データベースは Firestore だけでなく、Cloud SQL を利用した GraphQL API を構築することも可能です。Skeet はバックエンドの構築から、Web・iOS・Android のフロントエンド開発までフルスタックな開発に対応しています。
+Skeet CLI は Firebase プロダクトの設定・デプロイ・管理だけでなく、GCP (Google Cloud)の VPN ネットワークの設定、ドメインやネームサーバー設定、ロードバランサーの管理、Cloud Armor によるセキュリティの設定、GitHub Actions による CI & CD など、実際にアプリを開発する上で必要な多くのことをワンコマンドで提供しています。データベースは Firestore だけでなく、複数の Cloud SQL や サーバーレス Postgres の NEON を利用してアプリを構築することも可能です。Skeet はバックエンドの構築から、Web・iOS・Android のフロントエンド開発までフルスタックな開発に対応しています。
 
 また、よりスケールする堅牢なアプリ開発のため、TypeScript や Jest、ESLint & Prettier 等、開発に役立つツール群をデフォルトで採用しています。アプリの作りやすさからメインは TypeScript を利用していますが、部分的に Python を利用した機械学習を活用するアプリを構築することも可能になっています。
 

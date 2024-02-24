@@ -24,7 +24,7 @@ Skeet allows you to get your app up and running quickly and maintain it for the 
 
 ## Serverless architecture powered by GCP (Google Cloud) and Firebase
 
-![Effortless Serverless Skeet](/doc-images/motivation/EffortlessServerlessSkeet.png)
+![Skeet - Just Build it.](https://storage.googleapis.com/skeet-assets/imgs/v2/SkeetV2EN.jpg)
 
 GCP (Google Cloud) and Firebase is an app development platform that helps you build and scale the apps and games your users love. It is a service highly trusted by many companies worldwide, supported by Google's infrastructure.
 
@@ -42,7 +42,7 @@ Furthermore, maintenance costs are significantly reduced. Post-release apps also
 
 Skeet is an open-source, full-stack serverless app development solution that makes Firebase and Google Cloud product combinations easier and easier to use.
 
-Skeet CLI is not only for setting, deploying, and managing Firebase products but also for application development, such as VPN network settings, domain and name server settings, load balancer management security settings using Cloud Armor, and CI & CD using GitHub Actions. We provide that with a single command. The database is not only Firestore, but it is also possible to build a GraphQL API using Cloud SQL. Skeet supports full-stack development from backend construction to front-end web, iOS, and Android development.
+Skeet CLI is not only for setting, deploying, and managing Firebase products but also for application development, such as VPN network settings, domain and name server settings, load balancer management security settings using Cloud Armor, and CI & CD using GitHub Actions. We provide that with a single command. The database is not only Firestore, but it is also possible to build with multiple Cloud SQLs and NEON serverless Postgres. Skeet supports full-stack development from backend construction to front-end web, iOS, and Android development.
 
 In addition, for more scalable and robust application development, we adopt tools useful for development, such as TypeScript, Jest, ESLint & Prettier by default. TypeScript is mainly used for ease of application creation, but it is also possible to build applications that partially utilize machine learning using Python.
 

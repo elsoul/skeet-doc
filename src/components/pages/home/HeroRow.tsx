@@ -17,7 +17,7 @@ import { BookOpenIcon } from '@heroicons/react/24/outline'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-const downloadScript = `sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.5.0)"`
+const installScript = `sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.5.0)"`
 
 export default function HomeHeroRow() {
   const { t, i18n } = useTranslation()
@@ -25,7 +25,7 @@ export default function HomeHeroRow() {
   const [copyText, setCopyText] = useState('common:copy')
 
   const handleClick = useCallback(() => {
-    copyToClipboard(downloadScript)
+    copyToClipboard(installScript)
     setCopyText('common:copied')
 
     setTimeout(() => {
@@ -113,7 +113,7 @@ export default function HomeHeroRow() {
               </button>
             </div>
             <div className="overflow-x-scroll whitespace-nowrap pt-4 text-left font-mono leading-relaxed scrollbar-hide">
-              <p className="font-mono">$ {downloadScript}</p>
+              <p className="font-mono">$ {installScript}</p>
             </div>
           </div>
           <div className="mb-12 mt-24 lg:mt-36">
