@@ -1,4 +1,6 @@
 {
+  "warningThisIsV1": "Caution: This is the Skeet doc for Ver.1. There is a new version of the Skeet so please check them out first.",
+  "toNewVersionButton": "To the latest version",
   "title": "Skeet Document",
   "body1": "Open-Source Serverless App Framework for full-stack apps",
   "body2": "on GCP (Google Cloud) and Firebase.",
