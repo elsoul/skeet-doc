@@ -18,6 +18,7 @@ import ColorModeChanger from '@/components/utils/ColorModeChanger'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faDiscord, faGithub } from '@fortawesome/free-brands-svg-icons'
 import siteConfig from '@/config/site'
+import DocsVersionChanger from '@/components/utils/DocsVersionChanger'
 
 type Props = {
   children: ReactNode
@@ -178,8 +179,13 @@ export default function DocLayout({ children }: Props) {
 
         <div className="z-10 hidden lg:fixed lg:inset-y-0 lg:flex lg:w-64 lg:flex-col">
           <div className="flex flex-grow flex-col overflow-y-auto break-words bg-white pt-5 scrollbar-hide dark:bg-gray-900">
-            <div className="flex flex-shrink-0 items-center px-4">
-              <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
+            <div className="flex flex-shrink-0 flex-row items-center justify-between px-4">
+              <div>
+                <LogoHorizontalLink className="h-8 w-auto sm:h-10" />
+              </div>
+              <div>
+                <DocsVersionChanger version="Ver.1" />
+              </div>
             </div>
             <div className="mt-5 flex flex-1 flex-col">
               <nav className="flex-1 space-y-1 px-2 pb-4">
@@ -243,14 +249,18 @@ export default function DocLayout({ children }: Props) {
         </div>
         <div className="flex flex-1 flex-col lg:pl-64">
           <div className="flex-shrink- sticky top-0 z-10 flex h-16 bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90">
-            <button
-              type="button"
-              className="px-4 text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:text-gray-50 dark:hover:text-gray-200 lg:hidden"
-              onClick={() => setSidebarOpen(true)}
-            >
-              <span className="sr-only">Open sidebar</span>
-              <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
-            </button>
+            <div className="flex flex-row items-center gap-2 lg:hidden">
+              <button
+                type="button"
+                className="px-4 text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 dark:text-gray-50 dark:hover:text-gray-200"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <span className="sr-only">Open sidebar</span>
+                <Bars3BottomLeftIcon className="h-6 w-6" aria-hidden="true" />
+              </button>
+              <DocsVersionChanger version="Ver.1" />
+            </div>
+
             <div className="flex flex-1 justify-between px-4">
               <div className="flex flex-1"></div>
 
