@@ -337,26 +337,28 @@ export default function DocLayout({ children }: Props) {
           </div>
 
           <div className="py-6">
-            <div className="flex w-full flex-row items-center justify-between bg-yellow-50 p-4">
-              <div>
-                <p className="text-yellow-900">{t('v1doc:warningThisIsV1')}</p>
-              </div>
-              <div>
-                <Link
-                  href="/doc/"
-                  className={clsx(
-                    'text-yellow-900',
-                    'group inline-flex items-center justify-center border border-yellow-900 px-3 py-1 text-base font-medium hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-yellow-700 focus:ring-offset-2'
-                  )}
-                >
-                  {t('v1doc:toNewVersionButton')}
-                </Link>
-              </div>
-            </div>
             <div
               id={mainContentId}
               className="mx-auto min-h-screen px-4 sm:px-6 lg:max-w-7xl lg:px-8"
             >
+              <div className="flex w-full flex-col justify-between gap-4 bg-yellow-50 p-4 xl:flex-row xl:items-center">
+                <div>
+                  <p className="text-yellow-900">
+                    {t('v1doc:warningThisIsV1')}
+                  </p>
+                </div>
+                <div>
+                  <Link
+                    href="/doc/"
+                    className={clsx(
+                      'text-yellow-900',
+                      'group inline-flex items-center justify-center border border-yellow-800 px-3 py-1 text-base font-medium hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-yellow-700 focus:ring-offset-2'
+                    )}
+                  >
+                    {t('v1doc:toNewVersionButton')}
+                  </Link>
+                </div>
+              </div>
               {children}
             </div>
           </div>
