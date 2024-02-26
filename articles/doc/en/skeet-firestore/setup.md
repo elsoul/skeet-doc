@@ -46,7 +46,7 @@ If npm is not installed, you can install it with the following command.
 (This command installs pnpm, Java, @skeet-framework/cli and edits .profile/.zshrc.)
 
 ```bash
-$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v1.5.0)"
+$ sh -c "$(curl -sSfL https://storage.googleapis.com/skeet-assets/resources/install-v2.0.1)"
 $ npm install -g firebase-tools
 ```
 
