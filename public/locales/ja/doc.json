@@ -51,7 +51,8 @@
     "general": {
       "groupTitle": "全般",
       "motivation": "モチベーション",
-      "overall-architecture": "全体アーキテクチャ"
+      "overall-architecture": "全体アーキテクチャ",
+      "about-v3": "Ver.3 について (Soon)"
     },
     "skeet-graphql": {
       "groupTitle": "GraphQL バックエンド",
