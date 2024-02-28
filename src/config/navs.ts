@@ -19,6 +19,7 @@ import {
   LanguageIcon,
   NewspaperIcon,
   ArrowPathIcon,
+  WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline'
 
 export const defaultMainNav = [
@@ -141,6 +142,11 @@ export const docMenuNav = [
         name: 'doc:menuNav.general.overall-architecture',
         href: '/doc/general/overall-architecture/',
         icon: RectangleGroupIcon,
+      },
+      {
+        name: 'doc:menuNav.general.about-v3',
+        href: '/doc/general/about-v3/',
+        icon: WrenchScrewdriverIcon,
       },
     ],
   },

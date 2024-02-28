@@ -47,7 +47,8 @@
     "general": {
       "groupTitle": "General",
       "motivation": "Motivation",
-      "overall-architecture": "Overall Architecture"
+      "overall-architecture": "Overall Architecture",
+      "about-v3": "About Ver.3 (Soon)"
     },
     "skeet-graphql": {
       "groupTitle": "GraphQL Backend",
